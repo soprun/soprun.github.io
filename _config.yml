@@ -1,3 +1,87 @@
-domain: soprun.com       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://soprun.com  # the base hostname and protocol for your site, e.g. http://example.com
+url: https://soprun.com
+
+email: mail@soprun.com
+phone: '+79017972126'
+logo: /assets/img/avatar.png
+
+title: Soprun Vladislav
+description: >-
+  Hi! Welcome to my blog! 👋🏻<br>
+  I am a Solution Architect!
+
+# is_project_page
+# github.repository_url
+# github.owner_url
+# github.owner_name
+
+# github:
+# is_user_page: true
+# is_project_page: true
+# repository_url: http://example.com/download.zip
+# repository_nwo: http://example.com/download.zip
+# repository_name: http://example.com/download.zip
+# owner_url: https://github.com/soprun
+# owner_name: soprun
+
+# gitlab:
+#is_user_page: true
+# is_project_page: true
+# repository_url: http://example.com/download.zip
+# repository_nwo: http://example.com/download.zip
+# repository_name: http://example.com/download.zip
+# owner_url: https://gitlab.com/soprun
+# owner_name: soprun
+
+# Copy link to profile
+links:
+  medium: https://medium.com/@soprun
+  github: https://github.com/soprun
+  gitlab: https://gitlab.com/soprun
+
+gpg:
+  file: /assets/C5DC44C2-public.asc
+  short: B750 2F96 C5DC 44C2
+  fingerprint: 8120213055C84C2C3324FB08B7502F96C5DC44C2
+  mit_key_server: https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2
+
 theme: jekyll-theme-minimal
+
+# Handling Reading
+safe: false
+include:
+  - assets
+exclude:
+  - .backup/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata
+  - _site/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules/
+  - vendor/
+#keep_files: [ ".git", ".svn" ]
+encoding: "utf-8"
+timezone: Europe/Moscow
+#markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+#strict_front_matter: false
+
+sass:
+  style: compressed
+
+# Markdown Processors
+markdown: kramdown
+kramdown:
+  input: GFM
+
+#kramdown:
+#  auto_ids: true
+#  entity_output: as_char
+#  toc_levels: [ 1, 2, 3, 4, 5, 6 ]
+#  smart_quotes: lsquo,rsquo,ldquo,rdquo
+#  input: GFM
+#  hard_wrap: false
+#  footnote_nr: 1
+#  show_warnings: false

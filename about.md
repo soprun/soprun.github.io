@@ -1,5 +1,7 @@
 ---
+permalink: /about
 layout: default
+title: About me
 ---
 
 # About me 💭
@@ -89,14 +91,19 @@ Architectural styles:
 - **Личные качества:** системное, аналитическое мышление, хорошие коммуникационные навыки (я экстраверт).
 - **Всегда инвестирую время в свое обучение.** 💡
 
-# Contact me 📧
+[comment]: <> (# Contact me 📧)
 
-- **Vladislav Soprun**
-- **Website:** [soprun.com](https://soprun.com)
-- **Phone:** [{{ site.phone }}](tel:{{ site.phone }})
-- **E-mail:** [{{ site.email }}](mailto:{{ site.email }}) ✅
-- **PGP fingerprint:** `{{ site.gpg.short }}`
-- **PGP Public Key:** available [here]({{ site.gpg.file }}) and on the [MIT key server]({{ site.gpg.mit_key_server }}) 🔐
+[comment]: <> (- **Vladislav Soprun**)
+
+[comment]: <> (- **Website:** [soprun.com]&#40;https://soprun.com&#41;)
+
+[comment]: <> (- **E-mail:** [{{ site.email }}]&#40;mailto:{{ site.email }}&#41;)
+
+[comment]: <> (- **PGP fingerprint:** `{{ site.gpg.short }}`)
+
+[comment]: <> (- **PGP Public Key:** available [here]&#40;{{ site.gpg.file }}&#41; and on the [MIT key server]&#40;{{ site.gpg.mit_key_server }}&#41;.)
+
+[comment]: <> (  🔐)
 
 [comment]: <> ([linkedin profile]&#40;LinkedIn profile&#41;)
 [comment]: <> ([http://github.com/soprun]&#40;Open Source Contributions&#41;)
