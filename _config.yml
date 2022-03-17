@@ -44,12 +44,15 @@ gpg:
   fingerprint: 8120213055C84C2C3324FB08B7502F96C5DC44C2
   mit_key_server: https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2
 
+google_analytics:
+
 theme: jekyll-theme-minimal
 
 # Handling Reading
 safe: false
 include:
   - assets
+  - favicon.ico
 exclude:
   - .backup/
   - .sass-cache/
