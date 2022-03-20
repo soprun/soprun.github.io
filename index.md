@@ -88,7 +88,7 @@ Architectural styles:
 - **Phone:** [{{ site.phone }}](tel:{{ site.phone }})
 - **E-mail:** [{{ site.email }}](mailto:{{ site.email }}) ✅
 - **PGP fingerprint:** `{{ site.gpg.short }}`
-- **PGP Public Key:** available [here]({{ site.gpg.file }}) and on the [MIT key server]({{ site.gpg.mit_key_server }})
+- **PGP Public Key:** available <noindex>[here]({{ site.gpg.file }})</noindex> and on the [MIT key server]({{ site.gpg.mit_key_server }})
   🔐
 
 [comment]: <> ([linkedin profile]&#40;LinkedIn profile&#41;)

@@ -1,33 +1,45 @@
-url: https://soprun.com
-email: mail@soprun.com
-phone: '+79017972126'
-logo: /assets/img/avatar.png
-title: Soprun Vladislav
+# the base hostname & protocol for your site
+url: "https://soprun.com"
+email: "mail@soprun.com"
+phone: "+79017972126"
+logo: "/assets/img/avatar.png"
+title: "Soprun Vladislav"
 description: >-
   Hi! Welcome to my blog! 👋🏻<br>
   I am a Technical Architect at <a href="https://likecentre.ru" target="_blank">Like Центр</a>!
 
+
+author:
+  name: Soprun Vladislav
+  url: https://soprun.com
+
 # Copy link to profile
+
+#public_links:
+
 links:
-  medium: https://medium.com/@soprun
-  github: https://github.com/soprun
-  gitlab: https://gitlab.com/soprun
+  medium: "https://medium.com/@soprun"
+  github: "https://github.com/soprun"
+  gitlab: "https://gitlab.com/soprun"
 
 gpg:
-  file: /assets/C5DC44C2-public.asc
+  file: "/assets/C5DC44C2-public.asc"
   short: 'B750 2F96 C5DC 44C2'
-  fingerprint: 8120213055C84C2C3324FB08B7502F96C5DC44C2
-  mit_key_server: https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2
+  fingerprint: "8120213055C84C2C3324FB08B7502F96C5DC44C2"
+  mit_key_server: "https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2"
 
-theme: jekyll-theme-minimal
+theme: "jekyll-theme-minimal"
 
 # Handling Reading
 safe: false
+
 include:
   - assets
   - favicon.ico
+
 exclude:
   - .backup/
+  - .idea/
   - .sass-cache/
   - .jekyll-cache/
   - .jekyll-metadata
@@ -36,10 +48,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - node_modules/
-  - vendor/
+
 keep_files: [ ".git", ".svn" ]
-encoding: "utf-8"
 timezone: Europe/Moscow
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter: false
@@ -51,10 +61,39 @@ sass:
 markdown: kramdown
 kramdown:
   auto_ids: true
-  entity_output: as_char
-  toc_levels: [ 1, 2, 3, 4, 5, 6 ]
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  input: GFM
-  hard_wrap: false
-  footnote_nr: 1
-  show_warnings: false
+
+#  entity_output: as_char
+#  toc_levels: [ 1, 2, 3, 4, 5, 6 ]
+#  smart_quotes: lsquo,rsquo,ldquo,rdquo
+#  input: GFM
+#  hard_wrap: false
+#  footnote_nr: 1
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "https://soprun.com"
+    Access-Control-Allow-Methods: "GET, OPTIONS, HEAD"
+    Vary: "Origin"
+    Content-Security-Policy: "
+    default-src 'self' https:;
+    connect-src mc.yandex.ru;
+    script-src 'self' 'unsafe-inline' mc.yandex.ru;
+    style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+    font-src 'self' fonts.gstatic.com;
+    report-uri https://soprun.report-uri.com/r/d/csp/enforce;
+    "
+
+
+# default-src 'self' https:;
+# see report: https://report-uri.com/account/reports/csp/
+
+#  default-src 'none';
+#  script-src 'self';
+#  connect-src 'self';
+#  img-src 'self';
+#  style-src 'self';
+#  font-src 'self';
