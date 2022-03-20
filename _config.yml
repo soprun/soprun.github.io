@@ -6,7 +6,7 @@ logo: "/assets/img/avatar.png"
 title: "Soprun Vladislav"
 description: >-
   Hi! Welcome to my blog! 👋🏻<br>
-  I am a Technical Architect at <a href="https://likecentre.ru" target="_blank">Like Центр</a>!
+  I am a Technical Architect at <a href="https://likecentre.ru" rel="noopener noreferrer" target="_blank">Like Центр</a>!
 
 
 author:
@@ -35,7 +35,6 @@ include:
   - favicon.ico
 
 exclude:
-  - .backup/
   - .idea/
   - .sass-cache/
   - .jekyll-cache/
