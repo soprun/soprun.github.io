@@ -10,14 +10,11 @@ description: >-
 
 
 author:
-  name: Soprun Vladislav
-  url: https://soprun.com
+  name: "Soprun Vladislav"
+  url: "https://soprun.com"
 
 # Copy link to profile
-
-#public_links:
-
-links:
+public_links:
   medium: "https://medium.com/@soprun"
   github: "https://github.com/soprun"
   gitlab: "https://gitlab.com/soprun"
@@ -31,7 +28,7 @@ gpg:
 theme: "jekyll-theme-minimal"
 
 # Handling Reading
-safe: false
+safe: true
 
 include:
   - assets
@@ -50,7 +47,7 @@ exclude:
   - README.md
 
 keep_files: [ ".git", ".svn" ]
-timezone: Europe/Moscow
+timezone: "Europe/Moscow"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter: false
 
@@ -70,8 +67,9 @@ kramdown:
 #  footnote_nr: 1
 
 plugins:
-  - jekyll-seo-tag
+  - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 #webrick:
 #  headers:
