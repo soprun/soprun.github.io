@@ -15,9 +15,9 @@ author:
 
 # Copy link to profile
 public_links:
-  medium: "https://medium.com/@soprun"
-  github: "https://github.com/soprun"
-  gitlab: "https://gitlab.com/soprun"
+  medium: "https://link.soprun.com/medium"
+  github: "https://link.soprun.com/github"
+  gitlab: "https://link.soprun.com/gitlab"
 
 gpg:
   file: "/assets/C5DC44C2-public.asc"

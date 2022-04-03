@@ -21,3 +21,16 @@ This will help ensure the proper Jekyll version is running.
 
 - https://gitlab.com/pages/jekyll
 - https://gitlab.com/pages/jekyll-branched/-/tree/pages
+
+
+# Link
+```text
+https://soprun.com?utm_source=hh&utm_medium=social
+
+https://link.soprun.com/hh
+
+```
+
+## short.io
+
+https://app.short.io/
