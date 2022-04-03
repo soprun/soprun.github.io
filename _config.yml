@@ -2,12 +2,15 @@
 url: "https://soprun.com"
 email: "mail@soprun.com"
 phone: "+79017972126"
-logo: "/assets/img/avatar.png"
+logo: "/assets/img/avatar-small.png"
+logo_large: "/assets/img/avatar-large.png"
 title: "Soprun Vladislav"
+
+google_analytics: 'UA-162879780-1'
+
 description: >-
   Hi! Welcome to my blog! 👋🏻<br>
   I am a Technical Architect at <a href="https://likecentre.ru" rel="noopener noreferrer" target="_blank">Like Центр</a>!
-
 
 author:
   name: "Soprun Vladislav"
@@ -20,7 +23,6 @@ public_links:
   gitlab: "https://gitlab.com/soprun"
 
 gpg:
-  file: "/assets/C5DC44C2-public.asc"
   short: 'B750 2F96 C5DC 44C2'
   fingerprint: "8120213055C84C2C3324FB08B7502F96C5DC44C2"
   mit_key_server: "https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2"
@@ -53,10 +55,15 @@ strict_front_matter: false
 sass:
   style: compressed
 
+gist:
+  noscript: false
+
 # Markdown Processors
 markdown: kramdown
 kramdown:
   auto_ids: true
+  math_engine: mathjax
+  syntax_highlighter: rouge
 
 #  entity_output: as_char
 #  toc_levels: [ 1, 2, 3, 4, 5, 6 ]
@@ -65,10 +72,14 @@ kramdown:
 #  hard_wrap: false
 #  footnote_nr: 1
 
+
+# https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+
+#   - jekyll-github-metadata
 
 #webrick:
 #  headers:

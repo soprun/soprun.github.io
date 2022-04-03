@@ -25,7 +25,13 @@ This will help ensure the proper Jekyll version is running.
 
 # Link
 ```text
-https://soprun.com?utm_source=hh&utm_medium=social
+https://soprun.com?utm_source=career.habr&utm_medium=resume
+https://soprun.com?utm_source=hh&utm_medium=resume
+
+https://soprun.com?utm_source=habr&utm_medium=social
+
+
+https://soprun.com?utm_source=short&utm_medium=main-redirect
 
 https://link.soprun.com/hh
 

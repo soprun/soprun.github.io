@@ -87,9 +87,13 @@ Architectural styles:
 - **Website:** [soprun.com](https://soprun.com)
 - **Phone:** [{{ site.phone }}](tel:{{ site.phone }})
 - **E-mail:** [{{ site.email }}](mailto:{{ site.email }}) ✅
-- **PGP fingerprint:** `{{ site.gpg.short }}`
-- **PGP Public Key:** available [here]({{ site.gpg.file | relative_url }}) and on the [MIT key server]({{ site.gpg.mit_key_server }})
-  🔐
+- **GPG fingerprint:** `B750 2F96 C5DC 44C2`
+- **GPG Public Key:** available
+  <a href="https://github.com/soprun.gpg" rel="noopener noreferrer" target="_blank">gpg public key</a>
+  and on the
+  [<a href="{{ site.gpg.mit_key_server }}" rel="noopener noreferrer" target="_blank">MIT key server</a>] 🔐
+
+
 
 [comment]: <> ([linkedin profile]&#40;LinkedIn profile&#41;)
 

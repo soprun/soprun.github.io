@@ -1,0 +1,27 @@
+<script
+        src="https://js.sentry-cdn.com/a23003c5636346028f64b8dd2f53a3ed.min.js"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://browser.sentry-cdn.com/6.19.2/bundle.min.js"
+        integrity="sha384-hvTKiwQLlwlEsntogTKR4z/OKyX3rKzLvkkzwfLhzlGeRy7WCQeKwEEZXaql5CT5"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://browser.sentry-cdn.com/6.19.2/bundle.tracing.min.js"
+        integrity="sha384-G1VqZlLcIl6gMIayWnvwQjuW9FyHrIoQJuyWH9Yaq8XnAn7c9jckfswqVnzR1a6l"
+        crossorigin="anonymous"
+></script>
+<script>
+    Sentry.onLoad(function () {
+        Sentry.init({
+            dsn: "https://5943bcec0a2e4787882cbb988fd0aabc@o364305.ingest.sentry.io/6291966",
+            // this assumes your build process replaces `process.env.npm_package_version` with a value
+            // release: "my-project-name@" + process.env.npm_package_version,
+            integrations: [new Sentry.BrowserTracing()],
+            // We recommend adjusting this value in production, or using tracesSampler
+            // for finer control
+            tracesSampleRate: 1.0,
+        });
+    });
+</script>

@@ -20,14 +20,17 @@
     {% include head-custom.html %}
 
     {% feed_meta %}
+
+    {% include tag-manager-head.html %}
 </head>
 <body>
+
+{% include tag-manager-body.html %}
+
 <div class="wrapper">
     {% include header.html %}
     <section>
-
         {{ content }}
-
     </section>
     {% include footer.html %}
 </div>
