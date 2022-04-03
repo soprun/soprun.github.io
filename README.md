@@ -38,5 +38,6 @@ https://link.soprun.com/hh
 ```
 
 ## short.io
+https://app.short.io
 
-https://app.short.io/
+# https://manage.cookiebot.com/en/manage
