@@ -9,6 +9,9 @@ When you want to use a different version, change it below, save the
 file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
 
 ```shellx
+bundle exec jekyll build
+bundle exec htmlproofer ./_site
+
 bundle exec jekyll serve --incremental
 ```
 
@@ -41,3 +44,8 @@ https://link.soprun.com/hh
 https://app.short.io
 
 # https://manage.cookiebot.com/en/manage
+
+
+```dotenv
+JEKYLL_GITHUB_TOKEN=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
+```
