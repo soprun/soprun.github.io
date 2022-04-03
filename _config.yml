@@ -4,13 +4,17 @@ email: "mail@soprun.com"
 phone: "+79017972126"
 logo: "/assets/img/avatar-small.png"
 logo_large: "/assets/img/avatar-large.png"
-title: "Soprun Vladislav"
 
-google_analytics: 'UA-162879780-1'
+#google_analytics: 'UA-162879780-1'
+#google_gtag: 'UA-162879780-1'
+yandex_metrika: '55435306'
 
+title: Soprun Vladislav
+# description: I am a Technical Architect at Like Центр!
 description: >-
   Hi! Welcome to my blog! 👋🏻<br>
-  I am a Technical Architect at <a href="https://likecentre.ru" rel="noopener noreferrer" target="_blank">Like Центр</a>!
+  I am a Technical Architect at <br>
+  <a href="https://likecentre.ru" class="text-decoration-none" rel="noopener noreferrer" target="_blank">Like Центр</a>!
 
 author:
   name: "Soprun Vladislav"
@@ -31,6 +35,8 @@ theme: "jekyll-theme-minimal"
 
 # Handling Reading
 safe: true
+
+#permalink: /:title/
 
 include:
   - assets
@@ -104,3 +110,14 @@ plugins:
 #  img-src 'self';
 #  style-src 'self';
 #  font-src 'self';
+
+defaults:
+  - scope:
+      path: 'assets/img'
+    values:
+      image: true
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"

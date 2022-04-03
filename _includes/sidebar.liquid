@@ -1,0 +1,27 @@
+<div class="sticky-top" style="top: 2rem;">
+    <div class="p-4 mb-3 bg-light rounded">
+        {% if site.logo %}
+            <div class="mb-3">
+                <img class="img-fluid mx-auto d-block rounded-circle"
+                     src="{{ site.logo | relative_url }}"
+                     srcset="{{ site.logo_large | relative_url }} 2x"
+                     alt="Logo"/>
+            </div>
+        {% endif %}
+
+        <h4 class="mb-3 fs-2">
+            <a href="{{ site.url | absolute_url }}" class="fw-light text-decoration-none">
+                {{ site.title }}
+            </a>
+        </h4>
+        <p class="mb-0 text-secondary">
+            {{ site.description }}
+        </p>
+    </div>
+
+    {% include snippet/public-links.liquid %}
+
+    {% comment %}<div class="p-2">{% endcomment %}
+        {% comment %}{% include snippet/latest-posts.liquid %}{% endcomment %}
+    {% comment %}</div>{% endcomment %}
+</div>

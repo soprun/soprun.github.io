@@ -1,39 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'ru' }}">
-<head>
-    <meta charset="UTF-8">
-    <base href="{{ site.url }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% seo %}
-
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-
-    {% include head-custom.html %}
-
-    {% feed_meta %}
-
-    {% include tag-manager-head.html %}
-</head>
+{% include head.liquid %}
 <body>
 
-{% include tag-manager-body.html %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {% include sidebar.liquid %}
+        </div>
+        <div class="col p-4">
+            {{ content }}
+        </div>
+    </div>
+</main>
+<footer>
+    {% include footer.liquid %}
+</footer>
 
-<div class="wrapper">
-    {% include header.html %}
-    <section>
-        {{ content }}
-    </section>
-    {% include footer.html %}
-</div>
-<script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+{% include scripts.liquid %}
 </body>
 </html>
