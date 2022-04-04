@@ -3,12 +3,9 @@
     Sentry.onLoad(function () {
         Sentry.init({
             dsn: "https://5943bcec0a2e4787882cbb988fd0aabc@o364305.ingest.sentry.io/6291966",
-            // this assumes your build process replaces `process.env.npm_package_version` with a value
-            // release: "{{ site.github.build_revision }}",
+            release: "{{ site.github.build_revision }}",
             environment: "{{ jekyll.environment }}",
             integrations: [new Sentry.BrowserTracing()],
-            // We recommend adjusting this value in production, or using tracesSampler
-            // for finer control
             tracesSampleRate: 1.0,
         });
     });
