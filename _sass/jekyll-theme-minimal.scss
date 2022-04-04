@@ -1,20 +1,12 @@
-// @import "fonts";
-//@import "rouge-github";
-
-//body {
-//background-color: #fff;
-//padding: 50px;
-//font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-//color: #727272;
-//font-weight: 400;
-//}
-
 body {
     font: 14px/1.5 'Noto Sans', sans-serif !important;
 }
 
 #content {
-    h1, h2, h3, h4 {
+    h1, h2 {
+        font-weight: 200;
+    }
+    h3, h4 {
         font-weight: 300;
     }
 }

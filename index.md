@@ -2,14 +2,14 @@
 layout: default
 ---
 
-# **About me 💭**
+# About me 💭
 
 Занимаюсь проектированием и разработкой высоко нагруженных, масштабируемых, отказоустойчивых сервисов и приложений со
 сложной доменной областью в различных архитектурных стилях.
 
-# **Professional Experience 💡**
+# Professional Experience 💡
 
-## **Hard skills 🛠**
+## Hard skills 🛠
 
 - **Programming languages:** PHP (primary language), Node.js, Go Lang, Python
 - **PHP-frameworks:** Symfony (primary framework), Laravel, ReactPHP, Swoole, etc...
@@ -23,7 +23,7 @@ layout: default
 - **Security**: GCP Secret Manager, Vault Secrets Manager, Okta, GCP Cloud Identity and Access Management, Hardware
   authentication device
 
-## **Super hard skills 🦸🏻‍♂️**
+## Super hard skills 🦸🏻‍♂️
 
 Architectural styles:
 
@@ -50,7 +50,7 @@ Architectural styles:
 - [Microsoft Certified: Azure Solutions Architect Expert](https://docs.microsoft.com/ru-ru/learn/certifications/azure-solutions-architect/)
 - [Microsoft Certified: DevOps Engineer Expert](https://docs.microsoft.com/ru-ru/learn/certifications/devops-engineer/)
 
-## **Ultimate hard skills 🔥**
+## Ultimate hard skills 🔥
 
 **Я идеолог Domain-Driven Design (DDD)** - успешно внедрил 3 из 4 методологию в крупные и не очень крупные компании.
 Создаю курс по DDD (deep level) для сотрудников компании. Имею обширный опыт внедрения методологии DevOps в процессы
@@ -61,7 +61,7 @@ Architectural styles:
 
 > **The Open Group Architecture Framework ([TOGAF](https://en.wikipedia.org/wiki/The_Open_Group_Architecture_Framework))** методология/библиотечный метод описания/подход (framework) для описания архитектуры предприятия, который предлагает подход для проектирования, планирования, внедрения IT-архитектуры предприятия и управления ей.
 
-## **And more skills 🧠**
+## And more skills 🧠
 
 - **Фреймворк TOGAF** для описания архитектуры предприятия.
 - **GAP-анализ**
