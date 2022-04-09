@@ -1,4 +1,7 @@
-{% include header.liquid %}
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'ru' }}">
+{% include head.liquid %}
+<body>
 <main class="container">
     <div class="row">
         <aside id="sidebar" class="col-md-3">
@@ -10,3 +13,6 @@
     </div>
 </main>
 {% include footer.liquid %}
+{% include scripts.liquid %}
+</body>
+</html>
