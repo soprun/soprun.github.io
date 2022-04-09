@@ -1,14 +1,14 @@
 <div class="sticky-top">
     <div class="p-4 mb-3 bg-light rounded">
         {% if site.logo %}
-            <div class="mb-3">
+            <figure class="mb-3">
                 <a href="{{ site.url | absolute_url }}">
                     <img class="img-fluid mx-auto d-block rounded-circle"
-                         src="{{ site.logo | relative_url }}"
-                         srcset="{{ site.logo_large | relative_url }} 2x"
+                         src="{{ site.gravatar }}?size=270"
+                         srcset="{{ site.gravatar }}?size=540 2x"
                          alt="{{ site.title }}"/>
                 </a>
-            </div>
+            </figure>
         {% endif %}
 
         <p class="mb-3 fs-2">

@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: 'ru' }}">
-{% include head.liquid %}
-<body>
-
+{% include header.liquid %}
 <main class="container">
     <div class="row">
-        <div class="col-md-3" style="padding-top: 2rem">
+        <aside id="sidebar" class="col-md-3">
             {% include sidebar.liquid %}
-        </div>
-        <div id="content" class="col p-4">
+        </aside>
+        <DIV id="content" class="col p-4">
             {{ content }}
-        </div>
+        </DIV>
     </div>
 </main>
-<footer>
-    {% include footer.liquid %}
-</footer>
-
-{% include scripts.liquid %}
-</body>
-</html>
+{% include footer.liquid %}
