@@ -1,5 +1,5 @@
 # the base hostname & protocol for your site
-#url: "https://soprun.com"
+url: "https://soprun.com"
 email: "mail@soprun.com"
 phone: "+79017972126"
 logo: "/assets/img/avatar-small.png"
