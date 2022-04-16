@@ -86,4 +86,4 @@ Architectural styles:
 - **GPG Public Key:** available
   <a href="https://github.com/soprun.gpg" rel="noopener noreferrer" target="_blank">gpg public key</a>
   and on the
-  [<a href="{{ site.gpg.mit_key_server }}" rel="noopener noreferrer" target="_blank">MIT key server</a>] 🔐
+  [<a href="https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2" rel="noopener noreferrer" target="_blank">MIT key server</a>] 🔐

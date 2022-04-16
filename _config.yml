@@ -25,11 +25,6 @@ public_links:
   github: "https://github.com/soprun"
   gitlab: "https://gitlab.com/soprun"
 
-gpg:
-  short: 'B750 2F96 C5DC 44C2'
-  fingerprint: "8120213055C84C2C3324FB08B7502F96C5DC44C2"
-  mit_key_server: "https://pgp.mit.edu/pks/lookup?op=get&search=0xB7502F96C5DC44C2"
-
 theme: "jekyll-theme-minimal"
 
 # Handling Reading
