@@ -1,7 +1,12 @@
 # the base hostname & protocol for your site
-url: "https://soprun.com"
+baseurl: /
+url: https://soprun.com
+lang: ru
+
+name: "Soprun Vladislav"
 email: "mail@soprun.com"
 phone: "+79017972126"
+
 logo: "/assets/img/avatar-small.png"
 logo_large: "/assets/img/avatar-large.png"
 
@@ -10,9 +15,12 @@ logo_large: "/assets/img/avatar-large.png"
 #google_tag_manager: 'GTM-K3KVG8Z'
 yandex_metrika: '55435306'
 
-# title: Soprun Vladislav
 title: 'Soprun Vladislav | Hi! Welcome to my blog! 👋🏻 I am a Technical Architect at Like Центр!'
 description: 'I am a Technical Architect at Like Центр!'
+
+
+github:
+  build_revision: unknown
 
 author:
   name: "Soprun Vladislav"
@@ -57,6 +65,11 @@ sass:
 gist:
   noscript: false
 
+liquid:
+  error_mode: strict
+  strict_variables: false
+  strict_filters: true
+
 # Markdown Processors
 markdown: kramdown
 kramdown:
@@ -79,6 +92,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-gist
 #  - jekyll-github-metadata
+
 
 #webrick:
 #  headers:
