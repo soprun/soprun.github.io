@@ -4,3 +4,4 @@
 
 * text=auto
 *.html text=liquid
+*.liquid text=liquid

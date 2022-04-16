@@ -132,6 +132,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-theme-minimal
+  nokogiri (>= 1.13.4)
   webrick (~> 1.7)
 
 BUNDLED WITH

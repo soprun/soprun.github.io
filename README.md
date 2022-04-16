@@ -1,3 +1,10 @@
+# Project badges
+
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/soprun/soprun.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/soprun/soprun.github.io/alerts/)
+
+
+---
+
 
 ```shell
 gem install bundler
