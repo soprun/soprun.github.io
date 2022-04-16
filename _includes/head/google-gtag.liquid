@@ -1,11 +1,18 @@
-{% if site.google_gtag %}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162879780-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+{% if jekyll.environment == "production" and site.google_gtag %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_gtag }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', '{{ site.google_analytics }}');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', '{{ site.google_gtag }}', {
+            'page_title': '{{ page.title | escape }}',
+            'page_path': '{{ page.url | absolute_url }}',
+        });
+    </script>
 {% endif %}

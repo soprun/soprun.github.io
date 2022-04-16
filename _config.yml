@@ -1,5 +1,5 @@
 # the base hostname & protocol for your site
-url: "https://soprun.com"
+#url: "https://soprun.com"
 email: "mail@soprun.com"
 phone: "+79017972126"
 logo: "/assets/img/avatar-small.png"
@@ -11,12 +11,9 @@ google_gtag: 'UA-162879780-1'
 google_tag_manager: 'GTM-K3KVG8Z'
 yandex_metrika: '55435306'
 
-title: Soprun Vladislav
-# description: I am a Technical Architect at Like Центр!
-description: >-
-  Hi! Welcome to my blog! 👋🏻<br>
-  I am a Technical Architect at <br>
-  <a href="https://likecentre.ru" class="text-decoration-none" rel="noopener noreferrer" target="_blank">Like Центр</a>!
+# title: Soprun Vladislav
+title: 'Soprun Vladislav | Hi! Welcome to my blog! 👋🏻 I am a Technical Architect at Like Центр!'
+description: 'I am a Technical Architect at Like Центр!'
 
 author:
   name: "Soprun Vladislav"
