@@ -6,3 +6,7 @@
         crossorigin="anonymous"
         async
 ></script>
+
+{% if jekyll.environment == "production" %}
+    {% include head/google-tag-manager-head.liquid %}
+{% endif %}
