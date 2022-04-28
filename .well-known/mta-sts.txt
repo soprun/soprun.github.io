@@ -1,4 +1,0 @@
-version: STSv1
-mode: testing
-mx: mx.yandex.net
-max_age: 604800
