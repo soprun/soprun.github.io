@@ -38,16 +38,13 @@ public_links:
   github: "https://github.com/soprun"
   gitlab: "https://gitlab.com/soprun"
 
-theme: "jekyll-theme-minimal"
+# theme: "jekyll-theme-minimal"
 
 # Handling Reading
 safe: true
 
-#permalink: /:title/
-
 include:
   - assets
-  - .env
   - favicon.ico
 
 exclude:
@@ -63,16 +60,13 @@ exclude:
   - SECURITY.md
   - Makefile
 
-keep_files: [ ".git", ".svn" ]
+keep_files: [ '.git', '.env' ]
 timezone: "Europe/Moscow"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter: false
 
 sass:
   style: compressed
-
-gist:
-  noscript: false
 
 liquid:
   error_mode: strict
@@ -93,7 +87,6 @@ kramdown:
 #  hard_wrap: false
 #  footnote_nr: 1
 
-
 # https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
 plugins:
   - jekyll-feed
@@ -101,31 +94,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-gist
   - jekyll-github-metadata
-
-
-#webrick:
-#  headers:
-#    Access-Control-Allow-Origin: "https://soprun.com"
-#    Access-Control-Allow-Methods: "GET, OPTIONS, HEAD"
-#    Vary: "Origin"
-#    Content-Security-Policy: "
-#    default-src 'self' https:;
-#    connect-src mc.yandex.ru;
-#    script-src 'self' 'unsafe-inline' mc.yandex.ru;
-#    style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-#    font-src 'self' fonts.gstatic.com;
-#    report-uri https://soprun.report-uri.com/r/d/csp/enforce;
-#    "
-
-# default-src 'self' https:;
-# see report: https://report-uri.com/account/reports/csp/
-
-#  default-src 'none';
-#  script-src 'self';
-#  connect-src 'self';
-#  img-src 'self';
-#  style-src 'self';
-#  font-src 'self';
 
 defaults:
   - scope:
