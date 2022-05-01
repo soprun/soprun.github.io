@@ -46,6 +46,7 @@ safe: true
 
 include:
   - assets
+  - .env
   - favicon.ico
 
 exclude:
