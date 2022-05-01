@@ -31,9 +31,11 @@ install:
 	bundle install --path vendor
 	bundle exec jekyll build
 
-build:
+build: clean
 	jekyll build --incremental --profile --trace
 
+build-prod: clean
+	JEKYLL_ENV=production jekyll build --incremental --profile --trace --verbose
 
 env-pull:
 	vercel env pull

@@ -9,6 +9,16 @@
             {% include sidebar.liquid %}
         </aside>
         <DIV id="content" class="col p-4">
+
+            <ul>
+                <li>Environment: {{ jekyll.environment }}</li>
+                <li>APP_URL: {{ site.env.APP_URL }}</li>
+                <li>GIT_COMMIT_SHA: {{ site.env.VERCEL_GIT_COMMIT_SHA }}</li>
+                <li>YANDEX_METRIKA: {{ site.env.YANDEX_METRIKA }}</li>
+                <li>SENTRY_DSN: {{ site.env.SENTRY_DSN }}</li>
+            </ul>
+            <hr>
+
             {{ content }}
         </DIV>
     </div>
