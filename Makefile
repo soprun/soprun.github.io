@@ -24,7 +24,7 @@ deploy-dev:
 	vercel --env JEKYLL_ENV=development
 
 deploy-prod:
-	vercel --env JEKYLL_ENV=production --prod
+	vercel --prod
 
 install:
 	gem install bundler
