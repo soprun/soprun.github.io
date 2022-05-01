@@ -103,19 +103,19 @@ plugins:
 #  - jekyll-github-metadata
 
 
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "https://soprun.com"
-    Access-Control-Allow-Methods: "GET, OPTIONS, HEAD"
-    Vary: "Origin"
-    Content-Security-Policy: "
-    default-src 'self' https:;
-    connect-src mc.yandex.ru;
-    script-src 'self' 'unsafe-inline' mc.yandex.ru;
-    style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-    font-src 'self' fonts.gstatic.com;
-    report-uri https://soprun.report-uri.com/r/d/csp/enforce;
-    "
+#webrick:
+#  headers:
+#    Access-Control-Allow-Origin: "https://soprun.com"
+#    Access-Control-Allow-Methods: "GET, OPTIONS, HEAD"
+#    Vary: "Origin"
+#    Content-Security-Policy: "
+#    default-src 'self' https:;
+#    connect-src mc.yandex.ru;
+#    script-src 'self' 'unsafe-inline' mc.yandex.ru;
+#    style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+#    font-src 'self' fonts.gstatic.com;
+#    report-uri https://soprun.report-uri.com/r/d/csp/enforce;
+#    "
 
 # default-src 'self' https:;
 # see report: https://report-uri.com/account/reports/csp/
