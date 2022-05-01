@@ -13,7 +13,7 @@
         Sentry.onLoad(function () {
             Sentry.init({
                 dsn: "{{ site.env.SENTRY_DSN }}",
-                release: "{{ site.github.build_revision }}",
+                release: "{{ site.env.VERCEL_GIT_COMMIT_SHA }}",
                 environment: "{{ jekyll.environment }}",
                 integrations: [new Sentry.BrowserTracing()],
                 tracesSampleRate: 1.0,
