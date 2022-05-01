@@ -33,7 +33,6 @@ install:
 
 build:
 	jekyll build --incremental --profile --trace
-	jekyll build
 
 
 env-pull:
