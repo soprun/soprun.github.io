@@ -43,6 +43,8 @@ GEM
     jekyll-dotenv (0.2.0)
       dotenv (~> 2.7)
       jekyll (~> 4)
+    jekyll-environment-variables (1.0.1)
+      jekyll (>= 3.0, < 5.x)
     jekyll-feed (0.16.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (2.2.0)
@@ -95,6 +97,7 @@ DEPENDENCIES
   html-proofer
   jekyll (~> 4.2.2)
   jekyll-dotenv
+  jekyll-environment-variables
   jekyll-feed
   jekyll-seo-tag
   jekyll-sitemap
