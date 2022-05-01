@@ -100,7 +100,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-gist
-#  - jekyll-github-metadata
+  - jekyll-github-metadata
 
 
 #webrick:
