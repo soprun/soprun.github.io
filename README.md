@@ -56,3 +56,6 @@ https://app.short.io
 ```dotenv
 JEKYLL_GITHUB_TOKEN=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
 ```
+
+
+https://vercel.com/docs/concepts/projects/environment-variables#system-environment-variables

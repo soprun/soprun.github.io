@@ -5,6 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.9)
+    dotenv (2.7.6)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -62,6 +63,9 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
+    jekyll-dotenv (0.2.0)
+      dotenv (~> 2.7)
+      jekyll (~> 4)
     jekyll-feed (0.16.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-gist (1.5.0)
@@ -127,6 +131,7 @@ PLATFORMS
 DEPENDENCIES
   html-proofer
   jekyll (~> 4.2.2)
+  jekyll-dotenv
   jekyll-feed
   jekyll-gist (~> 1.5)
   jekyll-seo-tag
