@@ -44,6 +44,7 @@ public_links:
 safe: true
 
 include:
+  - _headers
   - assets
   - favicon.ico
 
@@ -60,7 +61,7 @@ exclude:
   - SECURITY.md
   - Makefile
 
-keep_files: [ '.git', '.env' ]
+keep_files: [ '.git' ]
 timezone: "Europe/Moscow"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter: false
