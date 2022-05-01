@@ -44,7 +44,6 @@ public_links:
 safe: true
 
 include:
-  - _headers
   - assets
   - favicon.ico
 
