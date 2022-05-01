@@ -3,7 +3,7 @@
     X-Frame-Options: DENY
     X-XSS-Protection "1; mode=block" always
     X-Content-Type-Options "nosniff" always
-    Referrer-Policy "origin" always
+    Referrer-Policy "no-referrer" always
     Content-Security-Policy "default-src 'self' https: 'unsafe-inline'; frame-ancestors 'self';" always
     Permissions-Policy "interest-cohort=()" always
     Strict-Transport-Security "max-age=31536000; includeSubDomains" always
