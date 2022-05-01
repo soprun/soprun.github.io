@@ -13,7 +13,7 @@ serve:
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
 watch: clean
-	jekyll serve --watch --incremental --livereload --profile --strict_front_matter --trace
+	bundle exec jekyll serve --watch --incremental --livereload --profile --strict_front_matter --trace
 
 # Deployed to production
 
@@ -32,10 +32,13 @@ install:
 	bundle exec jekyll build
 
 build: clean
-	jekyll build --incremental --profile --trace
+	bundle exec jekyll build --incremental --profile --trace
 
 build-prod: clean
-	JEKYLL_ENV=production jekyll build --incremental --profile --trace --verbose
+	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace --verbose
 
 env-pull:
 	vercel env pull
+
+update: ## Running bundle update
+	bundle update
