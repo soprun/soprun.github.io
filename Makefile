@@ -28,7 +28,7 @@ deploy-prod:
 
 install:
 	gem install bundler
-	bundle install --path vendor
+	bundle install
 	bundle exec jekyll build
 
 build: clean
