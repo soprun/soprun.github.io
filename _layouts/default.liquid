@@ -9,16 +9,6 @@
             {% include sidebar.liquid %}
         </aside>
         <div id="content" class="col p-4">
-
-            <ul>
-                <li>environment: {{ jekyll.environment }}</li>
-                <li>CF_PAGES_COMMIT_SHA: {{ site.env.CF_PAGES_COMMIT_SHA }}</li>
-                <li>APP_URL: {{ site.env.APP_URL }}</li>
-                <li>YANDEX_METRIKA: {{ site.env.YANDEX_METRIKA }}</li>
-                <li>CLOUDFLARE_WEB_ANALYTICS: {{ site.env.CLOUDFLARE_WEB_ANALYTICS }}</li>
-                <li>HOME: {{ site.env.HOME }}</li>
-            </ul>
-
             {{ content }}
         </div>
     </div>

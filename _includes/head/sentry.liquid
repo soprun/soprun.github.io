@@ -1,4 +1,4 @@
-{% if jekyll.environment == "production" and site.sentry_dsn %}
+{% if jekyll.environment == "production" and site.env.SENTRY_DSN %}
     <script
         src="https://browser.sentry-cdn.com/6.19.7/bundle.min.js"
         integrity="sha384-KXjn4K+AYjp1cparCXazrB+5HKdi69IUYz8glD3ySH3fnDgMX3Wg6VTMvXUGr4KB"
@@ -12,8 +12,8 @@
     <script>
         Sentry.onLoad(function () {
             Sentry.init({
-                dsn: "{{ site.sentry_dsn }}",
-                release: "{{ site.github.build_revision }}",
+                dsn: "{{ site.env.SENTRY_DSN }}",
+                release: "{{ site.env.CF_PAGES_COMMIT_SHA }}",
                 environment: "{{ jekyll.environment }}",
                 integrations: [new Sentry.BrowserTracing()],
                 tracesSampleRate: 1.0,

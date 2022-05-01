@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="{{ '/' | absolute_url }}">
+    <base href="{{ site.env.APP_URL | default: site.url }}">
 
     <title>{% if page.title %}{{ page.title | append: ' - ' | append: site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 
@@ -31,6 +31,7 @@
     {% include head/google-gtag.liquid %}
     {% include head/google-tag-manager-head.liquid %}
     {% include head/google-analytics.liquid %}
+    {% include head/cloudflare-web-analytics.liquid %}
     {% include head/yandex-metrika.liquid %}
     {% include head/sentry.liquid %}
 </head>
