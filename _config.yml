@@ -18,15 +18,9 @@ logo_large: "/assets/img/avatar-large.png"
 #google_analytics: 'UA-162879780-1'
 #google_gtag: 'UA-162879780-1'
 #google_tag_manager: 'GTM-K3KVG8Z'
-yandex_metrika: '55435306'
 
 title: 'Soprun Vladislav | Hi! Welcome to my blog! 👋🏻 I am a Technical Architect at Like Центр!'
 description: 'I am a Technical Architect at Like Центр!'
-
-github:
-  build_revision: unknown
-
-sentry_dsn: 'https://5943bcec0a2e4787882cbb988fd0aabc@o364305.ingest.sentry.io/6291966'
 
 author:
   name: "Soprun Vladislav"
@@ -38,15 +32,10 @@ public_links:
   github: "https://github.com/soprun"
   gitlab: "https://gitlab.com/soprun"
 
-# theme: "jekyll-theme-minimal"
-
 # Handling Reading
 safe: true
 
 include:
-  - _headers
-  - _redirects
-  - functions
   - assets
   - favicon.ico
 
@@ -66,7 +55,7 @@ exclude:
 keep_files: [ '.git' ]
 timezone: "Europe/Moscow"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter: false
+strict_front_matter: true
 
 sass:
   style: compressed
