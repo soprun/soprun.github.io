@@ -53,6 +53,8 @@ exclude:
   - .jekyll-cache/
   - .jekyll-metadata
   - _site/
+  - _headers
+  - _redirects
   - gemfiles/
   - Gemfile
   - Gemfile.lock
