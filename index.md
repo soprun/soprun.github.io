@@ -79,7 +79,7 @@ Architectural styles:
 # Contact me 📧
 
 - **Name:** Vladislav Soprun
-- **Website:** [soprun.com](https://soprun.com)
+- **Site:** [soprun.com](https://soprun.com)
 - **Phone:** [{{ site.phone }}](tel:{{ site.phone | url_encode }})
 - **E-mail:** [{{ site.email }}](mailto:{{ site.email | url_encode }}) ✅
 - **GPG fingerprint:** `B750 2F96 C5DC 44C2`
