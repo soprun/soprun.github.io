@@ -44,6 +44,8 @@ public_links:
 safe: true
 
 include:
+  - _headers
+  - _redirects
   - assets
   - favicon.ico
 
@@ -53,8 +55,6 @@ exclude:
   - .jekyll-cache/
   - .jekyll-metadata
   - _site/
-  - _headers
-  - _redirects
   - gemfiles/
   - Gemfile
   - Gemfile.lock
