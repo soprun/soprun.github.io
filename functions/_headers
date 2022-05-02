@@ -7,4 +7,4 @@
     Content-Security-Policy "default-src 'self' https: 'unsafe-inline'; frame-ancestors 'self';" always
     Permissions-Policy "interest-cohort=()" always
     Strict-Transport-Security "max-age=31536000; includeSubDomains" always
-    Access-Control-Allow-Origin: https://soprun.com
+    Access-Control-Allow-Origin: *

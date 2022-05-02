@@ -46,6 +46,7 @@ safe: true
 include:
   - _headers
   - _redirects
+  - functions
   - assets
   - favicon.ico
 
