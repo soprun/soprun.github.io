@@ -1,0 +1,67 @@
+<h4 class="fst-italic">Card posts:</h4>
+
+{% comment %}data-masonry='{"percentPosition": true }'{% endcomment %}
+
+<div class="row row-cols-1 row-cols-md-1 g-4">
+    <div class="card-group">
+    {% for post in site.posts %}
+
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+
+{% comment %}<article itemscope itemtype="http://schema.org/BlogPosting">{% endcomment %}
+{% comment %}…{% endcomment %}
+{% comment %}<footer>Published <data itemprop="datePublished" value="2011-11-03">today</data>.</footer>{% endcomment %}
+{% comment %}</article>{% endcomment %}
+{% comment %}{% endcomment %}
+{% comment %}<meta itemprop="author" content="ИМЯ_АВТОРА">{% endcomment %}
+{% comment %}<meta itemprop="datePublished" content="2019-08-09">{% endcomment %}
+{% comment %}<meta itemprop="dateModified" content="2019-08-15">{% endcomment %}
+{% comment %}<meta itemprop="image" content="URL_КАРТИНКИ">{% endcomment %}
+{% comment %}<meta itemprop="articleSection" content="Категория">{% endcomment %}
+{% comment %}{% endcomment %}
+{% comment %}<!-- Информация о сайте -->{% endcomment %}
+{% comment %}<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">{% endcomment %}
+{% comment %}<link itemprop="url" href="URL_САЙТА">{% endcomment %}
+{% comment %}<meta itemprop="name" content="НАЗВАНИЕ_САЙТА">{% endcomment %}
+{% comment %}<meta itemprop="description" content="ОПИСАНИЕ_САЙТА">{% endcomment %}
+{% comment %}<meta itemprop="address" content="АДРЕС">{% endcomment %}
+{% comment %}<meta itemprop="telephone" content="ТЕЛЕФОН">{% endcomment %}
+{% comment %}<div itemprop="logo" itemscope itemtype="https://www.schema.org/ImageObject">{% endcomment %}
+{% comment %}<link itemprop="url" href="URL_ЛОГОТИПА">{% endcomment %}
+{% comment %}<link itemprop="contentUrl" href="URL_ЛОГОТИПА">{% endcomment %}
+{% comment %}</div>{% endcomment %}
+{% comment %}</div>{% endcomment %}

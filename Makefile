@@ -42,3 +42,6 @@ env-pull:
 
 update: ## Running bundle update
 	bundle update
+
+remark:
+	./node_modules/.bin/remark readme.md --output

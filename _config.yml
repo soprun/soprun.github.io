@@ -32,8 +32,10 @@ phone: "+79017972126"
 #google_gtag: 'UA-162879780-1'
 #google_tag_manager: 'GTM-K3KVG8Z'
 
-title: 'Soprun Vladislav Tech Blog'
+title: 'Soprun Vladislav'
 description: 'Hi, welcome to my tech blog! <br>I am a Technical Architect in Moscow.'
+#description: 'Мои личные мысли о вебе и программировании.'
+#description: 'My personal thoughts on the web and programming.'
 
 author:
   name: "Soprun Vladislav"

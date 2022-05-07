@@ -1,8 +1,10 @@
--   name: Home
+-   name: Articles
     link: /
 -   name: About
     link: /about
--   name: Blog
-    link: /blog
+-   name: Contact
+    link: /contact
 -   name: Notes
     link: /notes
+-   name: Privacy Policy
+    link: /privacy-policy

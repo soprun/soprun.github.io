@@ -2,12 +2,12 @@
     <div id="sidebar-header" class="p-4 mb-3 bg-light rounded">
         <div class="row">
             <div id="sidebar-logo" class="col col-12 col-md-auto col-sm-6">
-                <a href="{{ site.url | absolute_url }}" target="_self">
+                <a href="{{ '/' | relative_url }}" target="_self">
                     <picture class="text-center mb-3 d-block">
                         <img class="img-fluid mx-auto d-block rounded-circle"
                              src="{{ '/assets/img/avatar-small.png' | relative_url }}"
                              srcset="{{ '/assets/img/avatar-large.png' | relative_url }} 2x"
-                             alt="{{ site.title }}"/>
+                             alt="{{ site.title | escape }}"/>
                         {% comment %}<img src="https://via.placeholder.com/800/09f/fff.png?text=800w+Fallback"{% endcomment %}
                         {% comment %}srcset="https://via.placeholder.com/320/09f/fff.png?text=320w 320w,{% endcomment %}
                         {% comment %}https://via.placeholder.com/480/09f/fff.png?text=480w 480w,{% endcomment %}
@@ -39,19 +39,11 @@
                     {% comment %}rel="noopener noreferrer"{% endcomment %}
                     {% comment %}target="_blank">Like Центр</a>!{% endcomment %}
                 </p>
-
-                {% comment %}<hr>{% endcomment %}
-{% comment %}{% endcomment %}
-                {% comment %}<ul class="list-unstyled">{% endcomment %}
-                    {% comment %}<li>Articles</li>{% endcomment %}
-                    {% comment %}<li>About</li>{% endcomment %}
-                    {% comment %}<li>Contact</li>{% endcomment %}
-                    {% comment %}<li>Privacy Policy</li>{% endcomment %}
-                {% comment %}</ul>{% endcomment %}
             </div>
         </div>
     </div>
     <div id="sidebar-footer">
+        {% comment %}{% include navigation.liquid %}{% endcomment %}
         {% include snippet/public-links.liquid %}
 
         {% comment %}<div class="p-2">{% endcomment %}

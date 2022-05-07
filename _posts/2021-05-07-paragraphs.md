@@ -1,8 +1,9 @@
-
 ---
-layout: default
+layout: post
 permalink: /paragraphs
 title: Basic writing and formatting syntax
+categories: paragraph
+tags: [test, tag, tags, two]
 ---
 
 # Header 1

@@ -1,5 +1,7 @@
-<nav>
+<nav class="nav flex-column nav-pills">
     {% for item in site.data.navigation %}
-    <a href="{{ item.link }}" {% if page.url== item.link %}class="current" {% endif %}>{{ item.name }}</a>
+        <a class="nav-link {% if page.url == item.link %}active{% endif %}" href="{{ item.link }}">
+            {{ item.name }}
+        </a>
     {% endfor %}
 </nav>

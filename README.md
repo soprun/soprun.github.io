@@ -28,3 +28,6 @@ tristique justo fringilla. Etiam at feugiat lacus, id pulvinar velit. Praesent c
 ---
 
 - https://getbootstrap.com/docs/5.1/examples/masonry/
+- https://github.com/jekyll/minima/tree/master/_layouts
+- https://github.com/jekyll/minima
+- https://github.com/jekyll/minima/blob/master/_layouts/post.html
