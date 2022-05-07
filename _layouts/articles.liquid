@@ -3,7 +3,7 @@ layout: default
 ---
 
 {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h1 class="page-heading mb-4">{{ page.title }}</h1>
 {%- endif -%}
 
 {{ content }}
@@ -32,7 +32,7 @@ layout: default
                          itemtype="https://schema.org/BlogPosting">
                     <figure class="figure mb-0">
                         <a href="{{ post.url | relative_url }}">
-                            <img src="https://picsum.photos/200?id={{ post.id }}"
+                            <img src="{{ post.thumbnail }}?w=250"
                                  class="card-img-top figure-img img-fluid"
                                  itemprop="image"
                                  alt="{{ post.title | escape }}">
@@ -97,7 +97,7 @@ layout: default
     </div>
 
     {% if site.paginate %}
-        <div class="pager">
+        <div class="pager d-none">
             <ul class="pagination">
                 {%- if paginator.previous_page %}
                     <li>

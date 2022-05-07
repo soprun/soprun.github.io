@@ -1,15 +1,22 @@
 ---
-layout: default
-title: Notes 📝
+layout: "default"
+title: "Notes & Reading list 📝"
 permalink: /notes
 ---
 
 # Notes 📝
 
-Заметки архитектора: методики, ....
+Заметки, методики, ....
 
 <iframe src="https://v1.embednotion.com/embed/2af354af1a90472c9874ffbe34b3e16f"></iframe>
 
-<style>
-iframe { width: 100%; height: 500px; border: 2px solid #ccc; border-radius: 10px; padding: none; }
-</style>
+<br>
+<br>
+
+# Reading list 📖
+
+<i class="fa-brands fa-medium"></i> Medium -
+<a href="https://medium.com/@soprun/list/reading-list" rel="noopener noreferrer" target="_blank">300+ stories in
+Vladislav Soprun's Reading list</a>
+
+<iframe src="https://v1.embednotion.com/embed/6d70de933982455bb8142e5e25de8cbc"></iframe>

@@ -8,6 +8,19 @@ layout: default
          itemtype="https://schema.org/BlogPosting">
 
     <header class="post-header">
+
+        <figure class="figure">
+            <img src="{{ page.thumbnail }}?w=1300&h=250&fit=crop"
+                 class="card-img-top figure-img img-fluid rounded"
+                 itemprop="image"
+                 alt="{{ page.title | escape }}">
+            {% if page.figcaption %}
+                <figcaption class="figure-caption">
+                    {{ page.figcaption }}
+                </figcaption>
+            {% endif %}
+        </figure>
+
         <h1 class="post-title" itemprop="name headline">
             {{ page.title | escape }}
         </h1>
