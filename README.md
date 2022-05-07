@@ -39,3 +39,15 @@ tristique justo fringilla. Etiam at feugiat lacus, id pulvinar velit. Praesent c
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning
 https://www.ipvoid.com/http-security-headers-analyzer/
+
+
+---
+
+https://app.rapidsec.com/security-header-scanner?q=https%3A%2F%2Fsoprun.com%2F
+
+
+---
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning
+
+- https://github.com/getsentry/sentry-javascript/tree/master/scripts
