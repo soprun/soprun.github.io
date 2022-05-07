@@ -9,7 +9,7 @@ async function handleRequest(request) {
     const newResponse = new Response(response.body, response);
 
     // Adjust the value for an existing header
-    // newResponse.headers.set('Access-Control-Allow-Origin', 'https://soprun.com');
+    newResponse.headers.set('Access-Control-Allow-Origin', 'https://soprun.com https://mc.yandex.ru https://*.embednotion.com');
     // newResponse.headers.set('Access-Control-Allow-Credentials', 'true');
     // newResponse.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS, HEAD');
     // newResponse.headers.set('Vary', 'Origin');
@@ -18,12 +18,12 @@ async function handleRequest(request) {
     newResponse.headers.set('X-XSS-Protection', '1; mode=block');
     newResponse.headers.set('X-Content-Type-Options', 'nosniff');
 
-    newResponse.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+    newResponse.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 
     // https://github.com/w3c/webappsec-permissions-policy/blob/main/permissions-policy-explainer.md
     newResponse.headers.set('Permissions-Policy', 'document-domain=()');
 
-    newResponse.headers.set('Expect-CT', 'max-age=604800, enforce, report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"');
+    // newResponse.headers.set('Expect-CT', 'max-age=604800, enforce, report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"');
     // newResponse.headers.set('Expect-Staple', 'max-age=3600; report-uri="https://soprun.report-uri.com/r/d/staple/enforce"');
     // newResponse.headers.set('Report-To', '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://soprun.report-uri.com/a/d/g"}],"include_subdomains":true}');
     // newResponse.headers.set('NEL', '{"report_to":"default","max_age":31536000,"include_subdomains":true}');
@@ -39,7 +39,7 @@ async function handleRequest(request) {
     //     "worker-src 'self';" +
     //     "");
 
-    newResponse.headers.set('Content-Security-Policy-Report-Only', "" +
+    newResponse.headers.set('Content-Security-Policy', "" +
         "frame-ancestors 'self';" +
         "block-all-mixed-content;" +
         "default-src 'self' https:;" +
@@ -61,11 +61,25 @@ async function handleRequest(request) {
         "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
         "");
 
+    // default-src "none"; script-src "self"; connect-src "self"; img-src "self"; style-src "self";
+
+    // <meta http-equiv="Content-Security-Policy"
+    //       content="
+    //       default-src 'self' *.cloudflare.com;
+    //       connect-src 'self' *.cloudflare.com;
+    //       script-src 'self' *.cloudflare.com;
+    //       script-src-elem 'self' *.cloudflare.com;
+    //       style-src 'self' fonts.googleapis.com *.cloudflare.com;
+    //       img-src 'self' https://images.unsplash.com;
+    //       font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com;
+    //       frame-src 'self' *.embednotion.com;
+    //       child-src 'self';">
+
     // newResponse.headers.set('Content-Security-Policy-Report-Only', "policy");
 
     // https://web.dev/i18n/ru/referrer-best-practices/
     // newResponse.headers.set('Referrer-Policy', "origin-when-cross-origin");
-    newResponse.headers.set('Referrer-Policy', "no-referrer");
+    newResponse.headers.set('Referrer-Policy', "origin");
 
     // newResponse.headers.set('Feature-Policy', "origin");
     // newResponse.headers.set('Cross-Origin-Resource-Policy', "same-origin");
