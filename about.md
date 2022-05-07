@@ -9,8 +9,6 @@ title: About me
 Занимаюсь проектированием и разработкой высоко нагруженных, масштабируемых, отказоустойчивых сервисов и приложений со
 сложной доменной областью в различных архитектурных стилях.
 
-## Professional Experience 💡
-
 ## Hard skills 🛠
 
 - **Programming languages:** PHP (primary language), Node.js, Go Lang, Python
@@ -25,7 +23,7 @@ title: About me
 - **Security**: GCP Secret Manager, Vault Secrets Manager, Okta, GCP Cloud Identity and Access Management, Hardware
   authentication device
 
-### Super hard skills 🦸🏻‍♂️
+## Super hard skills 🦸🏻‍♂️
 
 Architectural styles:
 
@@ -52,7 +50,7 @@ Architectural styles:
 - [Microsoft Certified: Azure Solutions Architect Expert](https://docs.microsoft.com/ru-ru/learn/certifications/azure-solutions-architect/)
 - [Microsoft Certified: DevOps Engineer Expert](https://docs.microsoft.com/ru-ru/learn/certifications/devops-engineer/)
 
-### Ultimate hard skills 🔥
+## Ultimate hard skills 🔥
 
 **Я идеолог Domain-Driven Design (DDD)** - успешно внедрил 3 из 4 методологию в крупные и не очень крупные компании.
 Создаю курс по DDD (deep level) для сотрудников компании. Имею обширный опыт внедрения методологии DevOps в процессы
@@ -63,7 +61,7 @@ Architectural styles:
 
 > **The Open Group Architecture Framework ([TOGAF](https://en.wikipedia.org/wiki/The_Open_Group_Architecture_Framework))** методология/библиотечный метод описания/подход (framework) для описания архитектуры предприятия, который предлагает подход для проектирования, планирования, внедрения IT-архитектуры предприятия и управления ей.
 
-### And more skills 🧠
+## And more skills 🧠
 
 - **Фреймворк TOGAF** для описания архитектуры предприятия.
 - **GAP-анализ**
@@ -76,20 +74,3 @@ Architectural styles:
   мотивации).
 - **Личные качества:** системное, аналитическое мышление, хорошие коммуникационные навыки (я экстраверт).
 - **Всегда инвестирую время в свое обучение.** 💡
-
-[//]: # (# Contact me 📧)
-
-[//]: # ()
-[//]: # (- **Name:** Vladislav Soprun)
-
-[//]: # (- **Site:** [soprun.com]&#40;https://soprun.com&#41;)
-
-[//]: # (- **Phone:** [{{ site.phone }}]&#40;tel:{{ site.phone | url_encode }}&#41;)
-
-[//]: # (- **E-mail:** [{{ site.email }}]&#40;mailto:{{ site.email | url_encode }}&#41; ✅)
-
-[//]: # (- **GPG fingerprint:** `B750 2F96 C5DC 44C2`)
-
-[//]: # (- **GPG Public Key:** available)
-
-[//]: # (  <a href="https://github.com/soprun.gpg" rel="noopener noreferrer" target="_blank">gpg public key</a> 🔐)
