@@ -1,23 +1,21 @@
-<div>
-    <p class="p-2 mb-0">
-        You can find me here: 👀
-    </p>
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="{{ site.public_links.github }}" class="btn" rel="noopener noreferrer" target="_blank">
-            <i class="fa-brands fa-github"></i>
-            GitHub
-        </a>
-        <a href="{{ site.public_links.gitlab }}" class="btn" rel="noopener noreferrer" target="_blank">
-            <i class="fa-brands fa-gitlab"></i>
-            GitLab
-        </a>
-        <a href="{{ site.public_links.medium }}" class="btn" rel="noopener noreferrer" target="_blank">
-            <i class="fa-brands fa-medium"></i>
-            Medium
-        </a>
-        <a href="https://soprun.com/notes" class="btn">
-            <i class="fa-solid fa-notes"></i>
-            Notes 📝
-        </a>
-    </div>
+{% comment %}<p class="p-2 mb-0">{% endcomment %}
+    {% comment %}You can find me here: 👀{% endcomment %}
+{% comment %}</p>{% endcomment %}
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a href="{{ site.public_links.github }}" class="btn" rel="noopener noreferrer" target="_blank">
+        <i class="fa-brands fa-github"></i>
+        GitHub
+    </a>
+    <a href="{{ site.public_links.gitlab }}" class="btn" rel="noopener noreferrer" target="_blank">
+        <i class="fa-brands fa-gitlab"></i>
+        GitLab
+    </a>
+    <a href="{{ site.public_links.medium }}" class="btn" rel="noopener noreferrer" target="_blank">
+        <i class="fa-brands fa-medium"></i>
+        Medium
+    </a>
+    {% comment %}<a href="{{ '/notes' | relative_url }}" class="btn">{% endcomment %}
+        {% comment %}<i class="fa-brands fa-sticky-note fa-lg" aria-hidden="true"></i>{% endcomment %}
+        {% comment %}Notes{% endcomment %}
+    {% comment %}</a>{% endcomment %}
 </div>
