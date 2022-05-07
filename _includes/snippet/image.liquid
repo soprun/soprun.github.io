@@ -1,0 +1,13 @@
+<figure class="figure">
+    <a href="{{ include.url | relative_url }}">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+             data-src="{{ include.src != url | default: 'https://via.placeholder.com/350' }}"
+             itemprop="image"
+             alt="{{ include.alt | escape }}"/>
+    </a>
+    {% if include.caption %}
+        <figcaption class="figure-caption">
+            {{ include.caption }}
+        </figcaption>
+    {% endif %}
+</figure>

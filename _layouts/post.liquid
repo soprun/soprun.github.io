@@ -9,17 +9,26 @@ layout: default
 
     <header class="post-header">
 
-        <figure class="figure">
-            <img src="{{ page.thumbnail }}?w=1300&h=300&fit=crop"
-                 class="card-img-top figure-img img-fluid rounded"
-                 itemprop="image"
-                 alt="{{ page.title | escape }}">
-            {% if page.figcaption %}
-                <figcaption class="figure-caption">
-                    {{ page.figcaption }}
-                </figcaption>
-            {% endif %}
-        </figure>
+        {% assign thumbnail = page.thumbnail_cover %}
+
+        {% unless thumbnail %}
+            {% comment %}{% assign thumbnail = page.thumbnail_default_cover %}{% endcomment %}
+        {% endunless %}
+
+        {% if thumbnail %}
+            <figure class="figure">
+                <img src="{{ thumbnail }}"
+                     class="card-img-top figure-img img-fluid rounded"
+                     itemprop="image"
+                     alt="{{ page.title | escape }}">
+
+                {% if page.figcaption %}
+                    <figcaption class="figure-caption">
+                        {{ page.figcaption }}
+                    </figcaption>
+                {% endif %}
+            </figure>
+        {% endif %}
 
         <h1 class="post-title" itemprop="name headline">
             {{ page.title | escape }}

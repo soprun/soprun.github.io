@@ -10,11 +10,13 @@ max_line_length = 120
 
 [Makefile]
 indent_style = tab
+indent_size = 2
 
-[{*.markdown,*.md}]
+[{*.markdown, *.md}]
 trim_trailing_whitespace = false
+indent_size = 2
 
-[{Gemfile,_config.yml}]
+[{Gemfile, *.yml, *.yaml}]
 indent_size = 2
 
 [{*.html, *.liquid}]

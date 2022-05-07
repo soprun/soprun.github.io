@@ -22,7 +22,7 @@ layout: default
 
     {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
         {% for post in posts %}
             <div class="col">
                 <article class="card"
@@ -32,10 +32,10 @@ layout: default
                          itemtype="https://schema.org/BlogPosting">
                     <figure class="figure mb-0">
                         <a href="{{ post.url | relative_url }}">
-                            <img src="{{ post.thumbnail }}?w=250"
-                                 class="card-img-top figure-img img-fluid"
+                            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                 class="card-img-top figure-img img-fluid lazyload"
+                                 data-src="{{ post.thumbnail | default: page.thumbnail_default }}"
                                  itemprop="image"
-                                 width="250px"
                                  alt="{{ post.title | escape }}">
                         </a>
                         {% if post.figcaption %}
@@ -58,10 +58,11 @@ layout: default
                         {% endif %}
 
                         <div class="card-text">
-                            {{ post.excerpt | strip_html | escape | truncatewords: 30 }}
-                            <a href="{{ post.url | relative_url }}" class="text-decoration-none">
-                                read more...
-                            </a>
+                            {{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | escape | truncatewords: 30 }}
+
+                            {% comment %}<a href="{{ post.url | relative_url }}" class="text-decoration-none">{% endcomment %}
+                            {% comment %}read more...{% endcomment %}
+                            {% comment %}</a>{% endcomment %}
                         </div>
                     </section>
                     <footer class="card-footer">

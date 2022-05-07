@@ -1,9 +1,10 @@
 ---
 layout: post
 permalink: /paragraphs
-title: Basic writing and formatting syntax
+title: 'Basic writing and formatting syntax'
 categories: [paragraph, markdown]
 tags: [test, tag, tags, two]
+thumbnail: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de'
 ---
 
 # Header 1
@@ -35,19 +36,19 @@ javascript:
 ```javascript
 // Javascript code with syntax highlighting.
 var fun = function lang(l) {
-    dateformat.i18n = require('./lang/' + l)
-    return true;
+  dateformat.i18n = require('./lang/' + l)
+  return true;
 }
 ```
 
 ruby:
 
-```ruby
+{% highlight ruby %}
 # Ruby code with syntax highlighting
 GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
+s.add_dependency(gem, "= #{version}")
 end
-```
+{% endhighlight %}
 
 php:
 
@@ -117,17 +118,17 @@ func main() {
 ### And a nested list:
 
 - level 1 item
-    - level 2 item
-    - level 2 item
-        - level 3 item
-        - level 3 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
 - level 1 item
-    - level 2 item
-    - level 2 item
-    - level 2 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
 - level 1 item
-    - level 2 item
-    - level 2 item
+  - level 2 item
+  - level 2 item
 - level 1 item
 
 ### Small image

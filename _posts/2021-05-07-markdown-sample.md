@@ -1,7 +1,7 @@
 ---
 layout: post
 permalink: /markdown-sample
-title: Markdown sample
+title: 'Markdown sample'
 ---
 
 An h1 header

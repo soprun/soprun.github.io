@@ -20,26 +20,13 @@
 
 # the base hostname & protocol for your site
 # baseurl: /
-# url: "{{ site.env.APP_URL }}"
-# lang: "{{ site.env.APP_URL }}"
-# lang: ru
-
-name: "Soprun Vladislav"
-email: "mail@soprun.com"
-phone: "+79017972126"
-
-#google_analytics: 'UA-162879780-1'
-#google_gtag: 'UA-162879780-1'
-#google_tag_manager: 'GTM-K3KVG8Z'
+url: 'https://soprun.com'
+lang: 'ru'
 
 title: 'Soprun Vladislav'
 description: 'Hi, welcome to my tech blog! <br>I am a Technical Architect in Moscow.'
 #description: 'Мои личные мысли о вебе и программировании.'
 #description: 'My personal thoughts on the web and programming.'
-
-author:
-  name: "Soprun Vladislav"
-  url: "https://soprun.com"
 
 # Copy link to profile
 public_links:
@@ -82,9 +69,14 @@ liquid:
 
 # Markdown Processors
 markdown: kramdown
+highlighter: rouge
+render_with_liquid: false
+
 kramdown:
+  input: GFM
   auto_ids: true
   math_engine: mathjax
+  hard_wrap: false
   syntax_highlighter: rouge
 
 #  entity_output: as_char
@@ -105,17 +97,36 @@ plugins:
   - jekyll-github-metadata
   - jekyll-paginate
 
+# https://jekyllrb.com/docs/configuration/front-matter-defaults/
+collections:
+  posts:
+    output: true
+
 defaults:
   - scope:
       path: 'assets/img'
     values:
       image: true
   - scope:
-      path: "_posts"
-      type: "posts"
+      path: '_posts'
+      type: 'posts'
     values:
-      layout: "post"
-
+      layout: 'post'
+      permalink: "/page/:id"
+      thumbnail_default: 'https://via.placeholder.com/300'
+      thumbnail_default_cover: 'https://via.placeholder.com/1300x300'
+  - scope:
+      # an empty string here means all files in the project
+      path: ''
+    values:
+      layout: 'default'
+#      author:
+#        name: 'Soprun Vladislav'
+#        url: 'https://soprun.com'
+#        email: 'mail@soprun.com'
+#        phone: '+79017972126'
+#        gpg_public_key: 'https://github.com/soprun.gpg'
+#        gpg_fingerprint: 'B750 2F96 C5DC 44C2'
 
 paginate: 4
 paginate_path: "/page/:num"
