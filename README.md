@@ -32,3 +32,10 @@ tristique justo fringilla. Etiam at feugiat lacus, id pulvinar velit. Praesent c
 - https://github.com/jekyll/minima/tree/master/_layouts
 - https://github.com/jekyll/minima
 - https://github.com/jekyll/minima/blob/master/_layouts/post.html
+
+
+
+---
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning
+https://www.ipvoid.com/http-security-headers-analyzer/
