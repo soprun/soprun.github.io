@@ -103,6 +103,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-gist
   - jekyll-github-metadata
+  - jekyll-paginate
 
 defaults:
   - scope:
@@ -114,3 +115,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+
+paginate: 4
+paginate_path: "/page/:num"

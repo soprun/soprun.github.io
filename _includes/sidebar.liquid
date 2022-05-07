@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="col">
-                <p id="sidebar-title" class="mb-3 t">
+                <p id="sidebar-title" class="mb-3">
                     <a href="{{ site.url | absolute_url }}" class="fw-light text-decoration-none">
                         {{ site.name }}
                     </a>
@@ -43,7 +43,7 @@
         </div>
     </div>
     <div id="sidebar-footer">
-        {% comment %}{% include navigation.liquid %}{% endcomment %}
+        {% include navigation.liquid %}
         {% include snippet/public-links.liquid %}
 
         {% comment %}<div class="p-2">{% endcomment %}

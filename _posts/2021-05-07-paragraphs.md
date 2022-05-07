@@ -2,7 +2,7 @@
 layout: post
 permalink: /paragraphs
 title: Basic writing and formatting syntax
-categories: paragraph
+categories: [paragraph, markdown]
 tags: [test, tag, tags, two]
 ---
 

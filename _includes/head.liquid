@@ -7,6 +7,9 @@
 
     <title>{% if page.title %}{{ page.title | append: ' - ' | append: site.title | escape | smartify }}{% else %}{{ site.title | smartify }}{% endif %}</title>
 
+    {% seo title = false %}
+    {% feed_meta %}
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,9 +36,6 @@
 
     <!-- You can set your favicon here -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.ico' | relative_url }}">
-
-    {% seo title = false %}
-    {% feed_meta %}
 
     {% include head/cloudflare-web-analytics.liquid %}
     {% include head/yandex-metrika.liquid %}
