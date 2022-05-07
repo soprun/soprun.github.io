@@ -56,3 +56,18 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning
 - PUBLIC KEY PINS (HPKP)
 - https://www.scip.ch/en/?labs.20180308
 
+
+- https://prose.io
+
+
+
+https://idratherbewriting.com/documentation-theme-jekyll/mydoc_search_configuration.html#including-the-body-field-in-search
+
+```yaml
+    "body": "{{ page.content | strip_html | strip_newlines | replace: '\', '\\\\' | replace: '"', '\\"' | replace: '	', '    '  }}",
+```
+
+
+---
+
+https://github.com/markets/jekyll-timeago
