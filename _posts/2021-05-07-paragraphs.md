@@ -5,6 +5,7 @@ title: 'Basic writing and formatting syntax'
 categories: [paragraph, markdown]
 tags: [test, tag, tags, two]
 thumbnail: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de'
+thumbnail_cover: 'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=1300&h=300&fit=crop'
 ---
 
 # Header 1

@@ -31,11 +31,30 @@ layout: default
                          itemscope
                          itemtype="https://schema.org/BlogPosting">
 
-                    {% include snippet/image.liquid
-                        file=post.thumbnail
-                        url=post.url
-                        alt=post.title
-                    %}
+                    {% assign thumbnail = post.thumbnail %}
+
+                    {% unless thumbnail %}
+                        {% assign thumbnail = post.thumbnail_default %}
+                    {% endunless %}
+
+                    {% if thumbnail %}
+                        <figure class="figure mb-0">
+                            <a href="{{ post.url | relative_url }}">
+                                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                     class="card-img-top figure-img img-fluid lazyload"
+                                     data-src="{{ thumbnail }}"
+                                     itemprop="image"
+                                     width="300px"
+                                     height="200px"
+                                     alt="{{ post.title | escape }}">
+                            </a>
+                            {% if post.figcaption %}
+                                <figcaption class="figure-caption">
+                                    {{ post.figcaption }}
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endif %}
 
                     <section class="card-body">
                         <h2 class="card-title fs-4">

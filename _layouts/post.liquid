@@ -8,27 +8,12 @@ layout: default
          itemtype="https://schema.org/BlogPosting">
 
     <header class="post-header">
-
-        {% assign thumbnail = page.thumbnail_cover %}
-
-        {% unless thumbnail %}
-            {% comment %}{% assign thumbnail = page.thumbnail_default_cover %}{% endcomment %}
-        {% endunless %}
-
-        {% if thumbnail %}
-            <figure class="figure">
-                <img src="{{ thumbnail }}"
-                     class="card-img-top figure-img img-fluid rounded"
-                     itemprop="image"
-                     alt="{{ page.title | escape }}">
-
-                {% if page.figcaption %}
-                    <figcaption class="figure-caption">
-                        {{ page.figcaption }}
-                    </figcaption>
-                {% endif %}
-            </figure>
-        {% endif %}
+        {% include snippet/image.liquid
+            file=page.thumbnail_cover
+            alt=page.title
+            figure_class='figure-post'
+            image_class='rounded '
+        %}
 
         <h1 class="post-title" itemprop="name headline">
             {{ page.title | escape }}

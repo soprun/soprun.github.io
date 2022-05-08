@@ -44,12 +44,23 @@ div.code {
     white-space: pre;
 }
 
-img {
-    //display: block;
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto 0 auto;
+//img {
+    // display: block;
+    // width: auto;
+    //max-width: 100%;
+    //height: auto;
+    //
+//}
+
+.figure-post {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+
+    img {
+        max-width: 100%;
+        max-height: inherit;
+    }
 }
 
 

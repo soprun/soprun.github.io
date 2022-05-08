@@ -113,7 +113,7 @@ defaults:
     values:
       layout: 'post'
       permalink: "/page/:id"
-      thumbnail_default: 'https://via.placeholder.com/300'
+      thumbnail_default: 'https://via.placeholder.com/300x220'
       thumbnail_default_cover: 'https://via.placeholder.com/1300x300'
   - scope:
       # an empty string here means all files in the project
