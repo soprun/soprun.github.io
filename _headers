@@ -15,5 +15,5 @@
   Cache-Control: public, max-age=31536000
   X-Robots-Tag: nosnippet
 
-https://soprun-github-io.pages.dev/*
+https://*.soprun-github-io.pages.dev/*
   X-Robots-Tag: noindex
