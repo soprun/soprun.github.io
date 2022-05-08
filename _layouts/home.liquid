@@ -9,67 +9,37 @@ layout: default
 {% endif %}
 
 {%- if posts.size > 0 -%}
-
-    {% comment %}{%- if page.list_title -%}{% endcomment %}
-        {% comment %}<h2 class="post-list-heading">{{ page.list_title }}</h2>{% endcomment %}
-    {% comment %}{%- endif -%}{% endcomment %}
-
     {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1">
         {% for post in posts %}
-            <div class="col">
-                <article class="card"
-                         itemid="{{ post.url | relative_url }}"
-                         itemprop="blogPost"
-                         itemscope
-                         itemtype="https://schema.org/BlogPosting">
+            <article class="post-card col bg-light rounded">
 
-                    {% include snippet/image.liquid
-                        file=post.thumbnail
-                        url=post.url
-                        alt=post.title
-                    %}
+                {% include snippet/post-card-thumbnail.liquid
+                    file=post.thumbnail
+                    alt=post.title
+                %}
 
-                    <section class="card-body">
-                        <h2 class="card-title fs-4">
-                            <a href="{{ post.url | relative_url }}" class="text-decoration-none">
-                                {{ post.title | escape }}
-                            </a>
-                        </h2>
+                <div class="post-card-body">
+                    <h1 class="post-card-title">
+                        <a href="{{ post.url }}">
+                            {{ post.title }}
+                        </a>
+                    </h1>
 
-                        {% if post.subtitle %}
-                            <p class="card-subtitle mb-4 text-muted fs-6">
-                                <small>{{ post.subtitle | escape }}</small>
-                            </p>
-                        {% endif %}
+                    <p class="post-card-subtitle">
+                        <time class="text-muted" itemprop="datePublished"
+                              datetime="{{ post.date | date: '%Y-%m-%d' }}">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            {{ post.date | date_to_long_string }}
+                        </time>
+                    </p>
 
-                        <div class="card-text">
-                            {{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | escape | truncatewords: 30 }}
+                    <p class="post-card-preview">
+                        {{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | escape | truncatewords: 30 }}
+                    </p>
 
-                            {% comment %}<a href="{{ post.url | relative_url }}" class="text-decoration-none">{% endcomment %}
-                            {% comment %}read more...{% endcomment %}
-                            {% comment %}</a>{% endcomment %}
-                        </div>
-                    </section>
-                    <footer class="card-footer">
-                        <p>
-                            <time class="text-muted" itemprop="datePublished"
-                                  datetime="{{ post.date | date: '%Y-%m-%d' }}">
-                                {{ post.date | date_to_long_string }}
-                            </time>
-                        </p>
-
-                        {% assign categories_size = post.categories | size %}
-                        {% if categories_size != 0 %}
-                            <div class="card-text">
-                                <span>Categories:</span>
-                                {% for categoriey in post.categories %}
-                                    <span class="badge bg-primary">{{ categoriey }}</span>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
+                    <div class="post-card-tags">
                         {% assign tags_size = post.tags | size %}
                         {% if tags_size != 0 %}
                             <div class="card-text">
@@ -79,9 +49,9 @@ layout: default
                                 {% endfor %}
                             </div>
                         {% endif %}
-                    </footer>
-                </article>
-            </div>
+                    </div>
+                </div>
+            </article>
         {% endfor %}
     </div>
 

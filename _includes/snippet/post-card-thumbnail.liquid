@@ -1,0 +1,14 @@
+{% assign file = include.file %}
+{% unless file %}
+    {% assign file = 'https://via.placeholder.com/300x225' %}
+{% endunless %}
+
+{% assign alt = include.alt %}
+{% unless alt %}
+    {% assign alt = page.title | append: ' - ' | append: site.title %}
+{% endunless %}
+
+<a href="{{ post.url }}" class="post-card-image-link">
+    <img src="{{ file }}"
+         alt="{{ alt }}">
+</a>

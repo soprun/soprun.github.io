@@ -86,6 +86,11 @@ div.code {
 //
 //}
 
+// .img-fluid
+//img {
+//    max-width: 100%;
+//    height: auto;
+//}
 
 iframe {
     width: 100%;
@@ -93,4 +98,48 @@ iframe {
     border: 2px solid #ccc;
     border-radius: 10px;
     padding: 0;
+}
+
+.post-card {
+    margin-bottom: 2em;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    overflow: hidden;
+    position: relative;
+    //background-color: #18151f;
+    //color: white;
+
+    &-image-link {
+        display: contents;
+        // display: block;
+
+        img {
+            max-width: 300px;
+            max-height: 225px;
+        }
+    }
+    &-body {
+        display: flex;
+        padding: 1.5em;
+        width: 100%;
+        flex-direction: column;
+    }
+    &-title {
+        font-size: 1.4rem;
+    }
+    &-subtitle {
+        font-size: .8em;
+    }
+    &-preview {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: justify;
+        height: 100%;
+    }
+    &-tags {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: start;
+    }
 }
