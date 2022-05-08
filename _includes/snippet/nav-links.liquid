@@ -1,0 +1,10 @@
+<ul class="list-unstyled">
+    {% for link in include.links %}
+        <li>
+            <a href="{{ link.url }}">
+                {{ link.icon }}
+                <span>{{ link.title }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

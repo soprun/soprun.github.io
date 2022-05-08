@@ -1,12 +1,15 @@
--   name: Articles
+-   name: Home
     link: /
     icon: <i class="fa-solid fa-newspaper"></i>
+
 -   name: About
     link: /about
     icon: <i class="fa-solid fa-image-user"></i>
--   name: Contact
-    link: /contact
-    icon: <i class="fa-solid fa-address-book"></i>
+
+#-   name: Contact
+#    link: /contact
+#    icon: <i class="fa-solid fa-address-book"></i>
+
 -   name: Notes & Reading list
     link: /notes
     icon: <i class="fa-solid fa-book-open"></i>

@@ -14,25 +14,20 @@
 
 
 
-# Where things are
-#source: .
-#destination: ./public
-
 # the base hostname & protocol for your site
-# baseurl: /
+baseurl: /
 url: 'https://soprun.com'
 lang: 'ru'
 
 title: 'Soprun Vladislav'
-description: 'Hi, welcome to my tech blog! <br>I am a Technical Architect in Moscow.'
+description: >
+  Hi, welcome to my tech blog!
+  <br>
+  I am a Technical Architect in Like Центр.
+
+#description: "I'm John Doe a web developer and software engineer. I studied computer science and software engineering."
 #description: 'Мои личные мысли о вебе и программировании.'
 #description: 'My personal thoughts on the web and programming.'
-
-# Copy link to profile
-public_links:
-  medium: "https://medium.com/@soprun"
-  github: "https://github.com/soprun"
-  gitlab: "https://gitlab.com/soprun"
 
 # Handling Reading
 safe: true
