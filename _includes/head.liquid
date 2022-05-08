@@ -2,8 +2,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="{% if page.noindex == true %}noindex, nofollow{% else %}follow, index{% endif %}"/>
-    <base href="{{ site.url }}">
+    <meta name="robots" content="{% if page.noindex == true %}noindex,{% else %}follow, index{% endif %}"/>
+    <base href="{{ '/' | absolute_url }}">
 
     <title>{% if page.title %}{{ page.title | append: ' - ' | append: site.title | escape | smartify }}{% else %}{{ site.title | smartify }}{% endif %}</title>
 
