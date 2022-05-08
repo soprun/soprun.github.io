@@ -36,7 +36,9 @@ layout: default
                     </p>
 
                     <p class="post-card-preview">
-                        {{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | escape | truncatewords: 30 }}
+                        {% comment %}{{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
+                        {{ post.excerpt | truncatewords: 160 }}
+                        {% comment %}{{ post.content | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
                     </p>
 
                     <div class="post-card-tags">

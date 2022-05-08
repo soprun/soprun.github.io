@@ -71,7 +71,7 @@ kramdown:
   input: GFM
   auto_ids: true
   math_engine: mathjax
-  hard_wrap: false
+  hard_wrap: true
   syntax_highlighter: rouge
 
 #  entity_output: as_char
