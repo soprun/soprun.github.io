@@ -9,7 +9,7 @@ async function handleRequest(request) {
     const newResponse = new Response(response.body, response);
 
     // Adjust the value for an existing header
-    newResponse.headers.set('Access-Control-Allow-Origin', 'https://soprun.com https://mc.yandex.ru https://*.embednotion.com');
+    // newResponse.headers.set('Access-Control-Allow-Origin', '*');
     // newResponse.headers.set('Access-Control-Allow-Credentials', 'true');
     // newResponse.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS, HEAD');
     // newResponse.headers.set('Vary', 'Origin');
@@ -39,7 +39,7 @@ async function handleRequest(request) {
     //     "worker-src 'self';" +
     //     "");
 
-    newResponse.headers.set('Content-Security-Policy', "" +
+    newResponse.headers.set('Content-Security-Policy-Report-Only', "" +
         "frame-ancestors 'self';" +
         "block-all-mixed-content;" +
         "default-src 'self' https:;" +
@@ -79,7 +79,7 @@ async function handleRequest(request) {
 
     // https://web.dev/i18n/ru/referrer-best-practices/
     // newResponse.headers.set('Referrer-Policy', "origin-when-cross-origin");
-    newResponse.headers.set('Referrer-Policy', "origin");
+    newResponse.headers.set('Referrer-Policy', "origin-when-cross-origin");
 
     // newResponse.headers.set('Feature-Policy', "origin");
     // newResponse.headers.set('Cross-Origin-Resource-Policy', "same-origin");

@@ -1,0 +1,19 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Access-Control-Allow-Origin': *
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Methods: GET, OPTIONS, HEAD
+  Access-Control-Max-Age: 86400
+  Vary: Accept-Encoding, Origin
+  Referrer-Policy: origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Permissions-Policy: document-domain=()
+
+/assets/*
+  Cache-Control: public, max-age=31536000
+  X-Robots-Tag: nosnippet
+
+https://soprun-github-io.pages.dev/*
+  X-Robots-Tag: noindex

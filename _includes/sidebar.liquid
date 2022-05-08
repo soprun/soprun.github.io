@@ -1,73 +1,82 @@
 <div class="sticky-top">
-    <div id="sidebar-header" class="p-3 bg-light rounded">
-        <div class="row row-cols-1">
-            <div class="col mb-2 text-center">
-                <a href="{{ '/' | relative_url }}" target="_self">
-                    <img class="bg-info img-fluid rounded-circle"
-                         src="{{ '/assets/img/avatar-small.png' | relative_url }}"
-                         srcset="{{ '/assets/img/avatar-large.png' | relative_url }} 2x"
-                         width="120"
-                         alt="{{ site.title | escape }}"/>
-                </a>
-            </div>
+    <div class="row row-cols-1 pt-4">
+        <p class="col text-center">
+            <a href="{{ '/' | relative_url }}" target="_self">
+                <img class="bg-info img-fluid rounded-circle"
+                     src="{{ '/assets/img/avatar-small.png' | relative_url }}"
+                     srcset="{{ '/assets/img/avatar-large.png' | relative_url }} 2x"
+                     width="120"
+                     alt="{{ site.title | escape }}"/>
+            </a>
+        </p>
 
-            <p class="col text-center">
-                <a href="{{ '/' | relative_url }}" class="fs-4 fw-light text-decoration-none">
-                    {{ site.data.author.author.name }}
-                </a>
-            </p>
+        <p class="col text-center">
+            <a href="{{ '/' | relative_url }}" class="fs-4 fw-light text-decoration-none">
+                {{ site.data.author.author.name }}
+            </a>
+        </p>
 
-            <div class="col text-center">
-                {{ site.description }}
-            </div>
+        <p class="col text-center">
+            {{ site.description }}
+        </p>
 
-            <div class="col pt-4 pb-4">
-                {% include navigation.liquid %}
-            </div>
+        <div class="col">
+            {% include navigation.liquid %}
+        </div>
 
-            <div class="col">
-                <table class="table table-borderless">
-                    <thead>
+        <div class="col p-3">
+            <table class="table table-borderless mb-0">
+                <thead>
+                <tr>
+                    <td colspan="2" class="fs-6">
+                        Contact
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for link in site.data.links.links.contact %}
                     <tr>
-                        <td colspan="2" class="fs-6">
-                            Contact Information
+                        <td>
+                            {{ link.icon }}
+                            {{ link.label }}
+                        </td>
+                        <td>
+                            <a href="{{ link.url }}" class="fw-light text-decoration-none">
+                                {{ link.title }}
+                            </a>
                         </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {% for link in site.data.links.links.contact %}
-                        <tr>
-                            <td>
-                                {{ link.icon }}
-                                {{ link.label }}
-                            </td>
-                            <td>
-                                <a href="{{ link.url }}" class="fw-light text-decoration-none">
-                                    {{ link.title }}
+                {% endfor %}
+                {% comment %}<tr>{% endcomment %}
+                    {% comment %}<td colspan="2" class="fs-6">{% endcomment %}
+                        {% comment %}Follow{% endcomment %}
+                    {% comment %}</td>{% endcomment %}
+                {% comment %}</tr>{% endcomment %}
+                <tr>
+                    <td colspan="2">
+                        <div class="btn-group">
+                            {% for link in site.data.links.links.follow %}
+                                <a href="{{ link.url }}" class="btn fs-6" rel="noopener noreferrer" target="_blank">
+                                    {{ link.icon }}
+                                    <small>{{ link.title }}</small>
                                 </a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div id="sidebar-footer" class="row row-cols-1">
-        <div class="col p-3 text-muted">
-            You can use my <a href="https://github.com/soprun.gpg">public GPG key</a>
-            to send a private email message!
-            <br>
-            <code>B750 2F96 C5DC 44C2</code>
-            <i class="fa-solid fa-signature"></i>
-        </div>
-        <div class="col p-0 btn-group">
-            {% for link in site.data.links.links.follow %}
-                <a href="{{ link.url }}" class="btn fs-6" rel="noopener noreferrer" target="_blank">
-                    {{ link.icon }}
-                    <small>{{ link.title }}</small>
-                </a>
-            {% endfor %}
+                            {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="sidebar-signature" class="text-muted">
+                            You can use my <a href="https://github.com/soprun.gpg">OpenPGP public key</a>
+                            to send an encrypted email message!
+                            <br>
+                            <code>B750 2F96 C5DC 44C2</code>
+                            <i class="fa-solid fa-signature"></i>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

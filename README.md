@@ -11,8 +11,8 @@ tristique justo fringilla. Etiam at feugiat lacus, id pulvinar velit. Praesent c
 # Deployments to [Cloudflare Pages](https://developers.cloudflare.com/pages/)
 
 ## Domains:
-- https://soprun-github-io.pages.dev
-- https://soprun.com
+- https://soprun-github-io.pages.dev (production, aliases https://soprun.com)
+- https://dev.soprun-github-io.pages.dev
 
 
 # Infrastructure and external services
@@ -71,3 +71,12 @@ https://idratherbewriting.com/documentation-theme-jekyll/mydoc_search_configurat
 ---
 
 https://github.com/markets/jekyll-timeago
+
+
+---
+
+- Resumé
+- https://www.simple.ink/template-category/cv-resume-website-templates
+- https://www.notion.so/Resum-0a53261741084e368a62cc94f44b7469
+
+- https://codepen.io/3psy0n/pen/LYpajmX

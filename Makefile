@@ -47,3 +47,7 @@ remark:
 	./node_modules/.bin/remark readme.md --output
 
 # ps aux | grep jekyll
+
+# https://developers.cloudflare.com/workers/cli-wrangler/commands/#generate
+# wrangler
+
