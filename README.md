@@ -83,3 +83,5 @@ https://github.com/markets/jekyll-timeago
 
 
 - https://infosec.mozilla.org/guidelines/web_security#examples-4
+
+- https://securityheaders.com/?q=soprun.com&followRedirects=on
