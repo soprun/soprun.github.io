@@ -80,3 +80,6 @@ https://github.com/markets/jekyll-timeago
 - https://www.notion.so/Resum-0a53261741084e368a62cc94f44b7469
 
 - https://codepen.io/3psy0n/pen/LYpajmX
+
+
+- https://infosec.mozilla.org/guidelines/web_security#examples-4
