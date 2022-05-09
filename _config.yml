@@ -35,6 +35,7 @@ safe: true
 include:
   - assets
   - favicon.ico
+  - _headers
 
 exclude:
   - .idea/
