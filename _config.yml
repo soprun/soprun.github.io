@@ -50,7 +50,7 @@ exclude:
   - SECURITY.md
   - Makefile
 
-keep_files: [ '.git' ]
+keep_files: [ .git, _headers ]
 timezone: "Europe/Moscow"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter: true
