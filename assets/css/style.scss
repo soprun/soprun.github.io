@@ -119,6 +119,9 @@ iframe {
     //background-color: #18151f;
     //color: white;
 
+    &:hover &-image-link img {
+        transform: scale(1.1);
+    }
     &-image-link {
         display: contents;
         // display: block;
@@ -132,7 +135,6 @@ iframe {
             position: relative;
         }
     }
-
     &-body {
         display: flex;
         padding: 1.5em;
@@ -140,22 +142,18 @@ iframe {
         flex-direction: column;
         position: relative;
     }
-
     &-title {
         font-size: 1.4rem;
     }
-
     &-subtitle {
         font-size: .8em;
     }
-
     &-preview {
         overflow: hidden;
         text-overflow: ellipsis;
         text-align: justify;
         height: 100%;
     }
-
     &-tags {
         display: flex;
         flex-flow: row wrap;
@@ -189,4 +187,3 @@ iframe {
 //        }
 //    }
 //}
-

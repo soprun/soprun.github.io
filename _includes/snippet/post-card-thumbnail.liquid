@@ -8,8 +8,23 @@
     {% assign alt = page.title | append: ' - ' | append: site.title %}
 {% endunless %}
 
+{% assign lazyload = include.lazyload %}
+
+{% if lazyload == nil %}
+    {% assign lazyload = true %}
+{% endif %}
+
+{% if lazyload == true %}
+    {% assign src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' %}
+    {% assign data-src = file | relative_url %}
+{% else %}
+    {% assign src = file | relative_url %}
+    {% assign data-src = '' %}
+{% endif %}
+
 <a href="{{ post.url }}" class="post-card-image-link">
-    <img src="{{ file }}"
-         class="img-fluid"
+    <img src="{{ src }}"
+         data-src="{{ data-src }}"
+         class="img-fluid lazyload"
          alt="{{ alt }}">
 </a>
