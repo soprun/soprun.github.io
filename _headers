@@ -7,7 +7,7 @@
   Access-Control-Allow-Methods: GET, OPTIONS, HEAD
   Access-Control-Max-Age: 86400
   Vary: Accept-Encoding, Origin
-  Referrer-Policy: origin-when-cross-origin
+  Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=63072000
   Permissions-Policy: document-domain=()
   Content-Security-Policy-Report-Only: default-src *; object-src 'none'; report-uri https://soprun.report-uri.com/r/d/csp/enforce;
