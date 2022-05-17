@@ -2,7 +2,7 @@
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
-  Access-Control-Allow-Origin': *
+  Access-Control-Allow-Origin': mc.yandex.ru
   Access-Control-Allow-Credentials: true
   Access-Control-Allow-Methods: GET, OPTIONS, HEAD
   Access-Control-Max-Age: 86400
