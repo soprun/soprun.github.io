@@ -250,3 +250,33 @@ details[open] summary {
     margin-bottom: .5em;
 }
 
+.post {
+    &-header {
+        //color: #727070;
+        display: block;
+        margin-bottom: 1em;
+    }
+    &-content {
+    }
+    &-title {
+        color: initial;
+    }
+    &-meta {
+        display: block;
+        margin-bottom: .5em;
+    }
+    &-tags {
+        display: block;
+        margin-bottom: .5em;
+    }
+    &-categories {
+        display: block;
+        margin-bottom: .5em;
+    }
+    &-thumbnail {
+        img {
+            width: 100%;
+            //border-radius: 10px;
+        }
+    }
+}

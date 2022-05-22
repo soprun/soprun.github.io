@@ -1,75 +1,40 @@
 ---
 layout: default
 ---
-<article class="post"
+<article id="{{ page.id }}"
+         class="post"
          itemid="{{ post.url | relative_url }}"
          itemprop="blogPost"
          itemscope
          itemtype="https://schema.org/BlogPosting">
 
     <header class="post-header">
-        <picture>
-            <source srcset="{{ page.thumbnail_cover | relative_url }}"/>
-            <img
-                class="img-fluid rounded mb-4"
-                decoding="async"
-                loading="lazy"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII="
-                alt="{{ page.title | escape }}"/>
+        {% include snippet/post/post-thumbnail.liquid
+            file=page.thumbnail_cover
+            alt=page.title
+        %}
 
-        </picture>
+        <p>&nbsp;</p>
 
-        <h1 class="post-title" itemprop="name headline">
-            {{ page.title | escape }}
-        </h1>
-
-        <p class="post-meta">
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-
-            <time class="text-muted" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                <i class="fas fa-calendar-alt mr-2"></i>
-                {{ page.date | date: date_format }}
-            </time>
-
-            {%- if page.modified_date -%}
-                ~
-                {%- assign mdate = page.modified_date | date_to_xmlschema -%}
-                <time datetime="{{ mdate }}" itemprop="dateModified">
-                    {{ mdate | date: date_format }}
-                </time>
-            {%- endif -%}
-
-            {%- if page.author -%}
-                •
-                {% for author in page.author %}
-                    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <span itemprop="name">{{ author }}</span>
-                    </span>
-                    {%- if forloop.last == false %}, {% endif -%}
-                {% endfor %}
-            {%- endif -%}
-        </p>
-
-        {% assign tags_size = page.tags | size %}
-        {% if tags_size != 0 %}
-            <p class="text-muted">
-                <span>Tags:</span>
-                {% for tag in page.tags %}
-                    <span class="badge bg-primary">{{ tag }}</span>
-                {% endfor %}
-            </p>
-        {% endif %}
-
-        {% assign categories_size = page.categories | size %}
-        {% if categories_size != 0 %}
-            <p>
-                <span>Categories:</span>
-                {% for categoriey in page.categories %}
-                    <span class="badge bg-primary">{{ categoriey }}</span>
-                {% endfor %}
-            </p>
-        {% endif %}
+        {% include snippet/post/post-title.liquid
+            title=page.title
+        %}
+        {% include snippet/post/post-meta.liquid
+            date=page.date
+            modified_date=page.modified_date
+            class="text-muted"
+        %}
+        {% include snippet/post/post-tags.liquid
+            tags=page.tags
+            class="text-muted"
+        %}
+        {% include snippet/post/post-categories.liquid
+            categories=page.categories
+            class="text-muted"
+        %}
     </header>
+
+    <p>&nbsp;</p>
 
     <div class="post-content" itemprop="articleBody">
         {{ content }}

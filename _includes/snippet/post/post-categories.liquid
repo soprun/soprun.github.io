@@ -1,0 +1,11 @@
+{% assign size = include.categories | size %}
+
+{% if size != 0 %}
+    <div class="post-categories {{ include.class }}">
+        <i class="fa-solid fa-list"></i>
+        <span>Categories:</span>
+        {% for categoriey in include.categories %}
+            <span class="badge bg-primary">{{ categoriey }}</span>
+        {% endfor %}
+    </div>
+{% endif %}

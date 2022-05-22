@@ -9,51 +9,37 @@ layout: default
 {% endif %}
 
 {% if posts.size > 0 %}
-    {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-
     <div class="row row-cols-1">
         {% for post in posts %}
             <article id="{{ post.id }}" class="post-card col bg-light rounded">
-
-                {% if post.thumbnail %}
-                    {% include snippet/post-card-thumbnail.liquid
+                <a href="{{ post.url }}" class="post-card-thumbnail">
+                    {% include snippet/post/post-thumbnail.liquid
                         file=post.thumbnail
                         alt=post.title
                     %}
-                {% endif %}
+                </a>
 
                 <div class="post-card-body">
-                    <h1 class="post-card-title">
-                        <a href="{{ post.url }}">
-                            {{ post.title }}
-                        </a>
-                    </h1>
-
-                    <p class="post-card-subtitle">
-                        <time class="text-muted" itemprop="datePublished"
-                              datetime="{{ post.date | date: '%Y-%m-%d' }}">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            {{ post.date | date_to_long_string }}
-                        </time>
-                    </p>
-
+                    {% include snippet/post/post-title.liquid
+                        title=post.title
+                        url=post.url
+                    %}
+                    {% include snippet/post/post-meta.liquid
+                        date=post.date
+                        modified_date=post.modified_date
+                        class="text-muted"
+                    %}
                     <div class="post-card-preview">
                         {% comment %}{{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
                         {{ post.excerpt | truncatewords: 160 }}
                         {% comment %}{{ post.content | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
                     </div>
-
-                    {% assign tags_size = post.tags | size %}
-                    {% if tags_size != 0 %}
-                        <footer class="post-card-footer">
-                            <div>
-                                <span>Tags:</span>
-                                {% for tag in post.tags %}
-                                    <span class="badge bg-primary">{{ tag }}</span>
-                                {% endfor %}
-                            </div>
-                        </footer>
-                    {% endif %}
+                    <footer class="post-card-footer">
+                        {% include snippet/post/post-tags.liquid
+                            tags=post.tags
+                            class="text-muted"
+                        %}
+                    </footer>
                 </div>
             </article>
         {% endfor %}

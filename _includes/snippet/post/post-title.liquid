@@ -1,0 +1,14 @@
+{% assign title = include.title | escape %}
+{% assign url = include.url %}
+
+{% if title %}
+    <h2 class="post-title {{ include.class }}">
+        {% if url %}
+            <a href="{{ url }}">
+                {{ title }}
+            </a>
+        {% else %}
+            {{ title }}
+        {% endif %}
+    </h2>
+{% endif %}

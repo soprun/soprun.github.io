@@ -1,0 +1,11 @@
+{% assign size = include.tags | size %}
+
+{% if size != 0 %}
+    <div class="post-tags {{ include.class }}">
+        <i class="fa-solid fa-tags"></i>
+        <span>Tags:</span>
+        {% for tag in include.tags %}
+            <span class="badge bg-primary">{{ tag }}</span>
+        {% endfor %}
+    </div>
+{% endif %}

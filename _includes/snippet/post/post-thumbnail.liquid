@@ -1,0 +1,18 @@
+{% assign alt = include.alt %}
+{% unless alt %}
+    {% assign alt = page.title | append: ' - ' | append: site.title %}
+{% endunless %}
+
+{% assign file = include.file %}
+{% comment %}{% assign file = include.file | default: 'https://via.placeholder.com/1300x300' %}{% endcomment %}
+
+{% if file %}
+    <picture class="post-thumbnail {{ include.class }}">
+        <source srcset="{{ file | relative_url }}"/>
+        <img
+            decoding="async"
+            loading="lazy"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII="
+            alt="{{ alt | escape }}"/>
+    </picture>
+{% endif %}

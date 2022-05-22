@@ -1,4 +1,3 @@
-# Site settings
 #title: Your awesome title
 #email: your-email@domain.com
 #description: > # this means to ignore newlines until "baseurl:"
@@ -12,13 +11,12 @@
 
 
 
-
-
 # the base hostname & protocol for your site
 baseurl: ''
-url: 'https://soprun.com'
 lang: 'ru'
+# url: 'https://soprun.com'
 
+# Site settings
 title: 'Soprun Vladislav'
 description: >
   Hi, welcome to my tech blog!
@@ -68,19 +66,23 @@ markdown: kramdown
 highlighter: rouge
 render_with_liquid: false
 
+future: true
+
+# Conversion
+#lsi: true
+#excerpt_separator: "\n\n"
+#incremental: true
+
 kramdown:
   input: GFM
   auto_ids: true
   math_engine: mathjax
   hard_wrap: true
   syntax_highlighter: rouge
-
-#  entity_output: as_char
-#  toc_levels: [ 1, 2, 3, 4, 5, 6 ]
-#  smart_quotes: lsquo,rsquo,ldquo,rdquo
-#  input: GFM
-#  hard_wrap: false
-#  footnote_nr: 1
+  entity_output: as_char
+  footnote_nr: 1
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
 
 # https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
 plugins:
@@ -89,13 +91,13 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-gist
-  - jekyll-github-metadata
   - jekyll-paginate
 
 # https://jekyllrb.com/docs/configuration/front-matter-defaults/
 collections:
   posts:
+    output: true
+  default:
     output: true
 
 defaults:
@@ -108,40 +110,39 @@ defaults:
       type: 'posts'
     values:
       layout: 'post'
-      permalink: "/page/:id"
-      thumbnail_default: 'https://via.placeholder.com/300x220'
-      thumbnail_default_cover: 'https://via.placeholder.com/1300x300'
+      noindex: false
+      permalink: '/page/:id'
+      thumbnail: 'https://via.placeholder.com/480x360'
+      thumbnail_cover: 'https://via.placeholder.com/1300x300'
   - scope:
       # an empty string here means all files in the project
       path: ''
+      type: "default"
     values:
       layout: 'default'
-#      author:
-#        name: 'Soprun Vladislav'
-#        url: 'https://soprun.com'
-#        email: 'mail@soprun.com'
-#        phone: '+79017972126'
-#        gpg_public_key: 'https://github.com/soprun.gpg'
-#        gpg_fingerprint: 'B750 2F96 C5DC 44C2'
+      noindex: false
+      thumbnail: 'https://via.placeholder.com/480x360'
+      thumbnail_cover: 'https://via.placeholder.com/1300x300'
 
+permalink: date
 paginate: 4
 paginate_path: "/page/:num"
 
 webrick:
   headers:
-    Access-Control-Allow-Origin: "*.embednotion.com"
-    Content-Security-Policy: "
-      base-uri 'self';
-      default-src 'self' data: ws: localhost:35729 cdnjs.cloudflare.com;
-      child-src 'none';
-      form-action 'self';
-      connect-src 'self' ws: *.sentry.io cdnjs.cloudflare.com cloudflareinsights.com fonts.googleapis.com fonts.gstatic.com mc.yandex.ru sentry.io;
-      object-src 'none';
-      font-src cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com embednotion.com v1.embednotion.com;
-      style-src 'self' fonts.googleapis.com cdnjs.cloudflare.com;
-      script-src 'self' 'unsafe-inline' localhost:35729 *.sentry.io cdnjs.cloudflare.com browser.sentry-cdn.com js.sentry-cdn.com mc.yandex.ru static.cloudflareinsights.com;
-      media-src *;
-      img-src 'self' data: images.unsplash.com;
-      frame-src 'self' v1.embednotion.com;
-      report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;
-      "
+    Access-Control-Allow-Origin: "*"
+    Content-Security-Policy: default-src 'self' 'unsafe-inline' *;
+#    Content-Security-Policy: "
+#      base-uri 'self';
+#      default-src 'self' data: ws: localhost:35729 cdnjs.cloudflare.com;
+#      child-src 'none';
+#      form-action 'self';
+#      connect-src 'self' ws: *.sentry.io cdnjs.cloudflare.com cloudflareinsights.com fonts.googleapis.com fonts.gstatic.com mc.yandex.ru sentry.io;
+#      object-src 'none';
+#      font-src cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com embednotion.com v1.embednotion.com;
+#      style-src 'self' fonts.googleapis.com cdnjs.cloudflare.com;
+#      script-src 'self' *.sentry.io cdnjs.cloudflare.com browser.sentry-cdn.com js.sentry-cdn.com mc.yandex.ru static.cloudflareinsights.com;
+#      media-src *;
+#      img-src 'self' data: images.unsplash.com via.placeholder.com;
+#      frame-src 'self' v1.embednotion.com;
+#      "
