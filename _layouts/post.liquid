@@ -8,12 +8,16 @@ layout: default
          itemtype="https://schema.org/BlogPosting">
 
     <header class="post-header">
-        {% include snippet/image.liquid
-            file=page.thumbnail_cover
-            alt=page.title
-            figure_class='figure-post'
-            image_class='rounded '
-        %}
+        <picture>
+            <source srcset="{{ page.thumbnail_cover | relative_url }}"/>
+            <img
+                class="img-fluid rounded mb-4"
+                decoding="async"
+                loading="lazy"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII="
+                alt="{{ page.title | escape }}"/>
+
+        </picture>
 
         <h1 class="post-title" itemprop="name headline">
             {{ page.title | escape }}

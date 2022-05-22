@@ -15,7 +15,7 @@
 
 
 # the base hostname & protocol for your site
-baseurl: /
+baseurl: ''
 url: 'https://soprun.com'
 lang: 'ru'
 
@@ -126,3 +126,22 @@ defaults:
 
 paginate: 4
 paginate_path: "/page/:num"
+
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*.embednotion.com"
+    Content-Security-Policy: "
+      base-uri 'self';
+      default-src 'self' data: ws: localhost:35729 cdnjs.cloudflare.com;
+      child-src 'none';
+      form-action 'self';
+      connect-src 'self' ws: *.sentry.io cdnjs.cloudflare.com cloudflareinsights.com fonts.googleapis.com fonts.gstatic.com mc.yandex.ru sentry.io;
+      object-src 'none';
+      font-src cdnjs.cloudflare.com fonts.googleapis.com fonts.gstatic.com embednotion.com v1.embednotion.com;
+      style-src 'self' fonts.googleapis.com cdnjs.cloudflare.com;
+      script-src 'self' 'unsafe-inline' localhost:35729 *.sentry.io cdnjs.cloudflare.com browser.sentry-cdn.com js.sentry-cdn.com mc.yandex.ru static.cloudflareinsights.com;
+      media-src *;
+      img-src 'self' data: cdnjs.cloudflare.com fonts.gstatic.com images.unsplash.com via.placeholder.com dummyimage.com;
+      frame-src 'self' v1.embednotion.com;
+      report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;
+      "
