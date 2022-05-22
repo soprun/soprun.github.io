@@ -2,41 +2,32 @@
 layout: default
 ---
 <article id="{{ page.id }}"
-         class="post"
+         class="post-page"
          itemid="{{ post.url | relative_url }}"
          itemprop="blogPost"
          itemscope
          itemtype="https://schema.org/BlogPosting">
 
-    <header class="post-header">
+    <header class="post-page-header">
         {% include snippet/post/post-thumbnail.liquid
             file=page.thumbnail_cover
             alt=page.title
         %}
-
-        <p>&nbsp;</p>
-
         {% include snippet/post/post-title.liquid
             title=page.title
         %}
         {% include snippet/post/post-meta.liquid
             date=page.date
             modified_date=page.modified_date
-            class="text-muted"
         %}
         {% include snippet/post/post-tags.liquid
             tags=page.tags
-            class="text-muted"
         %}
         {% include snippet/post/post-categories.liquid
             categories=page.categories
-            class="text-muted"
         %}
     </header>
-
-    <p>&nbsp;</p>
-
-    <div class="post-content" itemprop="articleBody">
+    <div class="post-page-content" itemprop="articleBody">
         {{ content }}
     </div>
 </article>

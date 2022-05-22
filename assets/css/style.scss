@@ -271,6 +271,8 @@ details[open] summary {
     }
 
     &-thumbnail {
+        display: block;
+
         img {
             justify-content: center;
             align-items: center;
@@ -283,8 +285,8 @@ details[open] summary {
             height: 100%;
             //max-height: inherit;
             //height: auto;
-            //border-radius: 10px;
-            //box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+            // border-radius: 10px;
+            // box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
         }
     }
 }
@@ -424,6 +426,33 @@ details[open] summary {
     //
     //.post-tags {
     //}
+}
+
+.post-page {
+    &-header {
+        margin-bottom: 1.5em;
+    }
+
+    &-content {
+    }
+
+    .post-meta {
+        color: #6c757d;
+    }
+
+    .post-tags {
+        color: #6c757d;
+    }
+
+    .post-thumbnail {
+        margin-bottom: 1.5em;
+
+        img {
+            border-radius: .5em;
+            border: 1px solid rgba(34, 60, 80, 0.2);
+            box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+        }
+    }
 }
 
 
