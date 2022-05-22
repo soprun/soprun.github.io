@@ -1,0 +1,16 @@
+{% assign content = include.content %}
+{% assign url = include.url %}
+
+<div class="post-content">
+    {{ content | strip_html | newline_to_br | truncatewords: 160 }}
+</div>
+
+{% if url %}
+    <a href="{{ url | relative_url }}" class="btn btn-link p-0">
+        View post
+    </a>
+{% endif %}
+
+{% comment %}{{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
+{% comment %}{{ post.excerpt | strip_html | newline_to_br | truncatewords: 160 }}{% endcomment %}
+{% comment %}{{ post.content | strip_html | markdownify | strip_html |r | truncatewords: 160 }}{% endcomment %}

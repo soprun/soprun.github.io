@@ -11,33 +11,33 @@ layout: default
 {% if posts.size > 0 %}
     <div class="row row-cols-1">
         {% for post in posts %}
-            <article id="{{ post.id }}" class="post-card col bg-light rounded">
+            <article id="{{ post.id }}" class="post-card col">
                 <a href="{{ post.url }}" class="post-card-thumbnail">
                     {% include snippet/post/post-thumbnail.liquid
                         file=post.thumbnail
                         alt=post.title
                     %}
                 </a>
-
                 <div class="post-card-body">
-                    {% include snippet/post/post-title.liquid
-                        title=post.title
-                        url=post.url
-                    %}
-                    {% include snippet/post/post-meta.liquid
-                        date=post.date
-                        modified_date=post.modified_date
-                        class="text-muted"
-                    %}
-                    <div class="post-card-preview">
-                        {% comment %}{{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
-                        {{ post.excerpt | truncatewords: 160 }}
-                        {% comment %}{{ post.content | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
+                    <header class="post-card-header">
+                        {% include snippet/post/post-title.liquid
+                            title=post.title
+                            url=post.url
+                        %}
+                        {% include snippet/post/post-meta.liquid
+                            date=post.date
+                            modified_date=post.modified_date
+                        %}
+                    </header>
+                    <div class="post-card-content">
+                        {% include snippet/post/post-content.liquid
+                            content=post.excerpt
+                            url=post.url
+                        %}
                     </div>
                     <footer class="post-card-footer">
                         {% include snippet/post/post-tags.liquid
                             tags=post.tags
-                            class="text-muted"
                         %}
                     </footer>
                 </div>
