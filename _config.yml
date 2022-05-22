@@ -14,7 +14,7 @@
 # the base hostname & protocol for your site
 baseurl: ''
 lang: 'ru'
-# url: 'https://soprun.com'
+url: 'https://soprun.com'
 
 # Site settings
 title: 'Soprun Vladislav'
@@ -65,13 +65,6 @@ liquid:
 markdown: kramdown
 highlighter: rouge
 render_with_liquid: false
-
-future: true
-
-# Conversion
-#lsi: true
-#excerpt_separator: "\n\n"
-#incremental: true
 
 kramdown:
   input: GFM
@@ -128,10 +121,10 @@ permalink: date
 paginate: 4
 paginate_path: "/page/:num"
 
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "*"
-    Content-Security-Policy: default-src 'self' 'unsafe-inline' *;
+#webrick:
+#  headers:
+#    Access-Control-Allow-Origin: "*"
+#    Content-Security-Policy: default-src 'self' 'unsafe-inline' *;
 #    Content-Security-Policy: "
 #      base-uri 'self';
 #      default-src 'self' data: ws: localhost:35729 cdnjs.cloudflare.com;
