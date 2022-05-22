@@ -11,8 +11,8 @@ tristique justo fringilla. Etiam at feugiat lacus, id pulvinar velit. Praesent c
 # Deployments to [Cloudflare Pages](https://developers.cloudflare.com/pages/)
 
 ## Domains:
-- https://soprun-github-io.pages.dev (production, aliases https://soprun.com)
-- https://dev.soprun-github-io.pages.dev
+- [https://soprun-github-io.pages.dev](https://soprun-github-io.pages.dev) (production, aliases [https://soprun.com](https://soprun.com))
+- [https://dev.soprun-github-io.pages.dev](https://dev.soprun-github-io.pages.dev)
 
 
 # Infrastructure and external services
