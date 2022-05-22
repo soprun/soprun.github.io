@@ -141,7 +141,7 @@ webrick:
       style-src 'self' fonts.googleapis.com cdnjs.cloudflare.com;
       script-src 'self' 'unsafe-inline' localhost:35729 *.sentry.io cdnjs.cloudflare.com browser.sentry-cdn.com js.sentry-cdn.com mc.yandex.ru static.cloudflareinsights.com;
       media-src *;
-      img-src 'self' data: cdnjs.cloudflare.com fonts.gstatic.com images.unsplash.com via.placeholder.com dummyimage.com;
+      img-src 'self' data: images.unsplash.com;
       frame-src 'self' v1.embednotion.com;
       report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;
       "

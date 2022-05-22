@@ -32,7 +32,7 @@ a {
 #sidebar {
     &-logo {
         img {
-            max-width: 150px;
+            //max-width: 150px;
         }
     }
 
@@ -226,3 +226,27 @@ iframe {
 //        }
 //    }
 //}
+
+details {
+    border-radius: .2rem;
+    padding: .5em .5em 0;
+    border: 1px solid rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+    margin-bottom: 1em;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid rgba(34, 60, 80, 0.2);
+    margin-bottom: .5em;
+}
+

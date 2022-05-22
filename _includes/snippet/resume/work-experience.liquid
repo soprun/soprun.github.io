@@ -1,0 +1,47 @@
+{% comment %}<h2 class="text-primary">Work experience</h2>{% endcomment %}
+<h2>Professional Experience️ ⚙️</h2>
+
+{% for experience in site.data.work-experience %}
+
+    <hr>
+
+    <h2 class="text-primary">
+        {{ experience.name }}
+    </h2>
+
+    <h5>
+        Position:
+        <span class="text-primary">{{ experience.position }}</span>
+    </h5>
+
+    <h5>Environment</h5>
+
+    <ul class="list-inline">
+        {% for environment in experience.environment %}
+            <li class="list-inline-item">{{ environment }}</li>
+        {% endfor %}
+    </ul>
+
+    <h5>Architecture style</h5>
+    <ul>
+        {% for architecture in experience.architecture %}
+            <li>{{ architecture }}</li>
+        {% endfor %}
+    </ul>
+
+    <h5>Responsibilities</h5>
+
+    {% for responsibility in experience.responsibilities %}
+        {% if responsibility.title %}
+            <div class="fw-bold">{{ responsibility.title }}</div>
+        {% endif %}
+        <ul>
+            {% for task in responsibility.tasks %}
+                <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    {% comment %}<div><strong>Accomplishment:</strong></div>{% endcomment %}
+    {% comment %}<p>...</p>{% endcomment %}
+{% endfor %}
