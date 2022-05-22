@@ -1,7 +1,19 @@
 ---
 ---
+
 body {
-    font: 14px/1.5 'Noto Sans', sans-serif !important;
+    font-family: 'Noto Sans', sans-serif !important;
+    font-size: 14px;
+    margin: 0 auto;
+
+    // visibility: hidden;
+    // opacity: 0;
+    // transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+
+    &.loaded {
+        // visibility: visible;
+        // opacity: 1;
+    }
 }
 
 a {
@@ -19,9 +31,14 @@ a {
 }
 
 #sidebar {
-
+    &-logo {
+        img {
+            max-width: 150px;
+        }
+    }
     &-signature {
         opacity: 60%;
+        transition: visibility 0s linear 0.33s, opacity 0.33s linear;
 
         &:hover {
             opacity: 100%;
@@ -115,24 +132,35 @@ iframe {
     overflow: hidden;
     position: relative;
     flex-wrap: wrap;
+    padding: 0;
 
     //background-color: #18151f;
     //color: white;
 
-    &:hover &-image-link img {
+    &:hover &-thumbnail picture {
         transform: scale(1.1);
     }
-    &-image-link {
+    &-thumbnail {
         display: contents;
         // display: block;
 
-        img {
-            // max-width: 300px;
-            // max-height: 225px;
-            max-height: 180px;
-            width: 100%;
+        picture {
+            display: block;
             object-fit: cover;
             position: relative;
+            // max-height: 180px;
+            width: 100%;
+            transition-duration: .3s;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            // max-width: 300px;
+            // max-height: 225px;
+            // display: block;
+            // width: 100%;
+            // height: 100%;
         }
     }
     &-body {
@@ -167,10 +195,9 @@ iframe {
         flex-direction: row-reverse;
         flex-wrap: nowrap;
 
-        &-image-link img {
+        &-image-link picture {
             max-width: 30%;
             max-height: 100%;
-            transition: transform 0.3s ease;
         }
 
         &-tags {
