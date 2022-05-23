@@ -12,6 +12,22 @@ layout: default
     <div class="row row-cols-1"
          itemscope
          itemtype="http://schema.org/Blog">
+
+        <meta itemprop="name" content="{{ site.title }}">
+        <meta itemprop="description" content="{{ site.description | strip_html }}">
+
+        <div itemprop="publisher"
+             itemscope
+             itemtype="https://schema.org/Organization">
+            <!-- Указываем издателя, логотип и контакты -->
+            <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <link itemprop="url image" href="{{ '/assets/img/logo.png' | absolute_url }}">
+                <meta content="120" itemprop="width">
+                <meta content="120" itemprop="height">
+            </div>
+            <meta content="{{ site.title }}" itemprop="name">
+        </div>
+
         {% for post in posts %}
             <article id="post-{{ post.id }}"
                      class="post-card col"
@@ -19,12 +35,13 @@ layout: default
                      itemscope
                      itemtype="http://schema.org/BlogPosting">
 
-                <link itemprop="url" href="{{ post.url | relative_url }}">
-
-                <link itemprop="thumbnailUrl" href="{{ post.thumbnail | relative_url }}">
-                <link itemprop="image" href="{{ post.thumbnail | relative_url }}">
-
-                <meta content="{{ post.url | absolute_url }}" itemprop="mainEntityOfPage">
+                <meta itemprop="name" content="{{ post.title }}" />
+                <meta itemprop="keywords" content="{{ page.tags | join: ',' }}" />
+                <meta itemprop="description" content="{{ content | strip_html | truncatewords: 40 }}" />
+                <meta itemprop="url" content="{{ post.url | relative_url }}">
+                <meta itemprop="thumbnailUrl" content="https://images.weserv.nl/?url={{ post.thumbnail | relative_url }}&fit=cover&maxage=1d">
+                <meta itemprop="image" content="https://images.weserv.nl/?url={{ post.thumbnail | relative_url }}&fit=cover&maxage=1d">
+                <meta itemprop="mainEntityOfPage" content="{{ post.url | absolute_url }}">
                 <meta itemscope
                       itemprop="mainEntityOfPage"
                       itemType="https://schema.org/WebPage"
@@ -37,7 +54,6 @@ layout: default
                         file=post.thumbnail
                         alt=post.title
                     %}
-                    <meta itemprop="image" content="{{ post.thumbnail | absolute_url }}">
                 </a>
                 <div class="post-card-body">
                     <header class="post-card-header">
@@ -65,18 +81,4 @@ layout: default
         {% endfor %}
     </div>
     {% comment %}{% include snippet/paginate.liquid %}{% endcomment %}
-
-    <meta itemprop="description" content="{{ site.description | strip_html }}">
-
-    <div itemprop="publisher"
-         itemscope
-         itemtype="https://schema.org/Organization">
-        <!-- Указываем издателя, логотип и контакты -->
-        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <link itemprop="url image" href="{{ '/assets/img/logo.png' | absolute_url }}">
-            <meta content="120" itemprop="width">
-            <meta content="120" itemprop="height">
-        </div>
-        <meta content="{{ site.title }}" itemprop="name">
-    </div>
 {% endif %}

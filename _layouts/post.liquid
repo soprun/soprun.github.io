@@ -6,10 +6,10 @@ layout: default
          itemid="{{ page.url | absolute_url }}"
          itemscope
          itemtype="http://schema.org/BlogPosting">
+
     {% include snippet/post/post-thumbnail.liquid
         file=page.thumbnail_cover
         alt=page.title
-        class=''
     %}
     <header class="post-page-header">
         {% include snippet/post/post-title.liquid

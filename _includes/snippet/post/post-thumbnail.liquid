@@ -7,20 +7,22 @@
 {% comment %}{% assign file = include.file | default: 'https://via.placeholder.com/1300x300' %}{% endcomment %}
 
 {% if file %}
+    {% assign file = 'https://images.weserv.nl/?url=' | append: file | append: '&fit=cover&maxage=1d' | relative_url %}
+    {% assign fileBlur = 'https://images.weserv.nl/?url=' | append: file | append: '&w=20&h=20xwx&fit=cover&blur=5&maxage=1d' | relative_url %}
+{% endif %}
+
+{% if file %}
     <picture class="post-thumbnail {{ include.class }}"
              itemprop="logo"
              itemscope
              itemtype="https://schema.org/ImageObject">
-
-        {% comment %}TODO: проверить, нужно ди через link делать?! {% endcomment %}
-        {% comment %}<link itemprop="url image" href="{{ file | relative_url }}">{% endcomment %}
-        <source srcset="{{ file | relative_url }}"
-                itemprop="url image"/>
+        <meta itemprop="url image" content="{{ file }}"/>
+        <source srcset="{{ file }}"/>
         <img
             class="img-fluid"
             decoding="async"
             loading="lazy"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII="
+            src="{{ fileBlur }}"
             alt="{{ alt | escape }}"/>
     </picture>
 {% endif %}
