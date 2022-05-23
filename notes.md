@@ -4,8 +4,6 @@ title: "Notes & Reading list 📝"
 permalink: /notes
 ---
 
-# Notes 📝
-
 Заметки, методики, ....
 
 <iframe src="https://v1.embednotion.com/embed/2af354af1a90472c9874ffbe34b3e16f"></iframe>
@@ -13,7 +11,7 @@ permalink: /notes
 <br>
 <br>
 
-# Reading list 📖
+## Reading list 📖
 
 <i class="fa-brands fa-medium"></i> Medium -
 <a href="https://medium.com/@soprun/list/reading-list" rel="noopener noreferrer" target="_blank">300+ stories in

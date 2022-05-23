@@ -2,10 +2,13 @@
     padding-top: 1.5rem;
 
     .sticky-top > section {
-        margin-bottom: 1rem;
+        // margin-bottom: 1rem;
+
+        padding-top: .5rem;
+        padding-bottom: .5rem;
 
         &:last-child {
-            margin-bottom: 0;
+            padding-bottom: 0;
         }
     }
 
