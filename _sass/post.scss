@@ -158,11 +158,34 @@ $post-meta-color: #6c757d;
     }
 
     .post-meta {
-        // color: #6c757d;
     }
 
     .post-tags {
-        // color: #6c757d;
+    }
+
+    .post-thumbnail {
+        margin-bottom: 1.5em;
+
+        img {
+            border-radius: .5em;
+            border: 1px solid rgba(34, 60, 80, 0.2);
+            box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+        }
+    }
+}
+
+.page {
+    &-header {
+        margin-bottom: 1.5em;
+    }
+
+    &-content {
+    }
+
+    .post-meta {
+    }
+
+    .post-tags {
     }
 
     .post-thumbnail {
