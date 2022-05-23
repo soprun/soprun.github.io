@@ -2,7 +2,6 @@
     <section id="sidebar-logo" class="text-center">
         <a href="{{ '/' | absolute_url }}" target="_self" rel="home" itemprop="url">
             <picture>
-                {% comment %}<source srcset="{{ '/assets/img/avatar-large.png' | relative_url }}" type="image/png" />{% endcomment %}
                 <source srcset="{{ '/assets/img/logo.webp' | absolute_url }}" type="image/webp" />
                 <source srcset="{{ '/assets/img/logo.avif' | absolute_url }}" type="image/avif" />
                 <source srcset="{{ '/assets/img/logo.png' | absolute_url }}" type="image/png" />
@@ -10,9 +9,6 @@
                     class="img-fluid rounded-circle"
                     loading="lazy"
                     decoding="async"
-                    width="150"
-                    height="150"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII="
                     alt="{{ site.title | escape }}" />
             </picture>
         </a>
