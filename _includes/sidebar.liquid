@@ -1,40 +1,38 @@
-<div class="sticky-top">
-    <section id="sidebar-logo" class="text-center">
-        <a href="{{ '/' | absolute_url }}" target="_self" rel="home" itemprop="url">
-            <picture>
-                {% comment %}<source srcset="{{ '/assets/img/logo.webp' | absolute_url }}" type="image/webp" />{% endcomment %}
-                {% comment %}<source srcset="{{ '/assets/img/logo.avif' | absolute_url }}" type="image/avif" />{% endcomment %}
-                {% comment %}<source srcset="{{ '/assets/img/logo.png' | absolute_url }}" type="image/png" />{% endcomment %}
-                <img
-                    class="img-fluid rounded-circle"
-                    width="150"
-                    height="150"
-                    src="{{ '/assets/img/logo.webp' | absolute_url }}"
-                    type="image/webp"
-                    alt="{{ site.title | escape }}" />
-            </picture>
+<section id="sidebar-logo" class="text-center">
+    <a href="{{ '/' | absolute_url }}" target="_self" rel="home" itemprop="url">
+        <picture>
+            {% comment %}<source srcset="{{ '/assets/img/logo.webp' | absolute_url }}" type="image/webp" />{% endcomment %}
+            {% comment %}<source srcset="{{ '/assets/img/logo.avif' | absolute_url }}" type="image/avif" />{% endcomment %}
+            {% comment %}<source srcset="{{ '/assets/img/logo.png' | absolute_url }}" type="image/png" />{% endcomment %}
+            <img
+                class="img-fluid rounded-circle"
+                width="150"
+                height="150"
+                src="{{ '/assets/img/logo.webp' | absolute_url }}"
+                type="image/webp"
+                alt="{{ site.title | escape }}"/>
+        </picture>
+    </a>
+</section>
+
+<section id="sidebar-author" class="text-center">
+    <h2>
+        <a href="{{ '/' | absolute_url }}" class="fw-light text-decoration-none">
+            {{ site.title }}
         </a>
-    </section>
+    </h2>
+    <p>{{ site.description }}</p>
+</section>
 
-    <section id="sidebar-author" class="text-center">
-        <h2>
-            <a href="{{ '/' | absolute_url }}" class="fw-light text-decoration-none">
-                {{ site.title }}
-            </a>
-        </h2>
-        <p>{{ site.description }}</p>
-    </section>
+<section id="sidebar-nav">
+    {% include snippet/sidebar/navigation.liquid %}
+</section>
 
-    <section id="sidebar-nav">
-        {% include snippet/sidebar/navigation.liquid %}
-    </section>
+<section id="sidebar-contact">
+    {% include snippet/sidebar/sidebar-contact.liquid %}
+</section>
 
-    <section id="sidebar-contact">
-        {% include snippet/sidebar/sidebar-contact.liquid %}
-    </section>
-
-    {% comment %}{% include snippet/public-links.liquid %}{% endcomment %}
-    {% comment %}<div class="p-2">{% endcomment %}
-    {% comment %}{% include snippet/latest-posts.liquid %}{% endcomment %}
-    {% comment %}</div>{% endcomment %}
-</div>
+{% comment %}{% include snippet/public-links.liquid %}{% endcomment %}
+{% comment %}<div class="p-2">{% endcomment %}
+{% comment %}{% include snippet/latest-posts.liquid %}{% endcomment %}
+{% comment %}</div>{% endcomment %}
