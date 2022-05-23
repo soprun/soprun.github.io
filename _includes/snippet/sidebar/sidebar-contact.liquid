@@ -1,0 +1,59 @@
+<table class="table table-borderless"
+       itemprop="author"
+       itemscope
+       itemtype="https://schema.org/Person">
+    <thead>
+    <tr>
+        <td colspan="2" class="fs-6">
+            Contact
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for link in site.data.links.contact %}
+        <tr>
+            <td>
+                {{ link.icon }}
+                {{ link.label }}
+            </td>
+            <td>
+                <a href="{{ link.url }}" class="fw-light text-decoration-none">
+                    {{ link.title }}
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    {% comment %}<tr>{% endcomment %}
+    {% comment %}<td colspan="2" class="fs-6">{% endcomment %}
+    {% comment %}Follow{% endcomment %}
+    {% comment %}</td>{% endcomment %}
+    {% comment %}</tr>{% endcomment %}
+    <tr>
+        <td colspan="2">
+            <div class="btn-group">
+                {% for link in site.data.links.follow %}
+                    <a href="{{ link.url }}"
+                       class="btn fs-6"
+                       itemprop="sameAs"
+                       rel="external"
+                       target="_blank">
+                        {{ link.icon }}
+                        <small>{{ link.title }}</small>
+                    </a>
+                {% endfor %}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div id="sidebar-signature" class="text-muted">
+                You can use my <a href="https://github.com/soprun.gpg" rel="noopener noreferrer" target="_blank">
+                    OpenPGP public key
+                </a> to send an encrypted email message!<br>
+                <code>B750 2F96 C5DC 44C2</code>
+                <i class="fa-solid fa-signature"></i>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

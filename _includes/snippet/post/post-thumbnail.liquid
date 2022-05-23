@@ -7,9 +7,17 @@
 {% comment %}{% assign file = include.file | default: 'https://via.placeholder.com/1300x300' %}{% endcomment %}
 
 {% if file %}
-    <picture class="post-thumbnail {{ include.class }}">
-        <source srcset="{{ file | relative_url }}"/>
+    <picture class="post-thumbnail {{ include.class }}"
+             itemprop="logo"
+             itemscope
+             itemtype="https://schema.org/ImageObject">
+
+        {% comment %}TODO: проверить, нужно ди через link делать?! {% endcomment %}
+        {% comment %}<link itemprop="url image" href="{{ file | relative_url }}">{% endcomment %}
+        <source srcset="{{ file | relative_url }}"
+                itemprop="url image"/>
         <img
+            class="img-fluid"
             decoding="async"
             loading="lazy"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdjOHPmzH8ACDADZKt3GNsAAAAASUVORK5CYII="

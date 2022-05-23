@@ -2,9 +2,9 @@
 {% assign url = include.url %}
 
 {% if title %}
-    <h2 class="post-title {{ include.class }}">
+    <h2 class="post-title {{ include.class }}" itemprop="headline">
         {% if url %}
-            <a href="{{ url }}">
+            <a href="{{ url }}" itemprop="mainEntityOfPage">
                 {{ title }}
             </a>
         {% else %}

@@ -9,14 +9,35 @@ layout: default
 {% endif %}
 
 {% if posts.size > 0 %}
-    <div class="row row-cols-1">
+    <div class="row row-cols-1"
+         itemscope
+         itemtype="http://schema.org/Blog">
         {% for post in posts %}
-            <article id="{{ post.id }}" class="post-card col">
-                <a href="{{ post.url }}" class="post-card-thumbnail">
+            <article id="post-{{ post.id }}"
+                     class="post-card col"
+                     itemprop="blogPosts"
+                     itemscope
+                     itemtype="http://schema.org/BlogPosting">
+
+                <link itemprop="url" href="{{ post.url | relative_url }}">
+
+                <link itemprop="thumbnailUrl" href="{{ post.thumbnail | relative_url }}">
+                <link itemprop="image" href="{{ post.thumbnail | relative_url }}">
+
+                <meta content="{{ post.url | absolute_url }}" itemprop="mainEntityOfPage">
+                <meta itemscope
+                      itemprop="mainEntityOfPage"
+                      itemType="https://schema.org/WebPage"
+                      itemid="{{ post.url | absolute_url }}"/>
+
+                <a href="{{ post.url | absolute_url }}"
+                   class="post-card-thumbnail"
+                   itemprop="url">
                     {% include snippet/post/post-thumbnail.liquid
                         file=post.thumbnail
                         alt=post.title
                     %}
+                    <meta itemprop="image" content="{{ post.thumbnail | absolute_url }}">
                 </a>
                 <div class="post-card-body">
                     <header class="post-card-header">
@@ -32,7 +53,6 @@ layout: default
                     <div class="post-card-content">
                         {% include snippet/post/post-content.liquid
                             content=post.excerpt
-                            url=post.url
                         %}
                     </div>
                     <footer class="post-card-footer">
@@ -44,34 +64,19 @@ layout: default
             </article>
         {% endfor %}
     </div>
+    {% comment %}{% include snippet/paginate.liquid %}{% endcomment %}
 
-    {% if site.paginate %}
-        <div class="pager d-none">
-            <ul class="pagination">
-                {% if paginator.previous_page %}
-                    <li>
-                        <a href="{{ paginator.previous_page_path | relative_url }}"
-                           class="previous-page">{{ paginator.previous_page }}</a>
-                    </li>
-                {% else %}
-                    <li>
-                        <div class="pager-edge">•</div>
-                    </li>
-                {% endif %}
-                <li>
-                    <div class="current-page">{{ paginator.page }}</div>
-                </li>
-                {% if paginator.next_page %}
-                    <li>
-                        <a href="{{ paginator.next_page_path | relative_url }}"
-                           class="next-page">{{ paginator.next_page }}</a>
-                    </li>
-                {% else %}
-                    <li>
-                        <div class="pager-edge">•</div>
-                    </li>
-                {% endif %}
-            </ul>
+    <meta itemprop="description" content="{{ site.description | strip_html }}">
+
+    <div itemprop="publisher"
+         itemscope
+         itemtype="https://schema.org/Organization">
+        <!-- Указываем издателя, логотип и контакты -->
+        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <link itemprop="url image" href="{{ '/assets/img/logo.png' | absolute_url }}">
+            <meta content="120" itemprop="width">
+            <meta content="120" itemprop="height">
         </div>
-    {% endif %}
+        <meta content="{{ site.title }}" itemprop="name">
+    </div>
 {% endif %}

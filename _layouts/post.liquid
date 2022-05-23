@@ -1,18 +1,17 @@
 ---
 layout: default
 ---
-<article id="{{ page.id }}"
+<article id="post-page-{{ page.id }}"
          class="post-page"
-         itemid="{{ post.url | relative_url }}"
-         itemprop="blogPost"
+         itemid="{{ page.url | absolute_url }}"
          itemscope
-         itemtype="https://schema.org/BlogPosting">
-
+         itemtype="http://schema.org/BlogPosting">
+    {% include snippet/post/post-thumbnail.liquid
+        file=page.thumbnail_cover
+        alt=page.title
+        class=''
+    %}
     <header class="post-page-header">
-        {% include snippet/post/post-thumbnail.liquid
-            file=page.thumbnail_cover
-            alt=page.title
-        %}
         {% include snippet/post/post-title.liquid
             title=page.title
         %}
