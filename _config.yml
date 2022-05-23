@@ -91,8 +91,7 @@ defaults:
       layout: 'post'
       noindex: false
       permalink: '/page/:id'
-      thumbnail: 'https://via.placeholder.com/480x360'
-      thumbnail_cover: 'https://via.placeholder.com/1300x300'
+      thumbnail: 'https://images.unsplash.com/photo-1616593772450-6220bc809944'
   - scope:
       # an empty string here means all files in the project
       path: ''
@@ -100,8 +99,7 @@ defaults:
     values:
       layout: 'default'
       noindex: false
-      thumbnail: 'https://via.placeholder.com/480x360'
-      thumbnail_cover: 'https://via.placeholder.com/1300x300'
+      thumbnail: 'https://images.unsplash.com/photo-1616593772450-6220bc809944'
 
 permalink: date
 paginate: 4

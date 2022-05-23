@@ -3,26 +3,32 @@
     {% assign alt = page.title | append: ' - ' | append: site.title %}
 {% endunless %}
 
+{% assign param = include.param %}
+{% unless param %}
+    {% assign param = '&w=400&fit=cover' %}
+{% endunless %}
+
 {% assign file = include.file %}
 {% comment %}{% assign file = include.file | default: 'https://via.placeholder.com/1300x300' %}{% endcomment %}
-
 {% if file %}
-    {% assign file = 'https://images.weserv.nl/?url=' | append: file | append: '&fit=cover&maxage=1d' | relative_url %}
-    {% assign fileBlur = 'https://images.weserv.nl/?url=' | append: file | append: '&w=20&h=20xwx&fit=cover&blur=5&maxage=1d' | relative_url %}
+    {% assign source = 'https://images.weserv.nl/?url=' | append: file| append: param | append: '&maxage=1d' | relative_url %}
+    {% assign sourceBlur = 'https://images.weserv.nl/?url=' | append: file | append: '&w=20&h=20xwx&fit=cover&blur=5&output=jpg&maxage=1d' | relative_url %}
 {% endif %}
 
-{% if file %}
+{% if source %}
     <picture class="post-thumbnail {{ include.class }}"
-             itemprop="logo"
+             itemprop="image"
              itemscope
              itemtype="https://schema.org/ImageObject">
-        <meta itemprop="url image" content="{{ file }}"/>
-        <source srcset="{{ file }}"/>
+        {% comment %}<meta itemprop="url image" content="{{ source }}&output=jpg"/>{% endcomment %}
+        <source srcset="{{ source }}&output=webp" type="image/webp" itemprop="url image"/>
+        <source srcset="{{ source }}&output=jpg" type="image/jpg" itemprop="url image"/>
         <img
+            width=""
             class="img-fluid"
             decoding="async"
             loading="lazy"
-            src="{{ fileBlur }}"
+            src="{{ sourceBlur }}"
             alt="{{ alt | escape }}"/>
     </picture>
 {% endif %}

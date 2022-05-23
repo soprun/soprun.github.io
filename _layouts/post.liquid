@@ -8,8 +8,9 @@ layout: default
          itemtype="http://schema.org/BlogPosting">
 
     {% include snippet/post/post-thumbnail.liquid
-        file=page.thumbnail_cover
+        file=page.thumbnail
         alt=page.title
+        param='&w=1300&h=300&fit=cover'
     %}
     <header class="post-page-header">
         {% include snippet/post/post-title.liquid
