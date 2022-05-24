@@ -77,3 +77,8 @@ build: clean ## Build your site
 
 markdownlint: ## Usage Command line
 	docker run -it -v $(PWD):/md peterdavehello/markdownlint markdownlint .
+
+
+
+sarda:
+	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
