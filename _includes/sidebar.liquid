@@ -1,15 +1,13 @@
 <section id="sidebar-logo" class="text-center">
     <a href="{{ '/' | absolute_url }}" target="_self" rel="home" itemprop="url">
         <picture>
-            {% comment %}<source srcset="{{ '/assets/img/logo.webp' | absolute_url }}" type="image/webp" />{% endcomment %}
-            {% comment %}<source srcset="{{ '/assets/img/logo.avif' | absolute_url }}" type="image/avif" />{% endcomment %}
-            {% comment %}<source srcset="{{ '/assets/img/logo.png' | absolute_url }}" type="image/png" />{% endcomment %}
             <img
                 class="img-fluid rounded-circle"
                 width="150"
                 height="150"
+                srcset="{{ '/assets/img/logo.webp' | absolute_url }} 1x,
+                        {{ '/assets/img/avatar-large.webp' | absolute_url }} 2x"
                 src="{{ '/assets/img/logo.webp' | absolute_url }}"
-                type="image/webp"
                 alt="{{ site.title | escape }}"/>
         </picture>
     </a>

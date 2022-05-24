@@ -22,11 +22,5 @@
     }
 
     &-signature {
-        opacity: 60%;
-        transition: opacity 0.33s linear;
-
-        &:hover {
-            opacity: 100%;
-        }
     }
 }
