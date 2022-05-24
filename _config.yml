@@ -1,16 +1,15 @@
 # Site settings
 baseurl: ''
-lang: 'ru'
-url: 'https://soprun.com'
-title: 'Soprun Vladislav'
-description: >
-  Hi, welcome to my tech blog!
-  <br>
-  I am a Technical Architect in Like Центр.
+lang: ru
+url: https://soprun.com
 
-#description: "I'm John Doe a web developer and software engineer. I studied computer science and software engineering."
-#description: 'Мои личные мысли о вебе и программировании.'
-#description: 'My personal thoughts on the web and programming.'
+title: Soprun Vladislav
+description: My personal thoughts on the web and programming...
+logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
+
+author:
+  name: Soprun Vladislav
+  url: https://soprun.com
 
 # Handling Reading
 safe: false
@@ -81,13 +80,13 @@ collections:
   default:
     output: true
 
-notion:
-  fetch_on_watch: true
-  databases:
-    - id: 412f963c1eb740cd88932a406d9380b8
-      data: notes
-    - id: b35a3080619745ad9a9ae2478c109299
-      data: skills
+#notion:
+#  fetch_on_watch: true
+#  databases:
+#    - id: 412f963c1eb740cd88932a406d9380b8
+#      data: notes
+#    - id: b35a3080619745ad9a9ae2478c109299
+#      data: skills
 
 defaults:
   - scope:
@@ -108,6 +107,7 @@ defaults:
     values:
       layout: 'default'
       noindex: false
+      image: https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1
 
 permalink: date
 paginate: 4

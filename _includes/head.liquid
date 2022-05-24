@@ -5,10 +5,7 @@
     <meta name="robots" content="{% if page.noindex == true %}noindex,{% else %}follow, index{% endif %}"/>
     <base href="{{ '/' | absolute_url }}">
 
-    <title>{% if page.title %}{{ page.title | append: ' - ' | append: site.title | escape | smartify }}{% else %}{{ site.title | smartify }}{% endif %}</title>
-
-    {% seo title = false %}
-
+    {% seo %}
     {% feed_meta %}
 
     <!-- You can set your favicon here -->

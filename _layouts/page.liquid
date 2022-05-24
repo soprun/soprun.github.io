@@ -3,8 +3,8 @@ layout: default
 ---
 <article class="page">
     {% include snippet/post/post-thumbnail.liquid
-        src=page.thumbnail
-        param='&w=942&h=218&fit=cover'
+        src=page.image
+        param='?w=942&h=218&fit=crop'
     %}
     <header class="page-header">
         {% include snippet/post/post-title.liquid

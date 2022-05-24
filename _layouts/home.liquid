@@ -40,9 +40,9 @@ layout: default
                 <meta itemprop="keywords" content="{{ page.tags | join: ',' }}" />
                 <meta itemprop="description" content="{{ content | strip_html | truncatewords: 40 }}" />
                 <meta itemprop="url" content="{{ post.url | relative_url }}">
-                <meta itemprop="thumbnailUrl" content="https://images.weserv.nl/?url={{ post.thumbnail | relative_url }}&fit=cover&maxage=1d">
-                <meta itemprop="image" content="https://images.weserv.nl/?url={{ post.thumbnail | relative_url }}&fit=cover&maxage=1d">
-                <meta itemprop="mainEntityOfPage" content="{{ post.url | absolute_url }}">
+                <meta itemprop="thumbnailUrl" content="{{ post.image  }}&fit=cover&maxage=1d">
+                <meta itemprop="image" content="{{ post.image | relative_url }}&fit=cover&maxage=1d">
+                <meta itemprop="mainEntityOfPage" content="{{ post.url }}">
                 <meta itemscope
                       itemprop="mainEntityOfPage"
                       itemType="https://schema.org/WebPage"
@@ -52,7 +52,7 @@ layout: default
                    class="post-card-thumbnail"
                    itemprop="url">
                     {% include snippet/post/post-thumbnail.liquid
-                        src=post.thumbnail
+                        src=post.image
                         alt=post.title
                     %}
                 </a>

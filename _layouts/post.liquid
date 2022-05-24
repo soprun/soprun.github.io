@@ -8,9 +8,9 @@ layout: default
          itemtype="http://schema.org/BlogPosting">
 
     {% include snippet/post/post-thumbnail.liquid
-        src=page.thumbnail
+        src=page.image
         alt=page.title
-        param='&w=942&h=218&fit=cover'
+        param='?w=942&h=218&fit=crop'
     %}
     <header class="post-page-header">
         {% include snippet/post/post-title.liquid
