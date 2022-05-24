@@ -15,6 +15,7 @@ author:
 safe: false
 
 include:
+  - .well-known
   - assets
   - favicon.ico
   - _headers
