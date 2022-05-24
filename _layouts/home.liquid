@@ -13,7 +13,6 @@ layout: default
          itemscope
          itemtype="http://schema.org/Blog">
 
-        <meta name="author" content="{{ site.title }}">
         <meta itemprop="name" content="{{ site.title }}">
         <meta itemprop="description" content="{{ site.description | strip_html }}">
 
@@ -36,6 +35,7 @@ layout: default
                      itemscope
                      itemtype="http://schema.org/BlogPosting">
 
+                <meta name="author" content="{{ site.title }}">
                 <meta itemprop="name" content="{{ post.title }}" />
                 <meta itemprop="keywords" content="{{ page.tags | join: ',' }}" />
                 <meta itemprop="description" content="{{ content | strip_html | truncatewords: 40 }}" />
