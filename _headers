@@ -14,7 +14,7 @@
   Content-Security-Policy-Report-Only:
     default-src 'self';
     img-src https://mc.yandex.ru;
-    script-src 'self' https://mc.yandex.ru https://yastatic.net;
+    script-src 'self' https://mc.yandex.ru https://yastatic.net https://js.sentry-cdn.com;
     style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
     connect-src https://mc.yandex.ru;
     child-src blob: https://mc.yandex.ru;
