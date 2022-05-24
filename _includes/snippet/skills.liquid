@@ -1,0 +1,11 @@
+<ul>
+    {% for skill in site.data.skills %}
+        <li>
+            <a href="{{ skill.url }}" target="_blank">
+                {{ skill.title }}
+            </a>
+            {{ skill.criticality }}
+            {{ skill.tags | join: ', ' }}
+        </li>
+    {% endfor %}
+</ul>

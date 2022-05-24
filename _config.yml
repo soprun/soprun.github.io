@@ -85,7 +85,9 @@ notion:
   fetch_on_watch: true
   databases:
     - id: 412f963c1eb740cd88932a406d9380b8
-      data: reading_list
+      data: notes
+    - id: b35a3080619745ad9a9ae2478c109299
+      data: skills
 
 defaults:
   - scope:
