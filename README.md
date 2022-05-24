@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-This repository is for the site [https://soprun.com](https://soprun.com)).
+This repository is for the site [https://soprun.com](https://soprun.com).
 
 ## Domains:
 - [https://soprun-github-io.pages.dev](https://soprun-github-io.pages.dev) (production,

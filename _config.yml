@@ -15,6 +15,7 @@ description: >
 
 # Handling Reading
 safe: false
+incremental: true
 
 include:
   - assets
