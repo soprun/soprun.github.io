@@ -15,7 +15,7 @@ group :jekyll_plugins do
   # gem 'jekyll-gist', '~> 1.5'
   # gem 'jekyll-github-metadata', '~> 2.13'
   # gem 'github-pages'
-  gem 'nokogiri', '>= 1.13.4'
+  # gem 'nokogiri', '>= 1.13.4'
   gem 'html-proofer'
   gem "webrick", "~> 1.7"
 end

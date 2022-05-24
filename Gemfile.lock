@@ -105,7 +105,6 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap
-  nokogiri (>= 1.13.4)
   rake
   rouge
   webrick (~> 1.7)
