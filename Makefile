@@ -21,7 +21,7 @@ clean: ## Clean the site (removes site output and metadata file) without buildin
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
 watch: clean ##Execute a script in the current bundl
-	bundle exec jekyll serve --watch --livereload --profile --strict_front_matter --trace
+	bundle exec jekyll serve  --incremental --watch --livereload --profile --strict_front_matter --trace
 
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	gem install bundler
@@ -37,7 +37,7 @@ update: ## Update dependencies to their latest versions
 	make -s build
 
 build: clean ## Build your site
-	bundle exec jekyll build --profile --trace
+	bundle exec jekyll build --incremental --profile --trace
 	## HTMLProofer is a set of tests to validate your HTML output.
 	bundle exec htmlproofer \
 		--check-favicon \
