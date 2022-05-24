@@ -4,7 +4,7 @@
 {% if title %}
     <h2 class="post-title {{ include.class }}" itemprop="headline">
         {% if url %}
-            <a href="{{ url }}" itemprop="mainEntityOfPage">
+            <a href="{{ url | absolute_url }}" itemprop="mainEntityOfPage">
                 {{ title }}
             </a>
         {% else %}

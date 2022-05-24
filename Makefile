@@ -6,11 +6,9 @@
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-27s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
-
 check: ## check
 	bundle check
 	#bundle exec jekyll build
-	#bundle exec htmlproofer ./_site
 
 clean: ## Clean the site (removes site output and metadata file) without building.
 	jekyll clean
@@ -32,31 +30,25 @@ install: ## Install the gems specified by the Gemfile or Gemfile.lock
 
 update: ## Update dependencies to their latest versions
 	@#gem update --system
-	@#bundle check
 	@#bundle update --all
 	bundle outdated
 	bundle update --bundler
-	make -s check
+	bundle check
+	make -s build
 
 build: clean ## Build your site
 	bundle exec jekyll build --profile --trace
-
-
-remark:
-	./node_modules/.bin/remark readme.md --output
+	## HTMLProofer is a set of tests to validate your HTML output.
+	bundle exec htmlproofer \
+		--check-favicon \
+		--check-html \
+ 		--check-img-http \
+ 		./_site
 
 # ps aux | grep jekyll
 
 # https://developers.cloudflare.com/workers/cli-wrangler/commands/#generate
 # wrangler
-
-
-# https://dlaa.me/markdownlint/
-# https://github.com/DavidAnson/markdownlint
-
-markdownlint: ## Usage Command line
-	@docker run -it -v $(PWD):/md peterdavehello/markdownlint markdownlint .
-
 
 
 
@@ -76,3 +68,11 @@ markdownlint: ## Usage Command line
 
 #deploy-prod:
 	#vercel --prod
+
+
+# https://dlaa.me/markdownlint/
+# https://github.com/DavidAnson/markdownlint
+
+
+markdownlint: ## Usage Command line
+	docker run -it -v $(PWD):/md peterdavehello/markdownlint markdownlint .
