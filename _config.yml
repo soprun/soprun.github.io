@@ -100,6 +100,7 @@ defaults:
       layout: 'post'
       noindex: false
       permalink: '/page/:id'
+      image: https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1
   - scope:
       # an empty string here means all files in the project
       path: ''
