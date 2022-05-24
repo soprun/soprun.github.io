@@ -76,3 +76,10 @@ https://github.com/markets/jekyll-timeago
 - https://infosec.mozilla.org/guidelines/web_security#examples-4
 
 - https://securityheaders.com/?q=soprun.com&followRedirects=on
+
+
+---
+
+https://github.com/Shopify/liquid/tree/master/performance/tests/dropify
+
+https://cloudcannon.com/community/jekyll-cheat-sheet/
