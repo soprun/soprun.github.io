@@ -11,7 +11,15 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: "max-age=16070400; includeSubDomains" always
   Permissions-Policy: document-domain=()
-  Content-Security-Policy-Report-Only: default-src 'self'; report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc
+  Content-Security-Policy-Report-Only:
+    default-src 'self';
+    img-src https://mc.yandex.ru;
+    script-src 'self' https://mc.yandex.ru https://yastatic.net;
+    style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+    connect-src https://mc.yandex.ru;
+    child-src blob: https://mc.yandex.ru;
+    frame-src blob: https://mc.yandex.ru;
+    report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc
 
 /assets/*
   Cache-Control: max-age=31536000
