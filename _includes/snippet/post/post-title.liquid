@@ -2,9 +2,12 @@
 {% assign url = include.url %}
 
 {% if title %}
-    <h2 class="post-title {{ include.class }}" itemprop="headline">
+    <h2 class="post-title {{ include.class }}"
+        itemprop="headline">
         {% if url %}
-            <a href="{{ url | absolute_url }}" itemprop="mainEntityOfPage">
+            <a href="{{ url | absolute_url }}"
+               aria-label="{{ title }}"
+               itemprop="mainEntityOfPage">
                 {{ title }}
             </a>
         {% else %}

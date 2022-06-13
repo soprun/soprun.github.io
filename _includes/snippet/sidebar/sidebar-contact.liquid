@@ -23,11 +23,6 @@
             </td>
         </tr>
     {% endfor %}
-    {% comment %}<tr>{% endcomment %}
-    {% comment %}<td colspan="2" class="fs-6">{% endcomment %}
-    {% comment %}Follow{% endcomment %}
-    {% comment %}</td>{% endcomment %}
-    {% comment %}</tr>{% endcomment %}
     <tr>
         <td colspan="2">
             <div class="btn-group">
@@ -46,13 +41,7 @@
     </tr>
     <tr>
         <td colspan="2">
-            <div id="sidebar-signature" class="text-muted">
-                You can use my <a href="https://github.com/soprun.gpg" rel="noopener noreferrer" target="_blank">
-                    OpenPGP public key
-                </a> to send an encrypted email message!<br>
-                <code>B750 2F96 C5DC 44C2</code>
-                <i class="fa-solid fa-signature"></i>
-            </div>
+            {% include snippet/sidebar/sidebar-contact-signature.liquid %}
         </td>
     </tr>
     </tbody>

@@ -5,12 +5,12 @@
 {% if date %}
     <div class="post-meta {{ include.class }}">
         <time datetime="{{ date | date_to_xmlschema }}" itemprop="datePublished">
-            <i class="fas fa-calendar-alt mr-2"></i>
+            <i class="fas fa-calendar-alt mr-2" aria-hidden="true"></i>
             {{ date | date: date_format }}
         </time>
         {% if modified_date %}
             <time datetime="{{ modified_date | date_to_xmlschema }}" itemprop="dateModified">
-                <i class="fas fa-calendar-alt mr-2"></i>
+                <i class="fas fa-calendar-alt mr-2" aria-hidden="true"></i>
                 {{ modified_date | date: date_format }}
             </time>
         {% endif %}

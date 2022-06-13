@@ -1,52 +1,52 @@
 header:
   - title: GitHub
-    icon: <i class="fa-brands fa-github"></i>
+    icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
     url: https://github.com/soprun
 
 footer:
   - title: GitHub
-    icon: <i class="fa-brands fa-github"></i>
+    icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
     url: https://github.com/soprun
 
 contact:
   - label: URL
-    icon: <i class="fa-solid fa-newspaper"></i>
+    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
     title: soprun.com
     url: https://soprun.com
 
   - label: Email
-    icon: <i class="fa-solid fa-at"></i>
+    icon: <i class="fa-solid fa-at" aria-hidden="true"></i>
     title: mail@soprun.com
     url: mailto:mail@soprun.com
 
   - label: Telegram
-    icon: <i class="fa-brands fa-telegram"></i>
+    icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
     title: soprun
     url: https://t.me/soprun
 
   - label: Phone
-    icon: <i class="fa-solid fa-phone"></i>
+    icon: <i class="fa-solid fa-phone" aria-hidden="true"></i>
     title: '+79017972126'
     url: 'tel:+79017972126'
 
   - label: Skype
-    icon: <i class="fa-brands fa-skype"></i>
+    icon: <i class="fa-brands fa-skype" aria-hidden="true"></i>
     title: vlsoprun
     url: skype:vlsoprun?call
 
 follow:
   - title: GitHub
-    icon: <i class="fa-brands fa-github"></i>
+    icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
     url: https://github.com/soprun
 
   - title: GitLab
-    icon: <i class="fa-brands fa-gitlab"></i>
+    icon: <i class="fa-brands fa-gitlab" aria-hidden="true"></i>
     url: https://gitlab.com/soprun
 
   - title: Medium
-    icon: <i class="fa-brands fa-medium"></i>
+    icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
     url: https://medium.com/@soprun
 
 #    - title: codepen.io
-#      icon: <i class="fa-brands fa-codepen"></i>
+#      icon: <i class="fa-brands fa-codepen" aria-hidden="true"></i>
 #      url: https://codepen.io/vlsoprun
