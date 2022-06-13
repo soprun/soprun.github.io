@@ -4,18 +4,12 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
             defer></script>
-    {% comment %}<script src="https://cdnjs.cloudflare.com/ajax/libs/sentry-tracing/6.19.7/bundle.tracing.min.js"{% endcomment %}
-            {% comment %}integrity="sha512-1SFm4WjSxBkIKVe/r/31WGq5IAdWTcmDw7eufZchW2Xgc/5WdlhWIreJ6a3zs8Zo6/+DBT4uTozxGxoKKrMYqA=="{% endcomment %}
-            {% comment %}crossorigin="anonymous"{% endcomment %}
-            {% comment %}referrerpolicy="no-referrer"{% endcomment %}
-            {% comment %}defer></script>{% endcomment %}
-    <script>
+    <script defer>
         Sentry.onLoad(function () {
             Sentry.init({
                 dsn: "{{ site.env.SENTRY_DSN }}",
-                release: "{{ site.env.CF_PAGES_COMMIT_SHA }}",
+                release: "{{ site.release_version }}",
                 environment: "{{ jekyll.environment }}",
-                // integrations: [new Sentry.Integrations.BrowserTracing()]
             });
         });
     </script>
