@@ -1,0 +1,10 @@
+<section id="about-section">
+    <h2>About</h2>
+    <div class="about-intro">
+        {% assign about-page = site.pages | where: "path", "about" | first %}
+
+        {{ about-page }}
+        <div class="intro-text">{{ about-page.intro }}</div>
+        <a class="about-link" href="{{ about-page.url }}">Learn more</a>
+    </div>
+</section>

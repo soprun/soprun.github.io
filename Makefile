@@ -90,3 +90,10 @@ markdownlint: ## Usage Command line
 
 sarda:
 	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
+
+deployment: ## Publish a directory of static assets as a new deployment. This will automatically pull in git information if available.
+	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
+
+
+# To start developing your Worker, run `npm start`
+# To publish your Worker to the Internet, run `npm run deploy`

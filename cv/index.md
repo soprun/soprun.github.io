@@ -1,5 +1,4 @@
 ---
-layout: front
 title: CV - Erik Eng
 ---
 

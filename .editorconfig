@@ -22,3 +22,6 @@ indent_size = 2
 [{*.html, *.liquid}]
 insert_final_newline = false
 
+[{feed-atom.liquid, feed-rss.liquid, sitemap.liquid}]
+max_line_length = off
+ij_yaml_keep_line_breaks = false

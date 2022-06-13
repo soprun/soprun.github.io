@@ -97,3 +97,9 @@ https://github.com/markets/jekyll-timeago
 https://github.com/Shopify/liquid/tree/master/performance/tests/dropify
 
 https://cloudcannon.com/community/jekyll-cheat-sheet/
+
+
+---
+
+Набор сайтов:
+- https://github.com/jekyll/jekyll/wiki/sites

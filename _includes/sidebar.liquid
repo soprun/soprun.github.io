@@ -14,16 +14,18 @@
 </section>
 
 <section id="sidebar-author" class="text-center">
-    <h2>
-        {% if site.author.url %}
-            <a href="{{ baseurl | relative_url }}" class="fw-light text-decoration-none">
-                {{ site.author.name }}
-            </a>
-        {% else %}
-            {{ site.author.name }}
-        {% endif %}
-    </h2>
-    <p>{{ site.author.description }}</p>
+    <hgroup>
+        <h1 class="fs-2 fw-light">
+            {% if site.author.url %}
+                <a href="{{ baseurl | relative_url }}" class="text-decoration-none">
+                    {{ site.author.name }}
+                </a>
+            {% else %}
+                {{ site.author.name | newline_to_br }}
+            {% endif %}
+        </h1>
+        <h2 class="fs-6 fw-light">{{ site.author.description }}</h2>
+    </hgroup>
 </section>
 
 <section id="sidebar-nav">

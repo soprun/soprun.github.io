@@ -2,21 +2,24 @@
 baseurl: ''
 lang: ru
 url: https://soprun.com
+encoding: utf-8
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
+#description: All about me and my blog...
+#description: A description about my blog homepage
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
 title: 'Technical Architect @soprun'
 description: 'How to guide & Software Tutorials'
+keywords: [DDD, PHP, Symfony, Guide, Tutorials]
 logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
 author:
   name: Soprun Vladislav
-  url: https://soprun.com
   description: Hi, welcome to my tech blog!<br>I am a Technical Architect
-
-email: mail@soprun.com
+  url: https://soprun.com
+  email: mail@soprun.com
 
 # Handling Reading
 safe: false
@@ -27,6 +30,7 @@ include:
   - _headers
 
 exclude:
+  - .git
   - .idea/
   - .sass-cache/
   - .jekyll-cache/
@@ -38,6 +42,8 @@ exclude:
   - README.md
   - SECURITY.md
   - Makefile
+  - .gitignore
+  - .DS_STORE
 
 keep_files: [ .git, _headers ]
 timezone: "Europe/Moscow"
@@ -73,8 +79,8 @@ kramdown:
 plugins:
   - jekyll-dotenv
   - jekyll-environment-variables
-  - jekyll-feed
-  - jekyll-sitemap
+#  - jekyll-feed
+#  - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-notion
@@ -111,10 +117,10 @@ defaults:
   - scope:
       # an empty string here means all files in the project
       path: ''
+      type: 'pages'
     values:
       noindex: false
-      # layout: 'default'
-      layout: ~;
+      layout: default
       image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll
