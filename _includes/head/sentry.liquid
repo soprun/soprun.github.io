@@ -3,8 +3,8 @@
             integrity="sha512-bfZoCIl6netdQQ4kWQ5HZaKOS24IohehpiEjuOu2sVpY3XaheFE/n0+bqJCwt4CDEP+nN+90sQwIOl1II1pLjA=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
-            defer></script>
-    <script defer>
+            async></script>
+    <script>
         Sentry.onLoad(function () {
             Sentry.init({
                 dsn: "{{ site.env.SENTRY_DSN }}",

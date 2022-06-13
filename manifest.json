@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "short_name": "soprun.com",
+    "name": "Chrome Extension",
+    "description": "Test Chrome Extension..",
+    "default_locale": "ru",
+    "developer": {
+        "name": "Vladislav Soprun",
+        "url": "https://soprun.com"
+    },
+    "icons": [
+        {
+            "src": "/assets/img/favicon-70.png",
+            "type": "image/png",
+            "sizes": "70x70"
+        },
+        {
+            "src": "/assets/img/favicon-180.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/assets/img/favicon-310.png",
+            "type": "image/png",
+            "sizes": "310x310"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#cfc3ee",
+    "display": "standalone",
+    "theme_color": "#cfc3ee"
+}

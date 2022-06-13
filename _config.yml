@@ -2,7 +2,7 @@
 baseurl: ''
 lang: ru
 url: https://soprun.com
-encoding: utf-8
+encoding: UTF-8
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
@@ -27,6 +27,8 @@ safe: false
 include:
   - assets
   - favicon.ico
+  - browserconfig.xml
+  - manifest.json
   - _headers
 
 exclude:
@@ -124,8 +126,8 @@ defaults:
       image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll
-# permalink: date
-permalink: '/:categories/:title/'
+permalink: date
+# permalink: '/:categories/:title/'
 paginate: 4
 paginate_path: "/page/:num"
 

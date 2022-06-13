@@ -22,7 +22,8 @@ permalink: /rss.xml
                 <author>{{ site.author.email }} ({{ site.author.name }})</author>
                 <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
                 <description>
-                    {{ post.content | markdownify | strip_html | strip | truncatewords: 120 | xml_escape }}
+                    {{ post.excerpt | markdownify | strip_html | strip | truncate: 160 | xml_escape }}
+                    {% comment %}{{ post.excerpt | markdownify | strip_html | strip | truncatewords: 120 | xml_escape }}{% endcomment %}
                 </description>
             </item>
         {% endfor %}

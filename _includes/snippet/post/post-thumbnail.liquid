@@ -1,7 +1,7 @@
 {% if include.src %}
-    {% assign param = include.param | default: '?w=400&fit=crop' %}
-    {% assign alt = include.alt | default: page.title | append: ' - ' | append: site.title %}
-    {% assign src = include.src | append: param | relative_url %}
+    {%- assign param = include.param | default: '?w=400&fit=crop&fm=webp&auto=compress' -%}
+    {%- assign alt = include.alt | default: page.title | append: ' - ' | append: site.title -%}
+    {%- assign src = include.src | append: param | relative_url -%}
 
     <picture class="post-thumbnail {{ include.class }}"
              itemprop="image"
