@@ -1,4 +1,4 @@
-{% if jekyll.environment == "production" and site.env.SENTRY_DSN %}
+{% if jekyll.environment != 'development' and site.env.SENTRY_DSN %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sentry-browser/6.19.7/bundle.min.js"
             integrity="sha512-bfZoCIl6netdQQ4kWQ5HZaKOS24IohehpiEjuOu2sVpY3XaheFE/n0+bqJCwt4CDEP+nN+90sQwIOl1II1pLjA=="
             crossorigin="anonymous"

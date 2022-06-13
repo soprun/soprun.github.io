@@ -1,4 +1,4 @@
-{% if jekyll.environment == "production" and site.env.CLOUDFLARE_WEB_ANALYTICS %}
+{% if jekyll.environment == 'production' and site.env.CLOUDFLARE_WEB_ANALYTICS %}
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.env.CLOUDFLARE_WEB_ANALYTICS }}"}'></script>
     <!-- End Cloudflare Web Analytics -->

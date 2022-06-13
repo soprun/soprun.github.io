@@ -2,10 +2,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include head/meta.liquid %}
+    {%- if page.noindex == true -%}
+        <meta name="robots" content="noindex, nofollow"/>
+    {%- endif -%}
+    {% assign baseurl = site.baseurl | prepend: site.url | relative_url %}
+    <base href="{{ site.env.CF_PAGES_URL | default: baseurl | absolute_url }}">
 
-    {%- seo -%}
-    {%- feed_meta -%}
+    {% seo %}
+    {% feed_meta %}
 
     <!-- You can set your favicon here -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.ico' | absolute_url }}">

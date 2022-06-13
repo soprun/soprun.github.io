@@ -5,7 +5,7 @@
 
 {% include header.liquid %}
 
-<main class="container-lg" role="main" aria-label="Content">
+<main class="container-lg" role="main" aria-label="content">
     <div class="row">
         <aside id="sidebar"
                class="com col-12 col-sm-5 col-md-4 col-lg-3 mb-3"
@@ -19,6 +19,9 @@
         </section>
     </div>
 </main>
-{% include footer.liquid %}
+
+{% comment %}{% include footer.liquid %}{% endcomment %}
+{% include head/yandex-metrika.liquid %}
+{% include head/sentry.liquid %}
 </body>
 </html>
