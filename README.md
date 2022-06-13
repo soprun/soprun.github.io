@@ -103,3 +103,8 @@ https://cloudcannon.com/community/jekyll-cheat-sheet/
 
 Набор сайтов:
 - https://github.com/jekyll/jekyll/wiki/sites
+
+> Page title – 70 characters
+> Meta description – 160 characters
+> Meta keywords – No more than 10 keyword phrases
+
