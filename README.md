@@ -1,4 +1,18 @@
+# Personal profile & blog
+
+Crafted with [Jekyll](https://github.com/mojombo/jekyll), built and hosted by [Cloudflare Pages](https://developers.cloudflare.com/pages/).
+
+## Dependencies
+
+* [Jekyll](https://github.com/mojombo/jekyll/)
+
+
 ### Hi there 👋
+
+
+
+
+
 
 This repository is for the site [https://soprun.com](https://soprun.com).
 

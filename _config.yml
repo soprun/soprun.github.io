@@ -3,13 +3,20 @@ baseurl: ''
 lang: ru
 url: https://soprun.com
 
-title: Soprun Vladislav
-description: My personal thoughts on the web and programming...
+#title: Soprun Vladislav
+#description: My personal thoughts on the web and programming...
+#logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
+
+title: 'Technical Architect @soprun'
+description: 'How to guide & Software Tutorials'
 logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
 author:
   name: Soprun Vladislav
   url: https://soprun.com
+  description: Hi, welcome to my tech blog!<br>I am a Technical Architect
+
+email: mail@soprun.com
 
 # Handling Reading
 safe: false
@@ -106,7 +113,8 @@ defaults:
       path: ''
     values:
       noindex: false
-      layout: 'default'
+      # layout: 'default'
+      layout: null;
       image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll

@@ -15,12 +15,15 @@
 
 <section id="sidebar-author" class="text-center">
     <h2>
-        <a href="{{ '/' | relative_url }}" class="fw-light text-decoration-none">
-            {{ site.title }}
-        </a>
+        {% if site.author.url %}
+            <a href="{{ baseurl | relative_url }}" class="fw-light text-decoration-none">
+                {{ site.author.name }}
+            </a>
+        {% else %}
+            {{ site.author.name }}
+        {% endif %}
     </h2>
-    <p>Hi, welcome to my tech blog!<br>
-        I am a Technical Architect in Like Центр.</p>
+    <p>{{ site.author.description }}</p>
 </section>
 
 <section id="sidebar-nav">

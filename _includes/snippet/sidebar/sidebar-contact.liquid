@@ -24,6 +24,11 @@
         </tr>
     {% endfor %}
     <tr>
+        <td colspan="2" class="fs-6">
+            You can find me on
+        </td>
+    </tr>
+    <tr>
         <td colspan="2">
             <div class="btn-group">
                 {% for link in site.data.links.follow %}
@@ -40,8 +45,25 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2">
-            {% include snippet/sidebar/sidebar-contact-signature.liquid %}
+        <td class="text-muted fs-6" colspan="2">
+            {% comment %}https://www.bjornjohansen.com/secure-email{% endcomment %}
+            Send me a secure email message
+            <i class="fa-solid fa-signature" aria-hidden="true"></i>
+        </td>
+    </tr>
+    <tr>
+        <td class="text-muted" colspan="2">
+            <p>
+                If you want to email me, my fingerprint is:<br>
+                <code>8120&nbsp;2130&nbsp;55C8&nbsp;4C2C&nbsp;3324</code>
+            </p>
+            <p>
+                <a href="https://github.com/soprun.gpg"
+                   rel="noopener noreferrer"
+                   target="_blank">
+                    My full OpenPGP (GnuPG) public key is also available here.
+                </a>
+            </p>
         </td>
     </tr>
     </tbody>
