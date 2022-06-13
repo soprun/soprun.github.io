@@ -6,27 +6,21 @@ permalink: /atom.xml
 # https://www.ibm.com/docs/en/baw/19.x?topic=formats-atom-feed-format
 # https://developers.google.com/gdata/docs/1.0/reference
 ---
-<?xml version="1.0" encoding="{{ site.encoding }}"?>
-<feed xmlns="http://www.w3.org/2005/Atom"
-      xmlns:gd="http://schemas.google.com/g/2005"
-      xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/"
-      xml:lang="{{ site.lang }}">
-
+{% comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment %}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
     <title>{{ site.title | xml_escape }}</title>
-
     <link href="{{ '/atom.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
     <link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
     <link href="{{ site.url }}"/>
-
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}</id>
+    <id>{{ site.url | absolute_url }}</id>
     <author>
         <name>{{ site.author.name }}</name>
         <email>{{ site.author.email }}</email>
     </author>
     {% for post in site.posts %}
         <entry>
-            <id>{{ post.id }}</id>
+            <id>{{ post.url | absolute_url }}</id>
             <link type="text/html" rel="alternate" href="{{ post.url | absolute_url }}"/>
             <title>{{ post.title | xml_escape }}</title>
             <published>{{ post.date | date_to_xmlschema }}</published>
