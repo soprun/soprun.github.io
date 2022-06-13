@@ -1,35 +1,52 @@
 # Personal profile & blog
 
-Crafted with [Jekyll](https://github.com/mojombo/jekyll), built and hosted by [Cloudflare Pages](https://developers.cloudflare.com/pages/).
+Crafted with [Jekyll](https://github.com/mojombo/jekyll), built and hosted by
+[Cloudflare Pages](https://developers.cloudflare.com/pages/).
+
+## Integrations
+
+- https://sentry.io
+- https://report-uri.com
+- https://slack.com
+  ~~- https://soprun.grafana.net~~
+  ~~- https://dashboard.gitguardian.com~~
+
+## Environments
+
+| Environment | Domain and aliases                          |
+|:------------|:--------------------------------------------|
+| production  | https://soprun.com                          |
+| staging     | https://staging.soprun.com                  |
+| preview     | https://{branch}.soprun-github-io.pages.dev |
+| local       | http://localhost:4000                       |
 
 ## Dependencies
 
 * [Jekyll](https://github.com/mojombo/jekyll/)
 
 
+## Security
+
+
+
+
+
+
+
+
 ### Hi there 👋
-
-
-
-
-
 
 This repository is for the site [https://soprun.com](https://soprun.com).
 
 ## Domains:
-- [https://soprun-github-io.pages.dev](https://soprun-github-io.pages.dev) (production,
+
+- https://staging.soprun.com or [https://soprun-github-io.pages.dev](https://soprun-github-io.pages.dev) (production,
   aliases [https://soprun.com](https://soprun.com))
 - [https://dev.soprun-github-io.pages.dev](https://dev.soprun-github-io.pages.dev)
 
 ## Tools:
 
 - jekyll
-
-## Integrations
-
-- https://soprun.grafana.net
-- https://report-uri.com
-- https://dashboard.gitguardian.com
 - Deployments to [Cloudflare Pages](https://developers.cloudflare.com/pages/)
 
 # Infrastructure and external services
@@ -91,7 +108,6 @@ https://github.com/markets/jekyll-timeago
 
 - https://securityheaders.com/?q=soprun.com&followRedirects=on
 
-
 ---
 
 https://github.com/Shopify/liquid/tree/master/performance/tests/dropify
@@ -102,6 +118,7 @@ https://cloudcannon.com/community/jekyll-cheat-sheet/
 ---
 
 Набор сайтов:
+
 - https://github.com/jekyll/jekyll/wiki/sites
 
 > Page title – 70 characters
