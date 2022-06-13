@@ -5,7 +5,7 @@
     <h2 class="post-title {{ include.class }}"
         itemprop="headline">
         {% if url %}
-            <a href="{{ url | absolute_url }}"
+            <a href="{{ url | relative_url }}"
                aria-label="{{ title }}"
                itemprop="mainEntityOfPage">
                 {{ title }}

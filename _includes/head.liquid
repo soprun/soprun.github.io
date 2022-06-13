@@ -6,13 +6,13 @@
         <meta name="robots" content="noindex, nofollow"/>
     {%- endif -%}
     {% assign baseurl = site.baseurl | prepend: site.url | relative_url %}
-    <base href="{{ site.env.CF_PAGES_URL | default: baseurl | absolute_url }}">
+    <base href="{{ site.env.CF_PAGES_URL | default: baseurl | relative_url }}">
 
     {% seo %}
     {% feed_meta %}
 
     <!-- You can set your favicon here -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.ico' | absolute_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.ico' | relative_url }}">
 
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -21,5 +21,5 @@
     <link rel="preload"
           as="style"
           onload="this.onload=null;this.rel='stylesheet'"
-          href="{{ '/assets/css/style.css' | absolute_url }}?v={{ site.env.CF_PAGES_COMMIT_SHA }}">
+          href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.env.CF_PAGES_COMMIT_SHA }}">
 </head>
