@@ -21,7 +21,8 @@ clean: ## Clean the site (removes site output and metadata file) without buildin
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
 watch: clean ##Execute a script in the current bundl
-	JEKYLL_ENV=development bundle exec jekyll serve --incremental --watch --livereload --profile --strict_front_matter --trace
+	@#JEKYLL_ENV=development
+	bundle exec jekyll serve --incremental --watch --livereload --profile --strict_front_matter --trace
 
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	gem install bundler
