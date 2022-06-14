@@ -9,20 +9,20 @@ footer:
     url: https://github.com/soprun
 
 contact:
-  - label: URL
-    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-    title: soprun.com
-    url: https://soprun.com
-
-  - label: Email
-    icon: <i class="fa-solid fa-at" aria-hidden="true"></i>
-    title: mail@soprun.com
-    url: mailto:mail@soprun.com
+#  - label: URL
+#    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+#    title: soprun.com
+#    url: https://soprun.com
 
   - label: Telegram
     icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
     title: soprun
     url: https://t.me/soprun
+
+  - label: Email
+    icon: <i class="fa-solid fa-at" aria-hidden="true"></i>
+    title: mail@soprun.com
+    url: 'mailto:mail@soprun.com'
 
   - label: Phone
     icon: <i class="fa-solid fa-phone" aria-hidden="true"></i>
@@ -32,7 +32,7 @@ contact:
   - label: Skype
     icon: <i class="fa-brands fa-skype" aria-hidden="true"></i>
     title: vlsoprun
-    url: skype:vlsoprun?call
+    url: 'skype:vlsoprun?call'
 
 follow:
   - title: GitHub
@@ -47,9 +47,9 @@ follow:
     icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
     url: https://medium.com/@soprun
 
-  - title: LinkedIn
-    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-    url: https://www.linkedin.com/in/soprun
+#  - title: LinkedIn
+#    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+#    url: https://www.linkedin.com/in/soprun
 
 #    - title: codepen.io
 #      icon: <i class="fa-brands fa-codepen" aria-hidden="true"></i>

@@ -27,6 +27,8 @@ Crafted with [Jekyll](https://github.com/mojombo/jekyll), built and hosted by
 
 ## Security
 
+- https://keybase.io/soprun ???????
+-
 
 
 
@@ -124,4 +126,17 @@ https://cloudcannon.com/community/jekyll-cheat-sheet/
 > Page title – 70 characters
 > Meta description – 160 characters
 > Meta keywords – No more than 10 keyword phrases
+
+https://github.com/sujaykundu777/devlopr-jekyll
+
+
+---
+
+https://github.com/solarrust/hacker-laws
+
+> 💻📖 Законы, теории, принципы и модели, которые полезно знать разработчику.
+
+---
+
+https://github.com/ircmaxell/resume
 
