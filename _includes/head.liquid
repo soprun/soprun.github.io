@@ -51,4 +51,8 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="{{ '/assets/img/favicon-180.png' | relative_url }}">
     <meta name="msapplication-config" content="{{ 'browserconfig.xml' | relative_url }}">
+
+    {% comment %}{% include head/yandex-metrika.liquid %}{% endcomment %}
+    {%- include head/google-analytics.liquid -%}
+    {%- include head/sentry.liquid -%}
 </head>
