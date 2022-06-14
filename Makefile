@@ -46,7 +46,7 @@ test-htmlproofer:
  		./_site
 
 build: clean ## Build your site
-	JEKYLL_ENV=preview bundle exec jekyll build --incremental --profile --trace
+	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace
 
 build-preview:
 	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace

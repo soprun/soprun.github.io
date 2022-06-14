@@ -53,6 +53,6 @@
     <meta name="msapplication-config" content="{{ 'browserconfig.xml' | relative_url }}">
 
     {% comment %}{% include head/yandex-metrika.liquid %}{% endcomment %}
-    {%- include head/google-analytics.liquid -%}
-    {%- include head/sentry.liquid -%}
+    {% include head/google-analytics.liquid %}
+    {% include head/sentry.liquid %}
 </head>
