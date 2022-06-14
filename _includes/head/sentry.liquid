@@ -1,15 +1,20 @@
 {% if jekyll.environment != 'development' and site.env.SENTRY_DSN %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sentry-browser/6.19.7/bundle.min.js"
-            integrity="sha512-bfZoCIl6netdQQ4kWQ5HZaKOS24IohehpiEjuOu2sVpY3XaheFE/n0+bqJCwt4CDEP+nN+90sQwIOl1II1pLjA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-            defer></script>
+    <script
+        src="https://browser.sentry-cdn.com/7.1.1/bundle.min.js"
+        integrity="sha384-T+srlKi46NIKF/sAARrRrsUhYVjQfcLWrYF2CzeeuD8GAJHAVZ8AHWaQrNKoV/TD"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://browser.sentry-cdn.com/7.1.1/bundle.tracing.min.js"
+        integrity="sha384-p+vO3NBBhOw0sRTPPPeAacfOonwgsAL2xTEYl6sQIHhmQ17LLZkxHV2/s9VSEeTn"
+        crossorigin="anonymous"></script>
     <script>
         Sentry.onLoad(function () {
             Sentry.init({
                 dsn: "{{ site.env.SENTRY_DSN }}",
                 release: "{{ site.release_version }}",
                 environment: "{{ jekyll.environment }}",
+                integrations: [new Sentry.BrowserTracing()],
+                tracesSampleRate: 1.0,
             });
         });
     </script>
