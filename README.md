@@ -8,8 +8,8 @@ Crafted with [Jekyll](https://github.com/mojombo/jekyll), built and hosted by
 - https://sentry.io
 - https://report-uri.com
 - https://slack.com
-  ~~- https://soprun.grafana.net~~
-  ~~- https://dashboard.gitguardian.com~~
+- ~~https://soprun.grafana.net~~
+- ~~https://dashboard.gitguardian.com~~
 
 ## Environments
 
