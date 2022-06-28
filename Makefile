@@ -37,13 +37,28 @@ update: ## Update dependencies to their latest versions
 	bundle check
 	make -s build
 
-test-htmlproofer:
+test-htmlproofer: ## Run HTMLProofer 📚
 	## HTMLProofer is a set of tests to validate your HTML output.
+	@# htmlproofer _site --check-html --allow-hash-href --empty-alt-ignore --disable-external
 	bundle exec htmlproofer \
 		--check-favicon \
 		--check-html \
  		--check-img-http \
+ 		--check-opengraph \
+		--allow-hash-href \
+		--empty-alt-ignore \
+		--disable-external \
+		--trace \
  		./_site
+
+
+# https://github.com/GoogleChrome/lighthouse#using-the-node-cli
+test-lighthouse: ## Run Lighthouse 💡
+	@#lighthouse --output html --output-path ./report.html
+	@#lighthouse http://example.com -G --output html --output-path ./report.html
+	@mkdir -p ./report
+	lighthouse http://127.0.0.1:4000 -GA --output html --output-path ./report/report.html
+	open ./report/report.html
 
 build: clean ## Build your site
 	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace

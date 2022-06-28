@@ -3,6 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
+    <meta name="theme-color" content="#cfc3ee"/>
 
     {%- if page.noindex == true -%}
         <meta name="robots" content="noindex, nofollow"/>
@@ -28,10 +29,16 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
     <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
 
-    <link rel="stylesheet"
+    {% comment %}<link rel="stylesheet"{% endcomment %}
+          {% comment %}href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"{% endcomment %}
+          {% comment %}media="print"{% endcomment %}
+          {% comment %}onload="this.media='all'; this.onload = null">{% endcomment %}
+
+    <link rel="preload"
           href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"
-          media="print"
-          onload="this.media='all'; this.onload = null">
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"></noscript>
 
     <link type="application/atom+xml" rel="alternate" href="{{ '/atom.xml' | relative_url }}" title="{{ site.title }}"/>
     <link type="application/rss+xml" rel="alternate" href="{{ '/rss.xml' | relative_url }}" title="{{ site.title }}"/>
