@@ -1,9 +1,11 @@
 ---
 permalink: /how-to-write-off-technical-debt
-title: Как списать технический долг - Максим Смирнов
+title: Как списать технический долг
 categories: [YouTube]
 tags: []
 image: https://images.unsplash.com/photo-1588286492514-ddb61b527086
+author:
+  name: Максим Смирнов
 ---
 
 Унаследованные приложения, устаревшие технологии, запутанные взаимодействия — вот неполный букет проблем корпоративных

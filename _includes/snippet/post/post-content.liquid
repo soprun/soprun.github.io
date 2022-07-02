@@ -1,5 +1,5 @@
 <div class="post-content {{ include.class }}" itemprop="description">
-    {{ include.content | strip_html | newline_to_br | truncatewords: 160 }}
+    {{ include.content | truncatewords: 40 }}
 </div>
 
 {% comment %}{{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
