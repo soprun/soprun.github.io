@@ -4,10 +4,12 @@
 
 -   name: About
     link: /about
+    rel: author
     icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
 
 #-   name: Contact
 #    link: /contact
+#    rel: contact
 #    icon: <i class="fa-solid fa-address-book" aria-hidden="true"></i>
 
 -   name: Notes & Reading list

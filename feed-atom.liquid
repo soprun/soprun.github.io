@@ -7,11 +7,11 @@ permalink: /atom.xml
 # https://developers.google.com/gdata/docs/1.0/reference
 ---
 {% comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment %}
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0" xml:lang="{{ site.lang }}">
     <title>{{ site.title | xml_escape }}</title>
     <link href="{{ '/atom.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
     <link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
-    <link href="{{ site.url }}"/>
+    <link href="{{ site.url }}" rel="alternate" type="text/html"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ site.url | absolute_url }}</id>
     <author>
@@ -21,7 +21,7 @@ permalink: /atom.xml
     {% for post in site.posts %}
         <entry>
             <id>{{ post.url | absolute_url }}</id>
-            <link type="text/html" rel="alternate" href="{{ post.url | absolute_url }}"/>
+            <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html"/>
             <title>{{ post.title | xml_escape }}</title>
             <published>{{ post.date | date_to_xmlschema }}</published>
             <updated>{{ post.date | date_to_xmlschema }}</updated>
@@ -33,6 +33,9 @@ permalink: /atom.xml
             <content type="html">
                 {{ post.content | markdownify | strip_html | strip | truncatewords: 250 | xml_escape }}
             </content>
+            {% if post.image %}
+                <g:image_link>{{ post.image }}</g:image_link>
+            {% endif %}
         </entry>
     {% endfor %}
 </feed>

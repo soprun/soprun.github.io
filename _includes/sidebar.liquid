@@ -1,8 +1,8 @@
-<section id="sidebar-logo" class="text-center">
+<section id="sidebar-logo" class="vcard text-center">
     <a href="{{ '/' | relative_url }}" target="_self" rel="home" itemprop="url">
         <picture>
             <img
-                class="img-fluid rounded-circle"
+                class="logo img-fluid rounded-circle"
                 width="150"
                 height="150"
                 srcset="{{ '/assets/img/logo.webp' | absolute_url }} 1x,
@@ -13,11 +13,11 @@
     </a>
 </section>
 
-<section id="sidebar-author" class="text-center">
+<section id="sidebar-author" class="vcard text-center">
     <hgroup>
-        <h1 class="fs-2 fw-light">
+        <h1 class="fn fs-2 fw-light">
             {% if site.author.url %}
-                <a href="{{ baseurl | relative_url }}" class="text-decoration-none">
+                <a href="{{ baseurl | relative_url }}" class="url text-decoration-none">
                     {{ site.author.name }}
                 </a>
             {% else %}
@@ -32,9 +32,23 @@
     {% include snippet/sidebar/navigation.liquid %}
 </section>
 
-<section id="sidebar-contact">
+<section id="sidebar-contact" class="vcard">
     {% include snippet/sidebar/sidebar-contact.liquid %}
 </section>
+
+{% comment %}<section id="sidebar-hresume" class="vcard">{% endcomment %}
+    {% comment %}{% include snippet/sidebar/sidebar-hresume.liquid %}{% endcomment %}
+{% comment %}</section>{% endcomment %}
+
+{% comment %}<section id="sidebar-hresume" class="vcard">{% endcomment %}
+    {% comment %}<p style="float: left;">{% endcomment %}
+        {% comment %}feeds:{% endcomment %}
+        {% comment %}<a href="{{ '/atom.xml' | relative_url }}" title="Atom 0.3 feed for all posts">posts</a>{% endcomment %}
+        {% comment %}(<a href="https://validator.w3.org/feed/check.cgi?url=https://soprun.com/atom.xml">valid?</a>){% endcomment %}
+        {% comment %}or <a href="http://lesscode.org/comments/feed/" title="RSS 2.0 feed for comments">comments</a>{% endcomment %}
+        {% comment %}(<a href="http://feedvalidator.org/check.cgi?url=http://lesscode.org/comments/feed/">valid?</a>){% endcomment %}
+    {% comment %}</p>{% endcomment %}
+{% comment %}</section>{% endcomment %}
 
 {% comment %}{% include snippet/public-links.liquid %}{% endcomment %}
 {% comment %}<div class="p-2">{% endcomment %}

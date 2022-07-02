@@ -5,6 +5,7 @@
     {% for item in site.data.navigation %}
         <a class="nav-link {% if page.url == item.link %}active{% endif %}"
            href="{{ item.link | relative_url }}"
+           {% if item.rel %}rel="{{ item.rel }}"{% endif %}
            itemprop="url">
             <span itemprop="name">
                 {{ item.name }}

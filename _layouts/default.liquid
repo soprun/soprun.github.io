@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
-{% include head.liquid %}
+{%-include head.liquid %}
 <body class="{{ page.layout }}">
 
-{% include header.liquid %}
+{%- include header.liquid %}
 
 <main class="container-lg" role="main" aria-label="content">
     <div class="row">
@@ -12,7 +12,7 @@
                itemscope
                itemtype="http://schema.org/WPSideBar"
                role="complementary">
-            {% include sidebar.liquid %}
+            {%- include sidebar.liquid %}
         </aside>
         <section id="content" class="col p-4">
             {{ content }}

@@ -5,7 +5,9 @@
         <i class="fa-solid fa-tags" aria-hidden="true"></i>
         <span>Tags:</span>
         {% for tag in include.tags %}
-            <span class="badge bg-primary" itemprop="keywords">{{ tag }}</span>
+            <span class="badge bg-primary" itemprop="keywords">
+                <a rel="tag" href="">{{ tag }}</a>
+            </span>
         {% endfor %}
     </div>
 {% endif %}

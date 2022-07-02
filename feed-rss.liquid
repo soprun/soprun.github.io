@@ -2,25 +2,69 @@
 layout: null
 permalink: /rss.xml
 # https://github.com/ptz0n/ptz0n.github.io/blob/master/docs/rss.xml
+# https://cyber.harvard.edu/rss/rss.html
+
 ---
 {% comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment %}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
     <channel>
         <title>{{ site.title | xml_escape }}</title>
         <link>{{ site.url | absolute_url }}</link>
-        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
         <description>{{ site.description | xml_escape }}</description>
+
         <language>{{ site.lang }}</language>
         <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
         <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 
+        {% if site.logo %}
+            <image>
+                <url>{{ site.logo | absolute_url }}</url>
+                <title>{{ site.title | xml_escape }}</title>
+                <link>{{ site.url | absolute_url }}</link>
+            </image>
+        {% endif %}
+
+        {% if site.author.email %}
+            <managingEditor>{{ site.author.email }}</managingEditor>
+        {% endif %}
+
+        {% if site.author.email %}
+            <webMaster>{{ site.author.email }}</webMaster>
+        {% endif %}
+
+        {% if site.copyright %}
+            <copyright>{{ site.copyright }}</copyright>
+        {% endif %}
+
+        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
+
         {% for post in site.posts %}
             <item>
+                <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
                 <title>{{ post.title | xml_escape }}</title>
                 <link>{{ post.url | absolute_url }}</link>
+
+                <author>{{ post.author.email | default: site.author.email }}
+                    ({{ post.author.name | default: site.author.name }})
+                </author>
+
+                {% comment %}https://cyber.harvard.edu/rss/rss.html#ltcategorygtSubelementOfLtitemgt{% endcomment %}
+
+                {% for category in post.categories %}
+                    {% comment %}<category domain="http://www.fool.com/cusips">{{ category }}</category>{% endcomment %}
+                    <category domain="{{ '/categories/' | append: category | relative_url }}">{{ category }}</category>
+                {% endfor %}
+
+                {% if post.image %}
+                    <image>
+                        <url>{{ post.image }}</url>
+                        <title>{{ post.title | xml_escape }}</title>
+                        <link>{{ post.url | absolute_url }}</link>
+                    </image>
+                {% endif %}
+
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-                <author>{{ site.author.email }} ({{ site.author.name }})</author>
-                <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+
                 <description>
                     {{ post.excerpt | markdownify | strip_html | strip | truncate: 160 | xml_escape }}
                     {% comment %}{{ post.excerpt | markdownify | strip_html | strip | truncatewords: 120 | xml_escape }}{% endcomment %}

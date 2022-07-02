@@ -1,38 +1,39 @@
-header:
-  - title: GitHub
-    icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
-    url: https://github.com/soprun
-
-footer:
-  - title: GitHub
-    icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
-    url: https://github.com/soprun
-
-contact:
 #  - label: URL
 #    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
 #    title: soprun.com
 #    url: https://soprun.com
 
+contact:
   - label: Telegram
     icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
     title: soprun
     url: https://t.me/soprun
+    vcard: ~
 
   - label: Email
     icon: <i class="fa-solid fa-at" aria-hidden="true"></i>
     title: mail@soprun.com
     url: 'mailto:mail@soprun.com'
+    vcard: email
 
   - label: Phone
     icon: <i class="fa-solid fa-phone" aria-hidden="true"></i>
     title: '+79017972126'
     url: 'tel:+79017972126'
+    vcard: tel
 
   - label: Skype
     icon: <i class="fa-brands fa-skype" aria-hidden="true"></i>
     title: vlsoprun
     url: 'skype:vlsoprun?call'
+    vcard: ~
+
+#  - label: vСard
+#    icon: <i class="fa-solid fa-address-card" aria-hidden="true"></i>
+#    #    title: import a vCard.vcf
+#    title: vCard.vcf
+#    url: /assets/vcard.vcf
+#    vcard: ~
 
 follow:
   - title: GitHub
@@ -54,3 +55,88 @@ follow:
 #    - title: codepen.io
 #      icon: <i class="fa-brands fa-codepen" aria-hidden="true"></i>
 #      url: https://codepen.io/vlsoprun
+
+
+head_link:
+
+  cdnjs_cloudflare_com:
+    rel: dns-preletch
+    href: https://cdnjs.cloudflare.com
+
+  fonts_googleapis_com:
+    rel: dns-preletch
+    href: https://fonts.googleapis.com
+
+  fonts_gstatic_com:
+    rel: dns-preletch
+    href: https://fonts.gstatic.com
+
+  atom:
+    title: Atom 1.0 feed for all posts
+    rel: alternate
+    type: application/atom+xml
+    href: /atom.xml
+
+  rss:
+    title: RSS 2.0 feed
+    rel: alternate
+    type: application/rss+xml
+    href: /rss.xml
+
+  sitemap:
+    title: Sitemap
+    rel: sitemap
+    type: application/xml
+    href: /sitemap.xml
+
+  pgpkey:
+    title: OpenPGP Public Key
+    rel: pgpkey
+    type: application/pgp-keys
+    href: https://github.com/soprun.gpg
+
+  publickey:
+    title: mail@soprun.com
+    rel: publickey
+    type: text/plain
+    href: /assets/pgp-public-key.asc
+
+  manifest:
+    rel: manifest
+    href: manifest.json
+
+#  me-phone:
+#    rel: me
+#    href: 'sms:+79017972126'
+#
+#  me-email:
+#    rel: me
+#    href: 'mailto:mail@soprun.com'
+
+icons:
+  favicon-ico:
+    rel: shortcut icon
+    type: image/x-icon
+    href: favicon.ico
+
+  favicon-icon:
+    rel: icon
+    type: image/png
+    href: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=
+    sizes:
+      - 192
+      - 160
+      - 196
+      - 152
+      - 144
+      - 128
+
+  apple-touch-icon:
+    rel: apple-touch-icon
+    type: image/png
+    href: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=
+    sizes:
+      - 152
+      - 167
+      - 180
+      - 310

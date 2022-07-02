@@ -1,0 +1,45 @@
+<meta name="medium" content="blog"/>
+<meta name="theme-color" content="#cfc3ee"/>
+
+<meta name="referrer" content="unsafe-url">
+
+<meta http-equiv="last-modified" content="{{ site.time }}">
+
+<meta name="document-state" content="dynamic">
+<meta name="revisit-after" content="5 days">
+
+<meta http-equiv="cache-control" content="public">
+
+
+
+<meta name="application-name"
+      lang="{{ page.lang | default: site.lang | default: 'ru' }}"
+      content="{{ site.title }}">
+
+{% comment %}<meta name="msapplication-TileColor" content="#FFFFFF">{% endcomment %}
+{% comment %}<meta name="msapplication-TileImage" content="{{ '/assets/img/favicon-180.png' | relative_url }}">{% endcomment %}
+{% comment %}<meta name="msapplication-config" content="{{ 'browserconfig.xml' | relative_url }}">{% endcomment %}
+
+{%- if page.noindex == true -%}
+    <meta name="robots" content="noindex, nofollow"/>
+{%- endif -%}
+
+{%- assign baseurl = site.baseurl | prepend: site.url -%}
+{%- if jekyll.environment != 'production' and site.env.CF_PAGES_URL %}
+    {% assign baseurl = site.env.CF_PAGES_URL %}
+{% endif %}
+<base href="{{ baseurl | relative_url }}">
+
+{%- assign keywords = page.tags | reverse -%}
+{%- assign keywords = keywords | concat: site.keywords | join: ', ' | truncatewords: 10 %}
+<meta name="keywords" content="{{ keywords }}">
+
+{% comment %}https://www.geeksforgeeks.org/how-to-generate-public-key-in-html/{% endcomment %}
+{% comment %}<keygen name="name" challenge="challenge" keytype="type" keyparams="pqg-params">{% endcomment %}
+
+
+
+{% comment %}{% include head/meta.liquid %}{% endcomment %}
+{% comment %}<meta name="description" content="{{ content | strip_html | truncate: 160 }}">{% endcomment %}
+{% comment %}<title>{{ page.title }} | {{ site.sitename }} | {{ site.tagline | truncate: 70 }}</title>{% endcomment %}
+

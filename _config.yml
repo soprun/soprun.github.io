@@ -129,8 +129,10 @@ defaults:
       image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll
-permalink: date
-# permalink: '/:categories/:title/'
+#permalink: date
+#permalink: '/:categories/:title/'
+# https://mademistakes.com/mastering-jekyll/how-to-link/#collection-url-defaults
+permalink: /:collection/:path
 paginate: 4
 paginate_path: "/page/:num"
 

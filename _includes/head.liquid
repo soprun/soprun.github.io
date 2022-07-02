@@ -1,64 +1,48 @@
+{%- assign application-name = site.title %}
+{%- assign theme-color = '#cfc3ee' %}
+{%- assign baseurl = site.baseurl | prepend: site.url -%}
+{%- if jekyll.environment != 'production' and site.env.CF_PAGES_URL %}
+    {%- assign baseurl = site.env.CF_PAGES_URL %}
+{% endif %}
+{%- assign keywords = page.tags | reverse -%}
+{%- assign keywords = keywords | concat: site.keywords | join: ', ' | truncatewords: 10 %}
+{%- assign copyright = 'Copyright 2022, soprun.com' %}
+
 <head>
+    <base href="{{ baseurl | relative_url }}">
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
     <meta name="theme-color" content="#cfc3ee"/>
-
-    {%- if page.noindex == true -%}
-        <meta name="robots" content="noindex, nofollow"/>
-    {%- endif -%}
-
-    {%- assign baseurl = site.baseurl | prepend: site.url -%}
-    {% if jekyll.environment != 'production' and site.env.CF_PAGES_URL %}
-        {% assign baseurl = site.env.CF_PAGES_URL %}
-    {% endif %}
-    <base href="{{ baseurl | relative_url }}">
-
-    {%- assign keywords = page.tags | reverse -%}
-    {% assign keywords = keywords | concat: site.keywords | join: ', ' | truncatewords: 10 %}
+    {%- comment %}<meta name="author" content="{{ site.author.name }}">{% endcomment %}
+    <meta name="reply-to" content="{{ site.author.email }}">
+    <meta name="copyright" content="{{ copyright }}">
     <meta name="keywords" content="{{ keywords }}">
+    {%- if page.noindex == true %}
+        <meta name="robots" content="noindex, nofollow"/>
+    {% endif %}
 
-    {% comment %}<meta name="description" content="{{ content | strip_html | truncate: 160 }}">{% endcomment %}
-    {% comment %}<title>{{ page.title }} | {{ site.sitename }} | {{ site.tagline | truncate: 70 }}</title>{% endcomment %}
-
-    {%- seo -%}
+    {% seo %}
     {% comment %}{% feed_meta %}{% endcomment %}
-
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
-
-    {% comment %}<link rel="stylesheet"{% endcomment %}
-          {% comment %}href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"{% endcomment %}
-          {% comment %}media="print"{% endcomment %}
-          {% comment %}onload="this.media='all'; this.onload = null">{% endcomment %}
 
     <link rel="preload"
           href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"
           as="style"
           onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"></noscript>
 
-    <link type="application/atom+xml" rel="alternate" href="{{ '/atom.xml' | relative_url }}" title="{{ site.title }}"/>
-    <link type="application/rss+xml" rel="alternate" href="{{ '/rss.xml' | relative_url }}" title="{{ site.title }}"/>
+    <noscript>
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}">
+    </noscript>
 
-    <link rel="manifest" href="{{ 'manifest.json' | relative_url }}">
+    {% for link in site.data.links.head_link -%}
+        {% include snippet/link.liquid
+            params=link
+        %}
+    {% endfor %}
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.ico' | relative_url }}">
-
-    <link rel="icon" sizes="16x16 32x32 64x64" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/img/favicon-180.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="196x196" href="{{ '/assets/img/favicon-310.png' | relative_url }}">
-
-    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon-180.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="310x310" href="{{ '/assets/img/favicon-310.png' | relative_url }}">
-
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="{{ '/assets/img/favicon-180.png' | relative_url }}">
-    <meta name="msapplication-config" content="{{ 'browserconfig.xml' | relative_url }}">
-
+    {% include head/icons.liquid %}
     {% include head/sentry.liquid %}
     {% include head/yandex-metrika.liquid %}
     {% include head/google-analytics.liquid %}

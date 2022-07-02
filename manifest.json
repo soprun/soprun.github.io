@@ -10,17 +10,17 @@
     },
     "icons": [
         {
-            "src": "/assets/img/favicon-70.png",
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=70",
             "type": "image/png",
             "sizes": "70x70"
         },
         {
-            "src": "/assets/img/favicon-180.png",
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=180",
             "type": "image/png",
             "sizes": "180x180"
         },
         {
-            "src": "/assets/img/favicon-310.png",
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=310",
             "type": "image/png",
             "sizes": "310x310"
         }

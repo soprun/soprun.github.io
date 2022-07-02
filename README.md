@@ -140,3 +140,9 @@ https://github.com/solarrust/hacker-laws
 
 https://github.com/ircmaxell/resume
 
+
+
+-- 
+
+https://adactio.com/
+https://snipp.ru/html-css/meta-tegs
