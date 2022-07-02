@@ -1,0 +1,152 @@
+---
+layout: null
+permalink: /rss-turbo.xml
+# https://github.com/ptz0n/ptz0n.github.io/blob/master/docs/rss.xml
+# https://cyber.harvard.edu/rss/rss.html
+
+---
+<?xml version="1.0" encoding="{{ site.encoding }}"?>
+<rss version="2.0"
+     xmlns:yandex="http://news.yandex.ru"
+     xmlns:turbo="http://turbo.yandex.ru">
+    <channel>
+        <title>{{ site.title | xml_escape }}</title>
+        <link>{{ site.url | absolute_url }}</link>
+        {% comment %}<description>{{ site.description | xml_escape }}</description>{% endcomment %}
+        {% comment %}<language>{{ site.lang }}</language>{% endcomment %}
+        {% comment %}<pubDate>{{ site.time | date_to_rfc822 }}</pubDate>{% endcomment %}
+        {% comment %}<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>{% endcomment %}
+
+        <turbo:analytics></turbo:analytics>
+        <turbo:adNetwork></turbo:adNetwork>
+
+        {% comment %}<atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>{% endcomment %}
+
+        {% if site.logo %}
+            {% comment %}<image>{% endcomment %}
+            {% comment %}<url>{{ site.logo | absolute_url | xml_escape }}</url>{% endcomment %}
+            {% comment %}<title>{{ site.title | xml_escape }}</title>{% endcomment %}
+            {% comment %}<link>{{ site.url | absolute_url | xml_escape }}</link>{% endcomment %}
+            {% comment %}</image>{% endcomment %}
+        {% endif %}
+
+        {%- if site.author.email %}
+            {% comment %}<managingEditor>{{ site.author.email }}</managingEditor>{% endcomment %}
+        {% endif %}
+
+        {%- if site.author.email %}
+            {% comment %}<webMaster>{{ site.author.email }}</webMaster>{% endcomment %}
+        {% endif %}
+
+        {%- if site.copyright %}
+            <copyright>{{ site.copyright | xml_escape }}</copyright>
+        {% endif %}
+
+        {%- for post in site.posts -%}
+            <item turbo="true">
+                <turbo:extendedHtml>true</turbo:extendedHtml>
+
+                <title>{{ post.title | xml_escape }}</title>
+                <link>{{ post.url | absolute_url | xml_escape }}</link>
+
+                <turbo:source></turbo:source>
+                <turbo:topic></turbo:topic>
+
+                <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+                <author>Иван Иванов</author>
+
+                {%- if post.author.name %}
+                    <author>{{ post.author.name }}</author>
+                {%- else %}
+                    <author>{{ site.author.name }}</author>
+                {%- endif %}
+
+                {% comment %}<metrics>{% endcomment %}
+                {% comment %}<yandex schema_identifier="Идентификатор">{% endcomment %}
+                {% comment %}<breadcrumblist>{% endcomment %}
+                {% comment %}<breadcrumb url="http://example.com/" text="Домашняя"/>{% endcomment %}
+                {% comment %}<breadcrumb url="http://example.com/category/" text="Категория"/>{% endcomment %}
+                {% comment %}<breadcrumb url="http://example.com/category/sub-category/" text="Подкатегория"/>{% endcomment %}
+                {% comment %}<breadcrumb url="http://example.com/category/sub-category/page1.html" text="Пример страницы"/>{% endcomment %}
+                {% comment %}</breadcrumblist>{% endcomment %}
+                {% comment %}</yandex>{% endcomment %}
+                {% comment %}</metrics>{% endcomment %}
+
+                <yandex:related></yandex:related>
+
+                <turbo:content>
+                    <![CDATA[
+                    <header>
+                        <h1><span class="title">Ресторан «Полезный завтрак»</span></h1>
+                    </header>
+                    <div class="subtitle">Вкусно и полезно</div>
+                    <div class="image-grid">
+                        <img class="cell"
+                             src="https://avatars.mds.yandex.net/get-turbo/1683990/rthbee79622d4d555cff702b7d5d1e52287/orig">
+                        <img class="cell"
+                             src="https://avatars.mds.yandex.net/get-turbo/3611801/rthb52c0e885feecd3c3b4f65b93b387bd2/orig">
+                        <img class="cell"
+                             src="https://avatars.mds.yandex.net/get-turbo/2916822/rthaff163472730718b6eae066a7904c301/orig">
+                    </div>
+                    {{- post.content | markdownify | strip_newlines }}
+                    ]]>
+                </turbo:content>
+
+                {% comment %}<turbo:content>{% endcomment %}
+                {% comment %}<![CDATA[{% endcomment %}
+                {% comment %}<header>{% endcomment %}
+                {% comment %}<h1>Ресторан «Полезный завтрак»</h1>{% endcomment %}
+                {% comment %}<h2>Вкусно и полезно</h2>{% endcomment %}
+                {% comment %}<figure>{% endcomment %}
+                {% comment %}<img src="https://avatars.mds.yandex.net/get-sbs-sd/403988/e6f459c3-8ada-44bf-a6c9-dbceb60f3757/orig">{% endcomment %}
+                {% comment %}</figure>{% endcomment %}
+                {% comment %}<menu>{% endcomment %}
+                {% comment %}<a href="http://example.com/page1.html">Пункт меню 1</a>{% endcomment %}
+                {% comment %}<a href="http://example.com/page2.html">Пункт меню 2</a>{% endcomment %}
+                {% comment %}</menu>{% endcomment %}
+                {% comment %}</header>{% endcomment %}
+                {% comment %}<p>Как хорошо начать день? Вкусно и полезно позавтракать!</p>{% endcomment %}
+                {% comment %}<p>Приходите к нам на завтрак. Фотографии наших блюд ищите <a href="#">на нашем сайте</a>.</p>{% endcomment %}
+                {% comment %}<h2>Меню</h2>{% endcomment %}
+                {% comment %}<figure>{% endcomment %}
+                {% comment %}<img src="https://avatars.mds.yandex.net/get-sbs-sd/369181/49e3683c-ef58-4067-91f9-786222aa0e65/orig">{% endcomment %}
+                {% comment %}<figcaption>Омлет с травами</figcaption>{% endcomment %}
+                {% comment %}</figure>{% endcomment %}
+                {% comment %}<p>В нашем меню всегда есть свежие, вкусные и полезные блюда.</p>{% endcomment %}
+                {% comment %}<p>Убедитесь в этом сами.</p>{% endcomment %}
+                {% comment %}<button formaction="tel:+7(123)456-78-90"{% endcomment %}
+                {% comment %}data-background-color="#5B97B0"{% endcomment %}
+                {% comment %}data-color="white"{% endcomment %}
+                {% comment %}data-primary="true">Заказать столик</button>{% endcomment %}
+                {% comment %}<div data-block="widget-feedback" data-stick="false">{% endcomment %}
+                {% comment %}<div data-block="chat" data-type="whatsapp" data-url="https://whatsapp.com"></div>{% endcomment %}
+                {% comment %}<div data-block="chat" data-type="telegram" data-url="http://telegram.com/"></div>{% endcomment %}
+                {% comment %}<div data-block="chat" data-type="vkontakte" data-url="https://vk.com/"></div>{% endcomment %}
+                {% comment %}<div data-block="chat" data-type="viber" data-url="https://viber.com"></div>{% endcomment %}
+                {% comment %}</div>{% endcomment %}
+                {% comment %}<p>Наш адрес: <a href="#">Nullam dolor massa, porta a nulla in, ultricies vehicula arcu.</a></p>{% endcomment %}
+                {% comment %}<p>Фотографии — http://unsplash.com</p>{% endcomment %}
+                {% comment %}]]>{% endcomment %}
+                {% comment %}</turbo:content>{% endcomment %}
+
+                {% comment %}<guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>{% endcomment %}
+                {% comment %}{% endcomment %}
+
+                {% comment %}https://cyber.harvard.edu/rss/rss.html#ltcategorygtSubelementOfLtitemgt{% endcomment %}
+                {%- for category in post.categories %}
+                    {% comment %}<category domain="http://www.fool.com/cusips">{{ category }}</category>{% endcomment %}
+                    {% comment %}<category domain="{{ '/categories/' | append: category | absolute_url }}">{{ category }}</category>{% endcomment %}
+                {% endfor %}
+                {%- if post.image %}
+                    {% comment %}<image>{% endcomment %}
+                    {% comment %}<url>{{ post.image | absolute_url | xml_escape }}</url>{% endcomment %}
+                    {% comment %}<title>{{ post.title | xml_escape }}</title>{% endcomment %}
+                    {% comment %}<link>{{ post.url | absolute_url | xml_escape }}</link>{% endcomment %}
+                    {% comment %}</image>{% endcomment %}
+                {% endif %}
+
+                {% comment %}<description>{{ post.excerpt | markdownify | strip_newlines | strip_html | truncatewords: 120 | xml_escape }}</description>{% endcomment %}
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

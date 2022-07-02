@@ -6,7 +6,7 @@ permalink: /atom.xml
 # https://www.ibm.com/docs/en/baw/19.x?topic=formats-atom-feed-format
 # https://developers.google.com/gdata/docs/1.0/reference
 ---
-<?xml version="1.0" encoding="{{ site.encoding }}"?>
+{%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
     <title>{{ site.title | xml_escape }}</title>
     <link href="{{ '/atom.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
