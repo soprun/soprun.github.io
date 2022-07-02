@@ -6,7 +6,7 @@ permalink: /rss.xml
 
 ---
 {%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
-<rss version="2.0" xml:lang="{{ site.lang }}" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
     <channel>
         <title>{{ site.title | xml_escape }}</title>
         <link>{{ site.url | absolute_url }}</link>
@@ -15,13 +15,13 @@ permalink: /rss.xml
         <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
         <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 
-        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
+        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
 
         {% if site.logo %}
             {% comment %}<image>{% endcomment %}
-                {% comment %}<url>{{ site.logo | absolute_url | xml_escape }}</url>{% endcomment %}
-                {% comment %}<title>{{ site.title | xml_escape }}</title>{% endcomment %}
-                {% comment %}<link>{{ site.url | absolute_url | xml_escape }}</link>{% endcomment %}
+            {% comment %}<url>{{ site.logo | absolute_url | xml_escape }}</url>{% endcomment %}
+            {% comment %}<title>{{ site.title | xml_escape }}</title>{% endcomment %}
+            {% comment %}<link>{{ site.url | absolute_url | xml_escape }}</link>{% endcomment %}
             {% comment %}</image>{% endcomment %}
         {% endif %}
 
@@ -56,9 +56,9 @@ permalink: /rss.xml
                 {% endfor %}
                 {%- if post.image %}
                     {% comment %}<image>{% endcomment %}
-                        {% comment %}<url>{{ post.image | absolute_url | xml_escape }}</url>{% endcomment %}
-                        {% comment %}<title>{{ post.title | xml_escape }}</title>{% endcomment %}
-                        {% comment %}<link>{{ post.url | absolute_url | xml_escape }}</link>{% endcomment %}
+                    {% comment %}<url>{{ post.image | absolute_url | xml_escape }}</url>{% endcomment %}
+                    {% comment %}<title>{{ post.title | xml_escape }}</title>{% endcomment %}
+                    {% comment %}<link>{{ post.url | absolute_url | xml_escape }}</link>{% endcomment %}
                     {% comment %}</image>{% endcomment %}
                 {% endif %}
 
