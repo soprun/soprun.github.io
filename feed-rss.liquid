@@ -44,9 +44,12 @@ permalink: /rss.xml
                 <link>{{ post.url | absolute_url | xml_escape }}</link>
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 
-                <author>{{ post.author.email | default: site.author.email }}
-                    ({{ post.author.name | default: site.author.name }})
-                </author>
+                {%- if post.author.name %}
+                    <author>{{ post.author.email }} ({{ post.author.name }})</author>
+                {%- else %}
+                    <author>{{ site.author.email }} ({{ site.author.name }})</author>
+                {%- endif %}
+
                 {% comment %}https://cyber.harvard.edu/rss/rss.html#ltcategorygtSubelementOfLtitemgt{% endcomment %}
                 {%- for category in post.categories %}
                     {% comment %}<category domain="http://www.fool.com/cusips">{{ category }}</category>{% endcomment %}
@@ -60,7 +63,7 @@ permalink: /rss.xml
                     {% comment %}</image>{% endcomment %}
                 {% endif %}
 
-                <description>{{ post.excerpt | markdownify | truncatewords: 120 | xml_escape }}</description>
+                <description>{{ post.excerpt | markdownify | strip_newlines | strip_html | truncatewords: 120 | xml_escape }}</description>
             </item>
         {% endfor %}
     </channel>
