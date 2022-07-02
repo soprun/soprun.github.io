@@ -1,70 +1,31 @@
 ---
 layout: null
 permalink: /rss.xml
+title: RSS Feed
+
 # https://github.com/ptz0n/ptz0n.github.io/blob/master/docs/rss.xml
 # https://cyber.harvard.edu/rss/rss.html
-
+# https://github.com/programminghistorian/jekyll/blob/gh-pages/feed.xml
 ---
 {%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>{{ site.title | xml_escape }}</title>
+        <title>{{ site.title | strip_html | xml_escape }}</title>
+        <description>{{ site.description | strip_html | xml_escape }}</description>
         <link>{{ site.url | absolute_url }}</link>
-        <description>{{ site.description | xml_escape }}</description>
-        <language>{{ site.lang }}</language>
-        <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
         <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+        <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+        <ttl>60</ttl>
 
-        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
-
-        {% if site.logo %}
-            {% comment %}<image>{% endcomment %}
-            {% comment %}<url>{{ site.logo | absolute_url | xml_escape }}</url>{% endcomment %}
-            {% comment %}<title>{{ site.title | xml_escape }}</title>{% endcomment %}
-            {% comment %}<link>{{ site.url | absolute_url | xml_escape }}</link>{% endcomment %}
-            {% comment %}</image>{% endcomment %}
-        {% endif %}
-
-        {%- if site.author.email %}
-            {% comment %}<managingEditor>{{ site.author.email }}</managingEditor>{% endcomment %}
-        {% endif %}
-
-        {%- if site.author.email %}
-            {% comment %}<webMaster>{{ site.author.email }}</webMaster>{% endcomment %}
-        {% endif %}
-
-        {%- if site.copyright %}
-            <copyright>{{ site.copyright | xml_escape }}</copyright>
-        {% endif %}
-
-        {%- for post in site.posts -%}
+        {% for post in site.posts limit:20 %}
             <item>
-                <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
-                <title>{{ post.title | xml_escape }}</title>
-                <link>{{ post.url | absolute_url | xml_escape }}</link>
+                <title>{{ post.title | strip_html | xml_escape | truncate: 90 }}</title>
+                <description>{{ post.content | markdownify | strip_html | normalize_whitespace | strip | xml_escape | truncate: 480 }}</description>
+                <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-
-                {%- if post.author.name %}
-                    <author>{{ post.author.email }} ({{ post.author.name }})</author>
-                {%- else %}
-                    <author>{{ site.author.email }} ({{ site.author.name }})</author>
-                {%- endif %}
-
-                {% comment %}https://cyber.harvard.edu/rss/rss.html#ltcategorygtSubelementOfLtitemgt{% endcomment %}
-                {%- for category in post.categories %}
-                    {% comment %}<category domain="http://www.fool.com/cusips">{{ category }}</category>{% endcomment %}
-                    {% comment %}<category domain="{{ '/categories/' | append: category | absolute_url }}">{{ category }}</category>{% endcomment %}
-                {% endfor %}
-                {%- if post.image %}
-                    {% comment %}<image>{% endcomment %}
-                    {% comment %}<url>{{ post.image | absolute_url | xml_escape }}</url>{% endcomment %}
-                    {% comment %}<title>{{ post.title | xml_escape }}</title>{% endcomment %}
-                    {% comment %}<link>{{ post.url | absolute_url | xml_escape }}</link>{% endcomment %}
-                    {% comment %}</image>{% endcomment %}
-                {% endif %}
-
-                <description>{{ post.excerpt | markdownify | strip_newlines | strip_html | truncatewords: 120 | xml_escape }}</description>
             </item>
         {% endfor %}
+
     </channel>
 </rss>

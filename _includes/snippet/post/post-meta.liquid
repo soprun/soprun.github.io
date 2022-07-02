@@ -1,12 +1,13 @@
 {% assign date = include.date | default: page.date %}
 {% assign modified_date = include.modified_date | default: page.modified_date %}
-{% assign date_format = site.date_format | default: "%d.%m.%Y" %}
+{% assign date_format = site.date_format | default: "%d %B %Y" %}
+{% comment %}{% assign date_format = site.date_format | default: "%B %-d, %Y" %}{% endcomment %}
 
 {% if date %}
     <div class="post-meta {{ include.class }}">
         <time datetime="{{ date | date_to_xmlschema }}" itemprop="datePublished">
             <i class="fas fa-calendar-alt mr-2" aria-hidden="true"></i>
-            {{ date | date: date_format }}
+            Posted on {{ date | date: date_format }}
         </time>
         {% if modified_date %}
             <time datetime="{{ modified_date | date_to_xmlschema }}" itemprop="dateModified">

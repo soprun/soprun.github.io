@@ -1,0 +1,41 @@
+---
+layout: null
+published: false
+permalink: /atom.xml
+# https://github.com/ptz0n/ptz0n.github.io/blob/master/docs/atom.xml
+# https://validator.w3.org/feed/docs/atom.html
+# https://www.ibm.com/docs/en/baw/19.x?topic=formats-atom-feed-format
+# https://developers.google.com/gdata/docs/1.0/reference
+---
+{%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
+    <title>{{ site.title | xml_escape }}</title>
+    <link href="{{ '/atom.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
+    <id>{{ site.url | absolute_url | xml_escape }}</id>
+    <link href="{{ site.url | absolute_url | xml_escape }}" rel="alternate" type="text/html"/>
+    <updated>{{ site.time | date_to_xmlschema }}</updated>
+    <author>
+        <name>{{ site.author.name }}</name>
+        <email>{{ site.author.email }}</email>
+    </author>
+    {%- for post in site.posts %}
+        <entry>
+            <id>{{ post.url | absolute_url | xml_escape }}</id>
+            <link href="{{ post.url | absolute_url | xml_escape }}" rel="alternate" type="text/html"/>
+            <title>{{ post.title | xml_escape }}</title>
+            <published>{{ post.date | date_to_xmlschema }}</published>
+            <updated>{{ post.date | date_to_xmlschema }}</updated>
+            <author>
+                <name>{{ site.author.name }}</name>
+                <email>{{ site.author.email }}</email>
+                <uri>{{ site.url | absolute_url | xml_escape }}</uri>
+            </author>
+            <content type="html">
+                {{ post.excerpt | markdownify | strip_html | strip | truncatewords: 250 | xml_escape }}
+            </content>
+            {%- if post.image -%}
+                {% comment %}<g:image_link>{{ post.image | xml_escape }}</g:image_link>{% endcomment %}
+            {% endif %}
+        </entry>
+    {% endfor %}
+</feed>

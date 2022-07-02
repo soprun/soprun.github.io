@@ -160,3 +160,7 @@ https://www.aleksandrhovhannisyan.com/blog/getting-started-with-jekyll-and-githu
 ```text
 https://api.unsplash.com/photos/random?client_id=70e3f5838c92f41ccb557fefe4fa54fd57709b8c4ef7ad0affc58373509da78c
 ```
+
+
+https://github.com/daattali/beautiful-jekyll/blob/master/_layouts/home.html
+

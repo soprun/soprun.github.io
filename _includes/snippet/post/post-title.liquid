@@ -1,17 +1,17 @@
-{% assign title = include.title | escape %}
-{% assign url = include.url %}
+{% assign title = include.title | default: post.title | escape %}
+{% assign url = include.url | default: post.url %}
 
 {% if title %}
     <h2 class="post-title {{ include.class }}"
         itemprop="headline">
-        {% if url %}
+        {% if show_title_link == false or show_read_more == false %}
+            {{ title }}
+        {% else %}
             <a href="{{ url | relative_url }}"
                aria-label="{{ title }}"
                itemprop="mainEntityOfPage">
                 {{ title }}
             </a>
-        {% else %}
-            {{ title }}
         {% endif %}
     </h2>
 {% endif %}

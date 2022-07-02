@@ -1,7 +1,11 @@
+{% comment %}https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?w=100&h=500&fit=min&fm=webp&auto=compress{% endcomment %}
+
 {% if include.src %}
-    {%- assign param = include.param | default: '?w=400&fit=crop&fm=webp&auto=compress' -%}
+    {% comment %}{%- assign param = include.param | default: '?w=400&fit=clip&crop=entropy,center&fm=webp&auto=compress' -%}{% endcomment %}
+    {%- assign param = include.param | default: '?w=400&h=350&fit=min&crop=entropy,center&fm=webp&auto=compress' -%}
     {%- assign alt = include.alt | default: page.title | append: ' - ' | append: site.title -%}
     {%- assign src = include.src | append: param | relative_url -%}
+
     <picture class="post-thumbnail {{ include.class }}"
              itemprop="image"
              itemscope

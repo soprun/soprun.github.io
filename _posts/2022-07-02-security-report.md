@@ -3,7 +3,7 @@ permalink: /security-report
 title: Domain Security Report soprun.com
 categories: [security]
 tags: [security, tools, http headers, owasp]
-image: https://images.unsplash.com/photo-1605351792643-fe0c43d18762
+image: https://images.unsplash.com/photo-1618482914248-29272d021005
 ---
 
 Небольшой анализ безопасности домена, сайта и email 🔐
@@ -14,6 +14,8 @@ image: https://images.unsplash.com/photo-1605351792643-fe0c43d18762
 
 Рекомендую к изучению:
 [Топ-10 OWASP. Десять самых критичных угроз безопасности веб-приложений](https://wiki.owasp.org/images/9/96/OWASP_Top_10-2017-ru.pdf)
+
+[//]: # (<i class="fa-solid fa-file-pdf fs-4"></i>)
 
 А также сервисы где вы можете проверить ваш проект на безопасность по OWASP Secure Headers!
 
