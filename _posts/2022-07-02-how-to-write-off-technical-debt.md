@@ -4,6 +4,7 @@ title: Как списать технический долг
 categories: [YouTube]
 tags: []
 image: https://images.unsplash.com/photo-1588286492514-ddb61b527086
+published: false
 author:
   name: Максим Смирнов
 ---
