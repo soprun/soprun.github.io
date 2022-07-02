@@ -37,8 +37,6 @@ permalink: /rss.xml
             <copyright>{{ site.copyright | xml_escape }}</copyright>
         {% endif %}
 
-        {%- comment %}<atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>{% endcomment %}
-
         {%- for post in site.posts -%}
             <item>
                 <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape }}</guid>
