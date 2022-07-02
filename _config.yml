@@ -58,8 +58,6 @@ exclude:
   - Makefile
   - .gitignore
   - .DS_STORE
-  - codecov.yml
-  - lighthouserc.js
 
 keep_files: [ .git, _headers ]
 timezone: "Europe/Moscow"
