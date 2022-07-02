@@ -22,7 +22,8 @@ clean: ## Clean the site (removes site output and metadata file) without buildin
 
 watch: clean ##Execute a script in the current bundl
 	@#JEKYLL_ENV=development
-	bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace
+	@#JEKYLL_LOG_LEVEL=debug
+	bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace --open-url
 
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	gem install bundler

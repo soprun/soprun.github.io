@@ -7,10 +7,7 @@
 {%- assign keywords = page.tags | reverse -%}
 {%- assign keywords = keywords | concat: site.keywords | join: ', ' | truncatewords: 10 %}
 {%- assign copyright = 'Copyright 2022, soprun.com' %}
-
 <head>
-    <base href="{{ baseurl | relative_url }}">
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +20,8 @@
     {%- if page.noindex == true %}
         <meta name="robots" content="noindex, nofollow"/>
     {% endif %}
+
+    <base href="{{ baseurl | relative_url }}">
 
     {% seo %}
     {% comment %}{% feed_meta %}{% endcomment %}
@@ -41,7 +40,6 @@
             params=link
         %}
     {% endfor %}
-
     {% include head/icons.liquid %}
     {% include head/sentry.liquid %}
     {% include head/yandex-metrika.liquid %}

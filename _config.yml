@@ -11,11 +11,14 @@ encoding: UTF-8
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
 title: 'Technical Architect @soprun'
-description: 'How to guide & Software Tutorials'
+description: >- # this means to ignore newlines until "baseurl:"
+  How to guide & Software Tutorials
 keywords: [DDD, PHP, Symfony, Guide, Tutorials]
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 #logo: https://avatars.githubusercontent.com/soprun?size=400
-logo: https://github.com/soprun.png?size=400
+#logo: https://github.com/soprun.png?size=400
+logo: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
+email: mail@soprun.com
 
 author:
   name: Soprun Vladislav
@@ -25,9 +28,9 @@ author:
   description: Hi, welcome to my tech blog!<br>I am a Technical Architect
   url: https://soprun.com
   email: mail@soprun.com
-  phone: '+79017972126'
-  gpg_public_key: 'https://github.com/soprun.gpg'
-  gpg_fingerprint: 'B750 2F96 C5DC 44C2'±
+  phone: +79017972126
+  gpg_public_key: https://github.com/soprun.gpg
+  gpg_fingerprint: B750 2F96 C5DC 44C2
 
 # Handling Reading
 safe: false
@@ -102,10 +105,13 @@ plugins:
 #collections:
 #  posts:
 #    output: true
+#    permalink: /:collection/:name
 #  pages:
 #    output: true
+#    permalink: /:collection/:name
 #  category:
 #    output: true
+#    permalink: /:collection/:name
 
 #notion:
 #  fetch_on_watch: true
@@ -119,25 +125,29 @@ defaults:
   - scope:
       path: "" # an empty string here means all files in the project
     values:
-      layout: "default"
+      layout: page
+      type: page
       noindex: false
+      paginate: false
+      published: true
       author: "Soprun Vladislav"
-      image: https://github.com/soprun.png?size=400
+      image: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
+      categories: []
 
   - scope:
       type: posts
       path: _posts
     values:
-      is_post: true
       layout: post
-      permalink: '/page/:id'
+      type: post
+#      permalink: '/page/:id'
+      permalink: /:categories/:title:output_ext
 
-  - scope:
-      type: pages
-      path: _pages
-    values:
-      is_post: false
-      layout: page
+#  - scope:
+#      type: pages
+#      path: _pages
+#    values:
+#      layout: page
 
   - scope:
       path: 'assets/img'
@@ -146,11 +156,15 @@ defaults:
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll
 #permalink: date
-#permalink: '/:categories/:title/'
 # https://mademistakes.com/mastering-jekyll/how-to-link/#collection-url-defaults
-permalink: /:collection/:path
-paginate: 4
-paginate_path: "/page/:num"
+#permalink: /:collection/:path
+permalink: /:categories/:title
+paginate: 5
+paginate_path: /page/:num
+
+page_excerpts: true
+excerpt_separator: "<!--more-->"
+excerpt_delimiter: ---
 
 #webrick:
 #  headers:

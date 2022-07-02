@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% comment %}site_logo: {{ site_logo }}{% endcomment %}
+
 {% if site.paginate %}
     {% assign posts = paginator.posts %}
 {% else %}
@@ -9,46 +11,11 @@ layout: default
 {% endif %}
 
 {% if posts.size > 0 %}
-    <div class="row row-cols-1"
-         itemscope
-         itemtype="http://schema.org/Blog">
-
-        <meta itemprop="name" content="{{ site.title }}">
-        <meta itemprop="description" content="{{ site.description | strip_html }}">
-
-        <div itemprop="publisher"
-             itemscope
-             itemtype="https://schema.org/Organization">
-            <!-- Указываем издателя, логотип и контакты -->
-            <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                <link itemprop="url image" href="{{ '/assets/img/logo.png' | relative_url }}">
-                <meta content="120" itemprop="width">
-                <meta content="120" itemprop="height">
-            </div>
-            <meta content="{{ site.title }}" itemprop="name">
-        </div>
-
+    <div class="row row-cols-1">
         {% for post in posts %}
-            <article id="post-{{ post.id }}"
-                     class="post-card col"
-                     itemprop="blogPosts"
-                     itemscope
-                     itemtype="http://schema.org/BlogPosting">
+            <article id="post-{{ post.id }}" class="post-card col">
 
-                <meta name="author" content="{{ site.title }}">
-                <meta itemprop="name" content="{{ post.title }}" />
-                <meta itemprop="keywords" content="{{ page.tags | join: ',' }}" />
-                <meta itemprop="description" content="{{ content | strip_html | truncatewords: 40 }}" />
-                <meta itemprop="url" content="{{ post.url | relative_url }}">
-                <meta itemprop="thumbnailUrl" content="{{ post.image  }}&fit=cover&maxage=1d">
-                <meta itemprop="image" content="{{ post.image | relative_url }}&fit=cover&maxage=1d">
-                <meta itemprop="mainEntityOfPage" content="{{ post.url }}">
-                <meta itemscope
-                      itemprop="mainEntityOfPage"
-                      itemType="https://schema.org/WebPage"
-                      itemid="{{ post.url | relative_url }}"/>
-
-                <a href="{{ post.url | relative_url }}"
+                <a href="{% link {{ post.path }} %}"
                    class="post-card-thumbnail"
                    itemprop="url">
                     {% include snippet/post/post-thumbnail.liquid
@@ -81,7 +48,7 @@ layout: default
             </article>
         {% endfor %}
     </div>
-    {% comment %}{% include snippet/paginate.liquid %}{% endcomment %}
+    {% include snippet/paginate.liquid %}
 {% endif %}
 
 <div class="page-content">

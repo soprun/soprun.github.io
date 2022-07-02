@@ -5,7 +5,7 @@ permalink: /rss.xml
 # https://cyber.harvard.edu/rss/rss.html
 
 ---
-{% comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment %}
+<?xml version="1.0" encoding="{{ site.encoding }}"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang }}">
     <channel>
         <title>{{ site.title | xml_escape }}</title>
@@ -18,9 +18,9 @@ permalink: /rss.xml
 
         {% if site.logo %}
             <image>
-                <url>{{ site.logo | absolute_url }}</url>
+                <url>{{ site.logo | absolute_url | xml_escape }}</url>
                 <title>{{ site.title | xml_escape }}</title>
-                <link>{{ site.url | absolute_url }}</link>
+                <link>{{ site.url | absolute_url | xml_escape }}</link>
             </image>
         {% endif %}
 
@@ -33,7 +33,7 @@ permalink: /rss.xml
         {% endif %}
 
         {% if site.copyright %}
-            <copyright>{{ site.copyright }}</copyright>
+            <copyright>{{ site.copyright | xml_escape }}</copyright>
         {% endif %}
 
         <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
@@ -52,22 +52,21 @@ permalink: /rss.xml
 
                 {% for category in post.categories %}
                     {% comment %}<category domain="http://www.fool.com/cusips">{{ category }}</category>{% endcomment %}
-                    <category domain="{{ '/categories/' | append: category | relative_url }}">{{ category }}</category>
+                    <category domain="{{ '/categories/' | append: category | absolute_url }}">{{ category }}</category>
                 {% endfor %}
 
                 {% if post.image %}
                     <image>
-                        <url>{{ post.image }}</url>
+                        <url>{{ post.image | absolute_url | xml_escape }}</url>
                         <title>{{ post.title | xml_escape }}</title>
-                        <link>{{ post.url | absolute_url }}</link>
+                        <link>{{ post.url | absolute_url | xml_escape }}</link>
                     </image>
                 {% endif %}
 
                 <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 
                 <description>
-                    {{ post.excerpt | markdownify | strip_html | strip | truncate: 160 | xml_escape }}
-                    {% comment %}{{ post.excerpt | markdownify | strip_html | strip | truncatewords: 120 | xml_escape }}{% endcomment %}
+                    {{ post.excerpt | markdownify | strip_html | strip | truncatewords: 120 | xml_escape }}
                 </description>
             </item>
         {% endfor %}

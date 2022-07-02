@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Notes & Reading list 📝
 permalink: /notes
 image: https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b

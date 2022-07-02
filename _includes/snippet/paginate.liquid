@@ -1,29 +1,43 @@
-{% if site.paginate %}
-    <div class="pager d-none">
-        <ul class="pagination">
-            {% if paginator.previous_page %}
-                <li>
-                    <a href="{{ paginator.previous_page_path | relative_url }}"
-                       class="previous-page">{{ paginator.previous_page }}</a>
-                </li>
-            {% else %}
-                <li>
-                    <div class="pager-edge">•</div>
-                </li>
-            {% endif %}
-            <li>
-                <div class="current-page">{{ paginator.page }}</div>
+{% if site.paginate and paginator.total_pages > 1 %}
+    <nav aria-label="page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
+                <a class="page-link"
+                   href="{{ paginator.previous_page_path | relative_url }}"
+                   {% unless paginator.previous_page %}tabindex="-1"{% endunless %}
+                   {% unless paginator.previous_page %}aria-disabled="true"{% endunless %}>
+                    <i class="fa-solid fa-angles-left"></i>
+                    Previous
+                </a>
             </li>
-            {% if paginator.next_page %}
-                <li>
-                    <a href="{{ paginator.next_page_path | relative_url }}"
-                       class="next-page">{{ paginator.next_page }}</a>
+            {% for i in (1..paginator.total_pages) %}
+                {%- assign page_active = false %}
+                {%- if paginator.page == i %}
+                    {% assign page_active = true %}
+                {% endif %}
+
+                {%- assign page_link = site.paginate_path | replace: ':num', i %}
+                {%- if i == 1 %}
+                    {% assign page_link = site.baseurl | prepend: site.url %}
+                {% endif %}
+
+                <li class="page-item {% if page_active %}active{% endif %}"
+                    {% if page_active %}aria-current="page"{% endif %}>
+                    <a class="page-link" href="{{ page_link | relative_url }}">
+                        {{ i }}
+                    </a>
                 </li>
-            {% else %}
-                <li>
-                    <div class="pager-edge">•</div>
-                </li>
-            {% endif %}
+            {% endfor %}
+
+            <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
+                <a class="page-link"
+                   href="{{ paginator.next_page_path | relative_url }}"
+                   {% unless paginator.next_page %}tabindex="-1"{% endunless %}
+                    {% unless paginator.next_page %}aria-disabled="true"{% endunless %}>
+                    Next
+                    <i class="fa-solid fa-angles-right"></i>
+                </a>
+            </li>
         </ul>
-    </div>
+    </nav>
 {% endif %}

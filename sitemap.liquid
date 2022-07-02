@@ -1,5 +1,5 @@
 ---
-layout: null
+layout: nil
 permalink: /sitemap.xml
 # https://github.com/studiomohawk/_layouts/blob/master/sitemap.xml
 ---
@@ -8,17 +8,17 @@ permalink: /sitemap.xml
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    {% for item in site.data.navigation %}
+    {%- for item in site.data.navigation %}
         <url>
-            <loc>{{ item.link | absolute_url }}</loc>
+            <loc>{{ site.url }}{% link {{ item.link }} %}</loc>
             <changefreq>{{ item.changefreq | default: 'weekly' }}</changefreq>
             <priority>{{ item.changefreq | default: '0.8' }}</priority>
         </url>
-    {% endfor %}
-    {% for post in site.posts %}
+    {%- endfor %}
+    {%- for post in site.posts %}
         <url>
-            <loc>{{ post.url | absolute_url }}</loc>
+            <loc>{{ site.url }}{% link {{ post.path }} %}</loc>
             <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
         </url>
-    {% endfor %}
+    {%- endfor %}
 </urlset>

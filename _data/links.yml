@@ -94,11 +94,11 @@ head_link:
     type: application/pgp-keys
     href: https://github.com/soprun.gpg
 
-  publickey:
-    title: mail@soprun.com
-    rel: publickey
-    type: text/plain
-    href: /assets/pgp-public-key.asc
+#  publickey:
+#    title: mail@soprun.com
+#    rel: publickey
+#    type: text/plain
+#    href: /assets/pgp-public-key.asc
 
   manifest:
     rel: manifest
