@@ -13,13 +13,13 @@ image: https://images.unsplash.com/photo-1605351792643-fe0c43d18762
 безопасности.
 
 Рекомендую к изучению:
-- [Топ-10 OWASP. Десять самых критичных угроз безопасности веб-приложений](https://wiki.owasp.org/images/9/96/OWASP_Top_10-2017-ru.pdf)
+[Топ-10 OWASP. Десять самых критичных угроз безопасности веб-приложений](https://wiki.owasp.org/images/9/96/OWASP_Top_10-2017-ru.pdf)
 
-А также сервисы где вы можете проверить ваш проект!
+А также сервисы где вы можете проверить ваш проект на безопасность по OWASP Secure Headers!
 
 <!--more-->
 
-## Отчеты и сервисы для тестирования <br> OWASP Secure Headers Project
+## Отчеты и сервисы для тестирования
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/stXwx0k" data-context="false" >
   <a href="//imgur.com/a/stXwx0k"></a>
@@ -32,3 +32,47 @@ image: https://images.unsplash.com/photo-1605351792643-fe0c43d18762
 - [securityheaders.com](https://securityheaders.com/?q=https%3A%2F%2Fsoprun.com&followRedirects=on) - Grade **A+** ✅
 - [hardenize.com](https://www.hardenize.com/report/soprun.com/1656790664) - Grade **A+** ✅
 
+---
+
+Сайт разработан с использованием [Jekyll](https://github.com/mojombo/jekyll), развертывание и хостинг
+в [Cloudflare Pages](https://developers.cloudflare.com/pages/)
+
+Для обеспечения безопасности, мониторинга,уведомлений использую:
+
+- [sentry.io](https://sentry.io)
+- [report-uri.com](https://report-uri.com)
+- ~~[slack.com](https://slack.com)~~
+
+## Так же я использую инструменты
+
+- Cloudflare Workers
+- Cloudflare KV works
+- Cloudflare SSL/TLS
+- Cloudflare Page Rules
+- Cloudflare DNS
+- Cloudflare Analytics (Web, DNS, etc.)
+- etc.
+
+## Email
+
+Решил попробовать [Custom Email Domain with iCloud Mail](https://support.apple.com/en-us/HT212514), не могу сказать что
+удовлетворен сервисом, скорее всего в будущем буду менять.
+
+##### Конфиденциальность, высокая безопасность
+
+- Все полученные письма и отправленные мною подписаны GPG ключами через физическую аппаратное устройство YubiKey.
+- Подтвержденный DNSSEC - ✅
+- Sender Policy Framework (SPF) - ✅
+- Domain-based Message Authentication Reporting and Conformance (DMARC) - ✅
+- DomainKeys Identified Mail (DKIM) - ✅
+- Cloudflare Email Routing - ✅
+- etc.
+
+## Environments
+
+| Environment | Domain and aliases                          | Privacy          |
+|:------------|:--------------------------------------------|------------------|
+| production  | https://soprun.com                          | Public           |
+| staging     | https://staging.soprun.com                  | Zero Trust (VPN) |
+| preview     | https://{branch}.soprun-github-io.pages.dev | Zero Trust (VPN) |
+| local       | http://localhost:4000                       | localhost        |
