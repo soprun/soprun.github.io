@@ -39,8 +39,8 @@ image: https://images.unsplash.com/photo-1605351792643-fe0c43d18762
 
 Для обеспечения безопасности, мониторинга,уведомлений использую:
 
-- [sentry.io](https://sentry.io)
-- [report-uri.com](https://report-uri.com)
+- [sentry.io](https://sentry.io) - Error Reporting, Content Security Policy, XSS-Protection, Expect-CT, CROSS
+- [report-uri.com](https://report-uri.com) - SMTP, DMARC, API, TLS-RPT Reporting & Network Error Logging
 - ~~[slack.com](https://slack.com)~~
 
 ## Так же я использую инструменты
