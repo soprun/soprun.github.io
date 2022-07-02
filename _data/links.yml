@@ -58,7 +58,6 @@ follow:
 
 
 head_link:
-
   cdnjs_cloudflare_com:
     rel: dns-preletch
     href: https://cdnjs.cloudflare.com
@@ -72,13 +71,13 @@ head_link:
     href: https://fonts.gstatic.com
 
   atom:
-    title: Atom 1.0 feed for all posts
+    title: Atom 1.0
     rel: alternate
     type: application/atom+xml
     href: /atom.xml
 
   rss:
-    title: RSS 2.0 feed
+    title: RSS 2.0
     rel: alternate
     type: application/rss+xml
     href: /rss.xml

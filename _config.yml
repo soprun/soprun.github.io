@@ -13,13 +13,21 @@ encoding: UTF-8
 title: 'Technical Architect @soprun'
 description: 'How to guide & Software Tutorials'
 keywords: [DDD, PHP, Symfony, Guide, Tutorials]
-logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
+#logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
+#logo: https://avatars.githubusercontent.com/soprun?size=400
+logo: https://github.com/soprun.png?size=400
 
 author:
   name: Soprun Vladislav
+  first_name: Vladislav
+  last_name: Soprun
+  nickname: soprun
   description: Hi, welcome to my tech blog!<br>I am a Technical Architect
   url: https://soprun.com
   email: mail@soprun.com
+  phone: '+79017972126'
+  gpg_public_key: 'https://github.com/soprun.gpg'
+  gpg_fingerprint: 'B750 2F96 C5DC 44C2'±
 
 # Handling Reading
 safe: false
@@ -84,20 +92,20 @@ kramdown:
 plugins:
   - jekyll-dotenv
   - jekyll-environment-variables
-#  - jekyll-feed
-#  - jekyll-sitemap
+  #  - jekyll-feed
+  #  - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-notion
 
 # https://jekyllrb.com/docs/configuration/front-matter-defaults/
-collections:
-  posts:
-    output: true
-  pages:
-    output: true
-  category:
-    output: true
+#collections:
+#  posts:
+#    output: true
+#  pages:
+#    output: true
+#  category:
+#    output: true
 
 #notion:
 #  fetch_on_watch: true
@@ -109,24 +117,32 @@ collections:
 
 defaults:
   - scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+      noindex: false
+      author: "Soprun Vladislav"
+      image: https://github.com/soprun.png?size=400
+
+  - scope:
+      type: posts
+      path: _posts
+    values:
+      is_post: true
+      layout: post
+      permalink: '/page/:id'
+
+  - scope:
+      type: pages
+      path: _pages
+    values:
+      is_post: false
+      layout: page
+
+  - scope:
       path: 'assets/img'
     values:
       image: true
-  - scope:
-      path: '_posts'
-      type: 'posts'
-    values:
-      layout: 'post'
-      permalink: '/page/:id'
-      image: https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1
-  - scope:
-      # an empty string here means all files in the project
-      path: ''
-      type: 'pages'
-    values:
-      noindex: false
-      layout: default
-      image: https://images.unsplash.com/photo-1450101499163-c8848c66ca85
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll
 #permalink: date
