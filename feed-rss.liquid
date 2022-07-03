@@ -8,22 +8,27 @@ title: RSS Feed
 # https://github.com/programminghistorian/jekyll/blob/gh-pages/feed.xml
 ---
 {%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:yandex="http://news.yandex.ru"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:turbo="http://turbo.yandex.ru">
     <channel>
         <title>{{ site.title | strip_html | xml_escape }}</title>
         <description>{{ site.description | strip_html | xml_escape }}</description>
-        <link>{{ site.url | absolute_url }}</link>
-        <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
-        <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-        <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+        <link>{{ site.url | absolute_url | xml_escape | truncate: 243 }}</link>
+        <language>{{ site.lang }}</language>
+        <atom:link href="{{ '/rss.xml' | absolute_url | uri_escape | xml_escape }}" rel="self" type="application/rss+xml" />
+        <lastBuildDate>{{ site.time | date_to_rfc822 | xml_escape }}</lastBuildDate>
+        <pubDate>{{ site.time | date_to_rfc822 | xml_escape }}</pubDate>
         <ttl>60</ttl>
 
         {% for post in site.posts limit:20 %}
             <item>
                 <title>{{ post.title | strip_html | xml_escape | truncate: 90 }}</title>
-                <description>{{ post.content | markdownify | strip_html | normalize_whitespace | strip | xml_escape | truncate: 480 }}</description>
+                <description>{{ post.content | markdownify | normalize_whitespace | strip_html | escape | xml_escape | truncate: 480 }}</description>
                 <guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>
-                <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+                <pubDate>{{ post.date | date_to_rfc822 | xml_escape }}</pubDate>
             </item>
         {% endfor %}
 

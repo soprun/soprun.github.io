@@ -1,5 +1,5 @@
 ---
-layout: nil
+layout: null
 permalink: /sitemap.xml
 # https://github.com/studiomohawk/_layouts/blob/master/sitemap.xml
 ---
@@ -17,7 +17,7 @@ permalink: /sitemap.xml
     {%- endfor %}
     {%- for post in site.posts %}
         <url>
-            <loc>{{ site.url }}{% link {{ post.path }} %}</loc>
+            <loc>{{ post.url | absolute_url }}</loc>
             <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
         </url>
     {%- endfor %}
