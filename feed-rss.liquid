@@ -6,6 +6,7 @@ title: RSS Feed
 # https://github.com/ptz0n/ptz0n.github.io/blob/master/docs/rss.xml
 # https://cyber.harvard.edu/rss/rss.html
 # https://github.com/programminghistorian/jekyll/blob/gh-pages/feed.xml
+# https://webmaster.yandex.ru/site/https:soprun.com:443/turbo/sandbox/?taskId=&itemUrl=https%3A%2F%2Fsoprun.com%2Fsecurity-report&feedUrl=https%3A%2F%2Fsoprun.com%2Frss.xml&_tabId=tab716525
 ---
 {%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
 <rss version="2.0"
@@ -24,7 +25,11 @@ title: RSS Feed
         {% for post in site.posts limit: 20 %}
             <item turbo="true">
                 <title>{{ post.title | strip_html | xml_escape | truncate: 90 }}</title>
-                {% comment %}<description>{{ post.excerpt | markdownify | newline_to_br | strip_html | normalize_whitespace | xml_escape | strip | truncate: 480 }}</description>{% endcomment %}
+                <description>
+                    <![CDATA[
+                    {{ post.excerpt | markdownify | newline_to_br | strip_html | normalize_whitespace | xml_escape | strip | truncate: 480 }}
+                    ]]>
+                </description>
                 {%- comment %}<guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>{% endcomment %}
                 <link>{{ post.url | absolute_url | xml_escape | truncate: 243 }}</link>
                 <pubDate>{{ post.date | date_to_rfc822 | xml_escape }}</pubDate>
@@ -44,7 +49,7 @@ title: RSS Feed
                         </menu>
                     </header>
                     <!-- Контентная часть -->
-                    {{ post.excerpt | markdownify | xml_escape }}
+                    {{ post.excerpt | markdownify | normalize_whitespace | strip }}
                     ]]>
                 </turbo:content>
             </item>
