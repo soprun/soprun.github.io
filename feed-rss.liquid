@@ -22,6 +22,15 @@ title: RSS Feed
                    type="application/rss+xml"/>
         <lastBuildDate>{{ site.time | date_to_rfc822 | xml_escape }}</lastBuildDate>
         <pubDate>{{ site.time | date_to_rfc822 | xml_escape }}</pubDate>
+
+        {% if site.logo %}
+            <image>
+                <url>{{ site.logo | absolute_url | xml_escape }}</url>
+                <title>{{ site.title | xml_escape }}</title>
+                <link>{{ site.url | absolute_url | xml_escape }}</link>
+            </image>
+        {% endif %}
+
         {% for post in site.posts limit: 20 %}
             <item turbo="true">
                 <title>{{ post.title | strip_html | xml_escape | truncate: 90 }}</title>
@@ -33,6 +42,15 @@ title: RSS Feed
                 {%- comment %}<guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>{% endcomment %}
                 <link>{{ post.url | absolute_url | xml_escape | truncate: 243 }}</link>
                 <pubDate>{{ post.date | date_to_rfc822 | xml_escape }}</pubDate>
+
+                {% if post.image %}
+                    <image>
+                        <url>{{ post.image | append: '?w=400&h=350&fit=min&crop=entropy,center&fm=webp&auto=compress' | xml_escape }}</url>
+                        <title>{{ post.title | strip_html | xml_escape }}</title>
+                        <link>{{ post.url | absolute_url | xml_escape }}</link>
+                    </image>
+                {% endif %}
+
                 <turbo:extendedHtml>false</turbo:extendedHtml>
                 <turbo:content>
                     <![CDATA[
@@ -42,7 +60,7 @@ title: RSS Feed
                         {% if post.image %}
                             <figure>
                                 <img
-                                    src="{{ post.image | append: '?w=400&h=350&fit=min&crop=entropy,center&fm=webp&auto=compress' }}"
+                                    src="{{ post.image | append: '?w=400&h=350&fit=min&crop=entropy,center&fm=webp&auto=compress' | xml_escape }}"
                                     alt="{{ post.title | escape }}"/>
                             </figure>
                         {% endif %}
