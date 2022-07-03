@@ -7,27 +7,46 @@ title: RSS Feed
 # https://cyber.harvard.edu/rss/rss.html
 # https://github.com/programminghistorian/jekyll/blob/gh-pages/feed.xml
 ---
-<?xml version="1.0" encoding="{{ site.encoding }}"?>
+{%- comment %}<?xml version="1.0" encoding="{{ site.encoding }}"?>{% endcomment -%}
 <rss version="2.0"
      xmlns:atom="http://www.w3.org/2005/Atom"
-     xmlns:yandex="http://news.yandex.ru"
-     xmlns:media="http://search.yahoo.com/mrss/"
      xmlns:turbo="http://turbo.yandex.ru">
     <channel>
         <title>{{ site.title | strip_html | xml_escape }}</title>
         <description>{{ site.description | strip_html | xml_escape }}</description>
         <link>{{ site.url | absolute_url | xml_escape | truncate: 243 }}</link>
         <language>{{ site.lang }}</language>
-        <atom:link href="{{ '/rss.xml' | absolute_url | uri_escape | xml_escape }}" rel="self" type="application/rss+xml" />
+        <atom:link href="{{ '/rss.xml' | absolute_url | uri_escape | xml_escape }}"
+                   rel="self"
+                   type="application/rss+xml"/>
         <lastBuildDate>{{ site.time | date_to_rfc822 | xml_escape }}</lastBuildDate>
         <pubDate>{{ site.time | date_to_rfc822 | xml_escape }}</pubDate>
-        {% for post in site.posts limit:20 %}
+        {% for post in site.posts limit: 20 %}
             <item turbo="true">
                 <title>{{ post.title | strip_html | xml_escape | truncate: 90 }}</title>
-                <description>{{ post.excerpt | markdownify | newline_to_br | strip_html | normalize_whitespace | xml_escape | strip | truncate: 480 }}</description>
+                {% comment %}<description>{{ post.excerpt | markdownify | newline_to_br | strip_html | normalize_whitespace | xml_escape | strip | truncate: 480 }}</description>{% endcomment %}
                 {%- comment %}<guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>{% endcomment %}
                 <link>{{ post.url | absolute_url | xml_escape | truncate: 243 }}</link>
                 <pubDate>{{ post.date | date_to_rfc822 | xml_escape }}</pubDate>
+                <turbo:extendedHtml>false</turbo:extendedHtml>
+                <turbo:content>
+                    <![CDATA[
+                    <!-- Шапка -->
+                    <header>
+                        <h1>Заголовок страницы</h1>
+                        <figure>
+                            <img src="https://soprun.com/assets/img/avatar-large.webp"/>
+                        </figure>
+                        <h2>Заголовок второго уровня</h2>
+                        <menu>
+                            <a href="http://example.com/page1.html">Текст ссылки</a>
+                            <a href="http://example.com/page2.html">Текст ссылки</a>
+                        </menu>
+                    </header>
+                    <!-- Контентная часть -->
+                    {{ post.excerpt | markdownify | xml_escape }}
+                    ]]>
+                </turbo:content>
             </item>
         {% endfor %}
     </channel>
