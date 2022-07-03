@@ -22,10 +22,9 @@ title: RSS Feed
         <lastBuildDate>{{ site.time | date_to_rfc822 | xml_escape }}</lastBuildDate>
         <pubDate>{{ site.time | date_to_rfc822 | xml_escape }}</pubDate>
         {% for post in site.posts limit:20 %}
-            <item>
+            <item turbo="true">
                 <title>{{ post.title | strip_html | xml_escape | truncate: 90 }}</title>
-                {%- comment %}<description>{{ post.excerpt | markdownify | newline_to_br | strip_html | normalize_whitespace | xml_escape | strip | truncate: 480 }}</description>{% endcomment %}
-                <description>{{ post.title | strip_html | xml_escape | truncate: 90 }}</description>
+                <description>{{ post.excerpt | markdownify | newline_to_br | strip_html | normalize_whitespace | xml_escape | strip | truncate: 480 }}</description>
                 {%- comment %}<guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>{% endcomment %}
                 <link>{{ post.url | absolute_url | xml_escape | truncate: 243 }}</link>
                 <pubDate>{{ post.date | date_to_rfc822 | xml_escape }}</pubDate>
