@@ -38,18 +38,22 @@ title: RSS Feed
                     <![CDATA[
                     <!-- Шапка -->
                     <header>
-                        <h1>Заголовок страницы</h1>
-                        <figure>
-                            <img src="https://soprun.com/assets/img/avatar-large.webp"/>
-                        </figure>
-                        <h2>Заголовок второго уровня</h2>
+                        <h1>{{ post.title }}</h1>
+                        {% if post.image %}
+                            <figure>
+                                <img
+                                    src="{{ post.image | append: '?w=400&h=350&fit=min&crop=entropy,center&fm=webp&auto=compress' }}"
+                                    alt="{{ post.title | escape }}"/>
+                            </figure>
+                        {% endif %}
+                        {% comment %}<h2>Заголовок второго уровня</h2>{% endcomment %}
                         <menu>
                             <a href="http://example.com/page1.html">Текст ссылки</a>
                             <a href="http://example.com/page2.html">Текст ссылки</a>
                         </menu>
                     </header>
                     <!-- Контентная часть -->
-                    {{ post.excerpt | markdownify | normalize_whitespace | strip }}
+                    {{ post.content | markdownify | normalize_whitespace | strip }}
                     ]]>
                 </turbo:content>
             </item>
