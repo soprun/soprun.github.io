@@ -40,8 +40,16 @@ title: RSS Feed
                     ]]>
                 </description>
                 {%- comment %}<guid isPermaLink="true">{{ post.url | absolute_url | xml_escape | truncate: 500 }}</guid>{% endcomment %}
-                <link>{{ post.url | absolute_url | xml_escape | truncate: 243 }}</link>
+                <link>{{ post.url | absolute_url | xml_escape }}</link>
+                <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url | absolute_url | xml_escape }}</guid>
                 <pubDate>{{ post.date | date_to_rfc822 | xml_escape }}</pubDate>
+
+                {% for tag in post.tags %}
+                    <category>{{ tag | xml_escape }}</category>
+                {% endfor %}
+                {% for cat in post.categories %}
+                    <category>{{ cat | xml_escape }}</category>
+                {% endfor %}
 
                 {% if post.image %}
                     <image>
