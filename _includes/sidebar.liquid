@@ -5,9 +5,8 @@
                 class="logo img-fluid rounded-circle"
                 width="150"
                 height="150"
-                srcset="{{ '/assets/img/logo.webp' | absolute_url }} 1x,
-                        {{ '/assets/img/avatar-large.webp' | absolute_url }} 2x"
-                src="{{ '/assets/img/logo.webp' | absolute_url }}"
+                srcset="{{ site.logo | relative_url }}"
+                src="{{ site.logo | relative_url }}"
                 alt="{{ site.title | escape }}"/>
         </picture>
     </a>
@@ -17,7 +16,7 @@
     <hgroup>
         <h1 class="fn fs-2 fw-light">
             {% if site.author.url %}
-                <a href="{{ baseurl | relative_url }}" class="url text-decoration-none">
+                <a href="{{ site.url | relative_url }}" class="url">
                     {{ site.author.name }}
                 </a>
             {% else %}

@@ -1,4 +1,3 @@
-
 $post-meta-font-size: .8rem;
 $post-meta-color: #6c757d;
 
@@ -156,6 +155,15 @@ $post-meta-color: #6c757d;
     }
 
     &-content {
+        img {
+            display: inline-block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            //max-width: 25rem;
+            border-radius: .5rem;
+            box-shadow: .2rem .2rem .5rem 0 rgba(34, 60, 80, 0.4);
+        }
     }
 
     .post-meta {
@@ -212,3 +220,7 @@ $post-meta-color: #6c757d;
     }
 }
 
+//.highlighter-rouge, figure.highlight {
+//    max-width: 100%;
+//    width: 100%;
+//}

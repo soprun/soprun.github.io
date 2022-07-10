@@ -7,8 +7,10 @@
         <span>Tags:</span>
         {% for tag in tags %}
             <span class="badge bg-primary" itemprop="keywords">
-                {% comment %}<a rel="tag" href="">{{ tag }}</a>{% endcomment %}
-                {{ tag }}
+                {% comment %}<a rel="tag" href="/tag/{{ tag | slugify }}">{% endcomment %}
+                    {% comment %}{{ tag }}{% endcomment %}
+                {% comment %}</a>{% endcomment %}
+                 {{ tag }}
             </span>
         {% endfor %}
     </div>

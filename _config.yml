@@ -20,7 +20,8 @@ keywords: [DDD, PHP, Symfony, Guide, Tutorials]
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 #logo: https://avatars.githubusercontent.com/soprun?size=400
 #logo: https://github.com/soprun.png?size=400
-logo: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
+#logo: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
+logo: /assets/img/avatar-large.webp
 email: mail@soprun.com
 
 author:
@@ -109,7 +110,14 @@ plugins:
   - jekyll-notion
 
 # https://jekyllrb.com/docs/configuration/front-matter-defaults/
-#collections:
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:name
+  
 #  posts:
 #    output: true
 #    permalink: /:collection/:name
@@ -151,7 +159,8 @@ defaults:
       layout: post
       type: post
 #      permalink: '/page/:id'
-      permalink: /:categories/:title:output_ext
+#      permalink: /:categories/:title:output_ext
+      permalink: /:slug
 
 #  - scope:
 #      type: pages

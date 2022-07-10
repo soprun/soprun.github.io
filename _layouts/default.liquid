@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'ru' }}" data-theme="light">
 {%- include head.liquid %}
 <body class="{{ page.layout }}">
 
@@ -14,7 +14,7 @@
                role="complementary">
             {%- include sidebar.liquid %}
         </aside>
-        <section id="content" class="col p-4">
+        <section id="content" class="col-12 col-sm-7 col-md-8 col-lg-9 p-4">
             {{ content }}
         </section>
     </div>

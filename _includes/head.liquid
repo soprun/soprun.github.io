@@ -20,6 +20,11 @@
         <meta name="robots" content="noindex, nofollow"/>
     {% endif %}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="{{ site.logo | relative_url }}" as="image">
+
     {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">{% endcomment -%}
     {%- comment %}<meta name="apple-mobile-web-app-title" content="My App">{% endcomment -%}
     {%- comment %}<meta name="referrer" content="no-referrer">{% endcomment -%}
@@ -29,10 +34,13 @@
     {% seo %}
     {% comment %}{% feed_meta %}{% endcomment %}
 
-    <link rel="preload"
-          href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}">
+
+    {% comment %}<link rel="preload"{% endcomment %}
+          {% comment %}href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"{% endcomment %}
+          {% comment %}as="style"{% endcomment %}
+          {% comment %}onload="this.onload=null;this.rel='stylesheet'">{% endcomment %}
 
     <noscript>
         <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}">
