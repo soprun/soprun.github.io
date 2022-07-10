@@ -1,0 +1,15 @@
+{%- assign min = 1 -%}
+{%- assign max = site.data.quotes | size -%}
+{%- assign diff = max | minus: min -%}
+{%- assign random_number = "now" | date: "%N" | modulo: diff | plus: min | minus: 1 -%}
+{%- assign quote = site.data.quotes[random_number] %}
+{%- if quote %}
+    <figure class="quote">
+        <blockquote class="quote-blockquote"{% if quote.cite %} cite="{{ quote.cite }}"{% endif %}>
+            {{ quote.quote }}
+        </blockquote>
+        {%- if quote.author %}
+            <figcaption class="quote-figcaption">{{ quote.author }}</figcaption>
+        {%- endif %}
+    </figure>
+{% endif %}

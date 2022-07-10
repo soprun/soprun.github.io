@@ -187,7 +187,6 @@ details[open] summary {
 @import "post";
 
 
-
 blockquote {
     // display: block;
     padding: 1rem;
@@ -195,11 +194,43 @@ blockquote {
     border-left: .3rem solid var(--color-text-link);
     font-style: italic;
     color: var(--color-text-main);
+    // quotes: "“" "”" "‘" "’";
     // border-radius: .2rem;
     // box-shadow: .2rem .2rem .4rem rgba(34, 60, 80, 0.2);
     // margin-bottom: 1.5rem;
 
-    p:last-child {
+    &::before {
+        content: open-quote;
+    }
+
+    &::after {
+        content: close-quote;
+    }
+
+    p {
+        display: inline;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.quote {
+    margin-bottom: 0;
+
+    &-blockquote {
+        display: block;
         margin-bottom: 0;
+
+    }
+    &-figcaption {
+        display: block;
+        text-align: right;
+        color: var(--color-text-sub);
+
+        &::before {
+            content: '-';
+        }
     }
 }
