@@ -166,3 +166,6 @@ https://github.com/daattali/beautiful-jekyll/blob/master/_layouts/home.html
 
 https://jamstackthemes.dev/ssg/jekyll/
 
+
+https://github.com/aliifam/jdox
+
