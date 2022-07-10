@@ -189,10 +189,15 @@ details[open] summary {
 
 
 blockquote {
+    // display: block;
     padding: 1rem;
-    border-left: .3rem solid;
+    // border: 1px solid rgba(34, 60, 80, 0.2);
+    border-left: .3rem solid var(--color-text-link);
     font-style: italic;
-    color: var(--color-text-sub);
+    color: var(--color-text-main);
+    // border-radius: .2rem;
+    // box-shadow: .2rem .2rem .4rem rgba(34, 60, 80, 0.2);
+    // margin-bottom: 1.5rem;
 
     p:last-child {
         margin-bottom: 0;
