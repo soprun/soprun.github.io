@@ -199,11 +199,11 @@ blockquote {
     // box-shadow: .2rem .2rem .4rem rgba(34, 60, 80, 0.2);
     // margin-bottom: 1.5rem;
 
-    &::before {
+    p::before {
         content: open-quote;
     }
 
-    &::after {
+    p::after {
         content: close-quote;
     }
 

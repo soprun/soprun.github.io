@@ -6,7 +6,10 @@
 {%- if quote %}
     <figure class="quote">
         <blockquote class="quote-blockquote"{% if quote.cite %} cite="{{ quote.cite }}"{% endif %}>
-            {{ quote.quote }}
+            {% if quote.title %}
+                <div class="mb-2"><strong>{{ quote.title }}</strong></div>
+            {% endif %}
+            <p>{{ quote.quote }}</p>
         </blockquote>
         {%- if quote.author %}
             <figcaption class="quote-figcaption">{{ quote.author }}</figcaption>
