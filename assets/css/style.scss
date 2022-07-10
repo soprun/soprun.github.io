@@ -30,6 +30,7 @@
 
     --color-body-bg: #FFFFFF;
     --color-text-main: #282832;
+    --color-text-sub: #8f96a3;
     --color-text-link: #2380ED;
     --color-text-link-hover: #0a58ca;
 }
@@ -58,7 +59,6 @@ html[data-theme="dark"] {
     //--color-bg-sub: #18181C;
 
     //--color-text-main: #FAFAFC;
-    //--color-text-sub: #FFFEFF;
     //--color-text-link: #6D9EFF;
     --color-border-dark: #E6E6E6;
     --color-border: #696969;
@@ -186,3 +186,15 @@ details[open] summary {
 @import "sidebar";
 @import "post";
 
+
+
+blockquote {
+    padding: 1rem;
+    border-left: .3rem solid;
+    font-style: italic;
+    color: var(--color-text-sub);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
