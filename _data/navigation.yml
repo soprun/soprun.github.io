@@ -1,9 +1,9 @@
 -   name: Home
-    link: index.html
+    link: /
     icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
 
 -   name: About
-    link: about.html
+    link: /about
     rel: author
     icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
 
@@ -13,7 +13,7 @@
 #    icon: <i class="fa-solid fa-address-book" aria-hidden="true"></i>
 
 -   name: Notes & Reading list
-    link: notes.md
+    link: /notes
     icon: <i class="fa-solid fa-book-open" aria-hidden="true"></i>
 
 #-   name:  Reading list
