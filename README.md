@@ -171,3 +171,5 @@ https://github.com/aliifam/jdox
 
 https://jekyll-garden.github.io/
 
+https://github.com/forever-jekyll/forever-jekyll/tree/main/_includes
+
