@@ -11,8 +11,11 @@ encoding: UTF-8
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
 title: 'Technical Architect @soprun'
+short_title: 'soprun.com'
+
 description: >- # this means to ignore newlines until "baseurl:"
   How to guide & Software Tutorials
+
 keywords: [DDD, PHP, Symfony, Guide, Tutorials]
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 #logo: https://avatars.githubusercontent.com/soprun?size=400
@@ -31,6 +34,14 @@ author:
   phone: +79017972126
   gpg_public_key: https://github.com/soprun.gpg
   gpg_fingerprint: B750 2F96 C5DC 44C2
+
+color:
+  theme: '#ffffff'
+  background: '#ffffff'
+  text: '#000000'
+  primary: '#cfc3ee'
+  secondary: '#cfc3ee'
+  tile_color: '#ffffff'
 
 # Handling Reading
 safe: false

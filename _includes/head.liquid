@@ -1,5 +1,4 @@
 {%- assign application-name = site.title %}
-{%- assign theme-color = '#cfc3ee' %}
 {%- assign baseurl = site.baseurl | prepend: site.url -%}
 {%- if jekyll.environment != 'production' and site.env.CF_PAGES_URL %}
     {%- assign baseurl = site.env.CF_PAGES_URL %}
@@ -12,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
-    <meta name="theme-color" content="#cfc3ee"/>
+    <meta name="theme-color" content="{{ site.color.background  }}"/>
     {%- comment %}<meta name="author" content="{{ site.author.name }}">{% endcomment %}
     <meta name="reply-to" content="{{ site.author.email }}">
     <meta name="copyright" content="{{ copyright }}">
@@ -20,6 +19,9 @@
     {%- if page.noindex == true %}
         <meta name="robots" content="noindex, nofollow"/>
     {% endif %}
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="My App">
 
     <base href="{{ baseurl | relative_url }}">
 
@@ -43,5 +45,5 @@
     {% include head/icons.liquid %}
     {% include head/sentry.liquid %}
     {% include head/yandex-metrika.liquid %}
-    {% include head/google-analytics.liquid %}
+    {% comment %}{% include head/google-analytics.liquid %}{% endcomment %}
 </head>

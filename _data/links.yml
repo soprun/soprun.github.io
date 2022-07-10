@@ -70,6 +70,10 @@ head_link:
     rel: dns-preletch
     href: https://fonts.gstatic.com
 
+  browser_sentry-cdn_com:
+    rel: dns-preletch
+    href: https://browser.sentry-cdn.com
+
   atom:
     title: Atom 1.0
     rel: alternate

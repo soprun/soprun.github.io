@@ -1,0 +1,33 @@
+name: "Release"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'main''
+      - 'releases/*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Release
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          environment: production
+
+      - name: Create Sentry release
+        uses: getsentry/action-release@v1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          # SENTRY_URL: https://sentry.io/
+        with:
+          environment: production

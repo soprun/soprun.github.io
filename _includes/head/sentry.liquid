@@ -1,20 +1,24 @@
 {% if jekyll.environment != 'development' and site.env.SENTRY_DSN %}
     <script
-        src="https://browser.sentry-cdn.com/7.1.1/bundle.min.js"
-        integrity="sha384-T+srlKi46NIKF/sAARrRrsUhYVjQfcLWrYF2CzeeuD8GAJHAVZ8AHWaQrNKoV/TD"
-        crossorigin="anonymous"></script>
-    <script
-        src="https://browser.sentry-cdn.com/7.1.1/bundle.tracing.min.js"
-        integrity="sha384-p+vO3NBBhOw0sRTPPPeAacfOonwgsAL2xTEYl6sQIHhmQ17LLZkxHV2/s9VSEeTn"
-        crossorigin="anonymous"></script>
+        src="https://browser.sentry-cdn.com/7.5.1/bundle.min.js"
+        integrity="sha384-hqfUBwcPJtjcyE8jgb0/5s4wee/hsu/uZckh1FWBsUXNpjPYhee9ohNwbZE6N9Xt"
+        crossorigin="anonymous"
+    ></script>
+    {% comment %}<script{% endcomment %}
+        {% comment %}src="https://browser.sentry-cdn.com/7.5.1/bundle.tracing.min.js"{% endcomment %}
+        {% comment %}integrity="sha384-W/DkFvcLhW1KTVZV/SQYHttd5Dl8QIMR1kY7kjDyo9gALIvM+TdFpg2jGvJQ4x80"{% endcomment %}
+        {% comment %}crossorigin="anonymous"{% endcomment %}
+    {% comment %}></script>{% endcomment %}
+    {% comment %}<script src='https://js.sentry-cdn.com/{{ site.env.SENTRY_KEY }}.min.js' crossorigin="anonymous"></script>{% endcomment %}
     <script>
         Sentry.onLoad(function () {
             Sentry.init({
                 dsn: "{{ site.env.SENTRY_DSN }}",
-                release: "{{ site.release_version }}",
+                release: "{{ site.release_version | default: 'unknown' }}",
                 environment: "{{ jekyll.environment }}",
-                integrations: [new Sentry.BrowserTracing()],
+                // integrations: [new Sentry.BrowserTracing()],
                 tracesSampleRate: 1.0,
+                autoSessionTracking: true
             });
         });
     </script>

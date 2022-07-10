@@ -1,0 +1,48 @@
+---
+layout: null
+permalink: /manifest.json
+title: manifest.json
+---
+{
+    "manifest_version": 3,
+    "name": "{{ site.title }}",
+    "short_name": "{{ site.short_title | default: site.title }}",
+    "description": "{{ site.description }}",
+    "default_locale": "{{ site.lang }}",
+    "author": "{{ site.author.name }}",
+    "developer": {
+        "name": "{{ site.author.name }}",
+        "url": "{{ site.author.url }}"
+    },
+    "icons": [
+        {
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=512",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=192",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=70",
+            "type": "image/png",
+            "sizes": "70x70"
+        },
+        {
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=180",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=310",
+            "type": "image/png",
+            "sizes": "310x310"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "{{ site.color.background  }}",
+    "display": "standalone",
+    "theme_color": "{{ site.color.theme  }}"
+}
