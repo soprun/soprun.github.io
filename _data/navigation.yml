@@ -16,6 +16,10 @@
     link: /notes
     icon: <i class="fa-solid fa-book-open" aria-hidden="true"></i>
 
+-   name: Books
+    link: /books
+    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
+
 #-   name:  Reading list
 #    link: /reading-list
 #    icon: <i class="fa-solid fa-book-open" aria-hidden="true"></i>
