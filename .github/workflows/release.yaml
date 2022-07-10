@@ -18,9 +18,6 @@ jobs:
 
       - name: Checkout repo
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-          environment: production
 
       - name: Create Sentry release
         uses: getsentry/action-release@v1
@@ -29,5 +26,3 @@ jobs:
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
           # SENTRY_URL: https://sentry.io/
-        with:
-          environment: production
