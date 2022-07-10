@@ -73,10 +73,10 @@ title: RSS Feed
                             </figure>
                         {% endif %}
                         {% comment %}<h2>Заголовок второго уровня</h2>{% endcomment %}
-                        <menu>
-                            <a href="http://example.com/page1.html">Текст ссылки</a>
-                            <a href="http://example.com/page2.html">Текст ссылки</a>
-                        </menu>
+                        {% comment %}<menu>{% endcomment %}
+                            {% comment %}<a href="http://example.com/page1.html">Текст ссылки</a>{% endcomment %}
+                            {% comment %}<a href="http://example.com/page2.html">Текст ссылки</a>{% endcomment %}
+                        {% comment %}</menu>{% endcomment %}
                     </header>
                     <!-- Контентная часть -->
                     {{ post.content | markdownify | normalize_whitespace | strip }}
