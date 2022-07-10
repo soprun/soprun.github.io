@@ -1,4 +1,3 @@
-{%- assign application-name = site.title %}
 {%- assign baseurl = site.baseurl | prepend: site.url -%}
 {%- if jekyll.environment != 'production' and site.env.CF_PAGES_URL %}
     {%- assign baseurl = site.env.CF_PAGES_URL %}
@@ -7,51 +6,42 @@
 {%- assign keywords = keywords | concat: site.keywords | join: ', ' | truncatewords: 10 %}
 {%- assign copyright = 'Copyright 2022, soprun.com' %}
 <head>
-    <meta charset="UTF-8">
+    <meta charset="{{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="{{ site.color.background  }}"/>
     {%- comment %}<meta name="author" content="{{ site.author.name }}">{% endcomment %}
     <meta name="reply-to" content="{{ site.author.email }}">
     <meta name="copyright" content="{{ copyright }}">
     <meta name="keywords" content="{{ keywords }}">
     {%- if page.noindex == true %}
-        <meta name="robots" content="noindex, nofollow"/>
+        <meta name="robots" content="noindex, follow"/>
+    {% else %}
+        <meta name="robots" content="index, follow">
     {% endif %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="{{ site.logo | relative_url }}" as="image">
-
+    {%- comment %}<meta name="description" content="{{ meta_desc | truncate: 150 }}">{% endcomment %}
     {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">{% endcomment %}
     {%- comment %}<meta name="apple-mobile-web-app-title" content="My App">{% endcomment %}
     {%- comment %}<meta name="referrer" content="no-referrer">{% endcomment %}
 
+    {%- comment %}<meta name="apple-mobile-web-app-capable" content="yes">{% endcomment %}
+    {%- comment %}<meta name="apple-mobile-web-app-title" content="{{ app_name }}">{% endcomment %}
+    {%- comment %} content can be: default, black, black-translucent {% endcomment %}
+    {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="default">{% endcomment %}
+    {%- comment %}<link rel="apple-touch-startup-image" href="{{ site.baseurl }}/assets/img/favicons/screensize.png">{% endcomment %}
+
     <base href="{{ baseurl | relative_url }}">
+
+    {%- comment %}<title>{{ page_title | truncate: 60 }}</title>{% endcomment %}
 
     {% seo %}
     {% comment %}{% feed_meta %}{% endcomment %}
 
-
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}">
-
-    {% comment %}<link rel="preload"{% endcomment %}
-          {% comment %}href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}"{% endcomment %}
-          {% comment %}as="style"{% endcomment %}
-          {% comment %}onload="this.onload=null;this.rel='stylesheet'">{% endcomment %}
-
-    <noscript>
-        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.release_version }}">
-    </noscript>
-
-    {% for link in site.data.links.head_link -%}
-        {% include snippet/link.liquid
-            params=link
-        %}
-    {% endfor %}
+    {% include styles.liquid %}
+    {% include head/links.liquid %}
     {% include head/icons.liquid %}
-    {% include head/sentry.liquid %}
-    {% include head/yandex-metrika.liquid %}
-    {% comment %}{% include head/google-analytics.liquid %}{% endcomment %}
+    {%- comment %}{% include head/google-analytics.liquid %}{% endcomment %}
 </head>

@@ -173,3 +173,5 @@ https://jekyll-garden.github.io/
 
 https://github.com/forever-jekyll/forever-jekyll/tree/main/_includes
 
+https://github.com/MrGreensWorkshop/MrGreen-JekyllTheme/blob/main/_includes/default/header/meta-hreflang.html
+

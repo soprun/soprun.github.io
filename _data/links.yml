@@ -58,21 +58,25 @@ follow:
 
 
 head_link:
-  cdnjs_cloudflare_com:
-    rel: dns-preletch
-    href: https://cdnjs.cloudflare.com
-
-  fonts_googleapis_com:
-    rel: dns-preletch
-    href: https://fonts.googleapis.com
-
-  fonts_gstatic_com:
-    rel: dns-preletch
-    href: https://fonts.gstatic.com
-
-  browser_sentry-cdn_com:
-    rel: dns-preletch
-    href: https://browser.sentry-cdn.com
+#  cdnjs_cloudflare_com:
+#    rel: preconnect
+#    href: https://cdnjs.cloudflare.com
+#    crossorigin: anonymous
+#
+#  fonts_googleapis_com:
+#    rel: dns-prefetch
+#    href: https://fonts.googleapis.com
+#    crossorigin: anonymous
+#
+#  fonts_gstatic_com:
+#    rel: dns-prefetch
+#    href: https://fonts.gstatic.com
+#    crossorigin: anonymous
+#
+#  browser_sentry-cdn_com:
+#    rel: dns-prefetch
+#    href: https://browser.sentry-cdn.com
+#    crossorigin: anonymous
 
   atom:
     title: Atom 1.0

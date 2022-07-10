@@ -1,2 +1,6 @@
 <!-- Holder.js for client side placeholder images -->
-<script defer src="{{ '/js/holder.js' | prepend: site.baseurl }}"></script>
+{% comment %}<script defer src="{{ '/js/holder.js' | prepend: site.baseurl }}"></script>{% endcomment %}
+<script src="{{ "/assets/js/scripts.js" | prepend: site.baseurl | relative_url }}"></script>
+
+{% include head/sentry.liquid %}
+{% include head/yandex-metrika.liquid %}

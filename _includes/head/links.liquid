@@ -1,0 +1,5 @@
+{% for link in site.data.links.head_link %}
+    {%- include snippet/link.liquid
+        params=link
+    %}
+{% endfor %}

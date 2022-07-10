@@ -5,7 +5,7 @@
 
 {%- include header.liquid %}
 
-<main class="container-lg" role="main" aria-label="content">
+<main id="main" class="container-lg" role="main" aria-label="content" style="opacity: 0">
     <div class="row">
         <aside id="sidebar"
                class="com col-12 col-sm-5 col-md-4 col-lg-3 mb-3"
@@ -20,6 +20,7 @@
     </div>
 </main>
 
-{% comment %}{% include footer.liquid %}{% endcomment %}
+{%- comment %}{% include footer.liquid %}{% endcomment %}
+{%- include scripts.liquid %}
 </body>
 </html>
