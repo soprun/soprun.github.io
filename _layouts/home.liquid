@@ -2,8 +2,6 @@
 layout: default
 ---
 
-{% comment %}site_logo: {{ site_logo }}{% endcomment %}
-
 {% if site.paginate %}
     {% assign posts = paginator.posts %}
 {% else %}
@@ -14,15 +12,15 @@ layout: default
     <div class="row row-cols-1">
         {% for post in posts %}
             <article id="post-{{ post.id }}" class="post-card col">
-                {% assign excerpt_length = site.excerpt_length | default: 50 %}
-                {% assign content_word_count = post.content | strip_html | number_of_words %}
-                {% assign excerpt_word_count = post.excerpt | strip_html | number_of_words %}
-                {% assign show_read_more = false %}
-                {% assign show_title_link = false %}
+                {%- assign excerpt_length = site.excerpt_length | default: 50 %}
+                {%- assign content_word_count = post.content | strip_html | number_of_words %}
+                {%- assign excerpt_word_count = post.excerpt | strip_html | number_of_words %}
+                {%- assign show_read_more = false %}
+                {%- assign show_title_link = false %}
 
-                {% if content_word_count != excerpt_word_count or excerpt_word_count > excerpt_length %}
-                    {% assign show_read_more = true %}
-                    {% assign show_title_link = true %}
+                {%- if content_word_count != excerpt_word_count or excerpt_word_count > excerpt_length %}
+                    {%- assign show_read_more = true %}
+                    {%- assign show_title_link = true %}
                 {% endif %}
 
                 <div class="post-card-thumbnail">
