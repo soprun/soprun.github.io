@@ -164,3 +164,5 @@ https://api.unsplash.com/photos/random?client_id=70e3f5838c92f41ccb557fefe4fa54f
 
 https://github.com/daattali/beautiful-jekyll/blob/master/_layouts/home.html
 
+https://jamstackthemes.dev/ssg/jekyll/
+

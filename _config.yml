@@ -49,8 +49,6 @@ safe: false
 include:
   - assets
   - favicon.ico
-  - browserconfig.xml
-  - manifest.json
   - _headers
 
 exclude:
