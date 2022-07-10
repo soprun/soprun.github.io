@@ -10,7 +10,7 @@ permalink: /sitemap.xml
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     {%- for item in site.data.navigation %}
         <url>
-            <loc>{{ site.url }}{% link {{ item.link }} %}</loc>
+            <loc>{{ item.link | absolute_url }}</loc>
             <changefreq>{{ item.changefreq | default: 'weekly' }}</changefreq>
             <priority>{{ item.changefreq | default: '0.8' }}</priority>
         </url>
