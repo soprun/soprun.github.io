@@ -43,4 +43,11 @@ layout: default
     <div class="post-page-content" itemprop="articleBody">
         {{ content }}
     </div>
+
+    <br>
+    <br>
+
+    {% include snippet/post/post-nav.liquid
+        categories=page.categories
+    %}
 </article>

@@ -1,14 +1,16 @@
-<div class="post-nav">
-    <p>
+{% if page.previous.url or page.next.url %}
+    <nav class="post-page-pagination" aria-label="Pagination">
         {% if page.previous.url %}
-            <span class="post-nav-label">{{ 'Previous' }}</span><br>
-            <a href="{{page.previous.url}}">&#9194;&nbsp;{{page.previous.title}}</a>
+            <a class="btn btn-outline-secondary text-decoration-none" href="{{ page.previous.url }}">
+                <i class="fa-solid fa-angles-left"></i>
+                {{ page.previous.title }}
+            </a>
         {% endif %}
-    </p>
-    <p>
         {% if page.next.url %}
-            <span class="post-nav-label">{{ 'Next' }}</span><br>
-            <a href="{{page.next.url}}">{{page.next.title}}&nbsp;&#9193;</a>
+            <a class="btn btn-outline-secondary text-decoration-none" href="{{ page.next.url }}">
+                {{ page.next.title }}
+                <i class="fa-solid fa-angles-right"></i>
+            </a>
         {% endif %}
-    </p>
-</div>
+    </nav>
+{% endif %}
