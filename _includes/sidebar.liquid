@@ -1,7 +1,6 @@
 <section id="sidebar-logo" class="vcard text-center">
     <a href="{{ '/' | relative_url }}" target="_self" rel="home" itemprop="url">
         <picture itemprop="logo"
-                 itemscope
                  itemtype="https://schema.org/ImageObject">
             <img
                 class="logo img-fluid rounded-circle"
@@ -37,6 +36,7 @@
 </section>
 
 <section id="sidebar-contact" class="vcard">
+    {% comment %}https://habr.com/ru/company/yandex/blog/246003/{% endcomment %}
     {% include snippet/sidebar/sidebar-contact.liquid %}
 </section>
 

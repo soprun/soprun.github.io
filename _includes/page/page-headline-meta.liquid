@@ -1,0 +1,28 @@
+{%- assign date = include.date | default: page.date %}
+{%- assign modified_date = include.modified_date | default: page.modified_date %}
+{%- assign date_format = site.date_format | default: "%d %B %Y" %}
+{% comment %}{% assign date_format = site.date_format | default: "%B %-d, %Y" %}{% endcomment %}
+{%- assign words = include.content | strip_html | number_of_words -%}
+
+
+{%- if date %}
+    <div class="page-headline-meta page-headline-date {{ include.class }}">
+        <time datetime="{{ date | date_to_xmlschema }}" itemprop="datePublished">
+            <i class="fas fa-calendar-alt mr-2" aria-hidden="true"></i>
+            Posted on {{ date | date: date_format }}
+        </time>
+        {% if modified_date %}
+            <time datetime="{{ modified_date | date_to_xmlschema }}" itemprop="dateModified">
+                <i class="fas fa-calendar-alt mr-2" aria-hidden="true"></i>
+                {{ modified_date | date: date_format }}
+            </time>
+        {% endif %}
+        {% if include.content %}
+            &nbsp;
+            <i class="fa-regular fa-clock"></i>
+            <span class="reading-time">
+            {{ words | divided_by: 180 | plus: 1 }} min read
+        </span>
+        {% endif %}
+    </div>
+{% endif %}

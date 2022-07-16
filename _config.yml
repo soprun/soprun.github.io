@@ -33,6 +33,7 @@ author:
   url: https://soprun.com
   email: mail@soprun.com
   phone: +79017972126
+  avatar: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png
   gpg_public_key: https://github.com/soprun.gpg
   gpg_fingerprint: B750 2F96 C5DC 44C2
 
@@ -155,6 +156,7 @@ defaults:
         name: ~
         url: ~
         email: ~
+        avatar: ~
       image: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
       categories: []
 

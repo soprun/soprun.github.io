@@ -1,6 +1,9 @@
 ---
+layout: article
 permalink: /basic-syntax
 title: Basic syntax
+tag: [test, syntax, markdown]
+categories: [notes]
 published: false
 ---
 
