@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+{% if site.paginate %}
+    {% assign posts = paginator.posts %}
+{% else %}
+    {% assign posts = site.posts %}
+{% endif %}
+
+{% if posts.size > 0 %}
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-start">
+        {% for post in posts %}
+            <div class="col">
+                {% include cards/card.liquid %}
+            </div>
+        {% endfor %}
+    </div>
+    {% include snippet/paginate.liquid %}
+{% endif %}
+
+<div class="page-content">
+    {{ content }}
+</div>

@@ -1,12 +1,13 @@
 {% if site.paginate and paginator.total_pages > 1 %}
-    <nav aria-label="page navigation">
-        <ul class="pagination justify-content-center">
+    <nav  class="p-4" aria-label="page navigation">
+        <ul class="pagination justify-content-center pt-2 m-0">
             <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
                 <a class="page-link"
                    href="{{ paginator.previous_page_path | relative_url }}"
                    {% unless paginator.previous_page %}tabindex="-1"{% endunless %}
-                   {% unless paginator.previous_page %}aria-disabled="true"{% endunless %}>
-                    <i class="fa-solid fa-angles-left"></i>
+                    {% unless paginator.previous_page %}aria-disabled="true"{% endunless %}
+                   aria-label="Previous">
+                    <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
                     Previous
                 </a>
             </li>
@@ -33,9 +34,10 @@
                 <a class="page-link"
                    href="{{ paginator.next_page_path | relative_url }}"
                    {% unless paginator.next_page %}tabindex="-1"{% endunless %}
-                    {% unless paginator.next_page %}aria-disabled="true"{% endunless %}>
+                    {% unless paginator.next_page %}aria-disabled="true"{% endunless %}
+                   aria-label="Next">
                     Next
-                    <i class="fa-solid fa-angles-right"></i>
+                    <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
