@@ -47,7 +47,6 @@ echo 123
 command -v git
 ```
 
-
 ```javascript
 <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css">
 <script type="module">
@@ -82,13 +81,9 @@ values (2, 'D''artagnian');
 { include image.liquid file="/assets/images/san-juan-mountains.jpg" alt="The San Juan Mountains are beautiful!" title="San Juan Mountains" lazy="yes"}
 ```
 
-
 ![Nathan Anderson](https://images.unsplash.com/photo-1478155536073-c815e5cefe44?auto=format&fit=crop&w=400&q=80 "Nathan Anderson")
 
 [![Photo by Aditya Vyas](https://images.unsplash.com/photo-1657311277146-7ea9e88a3701?auto=format&fit=crop&w=400&q=80 "Photo by Aditya Vyas")](https://unsplash.com/photos/aN71p3mLj-A)
-
-
-
 
 ---
 
@@ -98,15 +93,14 @@ values (2, 'D''artagnian');
 - Italicized text is the _cat's meow_.
 - A*cat*meow
 
-
 **Unordered list**
 
 * Item 1
 * Item 2
 * Item 3
-    * Item 3a
-    * Item 3b
-    * Item 3c
+  * Item 3a
+  * Item 3b
+  * Item 3c
 
 **Ordered list**
 
@@ -182,7 +176,7 @@ java ..> rocket
 
 ---
 
-https://docs.gitlab.com/ee/user/markdown.html#mermaid
+<https://docs.gitlab.com/ee/user/markdown.html#mermaid>
 
 ```mermaid
 graph TD;

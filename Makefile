@@ -1,8 +1,10 @@
+MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 # Self-Documented Makefile see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .DEFAULT_GOAL := help
+.DELETE_ON_ERROR:
+.PHONY: help check clean watch install update build all test
 
-.PHONY: help
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-27s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
@@ -10,8 +12,12 @@ check: ## check
 	bundle check
 	#bundle exec jekyll build
 
-clean: ## Clean the site (removes site output and metadata file) without building.
-	jekyll clean
+clean: ## Removes all generated files: destination folder, metadata file, Sass and Jekyll caches.
+	@jekyll clean
+	@clear -x
+
+doctor: ##  Outputs any deprecation or configuration issues.
+	jekyll doctor
 
 #serve:
 #	 Execute a script in the current bundl
@@ -100,10 +106,11 @@ build-preview:
 # https://github.com/DavidAnson/markdownlint
 
 
-markdownlint: ## Usage Command line
-	@docker run -it -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint .
+markdownlint: ##  MarkdownLint Command Line Interface
+	@docker run -it --rm -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint .
 
-
+markdownlint-fix: ##  MarkdownLint Command Line Interface: fix basic errors (does not work with STDIN)
+	@docker run -it --rm -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint --fix .
 
 sarda:
 	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
@@ -114,3 +121,37 @@ deployment: ## Publish a directory of static assets as a new deployment. This wi
 
 # To start developing your Worker, run `npm start`
 # To publish your Worker to the Internet, run `npm run deploy`
+
+
+TESTS = markdownlint.test
+
+all-tests := $(addsuffix .test, $(basename $(wildcard *.test)))
+
+#.PHONY clean
+#.PHONY test $(TESTS)
+#test: $(TESTS)
+test: $(all-tests)
+	@echo $(MAKEFILE_DIR)
+	@echo $(all-tests)
+	@echo $(OBJS)
+
+%.test : %.test-in %.test-cmp $(BC)
+	@$(BC) <$< 2>&1 | diff -q $(word 2, $?) - >/dev/null || \
+	(echo "Test $@ failed" && exit 1)
+
+deploy: ## Run deployment
+	platformio run -t upload
+
+# `make lint LINT_SRC=lib/speeder/speeder.cpp.`
+lint: ## Run all lint
+	@#oclint $(LINT_SRC) -- $(CPP_FLAGS) $(INCLUDES)
+	make -s markdownlint-fix
+	make -s test-htmlproofer
+	make -s test-lighthouse
+
+all: test ## RUN all tests
+	@echo "Success, all tests passed."
+
+print: $(wildcard *) ## Print out file information about every .c file
+	@clear -x
+	@ls -lAFG $?
