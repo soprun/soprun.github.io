@@ -1,2 +1,6 @@
 _drafts/*
+_site/*
+node_modules/*
 README.md
+
+_posts/2022-07-10-basic-syntax.md

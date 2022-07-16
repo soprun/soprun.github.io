@@ -25,7 +25,11 @@ MD033:
     - br
     - a
     - i
+    - blockquote
+    - script
 
 # heading duplication is allowed for non-sibling headings (common in change logs)
 MD024:
   siblings_only: true
+
+MD028: false

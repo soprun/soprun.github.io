@@ -24,7 +24,7 @@ layout: default
                 {% endif %}
 
                 <div class="post-card-thumbnail">
-                    {% if show_title_link %}
+                    {%- if show_title_link %}
                         <a href="{{ post.url | relative_url }}"
                            class="post-card-thumbnail"
                            itemprop="url">
@@ -52,7 +52,7 @@ layout: default
                     <div class="post-card-content">
                         {% include snippet/post/post-content.liquid %}
 
-                        {% if show_read_more %}
+                        {%- if show_read_more %}
                             <a class="post-content-read-more fs-6 text-decoration-none"
                                href="{{ post.url | absolute_url }}">
                                 Continue reading...

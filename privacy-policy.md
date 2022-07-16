@@ -7,4 +7,4 @@ published: false
 
 ...
 
-https://termly.io/products/privacy-policy-generator/
+<https://termly.io/products/privacy-policy-generator/>

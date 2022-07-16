@@ -48,12 +48,19 @@ color:
 safe: false
 
 include:
+  - CNAME
   - assets
   - favicon.ico
   - _headers
+  - robots.txt
+  - robots.txt.asc
 
 exclude:
+  - .editorconfig
+  - .env
   - .git
+  - .gitattributes
+  - .gitignore
   - .idea/
   - .sass-cache/
   - .jekyll-cache/
@@ -66,7 +73,6 @@ exclude:
   - README.md
   - SECURITY.md
   - Makefile
-  - .gitignore
   - .DS_STORE
 
 keep_files: [ .git, _headers ]

@@ -101,7 +101,7 @@ build-preview:
 
 
 markdownlint: ## Usage Command line
-	docker run -it -v $(PWD):/md peterdavehello/markdownlint markdownlint .
+	@docker run -it -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint .
 
 
 

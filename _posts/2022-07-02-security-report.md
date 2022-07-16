@@ -26,6 +26,7 @@ image: https://images.unsplash.com/photo-1618482914248-29272d021005
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/stXwx0k" data-context="false" >
   <a href="//imgur.com/a/stXwx0k"></a>
 </blockquote>
+
 <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 - [ssllabs.com](https://www.ssllabs.com/ssltest/analyze.html?d=soprun.com) - Grade **A+** ✅
@@ -60,7 +61,7 @@ image: https://images.unsplash.com/photo-1618482914248-29272d021005
 Решил попробовать [Custom Email Domain with iCloud Mail](https://support.apple.com/en-us/HT212514), не могу сказать что
 удовлетворен сервисом, скорее всего в будущем буду менять.
 
-##### Конфиденциальность, высокая безопасность
+### Конфиденциальность, высокая безопасность
 
 - Все полученные письма и отправленные мною подписаны GPG ключами через физическую аппаратное устройство YubiKey.
 - Подтвержденный DNSSEC - ✅
@@ -72,9 +73,9 @@ image: https://images.unsplash.com/photo-1618482914248-29272d021005
 
 ## Environments
 
-| Environment | Domain and aliases                          | Privacy          |
-|:------------|:--------------------------------------------|------------------|
-| production  | https://soprun.com                          | Public           |
-| staging     | https://staging.soprun.com                  | Zero Trust (VPN) |
-| preview     | https://{branch}.soprun-github-io.pages.dev | Zero Trust (VPN) |
-| local       | http://localhost:4000                       | localhost        |
+| Environment | Domain and aliases                            | Privacy          |
+|:------------|:----------------------------------------------|------------------|
+| `production`  | <https://soprun.com>                          | `Public`           |
+| `staging`     | <https://staging.soprun.com>                  | `Zero Trust (VPN)` |
+| `preview`     | <https://{branch}.soprun-github-io.pages.dev> | `Zero Trust (VPN)` |
+| `local`       | <http://localhost:4000>                       | `localhost`        |
