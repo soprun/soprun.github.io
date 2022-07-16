@@ -10,10 +10,6 @@
     {{- page.title | default: site.title | strip_html | strip | escape | truncate: 70 -}}
 {%- endcapture -%}
 
-{%- capture meta_title -%}
-    {{- page.title | xml_escape -}}
-{%- endcapture -%}
-
 {%- capture page_description -%}
     {%- assign page_description = page.description | default: site.description -%}
     {%- if page.excerpt != empty -%}
