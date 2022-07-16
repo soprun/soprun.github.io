@@ -10,6 +10,10 @@
     {{- page.title | default: site.title | strip_html | strip | escape | truncate: 70 -}}
 {%- endcapture -%}
 
+{%- capture meta_title -%}
+    {{- page.title | xml_escape -}}
+{%- endcapture -%}
+
 {%- capture page_description -%}
     {%- assign page_description = page.description | default: site.description -%}
     {%- if page.excerpt != empty -%}
@@ -19,9 +23,7 @@
 {%- endcapture -%}
 
 {%- capture page_keywords -%}
-    {%- assign page_keywords = page.tags | reverse -%}
-    {%- assign page_keywords = page_keywords | concat: site.keywords | join: ', ' | escape | truncatewords: 10 -%}
-    {{- page_keywords -}}
+    {{- page.tags | reverse | concat: site.keywords | join: ', ' | escape | truncatewords: 10 -}}
 {%- endcapture -%}
 
 {%- capture copyright -%}
