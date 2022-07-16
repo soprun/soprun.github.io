@@ -48,7 +48,7 @@
             </h6>
         {% endif %}
         <p class="card-text">
-            {{ post.content | default: post.excerpt | markdownify | truncatewords: 30 }}
+            {{ post.excerpt | markdownify | truncatewords: excerpt_length }}
         </p>
         {%- if show_read_more %}
             <a class="card-link text-decoration-none"
