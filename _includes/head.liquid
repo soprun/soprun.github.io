@@ -1,26 +1,15 @@
-{%- assign baseurl = site.baseurl | prepend: site.url -%}
-{%- if jekyll.environment != 'production' and site.env.CF_PAGES_URL %}
-    {%- assign baseurl = site.env.CF_PAGES_URL %}
-{% endif %}
-{%- assign keywords = page.tags | reverse -%}
-{%- assign keywords = keywords | concat: site.keywords | join: ', ' | truncatewords: 10 %}
-{%- assign copyright = 'Copyright 2022, soprun.com' %}
 <head>
     <meta charset="{{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="{{ site.color.background  }}"/>
-    {%- comment %}<meta name="author" content="{{ site.author.name }}">{% endcomment %}
+    <meta name="theme-color" content="{{ site.color.background }}"/>
+    {% comment %}<meta name="author" content="{{ site.author.name }}">{% endcomment %}
     <meta name="reply-to" content="{{ site.author.email }}">
-    <meta name="copyright" content="{{ copyright }}">
-    <meta name="keywords" content="{{ keywords }}">
-    {%- if page.noindex == true %}
-        <meta name="robots" content="noindex, follow"/>
-    {% else %}
-        <meta name="robots" content="index, follow">
-    {% endif %}
+    <meta name="copyright" content="{{ copyright | strip_html }}">
+    <meta name="keywords" content="{{ page_keywords }}">
+    <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}"/>
 
     {%- comment %}<meta name="description" content="{{ meta_desc | truncate: 150 }}">{% endcomment %}
     {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">{% endcomment %}
@@ -33,7 +22,7 @@
     {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="default">{% endcomment %}
     {%- comment %}<link rel="apple-touch-startup-image" href="{{ site.baseurl }}/assets/img/favicons/screensize.png">{% endcomment %}
 
-    <base href="{{ baseurl | relative_url }}">
+    <base href="{{ base_url }}">
 
     {%- comment %}<title>{{ page_title | truncate: 60 }}</title>{% endcomment %}
 

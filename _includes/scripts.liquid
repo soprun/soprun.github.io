@@ -1,3 +1,72 @@
 <!-- Holder.js for client side placeholder images -->
 {% comment %}<script defer src="{{ '/js/holder.js' | prepend: site.baseurl }}"></script>{% endcomment %}
+
+{% comment %}<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"{% endcomment %}
+{% comment %}integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="{% endcomment %}
+{% comment %}crossorigin="anonymous"{% endcomment %}
+{% comment %}referrerpolicy="no-referrer"></script>{% endcomment %}
+
+{% comment %}<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"{% endcomment %}
+{% comment %}integrity="sha512-pax4MlgXjHEPfCwcJLQhigY7+N8rt6bVvWLFyUMuxShv170X53TRzGPmPkZmGBhk+jikR8WBM4yl7A9WMHHqvg=="{% endcomment %}
+{% comment %}crossorigin="anonymous"{% endcomment %}
+{% comment %}referrerpolicy="no-referrer"{% endcomment %}
+{% comment %}async></script>{% endcomment %}
+
+{% comment %}<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"{% endcomment %}
+{% comment %}integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w=="{% endcomment %}
+{% comment %}crossorigin="anonymous"{% endcomment %}
+{% comment %}referrerpolicy="no-referrer"></script>{% endcomment %}
+
+{% comment %}<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"{% endcomment %}
+{% comment %}integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ=="{% endcomment %}
+{% comment %}crossorigin="anonymous"{% endcomment %}
+{% comment %}referrerpolicy="no-referrer"{% endcomment %}
+{% comment %}async></script>{% endcomment %}
+
+{% comment %}<script src="{{ "/assets/js/scripts.js" | relative_url }}"></script>{% endcomment %}
+{% comment %}<script src="{{ "/assets/js/preload.js" | relative_url }}"></script>{% endcomment %}
+{% comment %}<script src="{{ "/assets/js/scale.fix.js" | relative_url }}" async></script>{% endcomment %}
+{% comment %}<script src="{{ "/assets/js/highlight.js" | relative_url }}" async></script>{% endcomment %}
+
+{% comment %}{% include head/yandex-metrika.liquid %}{% endcomment %}
+{% comment %}{% include head/sentry.liquid %}{% endcomment %}
+
+{% comment %}https://cdnjs.com/libraries/highlight.js{% endcomment %}
+
+{% comment %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css"{% endcomment %}
+{% comment %}integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA=="{% endcomment %}
+{% comment %}crossorigin="anonymous"{% endcomment %}
+{% comment %}referrerpolicy="no-referrer"/>{% endcomment %}
+
+<link rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css"
+      integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"/>
+
+{% comment %}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/github.min.css"{% endcomment %}
+{% comment %}integrity="sha512-+evfh0lCceddhK7IkrvCj9metOEXRt6QNKNMWXBNINkQyLrxLkjyu7ye/g7claDFWtZHSpgJAMR7zTjo++oDPQ=="{% endcomment %}
+{% comment %}crossorigin="anonymous"{% endcomment %}
+{% comment %}referrerpolicy="no-referrer"/>{% endcomment %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"
+        integrity="sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        defer></script>
+<script defer>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre.highlight code').forEach((el) => {
+            hljs.highlightElement(el);
+        });
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
+        integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
 <script src="{{ "/assets/js/scripts.js" | prepend: site.baseurl | relative_url }}"></script>

@@ -1,22 +1,75 @@
 {% comment %}<header>{% endcomment %}
-    {% comment %}…{% endcomment %}
+{% comment %}…{% endcomment %}
 {% comment %}</header>{% endcomment %}
 
+{% comment %}
 https://getbootstrap.com/docs/5.1/examples/blog/
+{% endcomment %}
 
-<div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-        <a class="p-2 link-secondary" href="#">World</a>
-        <a class="p-2 link-secondary" href="#">U.S.</a>
-        <a class="p-2 link-secondary" href="#">Technology</a>
-        <a class="p-2 link-secondary" href="#">Design</a>
-        <a class="p-2 link-secondary" href="#">Culture</a>
-        <a class="p-2 link-secondary" href="#">Business</a>
-        <a class="p-2 link-secondary" href="#">Politics</a>
-        <a class="p-2 link-secondary" href="#">Opinion</a>
-        <a class="p-2 link-secondary" href="#">Science</a>
-        <a class="p-2 link-secondary" href="#">Health</a>
-        <a class="p-2 link-secondary" href="#">Style</a>
-        <a class="p-2 link-secondary" href="#">Travel</a>
+<header id="header" itemscope itemtype="http://schema.org/WPHeader">
+    <meta itemprop="headline" content="{{ page_title }}">
+    <meta itemprop="description" content="{{ page_description }}">
+    <meta itemprop="keywords" content="{{ page_keywords }}">
+
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div class="container-lg">
+            <a class="navbar-brand" href="{{ base_url }}">
+                <img src="{{ site.logo | relative_url }}"
+                     width="30"
+                     height="30"
+                     class="d-inline-block align-top rounded-circle"
+                     alt="{{ site.title | escape }}">
+                {{ site.short_title }}
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <nav class="navbar-nav me-auto mb-2 mb-md-0"
+                     role="navigation"
+                     itemscope
+                     itemtype="https://www.schema.org/SiteNavigationElement">
+                    {% for item in site.data.navigation %}
+                        <li class="nav-item">
+                            <a class="nav-link{%- if page.url == item.link %} active{% endif %}{%- if item.disabled %} disabled{% endif -%}"
+                               itemprop="url"
+                               href="{{ item.link | relative_url }}"
+                               rel="{{ item.rel }}">
+                                <span itemprop="name">
+                                    {{ item.name }}
+                                </span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </nav>
+                {% comment %}<form class="d-flex" role="search">{% endcomment %}
+                {% comment %}<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">{% endcomment %}
+                {% comment %}<button class="btn btn-outline-success" type="submit">Search</button>{% endcomment %}
+                {% comment %}</form>{% endcomment %}
+            </div>
+        </div>
     </nav>
-</div>
+</header>
+
+{% comment %}<div class="nav-scroller py-1 mb-2">{% endcomment %}
+{% comment %}<nav class="nav d-flex justify-content-between">{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">World</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">U.S.</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Technology</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Design</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Culture</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Business</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Politics</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Opinion</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Science</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Health</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Style</a>{% endcomment %}
+{% comment %}<a class="p-2 link-secondary" href="#">Travel</a>{% endcomment %}
+{% comment %}</nav>{% endcomment %}
+{% comment %}</div>{% endcomment %}

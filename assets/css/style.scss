@@ -151,12 +151,7 @@ details[open] summary {
 }
 
 #main {
-    opacity: 0;
-    transition: opacity .1s linear;
-
-    &.onload {
-        opacity: 1 !important;
-    }
+    padding-top: 5rem;
 }
 
 #content {
@@ -224,6 +219,7 @@ blockquote {
         margin-bottom: 0;
 
     }
+
     &-figcaption {
         display: block;
         text-align: right;
@@ -231,6 +227,23 @@ blockquote {
 
         &::before {
             content: '-';
+        }
+    }
+}
+
+#header {
+    .navbar {
+        box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+        //border-bottom: 1px solid rgba(34, 60, 80, 0.2);
+    }
+
+    .nav-link {
+        &:hover {
+            color: var(--color-text-link);
+        }
+
+        &.active {
+            color: var(--color-text-link-hover);
         }
     }
 }
