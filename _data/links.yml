@@ -35,7 +35,7 @@ contact:
 #    url: /assets/vcard.vcf
 #    vcard: ~
 
-follow:
+social_links:
   - title: GitHub
     icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
     url: https://github.com/soprun
@@ -48,9 +48,9 @@ follow:
     icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
     url: https://medium.com/@soprun
 
-#  - title: LinkedIn
-#    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-#    url: https://www.linkedin.com/in/soprun
+  - title: LinkedIn
+    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+    url: https://www.linkedin.com/in/soprun
 
 #    - title: codepen.io
 #      icon: <i class="fa-brands fa-codepen" aria-hidden="true"></i>
@@ -58,25 +58,25 @@ follow:
 
 
 head_link:
-#  cdnjs_cloudflare_com:
-#    rel: preconnect
-#    href: https://cdnjs.cloudflare.com
-#    crossorigin: anonymous
-#
-#  fonts_googleapis_com:
-#    rel: dns-prefetch
-#    href: https://fonts.googleapis.com
-#    crossorigin: anonymous
-#
-#  fonts_gstatic_com:
-#    rel: dns-prefetch
-#    href: https://fonts.gstatic.com
-#    crossorigin: anonymous
-#
-#  browser_sentry-cdn_com:
-#    rel: dns-prefetch
-#    href: https://browser.sentry-cdn.com
-#    crossorigin: anonymous
+  #  cdnjs_cloudflare_com:
+  #    rel: preconnect
+  #    href: https://cdnjs.cloudflare.com
+  #    crossorigin: anonymous
+  #
+  #  fonts_googleapis_com:
+  #    rel: dns-prefetch
+  #    href: https://fonts.googleapis.com
+  #    crossorigin: anonymous
+  #
+  #  fonts_gstatic_com:
+  #    rel: dns-prefetch
+  #    href: https://fonts.gstatic.com
+  #    crossorigin: anonymous
+  #
+  #  browser_sentry-cdn_com:
+  #    rel: dns-prefetch
+  #    href: https://browser.sentry-cdn.com
+  #    crossorigin: anonymous
 
   atom:
     title: Atom 1.0
@@ -102,11 +102,11 @@ head_link:
     type: application/pgp-keys
     href: https://github.com/soprun.gpg
 
-#  publickey:
-#    title: mail@soprun.com
-#    rel: publickey
-#    type: text/plain
-#    href: /assets/pgp-public-key.asc
+  #  publickey:
+  #    title: mail@soprun.com
+  #    rel: publickey
+  #    type: text/plain
+  #    href: /assets/pgp-public-key.asc
 
   manifest:
     rel: manifest

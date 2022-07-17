@@ -80,6 +80,10 @@
                 {% endif %}
             </div>
 
+            {% comment %}<div class="page-header-author">{% endcomment %}
+            {% comment %}by <span itemprop="author">{{ post.author.name | default: site.author.name }}</span>{% endcomment %}
+            {% comment %}</div>{% endcomment %}
+
             <div class="page-date-published">
                 {{ page.date | date: "%b %-d, %Y" }}
             </div>

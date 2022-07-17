@@ -1,0 +1,8 @@
+{%- assign minute = include.content | strip_html | normalize_whitespace | number_of_words | divided_by: 265 | plus: 1 %}
+{% if minute %}
+    <div class="page-header-reading-time">
+        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+        {{ minute }}
+        min read
+    </div>
+{% endif %}

@@ -9,50 +9,40 @@
     {%- assign show_title_link = true %}
 {% endif %}
 
-{% assign minute = post.content | number_of_words | divided_by: 265 | plus: 1 %}
-
 <article id="post-{{ post.id }}" class="card mb-3 text-dark">
-
     <a href="{{ post.url | relative_url }}">
         <img class="card-img card-img-top"
-             src="{{ post.image }}"
-             alt="...">
+             src="{{ post.image }}?w=450&h=300&fit=min&crop=entropy,center&fm=webp&auto=compress"
+             alt="{{ post.title | escape }}">
     </a>
     {% comment %}<div class="card-header">Header</div>{% endcomment %}
 
     <div class="card-body text-muted pb-0">
-        <div class="page-header-date-published d-inline">
-            <i class="fas fa-calendar-alt mr-2" aria-hidden="true"></i>
-            Posted on {{ post.date | date: "%b %-d, %Y" }}
-        </div>
-        {% comment %}<div class="page-header-author">{% endcomment %}
-        {% comment %}by <span itemprop="author">{{ post.author.name | default: site.author.name }}</span>{% endcomment %}
-        {% comment %}</div>{% endcomment %}
-        <div class="page-header-reading-time d-inline">
-            <i class="fa-regular fa-clock" aria-hidden="true"></i>
-            {% if post.minute %}
-                {{ post.minute }}
-            {% else %}
-                {{ minute }}
-            {% endif %}
-            min read
-        </div>
+        {% include page/page-header-date-published.liquid
+            date=post.date
+        %}
+        {% comment %}include: page/page-header-author.liquid{% endcomment %}
+        {% include page/page-header-reading-time.liquid
+            content=post.content
+        %}
     </div>
     <div class="card-body">
         <h5 class="card-title">
             <a class="text-decoration-none"
                href="{{ post.url | relative_url }}">
-                {{ post.title }}
+                {{ post.title | escape }}
             </a>
         </h5>
         {% if post.subtitle %}
             <h6 class="card-subtitle mb-2 text-muted">
-                {{ post.subtitle }}
+                {{ post.subtitle | escape }}
             </h6>
         {% endif %}
-        <p class="card-text">
-            {{ post.excerpt | markdownify | truncatewords: excerpt_length }}
-        </p>
+        <div class="card-text">
+            {% include page/page-content.liquid
+                content=post.excerpt
+            %}
+        </div>
         {%- if show_read_more %}
             <a class="card-link text-decoration-none"
                href="{{ post.url | absolute_url }}">
