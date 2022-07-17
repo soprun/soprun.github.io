@@ -3,7 +3,7 @@
 <header class="page-header">
     <h1 class="page-header-headline" itemprop="headline name">
         <a href="{{ page.url | relative_url }}">
-            {{ page.title }}
+            {{ page.title | escape }}
         </a>
     </h1>
 

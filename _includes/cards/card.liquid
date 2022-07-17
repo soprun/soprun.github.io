@@ -12,9 +12,12 @@
 {% assign minute = post.content | number_of_words | divided_by: 265 | plus: 1 %}
 
 <article id="post-{{ post.id }}" class="card mb-3 text-dark">
-    <img class="card-img card-img-top"
-         src="{{ post.image }}"
-         alt="...">
+
+    <a href="{{ post.url | relative_url }}">
+        <img class="card-img card-img-top"
+             src="{{ post.image }}"
+             alt="...">
+    </a>
     {% comment %}<div class="card-header">Header</div>{% endcomment %}
 
     <div class="card-body text-muted pb-0">

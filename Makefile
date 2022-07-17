@@ -2,7 +2,6 @@ MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 # Self-Documented Makefile see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .DEFAULT_GOAL := help
-.DELETE_ON_ERROR:
 .PHONY: help check clean watch install update build all test
 
 help:
