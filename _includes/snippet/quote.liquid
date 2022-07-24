@@ -4,15 +4,15 @@
 {%- assign random_number = "now" | date: "%N" | modulo: diff | plus: min | minus: 1 -%}
 {%- assign quote = site.data.quotes[random_number] %}
 {%- if quote %}
-    <figure class="quote">
-        <blockquote class="quote-blockquote"{% if quote.cite %} cite="{{ quote.cite }}"{% endif %}>
+    <figure>
+        <blockquote class="blockquote"{% if quote.cite %} cite="{{ quote.cite }}"{% endif %}>
             {% if quote.title %}
                 <div class="mb-2"><strong>{{ quote.title }}</strong></div>
             {% endif %}
             <p>{{ quote.quote }}</p>
         </blockquote>
         {%- if quote.author %}
-            <figcaption class="quote-figcaption">{{ quote.author }}</figcaption>
+            <figcaption class="blockquote-footer">{{ quote.author }}</figcaption>
         {%- endif %}
     </figure>
 {% endif %}

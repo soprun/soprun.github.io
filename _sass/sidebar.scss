@@ -23,4 +23,16 @@
 
     &-signature {
     }
+
+    .blockquote {
+        font-size: .9rem;
+        border-left: .3rem solid var(--color-text-link);
+        color: var(--color-text-main);
+        font-style: italic;
+        padding: 1rem;
+
+        &-footer {
+            text-align: right;
+        }
+    }
 }
