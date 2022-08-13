@@ -3,4 +3,5 @@ Allow: /
 Disallow: /assets/*
 Disallow: /*utm=.
 
-Sitemap: https://soprun.com/sitemap.xml
+Host: {{ site.url | absolute_url }}
+Sitemap: {{ site.url | absolute_url }}/sitemap.xml
