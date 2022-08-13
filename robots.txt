@@ -1,7 +1,12 @@
+---
+layout: null
+permalink: /robots.txt
+---
+
 User-agent: *
 Allow: /
 Disallow: /assets/*
 Disallow: /*utm=.
 
-Host: {{ site.url | absolute_url }}
-Sitemap: {{ site.url | absolute_url }}/sitemap.xml
+Host: {{ site.url }}
+Sitemap: {{ site.url }}{{ site.baseurl }}{% link sitemap.liquid %}
