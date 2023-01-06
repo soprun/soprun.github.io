@@ -1,0 +1,166 @@
+{%- assign steps = include.steps %}
+
+<div class="steps row row-cols-1 g-4 justify-content-start">
+    {% for step in steps %}
+        <div class="col">
+            {%- assign step_class = "" %}
+
+            {% if step.type == "note" %}
+                {%- assign step_class = "bg-info" %}
+            {% endif %}
+            {% if step.class %}
+                {%- assign step_class = step.class %}
+            {% endif %}
+
+
+            <div id="step-{{ forloop.index }}" class="card mb-3">
+                <div class="card-header {{ step_class }}">
+                    {% case step.type %}
+                        {% when "task" %}
+                            <i class="fa-solid fa-list-check"></i>
+                        {% when "note" %}
+                            <i class="fa-solid fa-note-sticky"></i>
+                        {% when "event" %}
+                            <i class="fa-solid fa-calendar"></i>
+                        {% else %}
+                            <i class="fa-solid fa-info"></i>
+                    {% endcase %}
+
+                    <b>Step: {{ forloop.index }} {{ step.type }}</b>
+
+                    {% if step.title %}
+                        <h5 class="card-title">{{ step.title }}</h5>
+                    {% endif %}
+
+                    {% if step.time %}
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                            {% if step.time %}
+                                {{ step.time }}
+                            {% endif %}
+                            {% if step.replay %}
+                                {{ step.replay }}
+                            {% endif %}
+                            {% comment %}<span class="visually-hidden">{{ step.time }}</span>{% endcomment %}
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h4>Workflow</h4>
+
+                    <div class="card-text">
+                        <ol>
+                            {% for workflow in step.workflow %}
+                                <li>
+                                    {%- assign link = workflow.link %}
+                                    {%- assign link_index = workflow.link | minus: 1 %}
+
+                                    {%- assign workflow_title = "" %}
+                                    {% if workflow.optional %}
+                                        {%- assign workflow_title = "<span class='text-danger'>Optional:</span> " %}
+                                    {% endif %}
+                                    {%- assign workflow_title = workflow_title | append: workflow.title %}
+
+                                    {%- assign workflow_title_strong = false %}
+                                    {% if workflow.description %}
+                                        {%- assign workflow_title_strong = true %}
+                                    {% endif %}
+
+
+                                    <b>
+                                        {% if workflow.link %}
+                                            <a href="{{ page.url }}#step-{{ link }}">
+                                                {{ workflow_title }}
+                                            </a>
+                                            {% if link %}
+                                                <br>
+                                                <small>
+                                                    Step: {{ link }} {{ steps[link_index].type }}
+                                                    <b>{{ steps[link_index].title }}</b>
+                                                </small>
+                                            {% endif %}
+                                        {% else %}
+                                            {{ workflow_title }}
+                                        {% endif %}
+                                    </b>
+
+                                    {{ workflow.description | newline_to_br | markdownify }}
+                                    {{ workflow.content | newline_to_br | markdownify }}
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+
+                    {% if step.agenda %}
+                        <h4>Agenda: {{ step.title }}</h4>
+                        <div class="mb-3" contenteditable="true">{{ step.agenda | strip_html | newline_to_br }}</div>
+
+                        <a class="btn btn-outline-primary text-decoration-none"
+                           rel="noopener"
+                           target="_blank"
+                           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ step.title | uri_escape }}&details={{ step.agenda | uri_escape }}">
+                            Add to your Google Calendar
+                        </a>
+                    {% endif %}
+                </div>
+                {%- assign artifacts_count = step.artifacts | size %}
+                {%- assign expected_result_count = step.expected_result | size %}
+                {%- assign responsible_count = step.responsible | size %}
+                {%- assign value_count = step.value | size %}
+                {%- assign skills_count = step.skills | size %}
+
+                {%- if artifacts_count != 0 or expected_result_count != 0 or responsible_count != 0 or value_count != 0 or skills_count != 0 %}
+
+                    <div class="card-footer">
+                        {%- if artifacts_count != 0 %}
+                            <b>Какие должны быть артефакты?</b>
+                            <ul>
+                                {% for artifacts in step.artifacts %}
+                                    <li>{{ artifacts }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {%- if expected_result_count != 0 %}
+                            <b>Какой результат этого шага?</b>
+                            <ul>
+                                {% for expected_result in step.expected_result %}
+                                    <li>{{ expected_result }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {%- if responsible_count != 0 %}
+                            <b>Ответственный за этап?</b>
+                            <ul>
+                                {% for responsible in step.responsible %}
+                                    <li>{{ responsible }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                        {%- if value_count != 0 %}
+                            <b>Какая ценность этого этапа?</b>
+                            <ul>
+                                {% for value in step.value %}
+                                    <li>{{ value }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+
+                        {% if skills_count != 0%}
+                            <b>Требуемые навыки для реализации этого шага?</b>
+                            <ul>
+                                {% for skills in step.skills %}
+                                    <li>{{ skills }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>

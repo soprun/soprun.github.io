@@ -1,0 +1,125 @@
+<footer>
+    <section>
+        <h2>Economy:</h2>
+
+        {% comment %}- Ресурсный план по внедрению! (сколько людей, сколько часов)<br>{% endcomment %}
+        {% comment %}- Пользователь видит timeline реализации этой задачи и может оценить её во времени<br>{% endcomment %}
+        {% comment %}- Как гарантировать применение или особенности при применении?<br>{% endcomment %}
+        {% comment %}- Какие инструменты, подходы, средства помогут понять что данное решение успешно или нет?!<br>{% endcomment %}
+        {% comment %}- Как гарантировать устойчивость применения?<br>{% endcomment %}
+        {% comment %}- Как можно выявлять дефекты заранее?<br>{% endcomment %}
+        {% comment %}- Кто следит за результатом??{% endcomment %}
+
+        <h3>Ресурсный план</h3>
+        <ol>
+            {% for step in script.steps %}
+                <li>
+                    {{ step.title }}{% if step.time %} - <small class="text-warning">{{ step.time }}</small>{% endif %}
+
+                    {% if step.responsible %}
+                        <ul>
+                            {% for responsible in step.responsible %}
+                                <li>{{ responsible }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+    </section>
+
+    <section>
+        <h2>Требуемые навыки для реализации этого решения:</h2>
+        <ul>
+            {% for step in script.steps %}
+                {% if step.skills %}
+                    <li>
+                        {{ step.title }}{% if step.time %} - <small class="text-warning">{{ step.time }}</small>{% endif %}
+
+                        {% if step.skills %}
+                            <ul>
+                                {% for skills in step.skills %}
+                                    <li>{{ skills }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    {% comment %}<section>{% endcomment %}
+        {% comment %}<h2>Communications:</h2>{% endcomment %}
+{% comment %}{% endcomment %}
+        {% comment %}- Как выстроить коммуникацию применения?<br>{% endcomment %}
+        {% comment %}- Как вовлечь команду в решение??<br>{% endcomment %}
+        {% comment %}- Какая должна быть синергия при внедрении решения?<br>{% endcomment %}
+        {% comment %}- Какие зоны ответственности?<br>{% endcomment %}
+        {% comment %}- **Горизонтальные связи !!!! ???**<br>{% endcomment %}
+        {% comment %}- А что дальше? Как масштабировать во времени?<br>{% endcomment %}
+        {% comment %}- Как улучшить удобство применения (что бы было удобно всем использовать)?{% endcomment %}
+    {% comment %}</section>{% endcomment %}
+
+    {% comment %}<section>{% endcomment %}
+        {% comment %}<h2>Alternative:</h2>{% endcomment %}
+        {% comment %}- С чем связано DSM (на что влияет, что можно предложить)?<br>{% endcomment %}
+        {% comment %}- Какие альтернативы решения?{% endcomment %}
+    {% comment %}</section>{% endcomment %}
+
+    {% comment %}<section>{% endcomment %}
+        {% comment %}<h2>Company and conditions:</h2>{% endcomment %}
+{% comment %}{% endcomment %}
+        {% comment %}- Какая культура компании должна быть для внедрения?<br>{% endcomment %}
+        {% comment %}- Классификация ??<br>{% endcomment %}
+        {% comment %}- Какие условия для трансформации должны быть готовы пред внедрением?<br>{% endcomment %}
+        {% comment %}- Унификация процессов >>> Система совершенствования  ???{% endcomment %}
+    {% comment %}</section>{% endcomment %}
+
+    <section>
+        <h2>KPI</h2>
+
+        <h3>Какие выводы при использовании решения?</h3>
+        <ul>
+            {% for item in script.footer.conclusions %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Какие есть сложности при использовании решения?</h3>
+        <ul>
+            {% for item in script.footer.complexity %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h3>На что стоит обратить внимание?</h3>
+        <ul>
+            {% for item in script.footer.attention %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h3>KPI: как измерить?</h3>
+        <ul>
+            {% for item in script.footer.kpi.measure %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h3>KPI: шаблон измерения</h3>
+        <ul>
+            {% for item in script.footer.kpi.measure_pattern %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h3>KPI: инструкция измерения</h3>
+        <ol>
+            {% for item in script.footer.kpi.guide %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ol>
+        <h3>KPI: какие есть задачи для ответственных лиц?</h3>
+        <ol>
+            {% for item in script.footer.kpi.responsible %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+</footer>

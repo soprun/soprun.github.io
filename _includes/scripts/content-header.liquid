@@ -1,0 +1,53 @@
+<header>
+
+    {% comment %}<pre>{% endcomment %}
+    {% comment %}{{ script }}{% endcomment %}
+    {% comment %}</pre>{% endcomment %}
+
+    {%- if script.header.title != empty -%}
+        <h1>{{ script.header.title }}</h1>
+    {%- endif -%}
+
+    {%- if script.header.description != empty -%}
+        <p>{{ script.header.description }}</p>
+    {%- endif -%}
+
+
+    <h2>Какая ценность этого решения?</h2>
+    <ul>
+        {% for item in script.header.value %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Какие боли закрывает внедрение этого решения?</h2>
+    <ul>
+        {% for item in script.header.pain %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h2>Content</h2>
+
+    {{ script.content.object | markdownify }}
+
+    <h3>Для чего, зачем и в чем смысл? (Говорить правду - для чего это нужно!)</h3>
+
+    {{ script.content.value | markdownify }}
+
+    <h3>Для кого (кто потребитель)?</h3>
+    <ul>
+        {% for item in script.content.whom %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Кто должен быть инициатором внедрения решения?</h3>
+    <ul>
+        {% for item in script.content.initiator %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</header>

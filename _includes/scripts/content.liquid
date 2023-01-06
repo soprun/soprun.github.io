@@ -1,0 +1,13 @@
+{%- assign script = include.script %}
+
+{% include scripts/content-header.liquid %}
+
+<section>
+    <h3>Workflow{% if script.header.title != empty %}: {{ script.header.title }}{% endif %}</h3>
+
+    {% include scripts/steps.liquid
+        steps=script.steps
+    %}
+</section>
+
+{% include scripts/content-footer.liquid %}
