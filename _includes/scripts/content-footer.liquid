@@ -85,41 +85,53 @@
                 <li>{{ item }}</li>
             {% endfor %}
         </ul>
-        <h3>Какие есть сложности при использовании решения?</h3>
-        <ul>
-            {% for item in script.footer.complexity %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        <h3>На что стоит обратить внимание?</h3>
-        <ul>
-            {% for item in script.footer.attention %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        <h3>KPI: как измерить?</h3>
-        <ul>
-            {% for item in script.footer.kpi.measure %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        <h3>KPI: шаблон измерения</h3>
-        <ul>
-            {% for item in script.footer.kpi.measure_pattern %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-        <h3>KPI: инструкция измерения</h3>
-        <ol>
-            {% for item in script.footer.kpi.guide %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ol>
-        <h3>KPI: какие есть задачи для ответственных лиц?</h3>
-        <ol>
-            {% for item in script.footer.kpi.responsible %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ol>
+        {% if script.footer.complexity %}
+            <h3>Какие есть сложности при использовании решения?</h3>
+            <ul>
+                {% for item in script.footer.complexity %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if script.footer.attention %}
+            <h3>На что стоит обратить внимание?</h3>
+            <ul>
+                {% for item in script.footer.attention %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if script.footer.kpi.measure %}
+            <h3>KPI: как измерить?</h3>
+            <ul>
+                {% for item in script.footer.kpi.measure %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if script.footer.kpi.measure_pattern %}
+            <h3>KPI: шаблон измерения</h3>
+            <ul>
+                {% for item in script.footer.kpi.measure_pattern %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if script.footer.kpi.guide %}
+            <h3>KPI: инструкция измерения</h3>
+            <ol>
+                {% for item in script.footer.kpi.guide %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        {% if script.footer.kpi.responsible %}
+            <h3>KPI: какие есть задачи для ответственных лиц?</h3>
+            <ol>
+                {% for item in script.footer.kpi.responsible %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ol>
+        {% endif %}
     </section>
 </footer>
