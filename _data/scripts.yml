@@ -1,7 +1,7 @@
 metrics:
   header:
     title: Полный цикл задач по сбору и контролю бизнес метрик
-    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, adipisci consequuntur dolore earum illo iste itaque minus mollitia obcaecati odit! Accusantium alias deserunt natus, neque numquam pariatur quod repellat similique!
+    description: Time to Market и другие бизнес метрики - что это такое и с чем их едят?
     value:
       - Можем измерять эффективность команды
       - Можем измерять успешность или движения при достижении долгосрочных целей
