@@ -1,14 +1,13 @@
 {%- assign steps = include.steps %}
 
-<div class="steps accordion">
+<div class="steps accordion" id="accordion-steps">
     {% for step in steps %}
         <div class="accordion-item">
             {% include scripts/step-header.liquid %}
             <div id="collapse-step-{{ forloop.index }}"
-                 {% comment %}class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"{% endcomment %}
-                 class="accordion-collapse collapse"
+                 class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
                  aria-labelledby="heading-step-{{ forloop.index }}"
-                 data-bs-parent="#accordion-step-{{ forloop.index }}">
+                 data-bs-parent="#accordion-steps">
                 <div class="accordion-body">
                     {% if step.description %}
                         <p class="text-muted">&nbsp;{{ step.description }}</p>
