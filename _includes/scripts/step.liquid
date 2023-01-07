@@ -1,0 +1,15 @@
+{%- assign steps = include.steps %}
+
+<div class="steps row row-cols-1 g-4 justify-content-start">
+    {% for step in steps %}
+        <div class="col">
+            <div id="step-{{ forloop.index }}" class="card mb-3">
+                {% include scripts/step-header.liquid %}
+                <div id="collapse-{{ forloop.index }}" class="collapse">
+                    {% include scripts/step-body.liquid %}
+                    {% include scripts/step-footer.liquid %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

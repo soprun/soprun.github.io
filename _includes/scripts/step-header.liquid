@@ -1,0 +1,55 @@
+{%- assign step_class = "" %}
+
+{% if step.type == "note" %}
+    {%- assign step_class = "bg-info" %}
+{% endif %}
+{% if step.class %}
+    {%- assign step_class = step.class %}
+{% endif %}
+
+<div class="card-header {{ step_class }}">
+<div class="row">
+    <div class="col">
+        {% case step.type %}
+            {% when "task" %}
+                <i class="fa-solid fa-list-check"></i>
+            {% when "note" %}
+                <i class="fa-solid fa-note-sticky"></i>
+            {% when "event" %}
+                <i class="fa-solid fa-calendar"></i>
+            {% else %}
+                <i class="fa-solid fa-info"></i>
+        {% endcase %}
+
+        <b>Step: {{ forloop.index }} {{ step.type }}</b>
+
+        {% if step.title %}
+            <h5 class="card-title">{{ step.title }}</h5>
+        {% endif %}
+        {% if step.description %}
+            <div class="card-subtitle text-muted">{{ step.description }}</div>
+        {% endif %}
+
+        {% if step.time %}
+            <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                            {% if step.time %}
+                                {{ step.time }}
+                            {% endif %}
+                {% if step.replay %}
+                    {{ step.replay }}
+                {% endif %}
+                             </span>
+        {% endif %}
+    </div>
+    <div class="col-3 text-end pt-2">
+        <button type="button"
+                class="btn btn-outline-dark"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-{{ forloop.index }}"
+                aria-expanded="false">
+            Show workflow
+        </button>
+    </div>
+</div>
+</div>
