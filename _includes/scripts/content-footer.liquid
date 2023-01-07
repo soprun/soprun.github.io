@@ -66,15 +66,6 @@
     {% comment %}- Какие альтернативы решения?{% endcomment %}
     {% comment %}</section>{% endcomment %}
 
-    {% comment %}<section>{% endcomment %}
-    {% comment %}<h2>Company and conditions:</h2>{% endcomment %}
-    {% comment %}{% endcomment %}
-    {% comment %}- Какая культура компании должна быть для внедрения?<br>{% endcomment %}
-    {% comment %}- Классификация ??<br>{% endcomment %}
-    {% comment %}- Какие условия для трансформации должны быть готовы пред внедрением?<br>{% endcomment %}
-    {% comment %}- Унификация процессов >>> Система совершенствования  ???{% endcomment %}
-    {% comment %}</section>{% endcomment %}
-
     <section>
         {% if script.footer.conclusions %}
             <h3>Какие выводы при использовании решения?</h3>
@@ -154,5 +145,20 @@
                 {% endfor %}
             </ol>
         {% endif %}
+    </section>
+
+    <section>
+        <h2>Company and conditions:</h2>
+
+        {% if script.footer.company.spiral_dynamics %}
+            <h3>Какая культура компании должна быть для внедрения?</h3>
+            {{ script.footer.company.spiral_dynamics | markdownify }}
+        {% endif %}
+
+
+
+        {% comment %}- Классификация ??<br>{% endcomment %}
+        {% comment %}- Какие условия для трансформации должны быть готовы пред внедрением?<br>{% endcomment %}
+        {% comment %}- Унификация процессов >>> Система совершенствования ???{% endcomment %}
     </section>
 </footer>
