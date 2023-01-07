@@ -25,20 +25,16 @@
                 <i class="fa-solid fa-info"></i>
         {% endcase %}
 
-        <b>&nbsp;Step: {{ forloop.index }} {{ step.type }}&nbsp;</b>
+        <b>&nbsp;Step: {{ forloop.index }} {{ step.type }}</b>
 
         {% if step.title %}
-            <span>{{ step.title }}</span>
+            <span>&nbsp;{{ step.title }}&nbsp;</span>
         {% endif %}
 
         {% if step.time %}
-            <span>&nbsp;
-                {% if step.time %}
-                    {{ step.time }}
-                {% endif %}
-                {% if step.replay %}
-                    {{ step.replay }}
-                {% endif %}
+            <span class="badge bg-warning text-dark">
+                {{ step.time }}
+                {{ step.replay }}
             </span>
         {% endif %}
     </button>

@@ -13,8 +13,13 @@
         <ol>
             {% for step in script.steps %}
                 <li>
-                    {{ step.title }}{% if step.time %} - <small
-                        class="text-warning">{{ step.time }} {{ step.replay }}</small>{% endif %}
+                    {{ step.title }}
+                    {% if step.time %}
+                        <span class="badge bg-warning text-dark">
+                            {{ step.time }}
+                            {{ step.replay }}
+                        </span>
+                    {% endif %}
 
                     {% if step.responsible %}
                         <ul>
