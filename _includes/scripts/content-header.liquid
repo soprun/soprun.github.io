@@ -5,11 +5,11 @@
     {% comment %}</pre>{% endcomment %}
 
     {%- if script.header.title != empty -%}
-        <h1>{{ script.header.title }}</h1>
+        {% comment %}<h1>{{ script.header.title }}</h1>{% endcomment %}
     {%- endif -%}
 
     {%- if script.header.description != empty -%}
-        <p>{{ script.header.description }}</p>
+        {% comment %}<p>{{ script.header.description }}</p>{% endcomment %}
     {%- endif -%}
 
 
@@ -33,21 +33,25 @@
 
     {{ script.content.object | markdownify }}
 
-    <h3>Для чего, зачем и в чем смысл? (Говорить правду - для чего это нужно!)</h3>
+    <h3>Для чего, зачем и в чем смысл?</h3>
 
     {{ script.content.value | markdownify }}
 
-    <h3>Для кого (кто потребитель)?</h3>
-    <ul>
-        {% for item in script.content.whom %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+    {% if script.content.whom %}
+        <h3>Для кого (кто потребитель)?</h3>
+        <ul>
+            {% for item in script.content.whom %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
-    <h3>Кто должен быть инициатором внедрения решения?</h3>
-    <ul>
-        {% for item in script.content.initiator %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+    {% if script.content.initiator %}
+        <h3>Кто должен быть инициатором внедрения решения?</h3>
+        <ul>
+            {% for item in script.content.initiator %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </header>

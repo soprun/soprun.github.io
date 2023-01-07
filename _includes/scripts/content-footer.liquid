@@ -13,7 +13,8 @@
         <ol>
             {% for step in script.steps %}
                 <li>
-                    {{ step.title }}{% if step.time %} - <small class="text-warning">{{ step.time }} {{ step.replay }}</small>{% endif %}
+                    {{ step.title }}{% if step.time %} - <small
+                        class="text-warning">{{ step.time }} {{ step.replay }}</small>{% endif %}
 
                     {% if step.responsible %}
                         <ul>
@@ -48,53 +49,59 @@
     </section>
 
     {% comment %}<section>{% endcomment %}
-        {% comment %}<h2>Communications:</h2>{% endcomment %}
-{% comment %}{% endcomment %}
-        {% comment %}- Как выстроить коммуникацию применения?<br>{% endcomment %}
-        {% comment %}- Как вовлечь команду в решение??<br>{% endcomment %}
-        {% comment %}- Какая должна быть синергия при внедрении решения?<br>{% endcomment %}
-        {% comment %}- Какие зоны ответственности?<br>{% endcomment %}
-        {% comment %}- **Горизонтальные связи !!!! ???**<br>{% endcomment %}
-        {% comment %}- А что дальше? Как масштабировать во времени?<br>{% endcomment %}
-        {% comment %}- Как улучшить удобство применения (что бы было удобно всем использовать)?{% endcomment %}
+    {% comment %}<h2>Communications:</h2>{% endcomment %}
+    {% comment %}{% endcomment %}
+    {% comment %}- Как выстроить коммуникацию применения?<br>{% endcomment %}
+    {% comment %}- Как вовлечь команду в решение??<br>{% endcomment %}
+    {% comment %}- Какая должна быть синергия при внедрении решения?<br>{% endcomment %}
+    {% comment %}- Какие зоны ответственности?<br>{% endcomment %}
+    {% comment %}- **Горизонтальные связи !!!! ???**<br>{% endcomment %}
+    {% comment %}- А что дальше? Как масштабировать во времени?<br>{% endcomment %}
+    {% comment %}- Как улучшить удобство применения (что бы было удобно всем использовать)?{% endcomment %}
     {% comment %}</section>{% endcomment %}
 
     {% comment %}<section>{% endcomment %}
-        {% comment %}<h2>Alternative:</h2>{% endcomment %}
-        {% comment %}- С чем связано DSM (на что влияет, что можно предложить)?<br>{% endcomment %}
-        {% comment %}- Какие альтернативы решения?{% endcomment %}
+    {% comment %}<h2>Alternative:</h2>{% endcomment %}
+    {% comment %}- С чем связано DSM (на что влияет, что можно предложить)?<br>{% endcomment %}
+    {% comment %}- Какие альтернативы решения?{% endcomment %}
     {% comment %}</section>{% endcomment %}
 
     {% comment %}<section>{% endcomment %}
-        {% comment %}<h2>Company and conditions:</h2>{% endcomment %}
-{% comment %}{% endcomment %}
-        {% comment %}- Какая культура компании должна быть для внедрения?<br>{% endcomment %}
-        {% comment %}- Классификация ??<br>{% endcomment %}
-        {% comment %}- Какие условия для трансформации должны быть готовы пред внедрением?<br>{% endcomment %}
-        {% comment %}- Унификация процессов >>> Система совершенствования  ???{% endcomment %}
+    {% comment %}<h2>Company and conditions:</h2>{% endcomment %}
+    {% comment %}{% endcomment %}
+    {% comment %}- Какая культура компании должна быть для внедрения?<br>{% endcomment %}
+    {% comment %}- Классификация ??<br>{% endcomment %}
+    {% comment %}- Какие условия для трансформации должны быть готовы пред внедрением?<br>{% endcomment %}
+    {% comment %}- Унификация процессов >>> Система совершенствования  ???{% endcomment %}
     {% comment %}</section>{% endcomment %}
 
     <section>
-        <h3>Какие выводы при использовании решения?</h3>
-        <ul>
-            {% for item in script.footer.conclusions %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
+        {% if script.footer.conclusions %}
+            <h3>Какие выводы при использовании решения?</h3>
+            <ul>
+                {% for item in script.footer.conclusions %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-        <h3>Как гарантировать устойчивость решения?</h3>
-        <ul>
-            {% for item in script.footer.stability %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
+        {% if script.footer.stability %}
+            <h3>Как гарантировать устойчивость решения?</h3>
+            <ul>
+                {% for item in script.footer.stability %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-        <h3>Какие роли следят за результатом?</h3>
-        <ul>
-            {% for item in script.footer.monitors %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
+        {% if script.footer.monitors %}
+            <h3>Какие роли следят за результатом использовании решения?</h3>
+            <ul>
+                {% for item in script.footer.monitors %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
 
         {% if script.footer.complexity %}

@@ -39,11 +39,12 @@ metrics:
     whom:
       - Сотрудники (все)
       - Head
-      - Manager
+      - Project manager
       - CTO
     initiator:
       - Head
-      - Manager
+      - Project manager
+
   steps:
 
     - type: note
@@ -54,7 +55,7 @@ metrics:
         - Понимание бизнес процессов
       responsible:
         - Head
-        - Manager
+        - Project manager
       workflow:
         - title: "Определяем период сбора метрик"
           description: >-
