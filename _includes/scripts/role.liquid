@@ -1,0 +1,7 @@
+{%- assign role = include.role %}
+
+{% if site.data.role[role] %}
+    {{ site.data.role[role].title }}
+{% else %}
+    {{ role }}
+{% endif %}

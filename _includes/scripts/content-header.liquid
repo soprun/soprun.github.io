@@ -33,15 +33,19 @@
 
     {{ script.content.object | markdownify }}
 
-    <h3>Для чего, зачем и в чем смысл?</h3>
+    {% if script.content.value != empty %}
+        <h3>Для чего, зачем и в чем смысл?</h3>
 
-    {{ script.content.value | markdownify }}
+        {{ script.content.value | markdownify }}
+    {% endif %}
 
     {% if script.content.whom %}
         <h3>Для кого (кто потребитель)?</h3>
         <ul>
             {% for item in script.content.whom %}
-                <li>{{ item }}</li>
+                <li>
+                    {% include scripts/role.liquid role=item %}
+                </li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -50,7 +54,9 @@
         <h3>Кто должен быть инициатором внедрения решения?</h3>
         <ul>
             {% for item in script.content.initiator %}
-                <li>{{ item }}</li>
+                <li>
+                    {% include scripts/role.liquid role=item %}
+                </li>
             {% endfor %}
         </ul>
     {% endif %}
