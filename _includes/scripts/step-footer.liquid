@@ -4,53 +4,48 @@
 {%- assign value_count = step.value | size %}
 {%- assign skills_count = step.skills | size %}
 
-{%- if artifacts_count != 0 or expected_result_count != 0 or responsible_count != 0 or value_count != 0 or skills_count != 0 %}
+{%- if artifacts_count != 0 %}
+    <b>Какие должны быть артефакты?</b>
+    <ul>
+        {% for artifacts in step.artifacts %}
+            <li>{{ artifacts }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-    <div class="card-footer">
-        {%- if artifacts_count != 0 %}
-            <b>Какие должны быть артефакты?</b>
-            <ul>
-                {% for artifacts in step.artifacts %}
-                    <li>{{ artifacts }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+{%- if expected_result_count != 0 %}
+    <b>Какой результат этого шага?</b>
+    <ul>
+        {% for expected_result in step.expected_result %}
+            <li>{{ expected_result }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-        {%- if expected_result_count != 0 %}
-            <b>Какой результат этого шага?</b>
-            <ul>
-                {% for expected_result in step.expected_result %}
-                    <li>{{ expected_result }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+{%- if responsible_count != 0 %}
+    <b>Ответственный за этап?</b>
+    <ul>
+        {% for responsible in step.responsible %}
+            <li>{{ responsible }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-        {%- if responsible_count != 0 %}
-            <b>Ответственный за этап?</b>
-            <ul>
-                {% for responsible in step.responsible %}
-                    <li>{{ responsible }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        {%- if value_count != 0 %}
-            <b>Какая ценность этого этапа?</b>
-            <ul>
-                {% for value in step.value %}
-                    <li>{{ value }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+{%- if value_count != 0 %}
+    <b>Какая ценность этого этапа?</b>
+    <ul>
+        {% for value in step.value %}
+            <li>{{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 
-        {% if skills_count != 0 %}
-            <b>Требуемые навыки для реализации этого шага?</b>
-            <ul>
-                {% for skills in step.skills %}
-                    <li>{{ skills }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </div>
+{% if skills_count != 0 %}
+    <b>Требуемые навыки для реализации этого шага?</b>
+    <ul>
+        {% for skills in step.skills %}
+            <li>{{ skills }}</li>
+        {% endfor %}
+    </ul>
 {% endif %}

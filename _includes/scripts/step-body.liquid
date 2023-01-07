@@ -1,59 +1,57 @@
-<div class="card-body">
-    <h4>Workflow</h4>
+<h4>Workflow</h4>
 
-    <div class="card-text">
-        <ol>
-            {% for workflow in step.workflow %}
-                <li>
-                    {%- assign link = workflow.link %}
-                    {%- assign link_index = workflow.link | minus: 1 %}
+<div class="card-text">
+    <ol>
+        {% for workflow in step.workflow %}
+            <li>
+                {%- assign link = workflow.link %}
+                {%- assign link_index = workflow.link | minus: 1 %}
 
-                    {%- assign workflow_title = "" %}
-                    {% if workflow.optional %}
-                        {%- assign workflow_title = "<span class='text-danger'>Optional:</span> " %}
-                    {% endif %}
-                    {%- assign workflow_title = workflow_title | append: workflow.title %}
+                {%- assign workflow_title = "" %}
+                {% if workflow.optional %}
+                    {%- assign workflow_title = "<span class='text-danger'>Optional:</span> " %}
+                {% endif %}
+                {%- assign workflow_title = workflow_title | append: workflow.title %}
 
-                    {%- assign workflow_title_strong = false %}
-                    {% if workflow.description %}
-                        {%- assign workflow_title_strong = true %}
-                    {% endif %}
+                {%- assign workflow_title_strong = false %}
+                {% if workflow.description %}
+                    {%- assign workflow_title_strong = true %}
+                {% endif %}
 
-                    <b>
-                        {% if workflow.link %}
-                            <a href="{{ page.url }}#step-{{ link }}">
-                                {{ workflow_title }}
-                            </a>
-                            {% if link %}
-                                <br>
-                                <small>
-                                    Step: {{ link }} {{ steps[link_index].type }}
-                                    <b>{{ steps[link_index].title }}</b>
-                                </small>
-                            {% endif %}
-                        {% else %}
+                <b>
+                    {% if workflow.link %}
+                        <a href="{{ page.url }}#step-{{ link }}">
                             {{ workflow_title }}
+                        </a>
+                        {% if link %}
+                            <br>
+                            <small>
+                                Step: {{ link }} {{ steps[link_index].type }}
+                                <b>{{ steps[link_index].title }}</b>
+                            </small>
                         {% endif %}
-                    </b>
+                    {% else %}
+                        {{ workflow_title }}
+                    {% endif %}
+                </b>
 
-                    {{ workflow.description | newline_to_br | markdownify }}
-                    {{ workflow.content | newline_to_br | markdownify }}
-                </li>
-            {% endfor %}
-        </ol>
+                {{ workflow.description | newline_to_br | markdownify }}
+                {{ workflow.content | newline_to_br | markdownify }}
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+
+{% if step.agenda %}
+    <h4>Agenda: {{ step.title }}</h4>
+    <div class="input-group">
+        <textarea class="form-control mb-3" style="min-height: 10em">{{ step.agenda | newline_to_br | strip_html }}</textarea>
     </div>
 
-    {% if step.agenda %}
-        <h4>Agenda: {{ step.title }}</h4>
-        <div class="input-group">
-            <textarea class="form-control mb-3" style="min-height: 10em">{{ step.agenda | newline_to_br | strip_html }}</textarea>
-        </div>
-
-        <a class="btn btn-outline-primary text-decoration-none"
-           rel="noopener"
-           target="_blank"
-           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ step.title | uri_escape }}&details={{ step.agenda | uri_escape }}">
-            Add to your Google Calendar
-        </a>
-    {% endif %}
-</div>
+    <a class="btn btn-outline-primary text-decoration-none"
+       rel="noopener"
+       target="_blank"
+       href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ step.title | uri_escape }}&details={{ step.agenda | uri_escape }}">
+        Add to your Google Calendar
+    </a>
+{% endif %}

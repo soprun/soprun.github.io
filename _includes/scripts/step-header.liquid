@@ -7,9 +7,14 @@
     {%- assign step_class = step.class %}
 {% endif %}
 
-<div class="card-header {{ step_class }}">
-<div class="row">
-    <div class="col">
+<div class="accordion-header" id="heading-step-{{ forloop.index }}">
+    <button class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse-step-{{ forloop.index }}"
+            {% comment %}aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"{% endcomment %}
+            aria-expanded="false"
+            aria-controls="collapse-step-{{ forloop.index }}">
         {% case step.type %}
             {% when "task" %}
                 <i class="fa-solid fa-list-check"></i>
@@ -21,35 +26,21 @@
                 <i class="fa-solid fa-info"></i>
         {% endcase %}
 
-        <b>Step: {{ forloop.index }} {{ step.type }}</b>
+        <b>&nbsp;Step: {{ forloop.index }} {{ step.type }}&nbsp;</b>
 
         {% if step.title %}
-            <h5 class="card-title">{{ step.title }}</h5>
-        {% endif %}
-        {% if step.description %}
-            <div class="card-subtitle text-muted">{{ step.description }}</div>
+            <span>{{ step.title }}</span>
         {% endif %}
 
         {% if step.time %}
-            <span
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                            {% if step.time %}
-                                {{ step.time }}
-                            {% endif %}
+            <span>&nbsp;
+                {% if step.time %}
+                    {{ step.time }}
+                {% endif %}
                 {% if step.replay %}
                     {{ step.replay }}
                 {% endif %}
-                             </span>
+            </span>
         {% endif %}
-    </div>
-    <div class="col-3 text-end pt-2">
-        <button type="button"
-                class="btn btn-outline-dark"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-{{ forloop.index }}"
-                aria-expanded="false">
-            Show workflow
-        </button>
-    </div>
-</div>
+    </button>
 </div>

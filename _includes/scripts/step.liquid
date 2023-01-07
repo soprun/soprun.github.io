@@ -1,11 +1,18 @@
 {%- assign steps = include.steps %}
 
-<div class="steps row row-cols-1 g-4 justify-content-start">
+<div class="steps accordion">
     {% for step in steps %}
-        <div class="col">
-            <div id="step-{{ forloop.index }}" class="card mb-3">
-                {% include scripts/step-header.liquid %}
-                <div id="collapse-{{ forloop.index }}" class="collapse">
+        <div class="accordion-item">
+            {% include scripts/step-header.liquid %}
+            <div id="collapse-step-{{ forloop.index }}"
+                 {% comment %}class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"{% endcomment %}
+                 class="accordion-collapse collapse"
+                 aria-labelledby="heading-step-{{ forloop.index }}"
+                 data-bs-parent="#accordion-step-{{ forloop.index }}">
+                <div class="accordion-body">
+                    {% if step.description %}
+                        <p class="text-muted">&nbsp;{{ step.description }}</p>
+                    {% endif %}
                     {% include scripts/step-body.liquid %}
                     {% include scripts/step-footer.liquid %}
                 </div>
