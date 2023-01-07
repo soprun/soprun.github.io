@@ -6,15 +6,14 @@
         {% comment %}- Пользователь видит timeline реализации этой задачи и может оценить её во времени<br>{% endcomment %}
         {% comment %}- Как гарантировать применение или особенности при применении?<br>{% endcomment %}
         {% comment %}- Какие инструменты, подходы, средства помогут понять что данное решение успешно или нет?!<br>{% endcomment %}
-        {% comment %}- Как гарантировать устойчивость применения?<br>{% endcomment %}
         {% comment %}- Как можно выявлять дефекты заранее?<br>{% endcomment %}
-        {% comment %}- Кто следит за результатом??{% endcomment %}
+        {% comment %}- ?{% endcomment %}
 
         <h3>Ресурсный план</h3>
         <ol>
             {% for step in script.steps %}
                 <li>
-                    {{ step.title }}{% if step.time %} - <small class="text-warning">{{ step.time }}</small>{% endif %}
+                    {{ step.title }}{% if step.time %} - <small class="text-warning">{{ step.time }} {{ step.replay }}</small>{% endif %}
 
                     {% if step.responsible %}
                         <ul>
@@ -34,8 +33,7 @@
             {% for step in script.steps %}
                 {% if step.skills %}
                     <li>
-                        {{ step.title }}{% if step.time %} - <small class="text-warning">{{ step.time }}</small>{% endif %}
-
+                        {{ step.title }}
                         {% if step.skills %}
                             <ul>
                                 {% for skills in step.skills %}
@@ -77,14 +75,28 @@
     {% comment %}</section>{% endcomment %}
 
     <section>
-        <h2>KPI</h2>
-
         <h3>Какие выводы при использовании решения?</h3>
         <ul>
             {% for item in script.footer.conclusions %}
                 <li>{{ item }}</li>
             {% endfor %}
         </ul>
+
+        <h3>Как гарантировать устойчивость решения?</h3>
+        <ul>
+            {% for item in script.footer.stability %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Какие роли следят за результатом?</h3>
+        <ul>
+            {% for item in script.footer.monitors %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+
         {% if script.footer.complexity %}
             <h3>Какие есть сложности при использовании решения?</h3>
             <ul>
@@ -101,6 +113,8 @@
                 {% endfor %}
             </ul>
         {% endif %}
+
+        <h2>KPI</h2>
         {% if script.footer.kpi.measure %}
             <h3>KPI: как измерить?</h3>
             <ul>
