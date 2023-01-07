@@ -10,7 +10,7 @@ encoding: UTF-8
 #description: A description about my blog homepage
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
-title: 'Technical Architect @soprun'
+title: 'Solutions Architect @soprun'
 short_title: 'soprun.com'
 
 description: >- # this means to ignore newlines until "baseurl:"
