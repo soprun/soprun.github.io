@@ -187,34 +187,26 @@ details[open] summary {
 @import "post";
 
 
-//blockquote {
-//    // display: block;
-//    padding: 1rem;
-//    // border: 1px solid rgba(34, 60, 80, 0.2);
-//    border-left: .3rem solid var(--color-text-link);
-//    font-style: italic;
-//    color: var(--color-text-main);
-//    // quotes: "“" "”" "‘" "’";
-//    // border-radius: .2rem;
-//    // box-shadow: .2rem .2rem .4rem rgba(34, 60, 80, 0.2);
-//    // margin-bottom: 1.5rem;
-//
-//    p::before {
-//        content: open-quote;
-//    }
-//
-//    p::after {
-//        content: close-quote;
-//    }
-//
-//    p {
-//        display: inline;
-//
-//        &:last-child {
-//            margin-bottom: 0;
-//        }
-//    }
-//}
+blockquote {
+    // display: block;
+    padding: .5rem;
+    // border: 1px solid rgba(34, 60, 80, 0.2);
+    border-left: .3rem solid var(--color-text-link);
+    font-style: italic;
+    color: var(--color-text-main);
+    // quotes: "“" "”" "‘" "’";
+    // border-radius: .2rem;
+    // box-shadow: .2rem .2rem .4rem rgba(34, 60, 80, 0.2);
+    // margin-bottom: 1.5rem;
+
+    p {
+        display: inline;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
 
 .quote {
     margin-bottom: 0;
