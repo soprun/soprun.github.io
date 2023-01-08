@@ -57,3 +57,11 @@
         </a>
     </p>
 {% endif %}
+
+{% if step.task %}
+    <h4>Tasks & checklist (как пример): {{ step.title }}</h4>
+    <div class="input-group">
+        <textarea class="form-control mb-3"
+                  style="min-height: 20em">{{ step.task | newline_to_br | strip_html }}</textarea>
+    </div>
+{% endif %}
