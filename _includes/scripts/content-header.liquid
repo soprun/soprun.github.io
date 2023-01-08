@@ -13,6 +13,10 @@
     {%- endif -%}
 
 
+    {{ script.header.description | markdownify }}
+
+    <!--more-->
+
     <h2>Какая ценность этого решения?</h2>
     <ul>
         {% for item in script.header.value %}
