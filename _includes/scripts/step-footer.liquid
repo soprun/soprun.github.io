@@ -8,7 +8,7 @@
     <b>Какие должны быть артефакты?</b>
     <ul>
         {% for artifacts in step.artifacts %}
-            <li>{{ artifacts }}</li>
+            <li>{{ artifacts | markdownify }}</li>
         {% endfor %}
     </ul>
 {% endif %}

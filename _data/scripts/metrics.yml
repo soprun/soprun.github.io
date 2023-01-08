@@ -109,7 +109,7 @@ steps:
         optional: true
       - title: "Добавляем разделение на удобный временной промежуток (по месяцу, номеру спринта, etc)"
     artifacts:
-      - Ссылка на документ метрик как пример
+      - "[Готовый пример таблицы сбора метрик](https://docs.google.com/spreadsheets/d/1jllUoI_BhFaCxJyV1UHO4834_Zi8cIDEYTu2vX6aySI/edit?usp=sharing)"
     expected_result:
       - Создали таблицу с выбранными бизнес метриками
     responsible:
