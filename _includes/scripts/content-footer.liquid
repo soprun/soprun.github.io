@@ -70,7 +70,8 @@
         {%- assign script_footer_monitors_size = script.footer.monitors | size -%}
 
         {% if script_footer_monitors_size != 0 %}
-            <h3>Какие роли следят за результатом использовании решения и зоны ответственности?</h3>
+            {% comment %}<h3>Какие роли следят за результатом использовании решения и зоны ответственности?</h3>{% endcomment %}
+            <h3>Какие зоны ответственности?</h3>
             <table class="table table-bordered table-striped">
                 <tr>
                     <th class="text-center">Роль</th>
