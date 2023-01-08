@@ -25,10 +25,10 @@
                 <i class="fa-solid fa-info"></i>
         {% endcase %}
 
-        <b>&nbsp;Step: {{ forloop.index }} {{ step.type }}</b>
+        <b>&nbsp;Step: {{ forloop.index }}</b>
 
         {% if step.title %}
-            <span>&nbsp;{{ step.title }}&nbsp;</span>
+            <span>&nbsp;-&nbsp;{{ step.title }}&nbsp;</span>
         {% endif %}
 
         {% if step.time %}

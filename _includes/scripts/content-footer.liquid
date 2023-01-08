@@ -1,6 +1,6 @@
 <footer>
     <section>
-        <h2  class="text-dark">Software Engineering Economics:</h2>
+        <h2 class="text-dark">Software Engineering Economics:</h2>
 
         {% comment %}- Ресурсный план по внедрению! (сколько людей, сколько часов)<br>{% endcomment %}
         {% comment %}- Пользователь видит timeline реализации этой задачи и может оценить её во времени<br>{% endcomment %}
@@ -73,42 +73,42 @@
             {% comment %}<h3>Какие роли следят за результатом использовании решения и зоны ответственности?</h3>{% endcomment %}
             <h3>Какие зоны ответственности?</h3>
             <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th class="text-center">Роль</th>
-                    <th class="text-center">Продукт роли</th>
-                    <th class="text-center">Метрики роли</th>
-                    <th class="text-center">Задачи роли</th>
-                </tr>
-                {% for item in script_footer_monitors %}
+                <table class="table table-bordered table-striped">
                     <tr>
-                        <td class="text-center">
-                            <b>{% include scripts/role.liquid role=item %}</b>
-                        </td>
-                        <td>
-                            <ul>
-                                {% for product in site.data.role[role].product %}
-                                    <li>{{ product }}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                {% for metrics in site.data.role[role].metrics %}
-                                    <li>{{ metrics }}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        <td>
-                            <ul>
-                                {% for tasks in site.data.role[role].tasks %}
-                                    <li>{{ tasks }}</li>
-                                {% endfor %}
-                            </ul>
-                        </td>
+                        <th class="text-center">Роль</th>
+                        <th class="text-center">Продукт роли</th>
+                        <th class="text-center">Метрики роли</th>
+                        <th class="text-center">Задачи роли</th>
                     </tr>
-                {% endfor %}
-            </table>
+                    {% for item in script_footer_monitors %}
+                        <tr>
+                            <td class="text-center">
+                                <b>{% include scripts/role.liquid role=item %}</b>
+                            </td>
+                            <td>
+                                <ul>
+                                    {% for product in site.data.role[role].product %}
+                                        <li>{{ product }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    {% for metrics in site.data.role[role].metrics %}
+                                        <li>{{ metrics }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    {% for tasks in site.data.role[role].tasks %}
+                                        <li>{{ tasks }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
             </div>
         {% endif %}
 
@@ -156,7 +156,7 @@
             </ul>
         {% endif %}
 
-        <h2  class="text-dark">KPI</h2>
+        <h2 class="text-dark">KPI</h2>
         {% if script.footer.kpi.measure %}
             <h3>KPI: как измерить?</h3>
             <ul>
