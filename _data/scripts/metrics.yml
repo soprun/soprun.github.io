@@ -42,7 +42,7 @@ content:
     - pm
     - cto
   initiator:
-    - head
+    - hod
     - pm
 
 steps:
