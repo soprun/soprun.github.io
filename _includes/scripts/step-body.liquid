@@ -45,13 +45,15 @@
 {% if step.agenda %}
     <h4>Agenda: {{ step.title }}</h4>
     <div class="input-group">
-        <textarea class="form-control mb-3" style="min-height: 10em">{{ step.agenda | newline_to_br | strip_html }}</textarea>
+        <textarea class="form-control mb-3"
+                  style="min-height: 10em">{{ step.agenda | newline_to_br | strip_html }}</textarea>
     </div>
-
-    <a class="btn btn-outline-primary text-decoration-none"
-       rel="noopener"
-       target="_blank"
-       href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ step.title | uri_escape }}&details={{ step.agenda | uri_escape }}">
-        Add to your Google Calendar
-    </a>
+    <p>
+        <a class="btn btn-outline-primary text-decoration-none"
+           rel="noopener"
+           target="_blank"
+           href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ step.title | uri_escape }}&details={{ step.agenda | uri_escape }}">
+            Add to your Google Calendar
+        </a>
+    </p>
 {% endif %}
