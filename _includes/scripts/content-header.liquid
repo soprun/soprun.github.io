@@ -45,10 +45,13 @@
         {{ script.content.value | markdownify }}
     {% endif %}
 
-    {% if script.content.whom %}
+    {%- assign content_whom = script.content.whom | sort -%}
+    {%- assign content_whom_size = script.content.whom | size -%}
+
+    {% if content_whom_size != 0 %}
         <h3>Для кого (кто потребитель)?</h3>
         <ul>
-            {% for item in script.content.whom %}
+            {% for item in content_whom %}
                 <li>
                     {% include scripts/role.liquid role=item %}
                 </li>
@@ -56,10 +59,13 @@
         </ul>
     {% endif %}
 
-    {% if script.content.initiator %}
+    {%- assign content_initiator = script.content.initiator | sort -%}
+    {%- assign content_initiator_size = script.content.initiator | size -%}
+
+    {% if content_initiator_size != 0 %}
         <h3>Кто должен быть инициатором внедрения решения?</h3>
         <ul>
-            {% for item in script.content.initiator %}
+            {% for item in content_initiator %}
                 <li>
                     {% include scripts/role.liquid role=item %}
                 </li>

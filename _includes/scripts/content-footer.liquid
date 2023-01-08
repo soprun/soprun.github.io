@@ -21,10 +21,13 @@
                         </span>
                     {% endif %}
 
-                    {% if step.responsible %}
+                    {%- assign step_responsible = step.responsible | sort -%}
+                    {%- assign step_responsible_size = step.responsible | size -%}
+
+                    {% if step_responsible_size != 0 %}
                         <ul>
-                            {% for responsible in step.responsible %}
-                                <li>{{ responsible }}</li>
+                            {% for responsible in step_responsible %}
+                                <li>{% include scripts/role.liquid role=responsible %}</li>
                             {% endfor %}
                         </ul>
                     {% endif %}
@@ -90,15 +93,17 @@
             </ul>
         {% endif %}
 
-        {% if script.footer.monitors %}
+        {%- assign script_footer_monitors = script.footer.monitors | sort -%}
+        {%- assign script_footer_monitors_size = script.footer.monitors | size -%}
+
+        {% if script_footer_monitors_size != 0 %}
             <h3>Какие роли следят за результатом использовании решения?</h3>
             <ul>
-                {% for item in script.footer.monitors %}
-                    <li>{{ item }}</li>
+                {% for item in script_footer_monitors %}
+                    <li>{% include scripts/role.liquid role=item %}</li>
                 {% endfor %}
             </ul>
         {% endif %}
-
 
         {% if script.footer.complexity %}
             <h3>Какие есть сложности при использовании решения?</h3>

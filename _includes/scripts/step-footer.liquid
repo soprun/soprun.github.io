@@ -26,7 +26,7 @@
     <b>Ответственный за этап?</b>
     <ul>
         {% for responsible in step.responsible %}
-            <li>{{ responsible }}</li>
+            <li>{% include scripts/role.liquid role=responsible %}</li>
         {% endfor %}
     </ul>
 {% endif %}
