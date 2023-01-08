@@ -2,7 +2,7 @@
 {% assign url = include.url | default: post.url %}
 
 {% if title %}
-    <h2 class="post-title {{ include.class }}"
+    <h1 class="post-title {{ include.class }}"
         itemprop="headline">
         {% if show_title_link == false or show_read_more == false %}
             {{ title }}
@@ -13,5 +13,5 @@
                 {{ title }}
             </a>
         {% endif %}
-    </h2>
+    </h1>
 {% endif %}
