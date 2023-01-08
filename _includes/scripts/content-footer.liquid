@@ -56,17 +56,65 @@
         </ul>
     </section>
 
-    {% comment %}<section>{% endcomment %}
-    {% comment %}<h2>Communications:</h2>{% endcomment %}
-    {% comment %}{% endcomment %}
-    {% comment %}- Как выстроить коммуникацию применения?<br>{% endcomment %}
-    {% comment %}- Как вовлечь команду в решение??<br>{% endcomment %}
-    {% comment %}- Какая должна быть синергия при внедрении решения?<br>{% endcomment %}
-    {% comment %}- Какие зоны ответственности?<br>{% endcomment %}
-    {% comment %}- **Горизонтальные связи !!!! ???**<br>{% endcomment %}
-    {% comment %}- А что дальше? Как масштабировать во времени?<br>{% endcomment %}
-    {% comment %}- Как улучшить удобство применения (что бы было удобно всем использовать)?{% endcomment %}
-    {% comment %}</section>{% endcomment %}
+    <section>
+        <h2>Communications:</h2>
+
+        {% comment %}- Как выстроить коммуникацию применения?<br>{% endcomment %}
+        {% comment %}- Как вовлечь команду в решение??<br>{% endcomment %}
+        {% comment %}- Какая должна быть синергия при внедрении решения?<br>{% endcomment %}
+        {% comment %}- **Горизонтальные связи !!!! ???**<br>{% endcomment %}
+        {% comment %}- А что дальше? Как масштабировать во времени?<br>{% endcomment %}
+        {% comment %}- Как улучшить удобство применения (что бы было удобно всем использовать)?{% endcomment %}
+
+        {%- assign script_footer_monitors = script.footer.monitors | sort -%}
+        {%- assign script_footer_monitors_size = script.footer.monitors | size -%}
+
+        {% if script_footer_monitors_size != 0 %}
+            <h3>Какие роли следят за результатом использовании решения и зоны ответственности?</h3>
+            <table class="table">
+                <tr>
+                    <th class="text-center">Роль</th>
+                    <th class="text-center">Продукт роли</th>
+                    <th class="text-center">Метрики роли</th>
+                    <th class="text-center">Задачи роли</th>
+                </tr>
+                {% for item in script_footer_monitors %}
+                    <tr>
+                        <td class="text-center">
+                            <b>{% include scripts/role.liquid role=item %}</b>
+                        </td>
+                        <td>
+                            <ul>
+                                {% for product in site.data.role[role].product %}
+                                    <li>{{ product }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                {% for metrics in site.data.role[role].metrics %}
+                                    <li>{{ metrics }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                {% for tasks in site.data.role[role].tasks %}
+                                    <li>{{ tasks }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <ul>
+
+
+            </ul>
+        {% endif %}
+
+    </section>
 
     {% comment %}<section>{% endcomment %}
     {% comment %}<h2>Alternative:</h2>{% endcomment %}
@@ -89,18 +137,6 @@
             <ul>
                 {% for item in script.footer.stability %}
                     <li>{{ item }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        {%- assign script_footer_monitors = script.footer.monitors | sort -%}
-        {%- assign script_footer_monitors_size = script.footer.monitors | size -%}
-
-        {% if script_footer_monitors_size != 0 %}
-            <h3>Какие роли следят за результатом использовании решения?</h3>
-            <ul>
-                {% for item in script_footer_monitors %}
-                    <li>{% include scripts/role.liquid role=item %}</li>
                 {% endfor %}
             </ul>
         {% endif %}
