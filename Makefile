@@ -32,6 +32,9 @@ watch: clean ##Execute a script in the current bundl
 	@#bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace --open-url
 	bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace
 
+kill:
+	kill $(pgrep jekyll)
+
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	gem install bundler
 	bundle install
