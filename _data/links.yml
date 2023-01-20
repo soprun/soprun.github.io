@@ -4,6 +4,12 @@
 #    url: https://soprun.com
 
 contact:
+  - label: Channel
+    icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+    title: soprun_architect
+    url: https://t.me/+YpCP4MsEorBmN2Qy
+    vcard: ~
+
   - label: Telegram
     icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
     title: soprun
@@ -48,9 +54,9 @@ social_links:
     icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
     url: https://medium.com/@soprun
 
-  - title: LinkedIn
-    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-    url: https://www.linkedin.com/in/soprun
+#  - title: LinkedIn
+#    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+#    url: https://www.linkedin.com/in/soprun
 
 #    - title: codepen.io
 #      icon: <i class="fa-brands fa-codepen" aria-hidden="true"></i>

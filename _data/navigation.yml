@@ -24,6 +24,12 @@
     icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
     disabled: false
 
+#-   name: Mentoring 📚
+#    link: /mentoring
+#    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
+#    style: 'color:#dc3545'
+#    disabled: false
+
 #-   name:  Reading list
 #    link: /reading-list
 #    icon: <i class="fa-solid fa-book-open" aria-hidden="true"></i>
