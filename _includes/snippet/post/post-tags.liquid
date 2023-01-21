@@ -2,16 +2,15 @@
 {%- assign size = tags | size %}
 
 {% if size != 0 %}
-    <div class="post-tags {{ include.class }}">
+    <div class="post-tags {{ include.class }} {% if page.page_show_tags == false %}d-none{% endif %}">
         <i class="fa-solid fa-tags" aria-hidden="true"></i>
         <span>Tags:</span>
         {% for tag in tags %}
-            <span class="badge bg-primary" itemprop="keywords">
-                {% comment %}<a rel="tag" href="/tag/{{ tag | slugify }}">{% endcomment %}
-                    {% comment %}{{ tag }}{% endcomment %}
-                {% comment %}</a>{% endcomment %}
-                 {{ tag }}
-            </span>
+            <span class="badge bg-primary" itemprop="keywords">{{ tag }}</span>
         {% endfor %}
     </div>
 {% endif %}
+
+{% comment %}<a rel="tag" href="/tag/{{ tag | slugify }}">{% endcomment %}
+{% comment %}{{ tag }}{% endcomment %}
+{% comment %}</a>{% endcomment %}
