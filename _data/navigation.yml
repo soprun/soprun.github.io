@@ -24,7 +24,7 @@
 #    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
 #    disabled: false
 
--   name: Mentoring & Consulting 📚
+-   name: Coaching & Mentoring & Consulting 📚
     link: /mentoring
     icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
     style: 'color:#dc3545'
