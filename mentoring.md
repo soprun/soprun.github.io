@@ -84,10 +84,10 @@ tags: [Готовое решения проблемы, IT, Эксперт, Ур�
 <br>
 
 <p class="text-center">
-Для записи на диагностику, <b><a href="https://forms.gle/raCeMzo45HEMsbmh9" rel="noopener noreferrer" target="_blank">
+Для записи на диагностику, <b><a href="https://link.soprun.com/form" rel="noopener noreferrer" target="_blank">
 пройди по ссылке</a></b> и заполни короткую анкету, чтобы мы согласовали нашу первую БЕСПЛАТНУЮ встречу 👍🏻<br>
 <b>ВНИМАНИЕ!</b> Количество мест ограничено, беру всего несколько человек в неделю!<br><br>
-<a class="btn btn-light btn-outline-dark text-decoration" href="https://forms.gle/raCeMzo45HEMsbmh9" rel="noopener noreferrer" target="_blank">Скорее заполняй анкету и начнем твой путь к успеху 👇🏻</a>
+<a class="btn btn-light btn-outline-dark text-decoration" href="https://link.soprun.com/form" rel="noopener noreferrer" target="_blank">Скорее заполняй анкету и начнем твой путь к успеху 👇🏻</a>
 </p>
 
 <br>
