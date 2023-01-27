@@ -2,7 +2,7 @@
 {% assign url = include.url | default: post.url %}
 
 {% if title %}
-    <h1 class="post-title text-center {{ include.class }}"
+    <h1 class="post-title text-center {{ include.class }} {% if page.page_show_title == false %}d-none{% endif %}"
         itemprop="headline">
         {% if show_title_link == false or show_read_more == false %}
             {{ title }}

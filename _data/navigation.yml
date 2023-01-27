@@ -1,9 +1,9 @@
--   name: Home
-    link: /
-    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-    disabled: false
+#-   name: Home
+#    link: /
+#    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+#    disabled: false
 
--   name: About
+-   name: Обо мне
     link: /about
     rel: author
     icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
