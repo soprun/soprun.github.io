@@ -13,6 +13,7 @@ check: ## check
 
 clean: ## Removes all generated files: destination folder, metadata file, Sass and Jekyll caches.
 	@jekyll clean
+	@bundle clean --force
 	@clear -x
 
 doctor: ##  Outputs any deprecation or configuration issues.
@@ -36,6 +37,7 @@ kill:
 	kill $(pgrep jekyll)
 
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
+	#gem install jekyll
 	gem install bundler
 	bundle install
 	make -s build
