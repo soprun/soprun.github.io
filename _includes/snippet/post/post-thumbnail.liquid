@@ -6,7 +6,7 @@
     {%- assign alt = include.alt | default: page.title | append: ' - ' | append: site.title -%}
     {%- assign src = include.src | append: param | relative_url -%}
 
-    <picture class="post-thumbnail {{ include.class }}"
+    <picture class="post-thumbnail {{ include.class }} {% if page.page_show_image == false %}d-none{% endif %}"
              itemprop="image"
              itemscope
              itemtype="https://schema.org/ImageObject">
