@@ -1,7 +1,7 @@
-#-   name: Home
-#    link: /
-#    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-#    disabled: false
+-   name: Блог
+    link: /
+    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+    disabled: false
 
 -   name: Обо мне
     link: /about
