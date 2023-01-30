@@ -14,7 +14,8 @@ title: 'Solutions Architect @soprun'
 short_title: 'soprun.com'
 
 description: >- # this means to ignore newlines until "baseurl:"
-  How to guide & Software Tutorials
+  Я - Владислав, и за 10 лет прошел путь от junior backend разработчика до Solutions Architect
+  Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
 
 keywords: [IT Наставник, Наставничество IT, Ментор IT, Менторство, Guide, Tutorials]
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
@@ -29,7 +30,9 @@ author:
   first_name: Vladislav
   last_name: Soprun
   nickname: soprun
-  description: <b>Привет!</b><br>Я - Влад, и за 10 лет прошел путь от junior backend разработчика до Solutions Architect.
+  description: >-
+    Я - Владислав, и за 10 лет прошел путь от junior backend разработчика до Solutions Architect.<br><br>
+    Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
   url: https://soprun.com
   email: mail@soprun.com
   phone: +79017972126
