@@ -1,6 +1,9 @@
 <head>
     <meta charset="{{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if page.date -%}
+        <meta http-equiv="Last-Modified" content="{{ page.date | date_to_xmlschema }}"/>
+    {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
     <meta name="mobile-web-app-capable" content="yes">
@@ -29,13 +32,13 @@
     {% seo %}
     {% comment %}{% feed_meta %}{% endcomment %}
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PM269NN');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM269NN');</script>
+    <!-- End Google Tag Manager -->
 
     {% include styles.liquid %}
     {% include head/links.liquid %}
