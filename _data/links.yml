@@ -28,11 +28,11 @@ contact:
     url: 'tel:+79017972126'
     vcard: tel
 
-  - label: Skype
-    icon: <i class="fa-brands fa-skype" aria-hidden="true"></i>
-    title: vlsoprun
-    url: 'skype:vlsoprun?call'
-    vcard: ~
+#  - label: Skype
+#    icon: <i class="fa-brands fa-skype" aria-hidden="true"></i>
+#    title: vlsoprun
+#    url: 'skype:vlsoprun?call'
+#    vcard: ~
 
 #  - label: vСard
 #    icon: <i class="fa-solid fa-address-card" aria-hidden="true"></i>
