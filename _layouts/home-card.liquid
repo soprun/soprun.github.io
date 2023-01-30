@@ -3,10 +3,12 @@ layout: default
 ---
 
 {% if site.paginate %}
-    {% assign posts = paginator.posts %}
+    {% comment %}{% assign posts = paginator.posts %}{% endcomment %}
 {% else %}
-    {% assign posts = site.posts %}
+    {% comment %}{% assign posts = site.posts %}{% endcomment %}
 {% endif %}
+
+{% assign posts = site.posts %}
 
 {% if posts.size > 0 %}
     <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-start">
