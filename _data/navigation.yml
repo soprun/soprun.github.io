@@ -1,12 +1,12 @@
--   name: Блог
-    link: /
-    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-    disabled: false
-
 -   name: Обо мне
     link: /about
     rel: author
     icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
+    disabled: false
+
+-   name: Блог
+    link: /blog
+    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
     disabled: false
 
 #-   name: Contact
@@ -24,11 +24,11 @@
 #    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
 #    disabled: false
 
--   name: Ментор IT 📚
-    link: /mentoring
-    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
-    style: 'color:#dc3545'
-    disabled: false
+#-   name: Ментор IT 📚
+#    link: /mentoring
+#    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
+#    style: 'color:#dc3545'
+#    disabled: false
 
 #-   name:  Reading list
 #    link: /reading-list
