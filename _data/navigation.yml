@@ -4,10 +4,10 @@
     icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
     disabled: false
 
--   name: Блог
-    link: /blog
-    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
-    disabled: false
+#-   name: Блог
+#    link: /blog
+#    icon: <i class="fa-solid fa-newspaper" aria-hidden="true"></i>
+#    disabled: false
 
 #-   name: Contact
 #    link: /contact
