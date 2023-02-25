@@ -24,11 +24,11 @@
 #    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
 #    disabled: false
 
-#-   name: Ментор IT 📚
-#    link: /mentoring
-#    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
-#    style: 'color:#dc3545'
-#    disabled: false
+-   name: План обучения 📚
+    link: /mentoring
+    icon: <i class="fa-solid fa-books" aria-hidden="true"></i>
+    style: 'color:#dc3545'
+    disabled: false
 
 #-   name:  Reading list
 #    link: /reading-list
