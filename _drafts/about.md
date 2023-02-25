@@ -46,7 +46,7 @@ Architectural styles:
 
 В процессе изучения и прохождения сертификации: (буду честен, в последнее время забросил обучение)
 
-- [Microsoft Certified: Azure Solutions Architect Expert](https://docs.microsoft.com/ru-ru/learn/certifications/azure-solutions-architect/)
+- [Microsoft Certified: Azure Solution Architect Expert](https://docs.microsoft.com/ru-ru/learn/certifications/azure-solutions-architect/)
 - [Microsoft Certified: DevOps Engineer Expert](https://docs.microsoft.com/ru-ru/learn/certifications/devops-engineer/)
 
 ## Ultimate hard skills 🔥

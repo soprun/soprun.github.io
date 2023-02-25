@@ -10,11 +10,11 @@ encoding: UTF-8
 #description: A description about my blog homepage
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 
-title: 'Solutions Architect @soprun'
+title: 'Solution Architect @soprun'
 short_title: 'soprun.com'
 
 description: >- # this means to ignore newlines until "baseurl:"
-  Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solutions Architect
+  Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solution Architect
   Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
 
 keywords: [IT Наставник, Наставничество IT, Ментор IT, Менторство, Guide, Tutorials]
@@ -31,7 +31,7 @@ author:
   last_name: Soprun
   nickname: soprun
   description: >-
-    Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solutions Architect.<br><br>
+    Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solution Architect.<br><br>
     Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
   url: https://soprun.com
   email: mail@soprun.com
