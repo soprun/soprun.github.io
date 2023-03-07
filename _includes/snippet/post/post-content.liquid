@@ -1,7 +1,0 @@
-<div class="post-content-excerpt {{ include.class }}" itemprop="description">
-    {{ include.content | default: post.excerpt | markdownify | truncatewords: excerpt_length }}
-</div>
-
-{% comment %}{{ post.excerpt | strip_html | markdownify | strip_html | strip_newlines | truncatewords: 160 }}{% endcomment %}
-{% comment %}{{ post.excerpt | strip_html | newline_to_br | truncatewords: 160 }}{% endcomment %}
-{% comment %}{{ post.content | strip_html | markdownify | strip_html |r | truncatewords: 160 }}{% endcomment %}

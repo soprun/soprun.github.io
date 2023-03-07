@@ -14,61 +14,9 @@
     <meta name="keywords" content="{{ page_keywords }}">
     <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}"/>
 
-    {%- comment %}<meta name="description" content="{{ meta_desc | truncate: 150 }}">{% endcomment %}
-    {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">{% endcomment %}
-    {%- comment %}<meta name="apple-mobile-web-app-title" content="My App">{% endcomment %}
-    {%- comment %}<meta name="referrer" content="no-referrer">{% endcomment %}
-
-    {%- comment %}<meta name="apple-mobile-web-app-capable" content="yes">{% endcomment %}
-    {%- comment %}<meta name="apple-mobile-web-app-title" content="{{ app_name }}">{% endcomment %}
-    {%- comment %} content can be: default, black, black-translucent {% endcomment %}
-    {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="default">{% endcomment %}
-    {%- comment %}<link rel="apple-touch-startup-image" href="{{ site.baseurl }}/assets/img/favicons/screensize.png">{% endcomment %}
-
+    <meta name="supported-color-schemes" content="light dark">
     <base href="{{ base_url }}">
 
-    {%- comment %}<title>{{ page_title | truncate: 118 }}</title>{% endcomment %}
-    {% comment %}<meta name="description" content="{{ page_title | truncate: 254 }}"/>{% endcomment %}
 
-    {% seo %}
-    {% comment %}{% feed_meta %}{% endcomment %}
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PM269NN');</script>
-    <!-- End Google Tag Manager -->
-
-    {% include styles.liquid %}
-    {% include head/links.liquid %}
-    {% include head/icons.liquid %}
-    {% include head/sentry.liquid %}
-    {% include head/yandex-metrika.liquid %}
-
-    <!-- Marquiz script start -->
-    <script>
-        (function(w, d, s, o){
-            var j = d.createElement(s); j.async = true; j.src = '//script.marquiz.ru/v2.js';j.onload = function() {
-                if (document.readyState !== 'loading') Marquiz.init(o);
-                else document.addEventListener("DOMContentLoaded", function() {
-                    Marquiz.init(o);
-                });
-            };
-            d.head.insertBefore(j, d.head.firstElementChild);
-        })(window, document, 'script', {
-                host: '//quiz.marquiz.ru',
-                region: 'eu',
-                id: '6404a072ac84b7004d8f1a05',
-                autoOpen: false,
-                autoOpenFreq: 'once',
-                openOnExit: false,
-                disableOnMobile: false
-            }
-        );
-    </script>
-    <!-- Marquiz script end -->
-
-    {% comment %}https://web.dev/learn/html/metadata/{% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
