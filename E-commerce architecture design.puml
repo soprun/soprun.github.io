@@ -1,0 +1,109 @@
+@startuml E-commerce architecture design
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+LAYOUT_LANDSCAPE()
+
+Person_Ext(customer, "Потенциальный покупатель")
+Person(manager, "Менеджер платформы")
+
+System_Boundary(eСommerce, "Выставляет товары на продажу, принимает заказы и платежи") {
+    Container(web_app, "Web Application", "JavaScript, React.js, SSR", "Все пользователи используют единый интерфейс")
+    Container(admin_app, "Web Application (Admin)", "JavaScript, React.js, SSR", "Все пользователи используют единый интерфейс")
+
+    Container_Boundary(user_service, "User Service") {
+        Container(user_api, "User API", "PHP, Symfony", "...")
+        ContainerDb(user_db, "Relational Database", "PostgreSQL vX.X.X.")
+        ContainerDb(user_redis, "KeyValue storage", "Redis vX.X.X.", "In-memory харнилище информации о пользователе")
+
+        BiRel(user_api, user_db, "Чтение и запись", "SQL, port 5432")
+        BiRel(user_api, user_redis, "Чтение и запись", "TCP, port 6379")
+    }
+
+    Container_Boundary(payment_service, "Payment Service") {
+        Container(payment_api, "Payment API", "Go", "Обработка логики платежа")
+        ContainerDb(payment_db, "Document Database", "PostgreSQL vX.X.X.")
+
+        BiRel(payment_api, payment_db, "Чтение и запись", "SQL, port 5432")
+    }
+
+    Container_Boundary(order_service, "Order Service") {
+        Container(order_api, "Order API", "PHP, Symfony", "Обработка логики заказа")
+        ContainerDb(order_db, "Document Database", "PostgreSQL vX.X.X.")
+
+        BiRel(order_api, order_db, "Чтение и запись", "SQL, port 5432")
+    }
+
+    Container_Boundary(product_service, "Product Service") {
+        Container(product_api, "Product API", "PHP, Symfony", "Инвентарь интернет магазина")
+        ContainerDb(product_db, "Relational Database", "PostgreSQL vX.X.X.")
+        ContainerDb(product_elasticsearch, "Поиск товара", "ElasticSearch vX.X.X", "Система полнотекстового поиска для товаров")
+
+        BiRel(product_api, product_db, "Чтение и запись", "SQL, port 5432")
+        BiRel(product_api, product_elasticsearch, "Чтение и запись", "HTTPS,REST,JSON")
+    }
+
+    Container_Boundary(notification_service, "Notification Service") {
+        Container(notification_backend, "Notification Sender", "PHP, Symfony", "Сервис уведомлений")
+        ContainerQueue(notification_queue, "Kafka", "Очередь для отправки уведомлений через сервис")
+
+        Rel(notification_queue, notification_backend, "Потребляет", "Kafka")
+    }
+}
+
+System_Ext(keycloak, "KeyCloak", "Identity-провайдеры")
+System_Ext(clickhouse, "Clickhouse", "Аналитическая платформа.")
+
+System_Boundary(data_visualization_systems, "Системы визуализации данных") {
+    System_Ext(datalens, "DataLens", "Аналитическая платформа Yandex")
+    System_Ext(grafana, "Grafana", "Дашборды на основе данных. ")
+}
+
+Rel(clickhouse, datalens, "Только чтение", "HTTP, port 8123")
+Rel(clickhouse, grafana, "Только чтение", "HTTP, port 8123")
+
+Rel(payment_db, datalens, "Только чтение", "SQL, port 5432")
+Rel(payment_db, grafana, "Только чтение", "SQL, port 5432")
+Rel(payment_db, clickhouse, "Только чтение", "HTTP, port 8123")
+
+Rel(order_db, datalens, "Только чтение", "SQL, port 5432")
+Rel(order_db, grafana, "Только чтение", "SQL, port 5432")
+Rel(order_db, clickhouse, "Только чтение", "HTTP, port 8123")
+
+Rel(product_db, datalens, "Только чтение", "SQL, port 5432")
+Rel(product_db, grafana, "Только чтение", "SQL, port 5432")
+Rel(product_db, clickhouse, "Только чтение", "HTTP, port 8123")
+
+Rel(notification_backend, clickhouse, "Только чтение", "HTTP, port 8123")
+
+Rel(keycloak, user_db, "Только чтение", "SQL, port 5432")
+
+Rel(customer, web_app, "Использует APIs", "HTTPS, JSON:API")
+Rel(manager, web_app, "Использует APIs", "HTTPS, JSON:API")
+Rel(manager, admin_app, "Использует APIs", "HTTPS, JSON:API")
+
+Rel(web_app, keycloak, "Использует APIs для проверки прав доступа", "HTTPS, JSON:API")
+Rel(web_app, payment_api, "Использует APIs для оплаты заказа", "HTTPS, JSON:API")
+Rel(web_app, order_api, "Использует APIs для получчения статуса заказа", "HTTPS, JSON:API")
+Rel(web_app, product_api, "Использует APIs для просмотра каталоги или ветрины товара", "HTTPS, JSON:API")
+Rel(web_app, user_api, "Использует APIs для получения информации о пользователе", "HTTPS, JSON:API")
+Rel(web_app, product_elasticsearch, "Использует APIs для поиска товара", "HTTPS, JSON:API")
+
+Rel(admin_app, keycloak, "Использует APIs для проверки прав доступа", "HTTPS, JSON:API")
+Rel(admin_app, payment_api, "Использует APIs", "HTTPS, JSON:API")
+Rel(admin_app, order_api, "Использует APIs", "HTTPS, JSON:API")
+Rel(admin_app, product_api, "Использует APIs", "HTTPS, JSON:API")
+Rel(admin_app, user_api, "Использует APIs", "HTTPS, JSON:API")
+Rel(admin_app, product_elasticsearch, "Использует APIs для поиска товара", "HTTPS, JSON:API")
+
+Rel(payment_api, order_api, "Использует APIs для проверки статуса заказа", "HTTPS, JSON:API")
+Rel(payment_api, user_api, "Использует APIs для проверки статуса заказа", "HTTPS, JSON:API")
+Rel(payment_api, notification_queue, "Отправляет уведомления статуса опаты", "Kafka")
+
+Rel(order_api, user_api, "Использует APIs для проверки статуса заказа", "HTTPS, JSON:API")
+Rel(order_api, product_api, "Использует APIs для проверки наличия товара", "HTTPS, JSON:API")
+Rel(order_api, notification_queue, "Отправляет увидомление статуса заказа", "Kafka")
+
+Rel(user_api, notification_queue, "Отправляет любые уведомления пользователя", "Kafka")
+
+@endum

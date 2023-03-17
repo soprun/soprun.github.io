@@ -1,0 +1,44 @@
+@startuml Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+skinparam wrapWidth 300
+
+LAYOUT_WITH_LEGEND()
+LAYOUT_LANDSCAPE()
+
+title Диаграмма контекста системы для коммерции Likecentre
+
+Person_Ext(customer, "Потенциальный покупатель")
+Person_Ext(manager, "Пользователь AMO CRM")
+
+System_Boundary(likecentre_service, "Likecentre") {
+    System(mainsite, "Коммерция", "Позволяет клиентам просматривать информацию о продуктах компании и зарегистрироваться. Хранит все основные данные, клиенты, сделки, платежи и т.д.")
+    SystemDb(likecentre_db, "DB", "PostgreSQL")
+}
+System_Boundary(analytical_services, "Аналитические системы") {
+    System_Ext(datalens, "DataLens", "Аналитическая платформа.")
+    System_Ext(grafana, "Grafana", "Дашборды на основе данных. ")
+}
+
+System_Boundary(landing_page_services, "Landing page") {
+    System(amo_ms, "amo-ms", "Двунаправленная интеграция АМО CRM.")
+    System(landing_page_generator, "Landing page generator", "Система генерации landing page под продукт компании")
+    System_Ext(landing_page, "Landing page", "Посадочная страница")
+    System_Ext(amo_crm_service, "AMO CRM", "CRM system.")
+}
+
+System(edu, "Edu", "Позволяет просматривать информацию продуктах компании и зарегистрироваться.")
+
+Rel(landing_page, amo_ms,"Использует", "HTTPS")
+
+BiRel(amo_ms, amo_crm_service, "Отправляет запросы", "HTTPS")
+
+Rel(customer, likecentre_service, "Использует", "HTTPS")
+Rel(manager, amo_crm_service, "Использует", "HTTPS")
+Rel(edu, likecentre_service,"Использует", "HTTPS")
+
+Rel(mainsite, likecentre_db,"Использует")
+Rel(amo_ms, likecentre_db, "Использует")
+Rel(datalens, likecentre_db, "Использует")
+Rel(grafana, likecentre_db, "Использует")
+@endum
