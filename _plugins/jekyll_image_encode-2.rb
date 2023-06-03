@@ -59,7 +59,8 @@ module Jekyll
             data_type = MimeMagic.by_magic(image_handle)
             image_handle.close
 
-            "data:#{data_type};base64,#{encoded_image}"
+#             "data:#{data_type};base64,#{encoded_image}"
+           puts encoded_image
         end
       end
     end

@@ -38,7 +38,7 @@ contact:
 #    icon: <i class="fa-solid fa-address-card" aria-hidden="true"></i>
 #    #    title: import a vCard.vcf
 #    title: vCard.vcf
-#    url: /assets/vcard.vcf
+#    url: /vcard.vcf
 #    vcard: ~
 
 social_links:

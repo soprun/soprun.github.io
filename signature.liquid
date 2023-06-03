@@ -41,7 +41,7 @@ permalink: /signature.html
     <tr>
         <td class="tg-a6tz" style="text-align: left">
             <img class="rounded-circle img-thumbnail"
-                 src="{% base64 assets/img/avatar-small.png %}"
+                 {% comment %}src="{% base64 assets/img/avatar-small.png %}"{% endcomment %}
                  {% comment %}src="{% base64 assets/img/avatar.png | relative_url %}"{% endcomment %}
                 {% comment %}src="{{ "assets/img/avatar-small.png" | base64 }}"{% endcomment %}
                 {% comment %}src="{% base64 https://soprun.com/assets/img/avatar-small.png %}"{% endcomment %}

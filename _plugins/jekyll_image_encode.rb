@@ -74,25 +74,29 @@ module Jekyll
                             # Generate dataURI schema
                             @dataURI = "data:image/";
 
-                            case imageext
-                               when ".jpg"
-                                 @dataURI += "jpeg"
-                               when ".svg"
-                                 @dataURI += "svg+xml"
-                               else
-                                 # the MIME type is finally inferred from the file extension
-                                 @dataURI += imageext.gsub('.', '')
-                            end
+                            Base64.strict_encode64(imgstring)
 
-                            @dataURI += ";base64,"
-
-                            # yay, we encode it
-                            @dataURI += Base64.strict_encode64(imgstring)
-
-#                             getEncodingStatus("Encoded: ".green)
-#                             getSizeStats()
-
-                            @dataURI
+#
+#
+#                             case imageext
+#                                when ".jpg"
+#                                  @dataURI += "jpeg"
+#                                when ".svg"
+#                                  @dataURI += "svg+xml"
+#                                else
+#                                  # the MIME type is finally inferred from the file extension
+#                                  @dataURI += imageext.gsub('.', '')
+#                             end
+#
+#                             @dataURI += ";base64,"
+#
+#                             # yay, we encode it
+#                             @dataURI += Base64.strict_encode64(imgstring)
+#
+# #                             getEncodingStatus("Encoded: ".green)
+# #                             getSizeStats()
+#
+#                             @dataURI
         end
       end
     end
