@@ -26,7 +26,7 @@ doctor: ##  Outputs any deprecation or configuration issues.
 # чтобы позволить jekyll выполнить свою работу и преобразовать файлы вашего сайта в настоящий html
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
-watch: clean ##Execute a script in the current bundl
+watch: ##Execute a script in the current bundl
 	@JEKYLL_ENV=development
 	@JEKYLL_LOG_LEVEL=debug
 	@#kill $(pgrep jekyll)

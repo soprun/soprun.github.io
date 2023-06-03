@@ -56,47 +56,42 @@ module Jekyll
 
         @abspath = Pathname.new(File.join(basepath,  @url))
 
-
         if !File.exist?(@abspath)
             sendMessage("Warning: not found file!".yellow)
             exit 1
         else
             # Open file in read mode
-                            image = File.open(@abspath, "r")
+            image = File.open(@abspath, "r")
 
-                            # Get the content of the file as a string
-                            imgstring = ""
-                            image.each { |line| imgstring << line }
+            # Get the content of the file as a string
+            imgstring = ""
+            image.each { |line| imgstring << line }
 
-                            # Get image extension (e.g. ".png")
-                            imageext = File.extname(@url).gsub(/(\.\w+).*/, '\1').downcase;
+            # Get image extension (e.g. ".png")
+            imageext = File.extname(@url).gsub(/(\.\w+).*/, '\1').downcase;
 
-                            # Generate dataURI schema
-                            @dataURI = "data:image/";
+            # Generate dataURI schema
+            @dataURI = "data:image/";
 
-                            Base64.strict_encode64(imgstring)
+            case imageext
+               when ".jpg"
+                 @dataURI += "jpeg"
+               when ".svg"
+                 @dataURI += "svg+xml"
+               else
+                 # the MIME type is finally inferred from the file extension
+                 @dataURI += imageext.gsub('.', '')
+            end
 
-#
-#
-#                             case imageext
-#                                when ".jpg"
-#                                  @dataURI += "jpeg"
-#                                when ".svg"
-#                                  @dataURI += "svg+xml"
-#                                else
-#                                  # the MIME type is finally inferred from the file extension
-#                                  @dataURI += imageext.gsub('.', '')
-#                             end
-#
-#                             @dataURI += ";base64,"
-#
-#                             # yay, we encode it
-#                             @dataURI += Base64.strict_encode64(imgstring)
-#
-# #                             getEncodingStatus("Encoded: ".green)
-# #                             getSizeStats()
-#
-#                             @dataURI
+            @dataURI += ";base64,"
+
+            # yay, we encode it
+            @dataURI += Base64.strict_encode64(imgstring)
+
+            sendMessage("Encoded: ".green)
+            getSizeStats()
+
+            @dataURI
         end
       end
     end

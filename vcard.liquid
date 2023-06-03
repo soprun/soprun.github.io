@@ -52,8 +52,8 @@ SOURCE:https://soprun.com/{% link vcard.liquid %}
     {%- endif -%}
     :{{- social_profile.value }}
 {% endfor -%}
-PHOTO;PNG;ENCODING=BASE64:{% base64 assets/img/avatar-small.png %}
-KEY;PGP;ENCODING=BASE64:{% base64 assets/pgp-public-key.asc %}
+PHOTO;PNG;ENCODING=BASE64:{{ "assets/img/avatar-small.png" | encode_base64_hash }}
+KEY;PGP;ENCODING=BASE64:{{ "assets/pgp-public-key.asc" | encode_base64_hash }}
 END:VCARD
 {%- comment %}PHOTO;JPEG:https://soprun.com/assets/img/avatar-small.png{% endcomment %}
 {%- comment %}LOGO;ENCODING=b;TYPE=PNG:https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008?size=250{% endcomment %}

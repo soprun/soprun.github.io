@@ -13,6 +13,7 @@ GEM
     concurrent-ruby (1.2.2)
     console (1.16.2)
       fiber-local
+    date (3.3.3)
     dotenv (2.8.1)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
@@ -90,6 +91,10 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.2-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     pdf-reader (2.11.0)
@@ -111,13 +116,17 @@ GEM
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
+    stringio (3.0.7)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    time (0.2.2)
+      date
     timers (4.3.5)
     ttfunk (1.7.0)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     unicode-display_width (1.8.0)
+    uri (0.12.1)
     webrick (1.8.1)
     yell (2.2.2)
     zeitwerk (2.6.8)
@@ -140,6 +149,7 @@ DEPENDENCIES
   kramdown
   liquid
   mimemagic
+  open-uri
   rake
   rouge
   webrick (~> 1.7)
