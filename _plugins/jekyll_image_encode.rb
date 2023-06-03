@@ -19,13 +19,12 @@ module Jekyll
       include ImageEncodeCache
 
       def initialize(tag_name, url, options)
-        @url = url.strip
-        @pad = " " * 6
-#         puts tag_name
-#         puts url
-#         puts options
-#         exit
         super
+        @url = url.strip
+#         puts tag_name
+#         puts url.
+#         puts options
+#         exit 1
       end
 
       def sendMessage(msg)
@@ -41,25 +40,59 @@ module Jekyll
         # Get base path of html template
         @cs = context.registers
 
-        if !File.exist?(@url)
+        # If a variable was passed to the liquid tag instead of a string
+        # then read its value
+        if context[@markup.strip]
+            @imgsrc = context[@markup.strip]
+        end
+
+        basepath = @cs[:site].source
+
+        # if a relative url was defined then the basepath is the same
+        # of the page in which the image was requested.
+#         if (@imgsrc.chars.first != "/")
+#             basepath += @cs[:page]["dir"]
+#         end
+
+        @abspath = Pathname.new(File.join(basepath,  @url))
+
+
+        if !File.exist?(@abspath)
             sendMessage("Warning: not found file!".yellow)
             exit 1
         else
-            encoded_image = ''
-            image_handle = open(@url)
+            # Open file in read mode
+                            image = File.open(@abspath, "r")
 
-            if self.cached_base64_codes.has_key? @url
-              encoded_image = self.cached_base64_codes[@url]
-            else
-              # p "Caching #{@url} as local base64 string ..."
-              encoded_image = Base64.urlsafe_encode64(image_handle.read)
-              self.cached_base64_codes.merge!(@url => encoded_image)
-            end
+                            # Get the content of the file as a string
+                            imgstring = ""
+                            image.each { |line| imgstring << line }
 
-            data_type = MimeMagic.by_magic(image_handle)
-            image_handle.close
+                            # Get image extension (e.g. ".png")
+                            imageext = File.extname(@url).gsub(/(\.\w+).*/, '\1').downcase;
 
-            "data:#{data_type};base64,#{encoded_image}"
+                            # Generate dataURI schema
+                            @dataURI = "data:image/";
+
+                            case imageext
+                               when ".jpg"
+                                 @dataURI += "jpeg"
+                               when ".svg"
+                                 @dataURI += "svg+xml"
+                               else
+                                 # the MIME type is finally inferred from the file extension
+                                 @dataURI += imageext.gsub('.', '')
+                            end
+
+                            @dataURI += ";base64,"
+
+                            # yay, we encode it
+                            @dataURI += Base64.strict_encode64(imgstring)
+
+#                             getEncodingStatus("Encoded: ".green)
+#                             getSizeStats()
+
+                            @dataURI
         end
       end
     end
