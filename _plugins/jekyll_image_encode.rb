@@ -20,21 +20,17 @@ module Jekyll
 
       def initialize(tag_name, url, options)
         @url = url.strip
-
-#         puts tag_name
-#         puts @url
-#         exit 1
         @pad = " " * 6
+#         puts tag_name
+#         puts url
+#         puts options
+#         exit
         super
       end
 
-#       def render(context)
-#         encode_image
-#       end
-
       def sendMessage(msg)
-        puts "\n" + @pad + msg + " " + @url
-        puts @pad + "in " + @cs[:page]["path"].yellow + "\n"
+        puts "\n" + msg + " \"" + @url + "\"\n"
+        puts "in " + @cs[:page]["path"].yellow + "\n"
       end
 
       def render(context)
@@ -46,7 +42,8 @@ module Jekyll
         @cs = context.registers
 
         if !File.exist?(@url)
-            sendMessage("Warning: not found!".yellow)
+            sendMessage("Warning: not found file!".yellow)
+            exit 1
         else
             encoded_image = ''
             image_handle = open(@url)

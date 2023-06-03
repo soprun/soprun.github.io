@@ -51,17 +51,16 @@ permalink: /signature.html
             {% comment %}<img src="https://soprun.com/assets/img/avatar-small.png" width="400" height="300">{% endcomment %}
 
 
-            {% comment %}{% base64_encoded assets/img/avatar-small.png %}{% endcomment %}
+            {% comment %}{% base64 assets/img/avatar-small.png %}{% endcomment %}
+            {% comment %}{% capture jpeg %}images/{{ image }}.jpg{% endcapture %}{% endcomment %}
 
-            {% capture jpeg %}images/{{ image }}.jpg{% endcapture %}
 
             <img class="rounded-circle img-thumbnail"
-                 src="{% base64 assets/img/avatar-small.png %}"
+                 src="{% base64 assets/img/avatar.png %}"
                  {% comment %}src="{{ "assets/img/avatar-small.png" | base64 }}"{% endcomment %}
-                 src="{% base64 https://soprun.com/assets/img/avatar-small.png %}"
+                 {% comment %}src="{% base64 https://soprun.com/assets/img/avatar-small.png %}"{% endcomment %}
                  {% comment %}src="{% base64 author_image %}"{% endcomment %}
                  alt="{{ site.author.name | escape }}"
-                 alt="Lick Logo"
                  width="100"
                  height="100"
                  loading="lazy"
