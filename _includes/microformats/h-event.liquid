@@ -1,0 +1,50 @@
+h-event
+
+Для h-event в Интернете. h-event часто используется как со списками событий, так и с отдельными страницами событий.
+
+{% comment %}https://developer.mozilla.org/en-US/docs/Web/HTML/microformats#h-event{% endcomment %}
+
+
+<div class="h-event">
+    <h1 class="p-name">Microformats Meetup</h1>
+    <p>
+        From
+        <time class="dt-start" datetime="2013-06-30 12:00">30<sup>th</sup> June 2013, 12:00</time>
+        to <time class="dt-end" datetime="2013-06-30 18:00">18:00</time> at
+        <span class="p-location">Some bar in SF</span>
+    </p>
+    <p class="p-summary">
+        Get together and discuss all things microformats-related.
+    </p>
+</div>
+
+{% comment %}--------------{% endcomment %}
+
+<div class="h-event">
+    <h2 class="p-name">IndieWeb Summit</h2>
+    <time class="dt-start" datetime="2019-06-29T09:00:00-07:00">June 29, 2019 at 9:00am (-0700)</time><br />through
+    <time class="dt-end" datetime="2019-06-30T18:00:00-07:00">June 30, 2019 at 6:00pm (-0700)</time><br />
+    <div class="p-location h-card">
+        <div>
+            <span class="p-name">Mozilla</span>
+        </div>
+        <div>
+            <span class="p-street-address">1120 NW Couch St</span>,
+            <span class="p-locality">Portland</span>,
+            <span class="p-region">Oregon</span>,
+            <span class="p-country">US</span>
+        </div>
+        <data class="p-latitude" value="45.52345"></data>
+        <data class="p-longitude" value="-122.682677"></data>
+    </div>
+    <div class="e-content">Come join us</div>
+    <div>
+    <span class="p-author h-card">
+      <a class="u-url p-name" href="https://aaronparecki.com">Aaron Parecki</a>
+    </span>
+        Published this
+        <a href="https://aaronparecki.com/2019/06/29/1/" class="u-url">event </a>on
+        <time class="dt published" datetime="2019-05-25T18:00:00-07:00">May 5th, 2019</time>
+    </div>
+</div>
+

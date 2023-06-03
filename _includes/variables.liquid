@@ -46,3 +46,15 @@
     </picture>
 {% endcapture %}
 
+
+{% comment %}https://microformats.org/wiki/existing-rel-values{% endcomment %}
+
+{% capture rel %}
+    {% comment %}rel value{% endcomment %}
+
+    {% comment %}{%- assign page_url = site.baseurl | prepend: site.url %}{% endcomment %}
+
+    {{- page.title -}}
+{% endcapture %}
+
+

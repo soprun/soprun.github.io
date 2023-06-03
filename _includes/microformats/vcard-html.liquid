@@ -1,0 +1,527 @@
+
+{% comment %}https://developer.mozilla.org/en-US/docs/Web/HTML/microformats#h-event{% endcomment %}
+
+{% comment %}{% endcomment %}
+{% comment %}vCard Elements https://www.iana.org/assignments/vcard-elements/vcard-elements.xhtml{% endcomment %}
+{% comment %}- vCard Properties{% endcomment %}
+{% comment %}- vCard Parameters{% endcomment %}
+{% comment %}- vCard Value Data Types{% endcomment %}
+{% comment %}- vCard Property Values{% endcomment %}
+{% comment %}- vCard Parameter Values{% endcomment %}
+
+{% comment %}SOURCE:http://directory.example.com/addressbooks/jdoe/Jean%20Dupont.vcf{% endcomment %}
+{% comment %}X-ABDATE;type=pref:2013-03-12{% endcomment %}
+
+{% comment %}u-key - cryptographic public key e.g. SSH or GPG{% endcomment %}
+{% comment %}https://microformats.org/wiki/h-card{% endcomment %}
+
+
+{% comment %}<html xmlns="http://www.w3.org/1999/xhtml">{% endcomment %}
+{% comment %}<head profile="http://www.w3.org/2006/03/hcard">{% endcomment %}
+
+
+<div class="vcard" id="first">        <!-- @expect no_fn -->
+    <span class="class">CONFIDENTIAL</span>
+    <abbr class="tz"
+          title="-05:00; EST; Raleigh/North America;This example has a single value, not a structure text value.">
+        EST
+    </abbr>
+    <img class="photo" src="http://www.abc.com/pub/photos/jqpublic.gif" alt=""/>
+    <span class="n">
+           <span class="honorific-prefix">Dr.</span>
+           <span class="given-name">John</span>
+           <span class="additional-name">Philip</span>
+           <span class="additional-name">Paul</span>
+           <span class="family-name">Stevenson</span>,
+           <span class="honorific-suffix">Jr.</span>,
+           <span class="honorific-suffix">M.D.</span>,
+           <span class="honorific-suffix">A.C.P.</span>
+          </span>
+    <a class="email" href="mailto:jdoe@isp.net">email jdoe</a>
+    <abbr class="bday" title="1987-09-27T08:30:00-06:00">Sept 9, 1987</abbr>
+    <!-- @expect pre_elements -->
+    <pre class="note">Just<br/><br/><strong>testing</strong>.</pre>
+</div>
+
+<div class="vcard">
+    <a class="url fn" href="http://home.earthlink.net/~fdawson">Frank Dawson</a>
+    <div class="org">Lotus Development Corporation</div>
+    <div class="adr">
+        <span class="type">work</span> address
+        (<abbr class="type" title="postal">mail</abbr> and
+        <abbr class="type" title="parcel">packages</abbr>):
+        <div class="street-address">6544 Battleford Drive</div>
+        <span class="locality">Raleigh</span>
+        <span class="region">NC</span>
+        <span class="postal-code">27613-3502</span>
+        <div class="country-name">U.S.A.</div>
+    </div>
+    <div class="tel">
+        <span class="value">+1-919-676-9515</span>
+        (<abbr class="type" title="WORK">w</abbr>,
+        <abbr class="type" title="VOICE">v</abbr><abbr class="type" title="MSG">m</abbr>)
+    </div>
+    <div class="tel">
+        <span class="value">+1-919-676-9564</span>
+        (<abbr class="type" title="WORK">w</abbr><abbr class="type" title="FAX">f</abbr>)
+    </div>
+    <a class="email" href="mailto:Frank_Dawson@Lotus.com">
+        <span class="type">pref</span><span>erred email</span>
+    </a>,
+    <a class="email" href="mailto:fdawson@earthlink.net">
+        alternate email
+    </a>
+</div>
+
+
+<div class="vcard">
+    <a class="email fn" href="mailto:howes@netscape.com">Tim Howes</a>
+    <div class="org">Netscape Communications Corp.</div>
+    <div class="adr">
+        <span class="type">work</span> address:
+        <div class="street-address">501 E. Middlefield Rd.</div>
+        <span class="locality">Mountain View</span>,
+        <span class="region">CA</span>
+        <span class="postal-code">94043</span>
+        <div class="country-name">U.S.A.</div>
+    </div>
+    <div class="tel">
+        <span class="value">+1-415-937-3419</span>
+        (<abbr class="type" title="WORK">w</abbr>,
+        <abbr class="type" title="VOICE">v</abbr><abbr class="type" title="MSG">m</abbr>)
+    </div>
+    <div class="tel">
+        <span class="value">+1-415-528-4164</span>
+        (<abbr class="type" title="WORK">w</abbr><abbr class="type" title="FAX">f</abbr>)
+    </div>
+</div>
+
+
+<div class="vcard">
+      <span class="n">
+       <span class="honorific-prefix">Sir</span>
+       <span class="fn">
+        <span class="given-name">Rene</span>
+        <span class="family-name">
+         van der <span class="sort-string">Harten</span>
+        </span>
+       </span>
+       (<span class="additional-name">J.</span>),
+       <span class="honorific-suffix">R.D.O.N.</span>
+      </span>
+</div>
+
+<div class="vcard">
+    <object class="key" type="application/octet-stream"
+            data="data:application/octet-stream;base64,MIICajCCAdOgAwIBAgICBEUwDQYJKoZIhvcNAQEEBQA
+       wdzELMAkGA1UEBhMCVVMxLDAqBgNVBAoTI05ldHNjYXBlIENbW11bmljYX
+       Rpb25zIENvcnBvcmF0aW9uMRwwGgYDVQQLExNJbmZvcm1hdGlvbiBTeXN0
+       ZW1zMRwwGgYDVQQDExNyb290Y2EubmV0c2NhcGUuY29tMB4XDTk3MDYwNj
+       E5NDc1OVoXDTk3MTIwMzE5NDc1OVowgYkxCzAJBgNVBAYTAlVTMSYwJAYD
+       VQQKEx1OZXRzY2FwZSBDb21tdW5pY2F0aW9ucyBDb3JwLjEYMBYGA1UEAx
+       MPVGltb3RoeSBBIEhvd2VzMSEwHwYJKoZIhvcNAQkBFhJob3dlc0BuZXRz
+       Y2FwZS5jb20xFTATBgoJkiaJk/IsZAEBEwVob3dlczBcMA0GCSqGSIb3DQ
+       EBAQUAA0sAMEgCQQC0JZf6wkg8pLMXHHCUvMfL5H6zjSk4vTTXZpYyrdN2
+       dXcoX49LKiOmgeJSzoiFKHtLOIboyludF90CgqcxtwKnAgMBAAGjNjA0MB
+       EGCWCGSAGG+EIBAQQEAwIAoDAfBgNVHSMEGDAWgBT84FToB/GV3jr3mcau
+       +hUMbsQukjANBgkqhkiG9w0BAQQFAAOBgQBexv7o7mi3PLXadkmNP9LcIP
+       mx93HGp0Kgyx1jIVMyNgsemeAwBM+MSlhMfcpbTrONwNjZYW8vJDSoi//y
+       rZlVt9bJbs7MNYZVsyF1unsqaln4/vy6Uawfg8VUMk1U7jt8LYpo4YULU7
+       UZHPYVUaSgVttImOHZIKi4hlPXBOhcUQ==">
+        Key
+    </object>
+
+    <span class="class">PUBLIC</span>
+    <a class="url" href="http://www.swbyps.restaurant.french/~chezchic.html">Chez Chic</a>
+    <span class="uid">19950401-080045-40000F192713-0052</span>
+    <span class="fn n">
+       <span class="additional-name">Robert</span>
+       <span class="family-name sort-string">Pau</span>
+       <span class="given-name">Shou Chang</span>
+      </span>
+</div>
+
+
+{% comment %}https://hcard.geekhood.net/examples/im%20valid.html{% endcomment %}
+
+<div class="vcard">
+    <p class="fn">Chatter</p> AKA <p class="nickname">ChattyChatter</p> <!-- @expect implied_nickname -->
+
+    <a class="email" href="mailto:  joe@example.com?subjec=foo">IM with the AIM ShoppingBuddy</a>
+    <a class="url" href="aim:goim?screenname=ShoppingBuddy">IM with the AIM ShoppingBuddy</a>
+
+    <a class="url" href="ymsgr:sendIM?SomeYahooFriend">IM with SomeYahooFriend</a>
+
+    <a class="url" href="msnim:chat?contact=joebob@hotmail.com">IM with joebob@hotmail.com</a>
+
+    <!-- @expect url_as_value -->
+    <!-- class=value should silence nesting error (and use textnode, rather than href), but warn about url_as_value -->
+    <b class="url"><a class="value" href="xmpp:username@jabberservice.com">xmpp:username@jabberservice.com</a></b>
+
+
+    <a class="url" href="skype:echo-chinese?chat">IM with the Skype echo service (Chinese)</a>
+    <a class="url" href="skype:echo-chinese?call">Skype call to Skype echo service (Chinese)</a>
+    <a class="url" href="gg:123456">Gadu-Gadu</a>
+
+    <a class="url"
+       type="application/x-icq"
+       href="http://www.icq.com/people/cmd.php?uin=1234&amp;action=message">
+        Contact with ICQ</a>
+</div>
+
+{% comment %}https://hcard.geekhood.net/examples/obfuscated_email.html{% endcomment %}
+
+<div class="vcard">
+    <div class="n fn"><b class="given-name">Test</b> <b class="family-name">Suite</b></div>
+    <a
+        title='Send me an e-mail! (
+        href="mailto:me"
+        )'
+        href="
+        &#x20;m&#x61;i&#x6c;to&#58;&#x20;&#x65;n&#x74;&#x25;&#x36;9%7&#x34;%&#x37;9&#x25;&#x32;&#x64;&#x65;%&#x36;&#x65;&#x25;&#x36;3o&#100;&#x65;&#x25;6&#52;&#x25;&#x32;&#x64;&#x65;&#x6D;%6&#x31;&#x69;&#x25;6&#99;%&#x34;&#x30;&#101;&#120;a&#109;&#x70;&#108;&#101;&#x25;&#x32;eco&#37;6d
+        " class="
+        email
+        ">&#101;&#x6E;ti&#x74;y-&#x65;&#x6E;&#x63;ode&#100;&#45;e<!--
+        mailto:abuse@hotmail.com
+        </a>
+        -->&shy;&#x6D;&#x61;i&#x6C;&#64;&#x65;xample&#x2e;co&#x6d;</a>
+</div>
+
+
+<div class="vcard"><!-- @expect no_n no_fn email_no_protocol -->
+    <a class="email" href="/contact/form">bla@example.com</a>
+</div>
+
+
+<p class="author vcard">
+    Author: <a class="url fn" href="http://www.glennjones.net/">Glenn Jones</a> <a class="org url"
+                                                                                   href="http://www.madgex.com/">Madgex</a>
+</p>
+<!--
+<p>Output examples:
+<ul>
+<li class="output"><a class="url" href="hcard1.js"><span class="type">JSON</span></a></li>
+<li class="output"><a class="url" href="hcard1.xml"><span class="type">XML</span></a></li>
+</ul>
+</p>
+-->
+
+
+<div class="vcard">
+    <!-- This may not be the best semantic use of HTML element -->
+    <div class="fn n"><span class="given-name sort-string">John</span> Doe</div>
+    <div>Birthday: <abbr class="bday" title="2000-01-01T00:00:00-08:00">January 1st, 2000</abbr></div>
+    <div>Role: <span class="role">Designer</span></div>
+    <div>Location: <abbr class="geo" title="30.267991;-97.739568">Brighton</abbr></div>
+    <div>Time zone: <abbr class="tz" title="-05:00">Eastern Standard Time</abbr></div>
+
+    <div>Profile details:
+        <div>Profile id: <span class="uid">com.johndoe/profiles/johndoe</span></div>
+        <div>Details are: <span class="class">Public</span></div>
+        <div>Last updated: <abbr class="rev" title="2008-01-01T13:45:00">January 1st, 2008 - 13:45</abbr></div>
+    </div>
+</div>
+
+
+{% comment %}http://www.faqs.org/rfcs/rfc3339.html{% endcomment %}
+<!-- 0 -->
+
+<div class="vcard">
+    <div class="fn">John Doe</div>
+    <div>Last updated: <span class="rev"> {{ "RFC 3339" }}</span></div>
+</div>
+
+
+<cite class="vcard somethingelse">
+    <abbr class="fn" title="Andy Clarke">
+        <a class="nickname" href="http://www.stuffandnonsense.co.uk/malarkey">Malarkey</a>
+    </abbr>
+</cite>
+
+{% comment %}https://hcard.geekhood.net/examples/example%204.html{% endcomment %}
+
+<div class="vcard">
+    <abbr class="fn" title="Juliette Melton">
+
+        <!-- @expect unit_class -->
+        <span class="org">Some org <span class="unit">bla</span></span>
+
+        <a class="url nickname" rel="friend" href="http://juliettemelton.com/">Julie</a>
+    </abbr>
+    <span class="tel">
+         <!-- @expect img_in_value tel_letters -->
+       <span class="type">Fax</span> <img src="fax" alt="+1-"/>650-289-4041
+
+        <!-- @expect abbr_in_value date_syntax -->
+       <abbr title="January" class="bday">Jan</abbr>
+     </span>
+
+    <!-- @expect photo_as_value -->
+    <h1 class="photo">photo.gif</h1>
+</div>
+
+
+{% comment %}https://hcard.geekhood.net/examples/example%201.html{% endcomment %}
+
+
+<div class="vcard"> <!-- @expect company -->
+    <a class="fn org url" href="http://www.commerce.net/">Test Ã³Ã³Ã³!</a>
+    <div class="adr">
+        <span class="type">Work</span>:
+        <div class="street-address">169 University Avenue</div>
+        <span class="locality">Palo Alto</span>,
+        <abbr class="region" title="California">CA</abbr>
+        <span class="postal-code">94301</span>
+        <div class="country-name">USA</div>
+    </div>
+    <div class="tel">
+        <span class="type">Work</span> +1-650-289-4040
+    </div>
+    <div class="tel">
+        <span class="type">Fax</span> +1-650-289-4041
+    </div>
+    <div>Email:
+        <span class="email">info@commerce.net</span>
+    </div>
+</div>
+
+{% comment %}https://hcard.geekhood.net/examples/example%206.html{% endcomment %}
+
+<div class="vcard">
+    <p class="fn">Joe B.</p>
+    <a class="e&#109;ail" rel="nofollow" href="&#109;ailto:john.smith&#064;example.com">john.smith&#064;example.com</a>
+    <!-- @expect abbr_in_value date_syntax -->
+    <div class="bday">
+        <dt>Birthday</dt>
+        <dd>
+            <abbr class="value" title="1985-10-27T00:00:00Z">October 27, 1985</abbr>
+        </dd>
+    </div>
+</div>
+
+
+{% comment %}https://hcard.geekhood.net/examples/im%20invalid.html{% endcomment %}
+
+<div class="vcard">
+    <!-- @expect implied_nickname -->
+    <p class="fn">Chatter</p>
+
+    <a class="email" href="aim:ShoppingBuddy">IM with the AIM ShoppingBuddy</a><!-- @expect email_non_mailto -->
+
+    <a class="url" href="ymsgr:SomeYahooFriend">IM with SomeYahooFriend</a>
+
+    <a class="url" href="msnim:joebob@hotmail.com">IM with joebob@hotmail.com</a>
+
+    <a class="url" href="jabber:username@jabberservice.com">IM with username@jammerservice.com</a>
+    <!-- @expect jabber_protocol -->
+
+    <a class="url" href="skype:echo-chinese">Nochat!</a>
+    <a class="url" href="skype:echo-chinese?call">Skype call to Skype echo service (Chinese)</a>
+    <a class="url" href="icq:123456">Skype call to Skype echo service (Chinese)</a>
+
+
+    <!-- @expect email_http -->
+    <a class="email"
+       type="application/x-icq"
+       href="http://www.icq.com/people/cmd.php?uin=1234&amp;action=message">
+        Contact with ICQ</a>
+</div>
+
+
+{% comment %}https://hcard.geekhood.net/examples/orphan_adr.html{% endcomment %}
+
+<div class="vcard">
+    <!-- @expect uri_class, company -->
+    <a class="fn org uri" href="http://www.commerce.net/">CommerceNet</a>
+
+    <span class="type">Work</span>:
+
+    <div class="street-address">169 University Avenue</div> <!-- @expect orphan_adr_subprop -->
+    <span class="locality">Palo Alto</span>,  <!-- @expect orphan_adr_subprop -->
+    <abbr class="region" title="California">CA</abbr>  <!-- @expect orphan_adr_subprop -->
+    <span class="postal-code">94301</span><!-- @expect orphan_adr_subprop -->
+    <div class="country-name">USA</div><!-- @expect orphan_adr_subprop -->
+
+    <div class="tel">
+        <span class="type">Work</span> +1-650-289-4040
+    </div>
+    <div class="tel">
+        <span class="type">Fax</span> +1-650-289-4041
+    </div>
+    <div>Email:
+        <span class="email">info@commerce.net</span>
+    </div>
+</div>
+
+{% comment %}https://hcard.geekhood.net/examples/xhtml_wrong_profile.html{% endcomment %}
+
+<!-- @expect hcard_class -->
+<div class="hcard">
+    hcard! not vcard
+</div>
+
+{% comment %}https://hcard.geekhood.net/examples/example%209.html{% endcomment %}
+
+
+{% comment %}<html xmlns="http://www.w3.org/1999/xhtml">{% endcomment %}
+{% comment %}<head profile="http://www.w3.org/2006/03/hcard">{% endcomment %}
+{% comment %}<title>Valid 9 rfc2426</title>{% endcomment %}
+
+<!-- @expect multiple_idless_vcards -->
+<div class="agent vcard">        <!-- @expect  -->
+    <span class="role">Programmer</span>
+    <a class="email fn" href="mailto:jfriday@host.com">Joe Friday</a>
+    <div class="tel">+1-919-555-7878</div>
+    <div class="title">Area Administrator, Assistant</div>
+    <span class="org">
+      <span class="organization-name">ABC, Inc.</span>,
+      <span class="organization-unit">North American Division</span>,
+      <span class="organization-unit">Marketing</span>,
+     </span>
+
+    <span class="category">INTERNET</span>,
+    <span class="category">IETF</span>,
+    <span class="category">INDUSTRY</span>,
+    <span class="category">INFORMATION TECHNOLOGY</span>
+
+    <p class="note">This fax number is operational 0800 to 1715 EST, Mon-Fri.</p>
+
+    <abbr class="rev" title="1995-10-31T22:27:10Z">Updated: 10/31 10:27p</abbr>
+</div>
+
+
+<div class="vcard">
+    <span class="fn">Mr. John Q. Public, Esq.</span>
+    <span class="nickname">Robbie</span>
+    <abbr class="bday" title="1996-04-15">April 15, 1996</abbr>
+    <div class="adr">
+        <abbr class="type" title="dom">US</abbr>
+        <span class="type">home</span> address, for
+        <abbr class="type" title="postal">mail</abbr> and
+        <abbr class="type" title="parcel">shipments</abbr>:
+        <div class="street-address">123 Main Street</div>
+        <span class="locality">Any Town</span>, <span class="region">CA</span>,
+        <span class="postal-code">91921-1234</span>
+    </div>
+    <span class="tel">
+       <abbr class="type" title="pref">my</abbr>
+       <span class="type">work</span>
+       <abbr class="type" title="voice">phone</abbr>, with
+       <abbr class="type" title="msg">voicemail</abbr>:
+       <span class="value">+1-213-555-1234</span>
+      </span>
+
+    <abbr class="rev" title="1997-11-15">Updated: November 15</abbr>
+
+    <a class="email" href="mailto:jane_doe@abc.com">
+        <abbr class="type" title="pref">preferred</abbr>
+        email for jane_doe
+    </a>
+    <p>Jane Doe uses <span class="mailer">PigeonMail 2.1</span> for email.</p>
+    <span class="tz">-05:00</span>
+</div>
+
+<div class="vcard">        <!-- @expect no_fn no_n -->
+    <span class="agent vcard">
+                <!-- @expect nested_vcard -->
+       <a class="email fn" href="mailto:sthomas@host.com">Susan Thomas</a>,
+       <span class="tel">+1-919-555-1234</span>
+      </span>
+
+    <img class="logo" src="http://www.abc.com/pub/logos/abccorp.jpg" alt="my logo"/>
+    <span class="title">Director, Research and Development</span>
+    <a class="email" href="mailto:jqpublic@xyz.dom1.com">email jqpublic</a>
+    <span class="nickname">Jim</span>,
+    <span class="nickname">Jimmie</span>
+    <span class="n">
+       <span class="honorific-prefix">Mr.</span>
+       <span class="given-name">John</span>
+       <span class="additional-name">Quinlan</span>
+       <span class="family-name">Public</span>,
+       <span class="honorific-suffix">Esq.</span>
+       <abbr class="bday" title="1953-10-15T23:10:00Z">Oct 15, 1953</abbr>
+       <div class="label"><!-- @expect block_in_inline -->
+        <abbr class="type" title="dom">local delivery</abbr>
+        <abbr class="type" title="home">to my home</abbr>
+        <abbr class="type" title="postal">of mail</abbr>
+        <abbr class="type" title="parcel">and packages:</abbr>
+       <pre>
+       Mr.John Q. Public, Esq.
+       Mail Drop: TNE QB
+       123 Main Street
+       Any Town, CA  91921-1234
+       U.S.A.
+       </pre>
+       </div>
+      </span>
+
+    <img class="photo" src="data:image/jpeg;base64,MIICajCCAdOgAwIBAgICBEUwDQYJKoZIhvcN
+      AQEEBQAwdzELMAkGA1UEBhMCVVMxLDAqBgNVBAoTI05ldHNjYXBlIENvbW11bm
+      ljYXRpb25zIENvcnBvcmF0aW9uMRwwGgYDVQQLExNJbmZvcm1hdGlvbiBTeXN0" alt=""/><!-- @expect photo_data_invalid -->
+</div>
+
+
+{% comment %}Some microformats examples{% endcomment %}
+{% comment %}https://developer.mozilla.org/en-US/docs/Web/HTML/microformats{% endcomment %}
+
+
+<p class="h-card">
+    <img class="u-photo" src="https://example.org/photo.png" alt="" />
+    <a class="p-name u-url" href="https://example.org">Joe Bloggs</a>
+    <a class="u-email" href="mailto:joebloggs@example.com" >joebloggs@example.com</a>,
+    <span class="p-street-address">17 Austerstræti</span>
+    <span class="p-locality">Reykjavík</span>
+    <span class="p-country-name">Iceland</span>
+</p>
+
+
+
+
+<!-- birthday -->
+<div class="bday">
+    <dt>Birthday</dt>
+    <dd>
+        <abbr class="value" title="1985-10-27T00:00:00Z">October 27, 1985</abbr>
+    </dd>
+</div>
+
+
+{% comment %}view-source:https://hcard.geekhood.net/examples/example%209.html{% endcomment %}
+
+<!-- @expect multiple_idless_vcards -->
+<div class="agent vcard">        <!-- @expect  -->
+    <span class="role">Programmer</span>
+    <a class="email fn" href="mailto:jfriday@host.com">Joe Friday</a>
+    <div class="tel">+1-919-555-7878</div>
+    <div class="title">Area Administrator, Assistant</div>
+    <span class="org">
+      <span class="organization-name">ABC, Inc.</span>,
+      <span class="organization-unit">North American Division</span>,
+      <span class="organization-unit">Marketing</span>,
+     </span>
+
+    <span class="category">INTERNET</span>,
+    <span class="category">IETF</span>,
+    <span class="category">INDUSTRY</span>,
+    <span class="category">INFORMATION TECHNOLOGY</span>
+
+    <p class="note">This fax number is operational 0800 to 1715 EST, Mon-Fri.</p>
+
+    <abbr class="rev" title="1995-10-31T22:27:10Z">Updated: 10/31 10:27p</abbr>
+</div>
+
+<div class="label"><!-- @expect block_in_inline -->
+    <abbr class="type" title="dom">local delivery</abbr>
+    <abbr class="type" title="home">to my home</abbr>
+    <abbr class="type" title="postal">of mail</abbr>
+    <abbr class="type" title="parcel">and packages:</abbr>
+    <pre>
+       Mr.John Q. Public, Esq.
+       Mail Drop: TNE QB
+       123 Main Street
+       Any Town, CA  91921-1234
+       U.S.A.
+       </pre>
+</div>
+
+

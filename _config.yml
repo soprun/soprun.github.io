@@ -3,7 +3,6 @@ baseurl: ''
 lang: ru
 url: https://soprun.com
 encoding: UTF-8
-  
 # Enable safe mode
 #safe: true
 
@@ -20,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solution Architect
   Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
 
-keywords: [IT Наставник, Наставничество IT, Ментор IT, Менторство, Guide, Tutorials]
+keywords: [ IT Наставник, Наставничество IT, Ментор IT, Менторство, Guide, Tutorials ]
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 #logo: https://avatars.githubusercontent.com/soprun?size=400
 #logo: https://github.com/soprun.png?size=400
@@ -28,24 +27,160 @@ keywords: [IT Наставник, Наставничество IT, Ментор 
 logo: /assets/img/avatar-small.png
 email: mail@soprun.com
 
+favicon:     #put a path like: "img/favicon.ico"
+touch_icon:  #put a path like: "img/apple-touch-icon.png"
+
 author:
   name: Soprun Vladislav
   first_name: Vladislav
   last_name: Soprun
-  nickname: soprun
+  nickname: soprun,vlsoprun
+  gender: M
+  photo:
+    value: https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008
+    alt: ~
   description: >-
     Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solution Architect.<br><br>
     Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
-  url: https://soprun.com
-  email: mail@soprun.com
-  phone: +79017972126
-  avatar: https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008
+  #  url: https://soprun.com
+  #  email: mail@soprun.com
+  #  phone: +79017972126
+  ## криптографический открытый ключ, например, SSH или GPG
+  key: ~
+  site-profiles: ~
   gpg_public_key: https://github.com/soprun.gpg
   gpg_fingerprint: B750 2F96 C5DC 44C2
-#  vCard
-  company: Страна Девелопмент
-  job_title: Solution Architect
-  job_department: Департамент ИТ-архитектуры
+  birthday: 1992-11-30
+  social_profile:
+    - type: facebook
+      username: vladislav.soprun
+      value: https://www.facebook.com/vladislav.soprun
+    - type: twitter
+      username: VladislavSoprun
+      value: https://twitter.com/VladislavSoprun
+    - type: linkedin
+      username: soprun
+      value: https://www.linkedin.com/in/soprun/
+    - type: Instagram
+      username: vladislav.soprun
+      value: https://www.instagram.com/vladislav.soprun
+    - type: VK
+      username: soprun.vladislav
+      value: https://vk.com/soprun.vladislav
+    - type: GitHub
+      username: soprun
+      icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
+      value: https://github.com/soprun/
+    - type: GitLab
+      username: soprun
+      icon: <i class="fa-brands fa-gitlab" aria-hidden="true"></i>
+      value: https://gitlab.com/soprun/
+    #    - type: Telegram
+    #      title: Telegram channel
+    #      icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+    #      value: https://t.me/+YpCP4MsEorBmN2Qy
+    - type: Telegram
+      username: soprun
+      title: Telegram channel
+      icon: <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+      value: https://t.me/soprun
+    #    - type: Medium
+    #      icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
+    #      value: https://medium.com/@soprun
+  url:
+    - value: https://soprun.com
+      type:
+        - HOME
+        - pref
+  org:
+    name: Страна Девелопмент
+    unit: Департамент ИТ-архитектуры
+    role: Solution Architect
+    nickname: ~
+    url: ~
+    photo: ~
+    tz: ~
+    tel: [ ]
+    email: [ ]
+    logo:
+      value: ~
+      alt: ~
+    address:
+      street-address: Пресненская наб., 6, стр. 2
+      locality: Москва
+      region: Moscow
+      postal-code: 108811
+      country-name: Russia
+  #  address:
+  #    - type: Work
+  #      street-address: 1123 Main Street
+  #      locality: Palo Alto
+  #      region: California
+  #      region-code: CA
+  #      postal-code: 94301
+  #      country-name: USA
+  #      dom: US
+  #      postal: mail
+  #      parcel: shipments
+  email:
+    - type:
+        - INTERNET
+        - HOME
+        - pref
+      value: mail@soprun.com
+    - type:
+        - INTERNET
+        - WORK
+      value: develop@soprun.com
+    - type:
+        - INTERNET
+        - WORK
+      value: job@soprun.com
+  phone:
+    - value: +7 (901) 797-21-26
+      type:
+        - INTERNET
+        - HOME
+        - IPHONE
+        - CELL
+        - VOICE
+        - pref
+
+      # <a href="skype:echo-chinese?call">Skype call to Skype echo service (Chinese)</a>
+      # <a href="mailto:joe.smith@example.com" class="fn" rel="met">Joe Smith</a>
+
+      # - #  vCard
+      #  company:
+      #  company_address: Россия, Москва. Пресненская наб., 6, стр. 2, 36 этаж
+      #  ORG:Страна Девелопмент;Департамент ИТ-архитектуры
+      #  TITLE:Solution Architect
+      #  job_title: Solution Architect
+      #  job_department: Департамент ИТ-архитектуры
+
+      # org: # affiliated organization, optionally embed an h-card
+      #  job_title: Solution Architect
+      #  role: Solution Architect
+
+
+  #  item7.ADR;type=HOME;type=pref:;;Саларьевская улица\, 8 к1;деревня Саларьево;Moscow;108811;Russia
+
+  #  div class="adr">
+  #  <div class="org fn">
+  #  <div class="organization-name"></div>
+  #  <div class="organization-unit extended-address"></div>
+  #  </div>
+  #  <div class="street-address">2531 Barrington Court</div>
+  #  <span class="locality">Hayward</span>,
+  #  <abbr title="California" class="region">CA</abbr>
+  #  <span class="postal-code">94545</span>
+  #  </div>
+
+  #  <span class="type">Work</span>:
+  #    <div class="street-address">169 University Avenue</div>
+  #    <span class="locality">Palo Alto</span>,
+  #    <abbr class="region" title="California">CA</abbr>&nbsp;&nbsp;
+  #    <span class="postal-code">94301</span>
+  #    <div class="country-name">USA</div>
 
 color:
   theme: '#ffffff'
@@ -117,11 +252,11 @@ kramdown:
 plugins:
   - jekyll-dotenv
   - jekyll-environment-variables
-  #  - jekyll-feed
-  #  - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-notion
+  - jekyll-relative-links
+  #  - jekyll-feed
+  #  - jekyll-sitemap
 
 # https://jekyllrb.com/docs/configuration/front-matter-defaults/
 collections:
@@ -131,7 +266,7 @@ collections:
   posts:
     output: true
     permalink: /:name
-  
+
 #  posts:
 #    output: true
 #    permalink: /:collection/:name
@@ -165,7 +300,7 @@ defaults:
         email: ~
         avatar: ~
       image: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
-      categories: []
+      categories: [ ]
 
   - scope:
       type: posts
@@ -173,15 +308,15 @@ defaults:
     values:
       layout: post
       type: post
-#      permalink: '/page/:id'
-#      permalink: /:categories/:title:output_ext
+      #      permalink: '/page/:id'
+      #      permalink: /:categories/:title:output_ext
       permalink: /:slug
 
-#  - scope:
-#      type: pages
-#      path: _pages
-#    values:
-#      layout: page
+  #  - scope:
+  #      type: pages
+  #      path: _pages
+  #    values:
+  #      layout: page
 
   - scope:
       path: 'assets/img'
@@ -192,13 +327,22 @@ defaults:
 #permalink: date
 # https://mademistakes.com/mastering-jekyll/how-to-link/#collection-url-defaults
 #permalink: /:collection/:path
+
 permalink: /:categories/:title
 paginate: 5
 paginate_path: /page/:num
-
 page_excerpts: true
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
 excerpt_length: 50
 excerpt_separator: "<!--more-->"
 excerpt_delimiter: ---
+
+# https://github.com/benbalter/jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: false
+  exclude:
+    - directory
+    - file.md

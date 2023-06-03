@@ -1,0 +1,91 @@
+---
+layout: null
+published: true
+permalink: /hCard.html
+---
+
+{% comment %}https://microformats.org/wiki/h-card{% endcomment %}
+
+<div id="hcard-Paula-Nichols" class="vcard">
+    <img src="//placehold.it/313x106/" alt="logo of Paula Nichols Design" class="logo"/>
+    <div class="tel">661.205.7651</div>
+    <div class="org visuallyhidden">Paula Nichols Design</div>
+    <a class="email" href="mailto-email-address-here">paula at paulanichols dot com</a>
+    <a class="url fn" href="http://paulanichols.com">paulanichols.com</a>
+    <div class="small">
+        <span class="category">web design</span> &middot; <span class="category">email marketing</span>
+        &middot; <span class="category">logo &amp; print design</span> &middot; <span class="category">branding</span>
+    </div>
+</div>
+
+<style>
+    body {
+        font: 100%/1.5 lato, sans-serif;
+    }
+
+    .vcard a,
+    .vcard .tel {
+        color: #3ebda7;
+    }
+
+    .vcard a {
+        font-size: .875em;
+        /* font-style: normal; */
+        font-weight: 300;
+        /* line-height: 18pt; */
+        /* text-align: left; */
+        text-decoration: none;
+    }
+
+    /* a:visited { */
+    /*   text-decoration: none; */
+    /* } */
+    .vcard a:hover {
+        /* text-decoration: none; */
+        color: #ccd62a;
+    }
+
+    /* a:active { */
+    /*   text-decoration: none; */
+    /* } */
+    .vcard .small {
+        color: #f79421;
+        /* font-family: lato; */
+        /* font-style: normal; */
+        /* font-size: 85%; */
+        font-size: 80%;
+        font-weight: 300;
+        /* line-height: 18pt; */
+        /* text-align: left; */
+        /* text-decoration: none; */
+    }
+
+    .vcard .tel,
+    .vcard .url,
+    .vcard .email {
+        display: block;
+    }
+
+    .visuallyhidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        white-space: nowrap; /* 1 */
+    }
+
+    .visuallyhidden.focusable:active,
+    .visuallyhidden.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+        white-space: inherit;
+    }
+</style>

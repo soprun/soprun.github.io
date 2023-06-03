@@ -51,6 +51,11 @@ This repository is for the site [https://soprun.com](https://soprun.com).
 
 - <https://dash.cloudflare.com/04fcec9f6b5313d8cd9feb20456640de/pages/view/soprun-github-io>
 
+
+## Microformats
+- https://developer.mozilla.org/en-US/docs/Web/HTML/microformats
+
+
 ---
 
 - <https://getbootstrap.com/docs/5.1/examples/masonry/>

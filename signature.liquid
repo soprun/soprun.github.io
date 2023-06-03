@@ -40,22 +40,6 @@ permalink: /signature.html
     <tbody>
     <tr>
         <td class="tg-a6tz" style="text-align: left">
-            {% comment %}<img class="rounded-circle img-thumbnail"{% endcomment %}
-            {% comment %}src="{{ author.avatar | relative_url }}?size=50&d=mm&r=g"{% endcomment %}
-            {% comment %}alt="{{ author.name | escape }}"{% endcomment %}
-            {% comment %}width="50"{% endcomment %}
-            {% comment %}height="50"{% endcomment %}
-            {% comment %}loading="lazy"{% endcomment %}
-            {% comment %}decoding="async">{% endcomment %}
-            {% comment %}{% endcomment %}
-            {% comment %}<img src="https://soprun.com/assets/img/avatar-small.png" width="400" height="300">{% endcomment %}
-
-
-            {% comment %}{% base64 assets/img/avatar-small.png %}{% endcomment %}
-            {% comment %}{% capture jpeg %}images/{{ image }}.jpg{% endcapture %}{% endcomment %}
-
-
-
             <img class="rounded-circle img-thumbnail"
                  src="{% base64 assets/img/avatar-small.png %}"
                  {% comment %}src="{% base64 assets/img/avatar.png | relative_url %}"{% endcomment %}
