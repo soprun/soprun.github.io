@@ -1,0 +1,210 @@
+---
+layout: null
+published: true
+permalink: /signature.html
+---
+{%- include variables.liquid -%}
+
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'ru' }}" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Signature</title>
+</head>
+<body>
+
+<!--<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>-->
+
+<!--<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="soprun" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ru.linkedin.com/in/soprun?trk=profile-badge">Vladislav Soprun</a></div>-->
+
+{% comment %}<pre>{{ site | jsonify }}</pre>{% endcomment %}
+
+{% comment %}Vladislav Soprun{% endcomment %}
+{% comment %}Solution Architect{% endcomment %}
+
+
+<table class="tg">
+    <colgroup>
+        <col style="width: 100px">
+        <col style="width: 100%">
+    </colgroup>
+    <thead>
+    <tr>
+        <td>123</td>
+        <td>1233</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="tg-a6tz" style="text-align: left">
+            {% comment %}<img class="rounded-circle img-thumbnail"{% endcomment %}
+            {% comment %}src="{{ author.avatar | relative_url }}?size=50&d=mm&r=g"{% endcomment %}
+            {% comment %}alt="{{ author.name | escape }}"{% endcomment %}
+            {% comment %}width="50"{% endcomment %}
+            {% comment %}height="50"{% endcomment %}
+            {% comment %}loading="lazy"{% endcomment %}
+            {% comment %}decoding="async">{% endcomment %}
+            {% comment %}{% endcomment %}
+            {% comment %}<img src="https://soprun.com/assets/img/avatar-small.png" width="400" height="300">{% endcomment %}
+
+
+            {% comment %}{% base64_encoded assets/img/avatar-small.png %}{% endcomment %}
+
+            {% capture jpeg %}images/{{ image }}.jpg{% endcapture %}
+
+            <img class="rounded-circle img-thumbnail"
+                 src="{% base64 assets/img/avatar-small.png %}"
+                 {% comment %}src="{{ "assets/img/avatar-small.png" | base64 }}"{% endcomment %}
+                 src="{% base64 https://soprun.com/assets/img/avatar-small.png %}"
+                 {% comment %}src="{% base64 author_image %}"{% endcomment %}
+                 alt="{{ site.author.name | escape }}"
+                 alt="Lick Logo"
+                 width="100"
+                 height="100"
+                 loading="lazy"
+                 decoding="async">
+
+        </td>
+        <td class="content">
+            Full Name
+            Job Title
+            Company
+            Website
+
+            Phone
+
+
+            <hr>
+            {{ site.author.job_department }}
+            {{ site.author.job_title }}
+            {{ site.author.company }}
+
+            {% comment %}<a download="/vcard.vcf" href="/vcard.vcf" class="button">Import</a>{% endcomment %}
+
+
+            <h3>
+                {{ site.author.name | escape }}
+            </h3>
+
+            {%- assign job_title = '' %}
+
+            {% if site.author.job_title and site.author.company %}
+                {%- assign job_title = site.author.job_title | append: ' / ' |  append: site.author.company  %}
+            {% endif %}
+
+
+            <h5>
+                {{ job_title }}
+
+                {% comment %}{{ site.author.job_title | escape }} / {{ site.author.company | escape }}{% endcomment %}
+            </h5>
+
+            <hr>
+
+            Website:
+            <a href="{{ site.author.url }}" target="_blank">
+                {{ site.author.url }}
+            </a>
+            <br>
+
+            Email:
+            <a href="mailto:{{ site.author.email }}">
+                {{ site.author.email }}
+            </a>
+            <br>
+
+            Phone:
+            <a href="tel:{{ site.author.phone }}">
+                {{ site.author.phone }}
+            </a>
+            <br>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<style>
+    .content {
+        color: #409eff;
+    }
+
+    .grey {
+        color: #999999;
+    }
+
+    :root {
+        --color-primary: #409eff;
+        --color-primary-hover: #66b3ff;
+    }
+
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 1.5em
+    }
+
+    p {
+        color: #010101;
+    }
+</style>
+
+
+{% comment %}https://app.mysigmail.com/social{% endcomment %}
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .tg td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+    }
+
+    .tg .tg-a6tz {
+        font-family: Arial, Helvetica, sans-serif !important;
+        text-align: center;
+        vertical-align: middle
+    }
+
+    @media screen and (max-width: 767px) {
+        .tg {
+            width: auto !important;
+        }
+
+        .tg col {
+            width: auto !important;
+        }
+
+        .tg-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+</style>
+
+</body>
+</html>
+

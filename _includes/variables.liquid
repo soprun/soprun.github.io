@@ -25,3 +25,24 @@
 {%- capture copyright -%}
     Copyright &copy; <span itemprop="copyrightYear">{{ "now" | date: "%Y" }}</span> {{ site.short_title }}
 {%- endcapture -%}
+
+{% comment %}original{% endcomment %}
+
+{% capture author_avatar %}
+    <picture>
+        <source
+            srcset="{{ site.author.avatar | relative_url }}?size=100&d=mm&r=g 1x"
+            media="(min-width: 40em)">
+        <source
+            srcset="{{ site.author.avatar | relative_url }}?size=200&d=mm&r=g 2x, {{ site.author.avatar | relative_url }}?size=400&d=mm&r=g 4x"
+            media="(min-width: 75em)">
+        <img class="rounded-circle img-thumbnail"
+             src="{{ site.author.avatar | relative_url }}?size=100&d=mm&r=g"
+             alt="{{ site.author.name | escape }}"
+             {% comment %}width="50"{% endcomment %}
+             {% comment %}height="50"{% endcomment %}
+             {% comment %}loading="lazy"{% endcomment %}
+             decoding="async">
+    </picture>
+{% endcapture %}
+

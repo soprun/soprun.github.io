@@ -1,0 +1,26 @@
+BEGIN:VCARD
+VERSION:3.0
+KIND:org
+N:;;;
+FN:
+ORG:{{site.title}};Customer Service
+PHOTO;ENCODING=b;TYPE=image/PNG:{% base64 http://legaldemo.strikehawk.com/assets/images/balance-scale-solid.png %}
+LOGO;ENCODING=b;TYPE=image/PNG:{% base64 http://legaldemo.strikehawk.com/assets/images/balance-scale-solid.png %}
+item1.ADR;type=work:;;{{site.addr}};{{site.city}};{{site.state}};{{site.zip}};{{site.country}};;GEO="geo:{{site.lat}},{{site.long}}";TZ:{{site.timezone}};LANG:{{site.lang}}
+item1.X-ABADR:us
+TEL;type=MAIN,VOICE,MSG:{{site.tel}}
+item2.URL;TYPE=WORK;TYPE=pref:https://{{site.url}}
+item2.X-ABLABEL:_$!<HomePage>!$_
+    X-ABShowAs:COMPANY
+    EMAIL;type=internet,work:{{site.email}}
+    CATEGORIES:Legal Services,Attorney
+    PROFILE:VCARD
+    ROLE:Legal Services
+    SOURCE:http://{{site.url}}/vcard.vcf
+    EXPERTISE;LEVEL=expert:Criminal Law, Insurance Litigation
+    IMPP;X-SERVICE-TYPE=facebook;TYPE=HOME;TYPE=pref:xmpp:{{site.social.facebook}}
+    IMPP;X-SERVICE-TYPE=googletalk;TYPE=WORK:xmpp:denver.prophit@gmail.com
+    X-SOCIALPROFILE;type=twitter;x-user={{site.social.twitter}}:https://twitter.com/{{site.social.twitter}}
+    X-SOCIALPROFILE;type=facebook;x-user={{site.social.facebook}}:https://facebook.com/{{site.social.facebook}}
+    REV:{% last_modified_at %Y%m%d %}T13:00:00Z-6:00
+    END:VCARD

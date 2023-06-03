@@ -3,6 +3,9 @@ baseurl: ''
 lang: ru
 url: https://soprun.com
 encoding: UTF-8
+  
+# Enable safe mode
+#safe: true
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
@@ -36,9 +39,13 @@ author:
   url: https://soprun.com
   email: mail@soprun.com
   phone: +79017972126
-  avatar: /assets/img/avatar-small.png
+  avatar: https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008
   gpg_public_key: https://github.com/soprun.gpg
   gpg_fingerprint: B750 2F96 C5DC 44C2
+#  vCard
+  company: Страна Девелопмент
+  job_title: Solution Architect
+  job_department: Департамент ИТ-архитектуры
 
 color:
   theme: '#ffffff'
@@ -47,9 +54,6 @@ color:
   primary: '#cfc3ee'
   secondary: '#cfc3ee'
   tile_color: '#ffffff'
-
-# Handling Reading
-safe: false
 
 include:
   - CNAME

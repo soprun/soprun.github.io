@@ -16,6 +16,11 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-notion'
 
+#   gem 'jekyll-mentions'
+#   gem 'jekyll-last-modified-at'
+
   gem 'html-proofer', group: :development
   gem "webrick", "~> 1.7", group: :development
 end
+
+gem 'mimemagic'

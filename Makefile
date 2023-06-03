@@ -27,14 +27,16 @@ doctor: ##  Outputs any deprecation or configuration issues.
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
 watch: clean ##Execute a script in the current bundl
-	@#JEKYLL_ENV=development
-	@#JEKYLL_LOG_LEVEL=debug
+	@JEKYLL_ENV=development
+	@JEKYLL_LOG_LEVEL=debug
 	@#kill $(pgrep jekyll)
 	@#bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace --open-url
 	bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace
 
 kill:
 	kill $(pgrep jekyll)
+
+# export FREEDESKTOP_MIME_TYPES_PATH=$HOME/freedesktop.org.xml
 
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	#gem install jekyll
@@ -43,12 +45,12 @@ install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	make -s build
 
 update: ## Update dependencies to their latest versions
-	@#gem update --system
+	@gem update --system
 	@#bundle update --all
-	bundle outdated
-	bundle update --bundler
-	bundle check
-	make -s build
+	@bundle outdated
+	@bundle update --bundler
+	@bundle check
+	@make -s build
 
 test-htmlproofer: ## Run HTMLProofer 📚
 	## HTMLProofer is a set of tests to validate your HTML output.
@@ -74,7 +76,7 @@ test-lighthouse: ## Run Lighthouse 💡
 	open ./report/report.html
 
 build: clean ## Build your site
-	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace
+	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace --verbose
 
 build-preview:
 	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace

@@ -1,5 +1,9 @@
 # Personal profile & blog
 
+Интересный дизайн:
+
+- https://www.karanpratapsingh.com/blog ⚠️
+
 Crafted with [Jekyll](https://github.com/mojombo/jekyll), built and hosted by
 [Cloudflare Pages](https://developers.cloudflare.com/pages/).
 

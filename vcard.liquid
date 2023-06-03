@@ -1,0 +1,69 @@
+---
+layout: null
+permalink: /vcard.vcf
+---
+
+{% comment %}# The location{% endcomment %}
+{% comment %}tel: (352) 123-1234{% endcomment %}
+{% comment %}logo: balance-scale-solid.png{% endcomment %}
+{% comment %}email: sales@services.strikehawk.com{% endcomment %}
+{% comment %}addr: 1720 NW 38TH AVE.\n#57{% endcomment %}
+{% comment %}city: Ocala{% endcomment %}
+{% comment %}state: FL{% endcomment %}
+{% comment %}zip: 34482{% endcomment %}
+{% comment %}country: United States{% endcomment %}
+{% comment %}lat: 29.205120{% endcomment %}
+{% comment %}long: -82.318940{% endcomment %}
+{% comment %}timezone: America/New_York{% endcomment %}
+{% comment %}lang: en-US{% endcomment %}
+
+{% comment %}BEGIN:VCARD{% endcomment %}
+{% comment %}VERSION:3.0{% endcomment %}
+{% comment %}PRODID:-//StrikeHawk eCommerce,Inc.//TwentyUp//EN{% endcomment %}
+{% comment %}KIND:org{% endcomment %}
+{% comment %}N:;;;;{% endcomment %}
+{% comment %}FN:{% endcomment %}
+{% comment %}ORG:{{site.title}};Customer Service{% endcomment %}
+{% comment %}item1.ADR;TYPE=WORK;TYPE=pref:;;{{site.addr}};{{site.city}};{{site.state}};{{site.zip}};{{site.country}}{% endcomment %}
+{% comment %}item1.GEO:{{ site.lat }};{{ site.long }}{% endcomment %}
+{% comment %}item1.X-ABADR:us{% endcomment %}
+{% comment %}TEL;type=MAIN,VOICE:{{site.tel}}{% endcomment %}
+{% comment %}item2.URL;TYPE=WORK;TYPE=pref:https://{{site.url}}{% endcomment %}
+{% comment %}item2.X-ABLABEL:_$!<HomePage>!$_{% endcomment %}
+    {% comment %}EMAIL;type=internet,work:{{site.email}}{% endcomment %}
+    {% comment %}SOURCE:http://{{site.url}}/vcard.vcf{% endcomment %}
+    {% comment %}IMPP;X-SERVICE-TYPE=facebook;TYPE=HOME;TYPE=pref:xmpp:{{site.social.facebook}}{% endcomment %}
+    {% comment %}IMPP;X-SERVICE-TYPE=googletalk;TYPE=WORK:xmpp:denver.prophit@gmail.com{% endcomment %}
+    {% comment %}X-SOCIALPROFILE;type=twitter;x-user={{site.social.twitter}}:https://twitter.com/{{site.social.twitter}}{% endcomment %}
+    {% comment %}X-SOCIALPROFILE;type=facebook;x-user={{site.social.facebook}}:https://facebook.com/{{site.social.facebook}}{% endcomment %}
+    {% comment %}{% comment %}PHOTO;ENCODING=b;TYPE=JPEG:{% base64 http://legaldemo.strikehawk.com/assets/images/balance-scale-solid.jpg %}{% endcomment %}{% endcomment %}
+    {% comment %}{% comment %}PHOTO;ENCODING=b;TYPE=JPEG:{% base64 https://soprun.com/assets/img/avatar-small.png %}`{% endcomment %}{% endcomment %}
+    {% comment %}X-ABShowAs:COMPANY{% endcomment %}
+    {% comment %}{% comment %}REV:{% page.date | date: '%Y%m%d' %}T13:00:00Z-6:00{% endcomment %}{% endcomment %}
+    {% comment %}END:VCARD{% endcomment %}
+
+
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//StrikeHawk eCommerce,Inc.//TwentyUp//EN
+KIND:org
+N:;;;;
+FN:
+ORG:{{site.title}};
+Customer Service
+item1.ADR;TYPE=WORK;TYPE=pref:;;{{site.addr}};{{site.city}};{{site.state}};{{site.zip}};{{site.country}}
+item1.GEO:{{ site.lat }};{{ site.long }}
+item1.X-ABADR:us
+TEL;type=MAIN,VOICE:{{site.tel}}
+item2.URL;TYPE=WORK;TYPE=pref:https://{{site.url}}
+item2.X-ABLABEL:_$!<HomePage>!$_EMAIL;type=internet,work:{{site.email}}
+    TEL;type=IPHONE;type=CELL;type=VOICE;type=pref:+7 (901) 797-21-26
+    SOURCE:http://{{site.url}}/vcard.vcf
+    IMPP;X-SERVICE-TYPE=facebook;TYPE=HOME;TYPE=pref:xmpp:{{site.social.facebook}}
+    IMPP;X-SERVICE-TYPE=googletalk;TYPE=WORK:xmpp:denver.prophit@gmail.com
+    X-SOCIALPROFILE;type=twitter;x-user={{site.social.twitter}}:https://twitter.com/{{site.social.twitter}}
+    X-SOCIALPROFILE;type=facebook;x-user={{site.social.facebook}}:https://facebook.com/{{site.social.facebook}}
+    {% comment %}PHOTO;ENCODING=b;TYPE=JPEG:{% base64 https://soprun.com/assets/img/avatar-small.png %}{% endcomment %}
+    X-ABShowAs:COMPANY
+    {% comment %}REV:{% last_modified_at %Y%m%d %}T13:00:00Z-6:00{% endcomment %}
+END:VCARD

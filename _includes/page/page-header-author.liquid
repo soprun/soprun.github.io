@@ -17,24 +17,6 @@
 
     {% comment %}{% assign author = site.authors| where: 'short_name', page.author | first %}{% endcomment %}
 
-    {% capture author_avatar %}
-        <picture>
-            <source
-                srcset="{{ author.avatar | relative_url }}?size=50&d=mm&r=g 1x"
-                media="(min-width: 40em)">
-            <source
-                srcset="{{ author.avatar | relative_url }}?size=100&d=mm&r=g 2x, {{ author.avatar | relative_url }}?size=200&d=mm&r=g 4x"
-                media="(min-width: 75em)">
-            <img class="rounded-circle img-thumbnail"
-                 src="{{ author.avatar | relative_url }}?size=50&d=mm&r=g"
-                 alt="{{ author.name | escape }}"
-                 width="50"
-                 height="50"
-                 loading="lazy"
-                 decoding="async">
-        </picture>
-    {% endcapture %}
-
     {% assign author = site.author %}
     {% if author %}
         <div class="page-author">
