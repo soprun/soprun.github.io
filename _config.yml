@@ -4,7 +4,7 @@ lang: ru
 url: https://soprun.com
 encoding: utf-8
 # Enable safe mode
-safe: true
+safe: false
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
