@@ -37,3 +37,19 @@ https://cloudfour.com/thinks/dont-use-picture-most-of-the-time/
                {{ f[0] | relative_url }}.{{ f[1] }} 1920w"
          alt="{{ page.title }}">
 {% endif %}
+
+
+Using WebP Images in Jekyll
+
+https://www.aleksandrhovhannisyan.com/blog/improve-page-load-speed-in-jekyll-using-the-webp-image-format/
+
+
+{% assign img = include.img %}
+<picture>
+    <source type="image/webp" srcset="/assets/images/posts/{{ page.slug }}/{{ img }}.webp" >
+    <img src="/assets/images/posts/{{ page.slug }}/{{ img }}.{{ include.ext }}" alt="{{ include.alt }}" />
+</picture>
+
+
+
+{% include picture.html img="my-image.jpg" alt="My alt text" %}

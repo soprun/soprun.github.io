@@ -24,5 +24,5 @@ group :jekyll_plugins do
   gem 'html-proofer', group: :development
   gem "webrick", "~> 1.7", group: :development
 
-  gem 'mimemagic'
+#   gem 'mimemagic'
 end

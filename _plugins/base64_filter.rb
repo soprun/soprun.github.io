@@ -1,4 +1,3 @@
-require "mimemagic"
 require "base64"
 require "pathname"
 
@@ -30,6 +29,8 @@ module Base64Filter
     end
 
     def encode_base64_url(input)
+        require "mimemagic"
+
         @url = Pathname.new(input)
 
         if !File.exist?(@url)
