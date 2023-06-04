@@ -45,7 +45,9 @@ permalink: /signature.html
                 <small class="p-role">{{ site.author.org.role | escape }}</small>
             </h1>
             <h3 class="h-card p-org" style="margin: 0">
-                <a class="u-url p-name" href="{{ site.author.org.url }}" target="_blank">
+                <a class="u-url p-name" href="{{ site.author.org.url }}"
+                   target="_blank"
+                   style="color: #010101">
                     {{ site.author.org.name | escape }}
                 </a>
                 <small>{{ site.author.org.unit | escape }}</small>
@@ -93,25 +95,24 @@ permalink: /signature.html
     </tbody>
 </table>
 <style type="text/css">
-    :root {
-        --color-body: #010101;
-        --color-primary: #409eff;
-        --color-primary-hover: #66b3ff;
-    }
-
     body {
-        color: var(--color-body);
+        color: #010101;
         /*font-size: 1rem;*/
-        font-size: small;
+        font-size: 10px;
         font-weight: 400;
-        line-height: 1.5;
+        line-height: normal;
         margin: 0;
         padding: 0;
     }
 
     a {
-        color: var(--color-primary);
+        color: #409eff;
         text-decoration: none;
+    }
+
+    a:hover {
+        color: #66b3ff;
+        text-decoration: underline;
     }
 
     img {
@@ -119,20 +120,14 @@ permalink: /signature.html
         /*max-width: 100%;*/
     }
 
-    a:hover {
-        color: var(--color-primary-hover);
-        text-decoration: underline;
-    }
-
     .footer {
         color: grey;
         /*font-size: .8rem;*/
         /*line-height: normal;*/
-        transition: color .15s ease-in-out;
     }
 
     .footer:hover {
-        color: var(--color-body);
+        color: #010101;
     }
 </style>
 {% comment %}https://app.mysigmail.com/social{% endcomment %}
