@@ -40,16 +40,16 @@
     {% include snippet/sidebar/sidebar-contact.liquid %}
 </section>
 
-<section id="sidebar-channel" class="text-center d-none">
-    <a href="https://t.me/+YpCP4MsEorBmN2Qy"
-       rel="noopener noreferrer"
-       target="_blank">
-        <img src="{{ '/assets/img/tg-channel.jpg' | relative_url }}"
-             class="img-fluid"
-             alt="{{ site.title | escape }}"
-             width="60%">
-    </a>
-</section>
+{% comment %}<section id="sidebar-channel" class="text-center d-none">{% endcomment %}
+    {% comment %}<a href="https://t.me/+YpCP4MsEorBmN2Qy"{% endcomment %}
+       {% comment %}rel="noopener noreferrer"{% endcomment %}
+       {% comment %}target="_blank">{% endcomment %}
+        {% comment %}<img src="{{ '/assets/img/tg-channel.jpg' | relative_url }}"{% endcomment %}
+             {% comment %}class="img-fluid"{% endcomment %}
+             {% comment %}alt="{{ site.title | escape }}"{% endcomment %}
+             {% comment %}width="60%">{% endcomment %}
+    {% comment %}</a>{% endcomment %}
+{% comment %}</section>{% endcomment %}
 
 <section id="sidebar-quote" class="d-none">
     {% include snippet/quote.liquid %}

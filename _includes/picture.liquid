@@ -12,3 +12,28 @@
 
 # https://rbuchberger.github.io/jekyll_picture_tag/users/presets/markup_formats/javascript_friendly.html
 
+
+{% comment %}https://html.spec.whatwg.org/#the-picture-element{% endcomment %}
+
+<figure>
+    <picture>
+        <source srcset="a-square.png" media="(max-width: 600px)">
+        <img src="a-rectangle.png" alt="Barney Frank wears a suit and glasses.">
+    </picture>
+    <figcaption>Barney Frank, 2011</figcaption>
+</figure>
+
+
+
+https://mademistakes.com/articles/using-jekyll-2017/
+
+https://cloudfour.com/thinks/dont-use-picture-most-of-the-time/
+
+{% if page.image.feature %}
+    {% assign f = page.image.feature | split: '.' %}
+    <img src="{{ f[0] | relative_url }}-320.{{ f[1] }}"
+         srcset="{{ f[0] | relative_url }}-768.{{ f[1] }} 768w,
+               {{ f[0] | relative_url }}-1024.{{ f[1] }} 1024w,
+               {{ f[0] | relative_url }}.{{ f[1] }} 1920w"
+         alt="{{ page.title }}">
+{% endif %}

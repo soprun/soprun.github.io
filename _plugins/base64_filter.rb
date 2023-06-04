@@ -1,16 +1,11 @@
-# require "mimemagic"
-# require "base64"
-# require "pathname"
+require "mimemagic"
+require "base64"
+require "pathname"
 
 module Base64Filter
-  def sendMessage(msg)
-    # puts "\n" + msg + " \"" + @url + "\"\n"
-    # puts "in " + @cs[:page]["path"].yellow + "\n"
-  end
-
-  def base64_encode (input)
-    Base64.encode64(input)
-  end
+      def base64_encode (input)
+        Base64.encode64(input)
+      end
 
     # encoding_base64
     # Bash base64 encode and decode
@@ -71,4 +66,3 @@ module Base64Filter
 end
 
 Liquid::Template.register_filter(Base64Filter)
-
