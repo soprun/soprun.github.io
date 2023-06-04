@@ -40,13 +40,30 @@ permalink: /signature.html
     <tbody>
     <tr>
         <td class="tg-a6tz" style="text-align: left">
+
+            {% comment %}https://html.spec.whatwg.org/#the-picture-element{% endcomment %}
+
+            <figure>
+                <picture>
+                    <source srcset="a-square.png" media="(max-width: 600px)">
+                    <img src="a-rectangle.png" alt="Barney Frank wears a suit and glasses.">
+                </picture>
+                <figcaption>Barney Frank, 2011</figcaption>
+            </figure>
+
+
+
+            <figure>
+                <img src="https://frankindev.com/demo.jpg " alt="alt text" title="Title Text">
+                <figcaption>Title text</figcaption>
+            </figure>
+
+            {% comment %}{%- assign page_url = "assets/img/avatar-small.png" %}{% endcomment %}
+            {%- assign page_url = "https://soprun.com/assets/img/avatar-small.png" %}
+
             <img class="rounded-circle img-thumbnail"
-                 {% comment %}src="{% base64 assets/img/avatar-small.png %}"{% endcomment %}
-                 {% comment %}src="{% base64 assets/img/avatar.png | relative_url %}"{% endcomment %}
-                {% comment %}src="{{ "assets/img/avatar-small.png" | base64 }}"{% endcomment %}
-                {% comment %}src="{% base64 https://soprun.com/assets/img/avatar-small.png %}"{% endcomment %}
-                {% comment %}src="{% base64 author_image %}"{% endcomment %}
-                 alt="{{ site.author.name | escape }}"
+                 src="{{ page_url }}"
+                 alt="{{ site.author.name }}"
                  width="100"
                  height="100"
                  loading="lazy"
@@ -54,20 +71,27 @@ permalink: /signature.html
 
         </td>
         <td class="content">
-            Full Name
-            Job Title
-            Company
-            Website
-
-            Phone
-
+            Full Name: <span class="grey">{{ site.author.name | base64_encode }}</span><br>
+            Company: <span class="grey">{{ site.author.org.name }} / {{ site.author.org.unit }}</span><br>
+            Job Title: <span class="grey">{{ site.author.org.role }}</span><br>
+            Website: <span class="grey">{{ site.author.name }}</span><br>
+            Phone:<br>
+            {%- for phone in site.author.phone limit: 10 -%}
+                <span class="grey">{{- phone.value }}</span><br>
+            {% endfor %}
 
             <hr>
-            {{ site.author.job_department }}
-            {{ site.author.job_title }}
-            {{ site.author.company }}
 
-            {% comment %}<a download="/vcard.vcf" href="/vcard.vcf" class="button">Import</a>{% endcomment %}
+            <a download="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}"
+               href="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}" class="button">
+                Download vCard
+            </a>
+
+            <hr>
+
+            {% comment %}{{ site.author.job_department }}{% endcomment %}
+            {% comment %}{{ site.author.job_title }}{% endcomment %}
+            {% comment %}{{ site.author.company }}{% endcomment %}
 
 
             <h3>
