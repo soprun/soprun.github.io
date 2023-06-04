@@ -45,39 +45,27 @@ permalink: /signature.html
                 </a>
                 <small class="p-role" style="white-space: nowrap;">{{ site.author.org.role | escape }}</small>
             </h1>
-            <h3 class="h-card p-org" style="margin: 0">
+            <h4 class="h-card p-org" style="margin: 0">
                 <a class="u-url p-name" href="{{ site.author.org.url }}"
                    target="_blank"
                    style="color: #010101;white-space: nowrap;">
                     {{ site.author.org.name | escape }}
                 </a>
-                <small style="white-space: nowrap">{{ site.author.org.unit | escape }}</small>
-            </h3>
-            <p><b>Email 📧</b><br>
-                {% for i in site.author.emails limit: 5 %}
-                    &nbsp;-&nbsp;
-                    <a class="grey u-email" href="mailto:{{ i.value }}">{{ i.value }}</a><br>
-                {% endfor %}
-            </p>
-            <p><b>Phone 📞</b><br>
-                {% for i in site.author.phones limit: 5 %}
-                    &nbsp;-&nbsp;
-                    <a class="p-tel" href="tel:{{ i.value }}">{{ i.value }}</a><br>
-                {% endfor %}
-            </p>
-            <p><b>Website 🧑‍💻</b><br>
-                {% for i in site.author.urls limit: 5 %}
-                    &nbsp;-&nbsp;
-                    <a class="u-url"
-                       href="{{ i.value }}"
-                       target="_blank"
-                       rel="me">{{ i.value }}
-                    </a>
-                    <br>
-                {% endfor %}
-            </p>
-            <p class="footer">
-                <b style="color: darkorange">GPG sign email 🪪</b><br>
+                {% comment %}<small style="white-space: nowrap">{{ site.author.org.unit | escape }}</small>{% endcomment %}
+            </h4>
+            <br>
+            <b>Email 📧</b><br>
+            <a class="grey u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br>
+            <b>Phone 📞</b><br>
+            <a class="p-tel" href="mailto:{{ site.author.phone }}">{{ site.author.phone }}</a><br>
+            <b>Website 🧑‍💻</b><br>
+            <a class="u-url"
+               href="{{ site.author.url }}"
+               target="_blank"
+               rel="me">{{ site.author.url }}
+            </a>
+            <p class="footer" style="font-size: .8rem">
+                <b style="color: darkorange">GPG 🪪</b><br>
                 Если вы хотите мне отправить конфиденциальное или корпоративное письмо, то, пожалуйста, используйте мой
                 публичный GPG для подписи электронных сообщений!<br>
                 Fingerprint:
@@ -116,7 +104,7 @@ permalink: /signature.html
     }
 
     img {
-        /*display: inline-block;*/
+        display: inline-block;
         border: none;
         height: auto;
         max-width: 100%;
@@ -147,6 +135,7 @@ permalink: /signature.html
         body {
             font-size: 16px;
         }
+
         .photo {
             visibility: visible;
             width: 25%;
