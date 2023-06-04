@@ -26,9 +26,7 @@
     Copyright &copy; <span itemprop="copyrightYear">{{ "now" | date: "%Y" }}</span> {{ site.short_title }}
 {%- endcapture -%}
 
-{% comment %}original{% endcomment %}
-
-{% capture author_avatar %}
+{%- capture author_avatar %}
     <picture>
         <source
             srcset="{{ site.author.avatar | relative_url }}?size=100&d=mm&r=g 1x"
@@ -45,16 +43,3 @@
              decoding="async">
     </picture>
 {% endcapture %}
-
-
-{% comment %}https://microformats.org/wiki/existing-rel-values{% endcomment %}
-
-{% capture rel %}
-    {% comment %}rel value{% endcomment %}
-
-    {% comment %}{%- assign page_url = site.baseurl | prepend: site.url %}{% endcomment %}
-
-    {{- page.title -}}
-{% endcapture %}
-
-
