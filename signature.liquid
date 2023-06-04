@@ -52,22 +52,19 @@ permalink: /signature.html
             </figure>
 
 
+            {%- assign page_url = "assets/img/avatar-small.png" %}
 
             <figure>
-                <img src="https://frankindev.com/demo.jpg " alt="alt text" title="Title Text">
-                <figcaption>Title text</figcaption>
+                <img class="rounded-circle img-thumbnail"
+                     src="{{ page_url }}"
+                     alt="{{ site.author.name }}"
+                     title="{{ site.author.name }}"
+                     width="100"
+                     height="100"
+                     loading="lazy"
+                     decoding="async">
+                <figcaption>{{ site.author.name }}</figcaption>
             </figure>
-
-            {% comment %}{%- assign page_url = "assets/img/avatar-small.png" %}{% endcomment %}
-            {%- assign page_url = "https://soprun.com/assets/img/avatar-small.png" %}
-
-            <img class="rounded-circle img-thumbnail"
-                 src="{{ page_url }}"
-                 alt="{{ site.author.name }}"
-                 width="100"
-                 height="100"
-                 loading="lazy"
-                 decoding="async">
 
         </td>
         <td class="content">
