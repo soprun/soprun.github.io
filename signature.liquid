@@ -20,7 +20,7 @@ permalink: /signature.html
     </colgroup>
     <tbody>
     <tr>
-        <td class="h-card" style="text-align: center;vertical-align: middle;padding:1.5rem">
+        <td class="h-card photo" style="text-align: right;vertical-align: middle;">
             <img class="u-photo"
                  src="{{ site.author.photo }}"
                  alt="{{ site.author.name | escape }}"
@@ -28,7 +28,7 @@ permalink: /signature.html
                  width="200"
                  height="200">
         </td>
-        <td class="h-card" style="text-align: left;vertical-align: middle">
+        <td class="h-card content" style="text-align: left;vertical-align: middle">
             <span style="display: none">
                     <span class="dt-bday">{{ site.author.birthday }}</span>
                     <span class="p-sex">{{ site.author.gender }}</span>
@@ -39,18 +39,19 @@ permalink: /signature.html
                 <a class="p-name u-url"
                    href="{{ site.author.url }}"
                    target="_blank"
-                   rel="me">
+                   rel="me"
+                   style="color: darkorange;white-space: nowrap">
                     {{ site.author.name | escape }}
                 </a>
-                <small class="p-role">{{ site.author.org.role | escape }}</small>
+                <small class="p-role" style="white-space: nowrap;">{{ site.author.org.role | escape }}</small>
             </h1>
             <h3 class="h-card p-org" style="margin: 0">
                 <a class="u-url p-name" href="{{ site.author.org.url }}"
                    target="_blank"
-                   style="color: #010101">
+                   style="color: #010101;white-space: nowrap;">
                     {{ site.author.org.name | escape }}
                 </a>
-                <small>{{ site.author.org.unit | escape }}</small>
+                <small style="white-space: nowrap">{{ site.author.org.unit | escape }}</small>
             </h3>
             <p><b>Email 📧</b><br>
                 {% for i in site.author.emails limit: 5 %}
@@ -83,8 +84,7 @@ permalink: /signature.html
                 <a href="{{ site.author.gpg_public_key }}" target="_blank">
                     <code class="u-key">{{ site.author.gpg_fingerprint }}</code>
                 </a>
-            </p>
-            <p class="footer">
+                <br>
                 <a download="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}"
                    href="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}">
                     Сохранить контакты (vCard)
@@ -116,8 +116,14 @@ permalink: /signature.html
     }
 
     img {
+        /*display: inline-block;*/
         border: none;
-        /*max-width: 100%;*/
+        height: auto;
+        max-width: 100%;
+    }
+
+    .photo {
+        visibility: hidden;
     }
 
     .footer {
@@ -128,6 +134,24 @@ permalink: /signature.html
 
     .footer:hover {
         color: #010101;
+    }
+
+    @media only screen and (min-width: 300px) {
+        .photo {
+            visibility: visible;
+            width: 25%;
+        }
+    }
+
+    @media only screen and (min-width: 767px) {
+        body {
+            font-size: 16px;
+        }
+        .photo {
+            visibility: visible;
+            width: 25%;
+            padding-right: 1.5rem;
+        }
     }
 </style>
 {% comment %}https://app.mysigmail.com/social{% endcomment %}
