@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /vcard.vcf
+permalink: /vcard.html
 published: true
 date: "2023-06-3 00:56:00 +0300"
 ---
@@ -13,7 +13,7 @@ TZ:{{ site.timezone }}
 GENDER:{{ site.author.gender }}
 N;CHARSET={{ site.encoding }}:{{ site.author.last_name }};{{ site.author.first_name }};;;
 FN;CHARSET={{ site.encoding }}:{{ site.author.name }}
-{% if site.author.nickname -%}
+{%- if site.author.nickname -%}
     NICKNAME;CHARSET=UTF-8:{{ site.author.nickname }}
 {%- endif %}
 ORG;CHARSET={{ site.encoding }}:{{ site.author.org.name }};{{ site.author.org.unit }}
@@ -21,21 +21,21 @@ TITLE;CHARSET=UTF-8:{{ site.author.org.role }}
 BDAY:{{ site.author.birthday }}
 REV:{{ 'now' | date: "%Y-%m-%d %H:%M" | date_to_xmlschema }}
 SOURCE:https://soprun.com/{% link vcard.liquid %}
-{% for email in site.author.email limit: 10 -%}
+{% for email in site.author.emails limit: 10 -%}
     EMAIL
     {%- for i in email.type -%}
         ;type={{ i }}
     {%- endfor -%}
     :{{- email.value }}
 {% endfor %}
-{%- for phone in site.author.phone limit: 10 -%}
+{%- for phone in site.author.phones limit: 10 -%}
     TEL
     {%- for i in phone.type -%}
         ;type={{ i }}
     {%- endfor -%}
     :{{- phone.value }}
 {% endfor %}
-{%- for url in site.author.url -%}
+{%- for url in site.author.urls -%}
     URL
     {%- for i in url.type -%}
         ;type={{ i }}
