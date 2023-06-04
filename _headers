@@ -19,5 +19,9 @@
   Cache-Control: public, no-transform
   X-Robots-Tag: nosnippet
 
+/vcard.vcf
+  Content-Type: text/x-vcard
+  Content-Disposition: attachment; filename="vcard.vcf"
+
 https://*.soprun-github-io.pages.dev/*
   X-Robots-Tag: noindex

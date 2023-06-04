@@ -4,7 +4,7 @@ lang: ru
 url: https://soprun.com
 encoding: utf-8
 # Enable safe mode
-safe: false
+safe: true
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
@@ -142,11 +142,9 @@ author:
   phones:
     - value: +7 (901) 797-21-26
       type:
-        - INTERNET
-        - HOME
-        - IPHONE
-        - CELL
-        - VOICE
+        - home
+        - work
+        - cell
         - pref
 
       # <a href="skype:echo-chinese?call">Skype call to Skype echo service (Chinese)</a>
