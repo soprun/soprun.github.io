@@ -1,6 +1,8 @@
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
+// https://infosec.mozilla.org/guidelines/web_security#referrer-policy
 
-let Access_Control_Allow_Origin = "soprun.com"
+
+let Access_Control_Allow_Origin = 'https://soprun.com'
 let Access_Control_Allow_Headers = '*'
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD'
 let Access_Control_Allow_Credentials = 'true'
@@ -115,9 +117,9 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-    "default-src 'self';" +
-    "script-src 'report-sample' 'unsafe-inline' 'self';" +
-    "style-src 'report-sample' 'unsafe-inline' 'self';" +
+    "default-src 'self' https://*.sentry.io;" +
+    "script-src 'report-sample' 'unsafe-inline' 'self' https://browser.sentry-cdn.com https://static.cloudflareinsights.com;" +
+    "style-src 'report-sample' 'unsafe-inline' 'self' https://cdnjs.cloudflare.com;" +
     "object-src 'none';" +
     "base-uri 'self';" +
     "connect-src 'self' ws:;" +
@@ -129,8 +131,8 @@ export const onRequest: PagesFunction = async ({next}) => {
     "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
     "worker-src 'none';"
 
-    response.headers.set('Content-Security-Policy', Content_Security_Policy);
-    // response.headers.set('Content-Security-Policy-Report-Only', Content_Security_Policy);
+    // response.headers.set('Content-Security-Policy', Content_Security_Policy);
+    response.headers.set('Content-Security-Policy-Report-Only', Content_Security_Policy);
 
     // https://soprun.sentry.io/settings/projects/soprun/security-headers/hpkp/
 
@@ -148,6 +150,13 @@ export const onRequest: PagesFunction = async ({next}) => {
     // Access-Control-Allow-Headers: sentry-trace
     // Access-Control-Allow-Headers: baggage
 
+
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
+    // response.headers.set('Permissions-Policy', 'document-domain');
+
+
+    response.headers.set('Vary', 'Accept-Encoding, Origin');
+
     return response;
 };
 
@@ -160,10 +169,8 @@ export const onRequest: PagesFunction = async ({next}) => {
 // Access-Control-Allow-Credentials: true
 // Access-Control-Allow-Methods: GET, OPTIONS, HEAD
 // Access-Control-Max-Age: 86400
-// Vary: Accept-Encoding, Origin
 // Referrer-Policy: strict-origin-when-cross-origin
 // Strict-Transport-Security: "max-age=16070400; includeSubDomains" always
-// Permissions-Policy: document-domain=()
 // Expect-CT: max-age=604800, report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"
 // Content-Security-Policy-Report-Only: default-src 'self' 'unsafe-inline' https://*.sentry.io; img-src https://mc.yandex.ru; script-src  https://mc.yandex.ru https://yastatic.net https://browser.sentry-cdn.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; connect-src 'self' *.sentry.io sentry.io https://mc.yandex.ru; child-src blob: https://mc.yandex.ru; frame-src blob: https://mc.yandex.ru; object-src 'none'; report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;
 
