@@ -114,9 +114,9 @@ head_link:
   #    type: text/plain
   #    href: /assets/pgp-public-key.asc
 
-  manifest:
-    rel: manifest
-    href: manifest.json
+#  manifest:
+#    rel: manifest
+#    href: manifest.json
 
 #  me-phone:
 #    rel: me

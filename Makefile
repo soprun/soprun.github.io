@@ -27,8 +27,8 @@ doctor: ##  Outputs any deprecation or configuration issues.
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
 watch: ##Execute a script in the current bundl
-	@JEKYLL_ENV=development
 	@JEKYLL_LOG_LEVEL=debug
+	@#JEKYLL_ENV=development
 	@#kill $(pgrep jekyll)
 	@#bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace --open-url
 	bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace
@@ -166,7 +166,8 @@ print: $(wildcard *) ## Print out file information about every .c file
 
 start: ## 💻 Develop your full-stack Pages application locally
 	wrangler pages dev static -k KV
-	wrangler pages dev --live-reload --local-protocol
+	wrangler pages dev --live-reload
+	wrangler pages dev --live-reload .
 
 
 
@@ -200,3 +201,28 @@ start: ## 💻 Develop your full-stack Pages application locally
 
 #smimesign --list-keys
 
+
+
+#lsof -nP -iTCP:8788 -sTCP:LISTEN
+#kill 66016
+
+
+# Sentry CLI
+# https://docs.sentry.io/product/releases/associate-commits/?original_referrer=https%3A%2F%2Fblog.sentry.io%2F
+
+#SENTRY_AUTH_TOKEN=
+#SENTRY_ORG=soprun
+#SENTRY_PROJECT=soprun
+
+releases:
+		VERSION=$(sentry-cli releases propose-version)
+
+		# Create a release
+		sentry-cli releases new -p project1 -p project2 $VERSION
+
+		# Associate commits with the release
+		sentry-cli releases set-commits --auto $VERSION
+
+#https://docs.sentry.io/platforms/javascript/sourcemaps/uploading/cli/
+sourcemaps:
+	sentry-cli sourcemaps upload --release=<release_name> /path/to/directory

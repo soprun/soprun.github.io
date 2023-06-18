@@ -1,15 +1,12 @@
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 
-// Access-Control-Allow-Origin: * *.sentry.io
-// Access-Control-Allow-Credentials: true
-// Access-Control-Allow-Methods: GET, OPTIONS, HEAD
-// Access-Control-Max-Age: 86400
-
-let Access_Control_Allow_Origin = "* *.sentry.io"
+let Access_Control_Allow_Origin = "soprun.com"
 let Access_Control_Allow_Headers = '*'
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD'
 let Access_Control_Allow_Credentials = 'true'
 let Access_Control_Max_Age = '86400';
+let Strict_Transport_Security = 'max-age=63072000; includeSubDomains; preload';
+let Referrer_Policy = 'strict-origin-when-cross-origin';
 
 // Respond to OPTIONS method
 export const onRequestOptions: PagesFunction = async () => {
@@ -26,7 +23,7 @@ export const onRequestOptions: PagesFunction = async () => {
 };
 
 // Set CORS to all /api responses
-export const onRequest: PagesFunction = async ({ next }) => {
+export const onRequest: PagesFunction = async ({next}) => {
     const response = await next();
     response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
@@ -34,7 +31,122 @@ export const onRequest: PagesFunction = async ({ next }) => {
     response.headers.set('Access-Control-Allow-Credentials', Access_Control_Allow_Credentials);
     response.headers.set('Access-Control-Max-Age', Access_Control_Max_Age);
 
+    // Cookies
+    // https://infosec.mozilla.org/guidelines/web_security#cookies
+
     // Set-Cookie: id=a3fWa; Expires=Thu, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly; SameSite=Strict
+    // Set-Cookie: __Host-sess=123; Domain=example.com; Path=/; Secure
+    // Set-Cookie: __Host-sess=123; path=/; Secure; HttpOnly; SameSite=Lax
+
+    // # Session identifier used for a secure site, such as bugzilla.mozilla.org. It isn't sent from cross-origin
+    // # requests, nor is it sent when navigating to bugzilla.mozilla.org from another site. Used in conjunction with
+    // # other anti-CSRF measures, this is a very strong way to defend your site against CSRF attacks.
+
+    // Set-Cookie: __Host-BMOSESSIONID=YnVnemlsbGE=; Max-Age=2592000; Path=/; Secure; HttpOnly; SameSite=Strict
+
+
+    // https://docs.sentry.io/product/security-policy-reporting/
+
+    // Content-Security-Policy-Report-Only: ...; report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc
+    // Expect-CT: max-age=86400, enforce, report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"
+    // Public-Key-Pins: ...; report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"
+
+
+    // Прозрачность сертификатов
+    // https://soprun.sentry.io/settings/projects/soprun/security-headers/expect-ct/
+    let Expect_CT = 'max-age=604800, enforce, report-uri=https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;';
+
+    response.headers.set('Expect-CT', Expect_CT);
+
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/SourceMap
+    // SourceMap: <url>
+
+
+    // Строгая транспортная безопасность
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+    // https://hstspreload.org/?domain=soprun.com
+    response.headers.set('Strict-Transport-Security', Strict_Transport_Security);
+
+
+    // Referrer Policy
+    // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
+    // Отправлять только сокращенный реферер на иностранный источник, полный реферер на локальный хост
+    response.headers.set('Referrer-Policy', Referrer_Policy);
+
+    // Feature-Policy
+    //
+    // Public-Key-Pins
+    // https://en.wikipedia.org/wiki/Public-key_cryptography
+
+
+    // Accept-Language: fr
+
+    response.headers.set('Vary', 'Accept-Encoding,Cookie');
+
+    response.headers.set('X-Frame-Options', 'DENY');
+    response.headers.set('X-XSS-Protection', '1; mode=block');
+    response.headers.set('X-Content-Type-Options', 'nosniff');
+
+    response.headers.set('X-Download-Options', 'noopen');
+
+
+    // let Content_Security_Policy = "default-src https:; connect-src https:; font-src https: data:; frame-src https: " +
+    //     "twitter:; img-src https: data:; media-src https:; object-src https:; " +
+    //     "script-src 'unsafe-inline' 'unsafe-eval' https:; " +
+    //     "style-src 'unsafe-inline' https:; " +
+    //     "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
+
+
+    // ";connect-src: *.sentry.io" +
+    // ";script-src: https://browser.sentry-cdn.com https://js.sentry-cdn.com" +
+
+    // let Content_Security_Policy = "" +
+    //     "default-src 'self' 'unsafe-inline' *.sentry.io" +
+    //     ";img-src https: data: *" +
+    //     ";script-src: *" +
+    //     ";script-src-elem: *" +
+    //     ";font-src *" +
+    //     ";style-src 'self'" +
+    //     ";connect-src *.sentry.io" +
+    //     ";child-src blob: https://mc.yandex.ru" +
+    //     ";frame-src blob: https://mc.yandex.ru" +
+    //     ";object-src 'none'" +
+    //     ";report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc";
+
+
+    let Content_Security_Policy = "" +
+    "default-src 'self';" +
+    "script-src 'report-sample' 'unsafe-inline' 'self';" +
+    "style-src 'report-sample' 'unsafe-inline' 'self';" +
+    "object-src 'none';" +
+    "base-uri 'self';" +
+    "connect-src 'self' ws:;" +
+    "font-src 'self';" +
+    "frame-src 'self';" +
+    "img-src 'self';" +
+    "manifest-src 'self';" +
+    "media-src 'self';" +
+    "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
+    "worker-src 'none';"
+
+    response.headers.set('Content-Security-Policy', Content_Security_Policy);
+    // response.headers.set('Content-Security-Policy-Report-Only', Content_Security_Policy);
+
+    // https://soprun.sentry.io/settings/projects/soprun/security-headers/hpkp/
+
+    // Public-Key-Pins-Report-Only: pin-sha256="<pin-value>";
+    // max-age=<expire-time>;
+    // includeSubDomains;
+    // report-uri="<uri>"
+
+    // Public-Key-Pins-Report-Only:
+    // pin-sha256 = "dOFcREXWKaEVoYWhhneDttWpY3oDEkE5g6+soQD7xXz=";
+    // pin-sha256 = "N7SgtCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPXO="; includeSubDomains;
+    // report-uri = ”https://www.sample.org/hpkp-report”
+
+
+    // Access-Control-Allow-Headers: sentry-trace
+    // Access-Control-Allow-Headers: baggage
 
     return response;
 };
@@ -54,8 +166,6 @@ export const onRequest: PagesFunction = async ({ next }) => {
 // Permissions-Policy: document-domain=()
 // Expect-CT: max-age=604800, report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"
 // Content-Security-Policy-Report-Only: default-src 'self' 'unsafe-inline' https://*.sentry.io; img-src https://mc.yandex.ru; script-src  https://mc.yandex.ru https://yastatic.net https://browser.sentry-cdn.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; connect-src 'self' *.sentry.io sentry.io https://mc.yandex.ru; child-src blob: https://mc.yandex.ru; frame-src blob: https://mc.yandex.ru; object-src 'none'; report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;
-
-
 
 
 // https://developers.cloudflare.com/pages/platform/functions/plugins/sentry/
@@ -83,3 +193,8 @@ import sentryPlugin from "@cloudflare/pages-plugin-sentry";
 //     }),
 //     hello
 // ];
+
+
+// Script And Style Hasher for CSP
+// https://report-uri.com/home/hash
+// sha256-kvD0A6jG3+h5INcjwy2Y9iJYVjecobUhwAYecpqfg0U=

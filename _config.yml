@@ -226,6 +226,8 @@ strict_front_matter: true
 
 sass:
   style: compressed
+  sourcemap: always
+  line_comments: false
 
 liquid:
   error_mode: strict
