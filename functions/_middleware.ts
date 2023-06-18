@@ -133,7 +133,7 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-        "default-src  https: 'self' *.sentry.io;" +
+        "default-src  https: 'self' 'unsafe-inline' *.sentry.io;" +
         "script-src 'unsafe-inline' 'self' browser.sentry-cdn.com static.cloudflareinsights.com;" +
         "style-src  unsafe-inline' 'self' *.soprun-github-io.pages.dev cdnjs.cloudflare.com fonts.googleapis.com;" +
         "object-src 'none';" +
