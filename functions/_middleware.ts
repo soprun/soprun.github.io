@@ -146,7 +146,7 @@ export const onRequest: PagesFunction = async ({next}) => {
         "connect-src 'self' *.sentry.io sentry.io cloudflareinsights.com;" +
         "font-src 'self';" +
         "frame-src 'self';" +
-        "img-src 'self';" +
+        "img-src 'self' https:;" +
         "manifest-src 'self';" +
         "media-src 'self';" +
         "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
