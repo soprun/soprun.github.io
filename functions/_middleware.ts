@@ -43,11 +43,6 @@ export const onRequestOptions: PagesFunction = async () => {
 export const onRequest: PagesFunction = async ({next}) => {
     const response = await next();
 
-    // https://developers.cloudflare.com/pages/platform/functions/bindings/
-    // console.warn({next});
-    // console.warn(response.env.SENTRY_DSN);
-    // console.warn(env.SENTRY_DSN);
-
     response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
     response.headers.set('Access-Control-Allow-Methods', Access_Control_Allow_Methods);
