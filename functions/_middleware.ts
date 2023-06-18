@@ -139,10 +139,10 @@ export const onRequest: PagesFunction = async ({next}) => {
         "object-src https:;" +
         "connect-src https: *.sentry.io;" +
         "font-src https: data:;" +
-        "frame-src https:" +
-        "img-src https:" +
-        "manifest-src https:" +
-        "media-src https:" +
+        "frame-src https:;" +
+        "img-src https:;" +
+        "manifest-src https:;" +
+        "media-src https:;" +
         "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
 
     // response.headers.set('Content-Security-Policy', Content_Security_Policy);
