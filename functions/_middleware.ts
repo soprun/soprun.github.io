@@ -7,7 +7,7 @@
 
 export interface Env {
     // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
-    // MY_KV_NAMESPACE: KVNamespace;
+    // SENTRY_DSN: KVNamespace;
 
     // Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
     // MY_DURABLE_OBJECT: DurableObjectNamespace;
@@ -40,8 +40,14 @@ export const onRequestOptions: PagesFunction = async () => {
     });
 };
 
-export const onRequest: PagesFunction<Env> = async ({next}) => {
+export const onRequest: PagesFunction = async ({next}) => {
     const response = await next();
+
+    // https://developers.cloudflare.com/pages/platform/functions/bindings/
+    console.warn(response.env);
+    console.warn(response.env.SENTRY_DSN);
+    console.warn(env.SENTRY_DSN);
+
     response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
     response.headers.set('Access-Control-Allow-Methods', Access_Control_Allow_Methods);
