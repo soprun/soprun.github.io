@@ -133,12 +133,12 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-        "default-src 'self' *.sentry.io;" +
-        "script-src  'self' 'unsafe-inline' 'self' https://browser.sentry-cdn.com https://static.cloudflareinsights.com;" +
-        "style-src  'self' 'unsafe-inline' 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;" +
+        "default-src  https: 'self' *.sentry.io;" +
+        "script-src 'unsafe-inline' 'self' browser.sentry-cdn.com static.cloudflareinsights.com;" +
+        "style-src  unsafe-inline' 'self' *.soprun-github-io.pages.dev cdnjs.cloudflare.com fonts.googleapis.com;" +
         "object-src 'none';" +
         "base-uri 'self';" +
-        "connect-src 'self' *.sentry.io sentry.io cloudflareinsights.com;" +
+        "connect-src  https: 'self' *.sentry.io sentry.io cloudflareinsights.com;" +
         "font-src 'self';" +
         "frame-src 'self';" +
         "img-src 'self' https:;" +
