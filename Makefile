@@ -162,3 +162,40 @@ all: test ## RUN all tests
 print: $(wildcard *) ## Print out file information about every .c file
 	@clear -x
 	@ls -lAFG $?
+
+
+start: ## 💻 Develop your full-stack Pages application locally
+	wrangler pages dev static -k KV
+	wrangler pages dev --live-reload --local-protocol
+
+
+
+#smimesign --list-keys
+
+#  soprun.github.io git:(dev) ✗ smimesign --list-keys
+#       ID: a192c8b1cfae3e3222d1576314d823e3e47387c9
+#      S/N: 65e5c40518de4d1a44932c5fb400ecc1
+#Algorithm: SHA256-RSA
+# Validity: 2023-05-12 15:24:31 +0000 UTC - 2024-05-12 15:24:30 +0000 UTC
+#   Issuer: CN=Actalis Client Authentication CA G3,O=Actalis S.p.A.,L=Ponte San Pietro,ST=Bergamo,C=IT
+#  Subject: CN=mail@soprun.com
+#   Emails: mail@soprun.com, mail@soprun.com
+#
+#       ID: 5b2e3f4424b375ac893d2f4a343aab4fd46e205c
+#      S/N: 55821be72dea3d69294e7ee7434ca173
+#Algorithm: SHA256-RSA
+# Validity: 2023-05-12 16:24:56 +0000 UTC - 2024-05-12 16:24:55 +0000 UTC
+#   Issuer: CN=Actalis Client Authentication CA G3,O=Actalis S.p.A.,L=Ponte San Pietro,ST=Bergamo,C=IT
+#  Subject: CN=job@soprun.com
+#   Emails: job@soprun.com, job@soprun.com
+
+
+#gpg --with-keygrip --list-secret-keys $@ | grep Keygrip | awk '{print $3}'
+#gpg --list-secret-keys | egrep 'mail@soprun.com' | grep -B 1 digitalSignature | awk '/ID/ {print $2}'
+
+#gpg --list-keys --keyid-format=long
+
+
+# https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-x509-key
+
+#smimesign --list-keys
