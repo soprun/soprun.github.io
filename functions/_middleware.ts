@@ -134,13 +134,13 @@ export const onRequest: PagesFunction = async ({next}) => {
 
     let Content_Security_Policy = "" +
         "default-src https:;" +
-        "script-src 'unsafe-inline' https:;" +
-        "style-src 'unsafe-inline' https:;" +
+        "script-src 'self' 'unsafe-inline' https: cdnjs.cloudflare.com;" +
+        "style-src 'self' 'unsafe-inline' https:;" +
         "object-src https:;" +
-        "connect-src https: *.sentry.io;" +
+        "connect-src https: *.sentry.io cloudflareinsights.com;" +
         "font-src https: data:;" +
-        "frame-src https:;" +
-        "img-src https:;" +
+        "frame-src https: fonts.gstatic.com;" +
+        "img-src 'self' https: images.unsplash.com en.gravatar.com;" +
         "manifest-src https:;" +
         "media-src https:;" +
         "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
