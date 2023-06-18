@@ -1,6 +1,23 @@
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
 
+// interface Env {
+//     ENVIRONMENT: string;
+// }
+
+export interface Env {
+    // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
+    // MY_KV_NAMESPACE: KVNamespace;
+
+    // Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
+    // MY_DURABLE_OBJECT: DurableObjectNamespace;
+
+    // Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
+    // MY_BUCKET: R2Bucket;
+
+    // Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
+    // MY_SERVICE: Fetcher;
+}
 
 let Access_Control_Allow_Origin = 'https://soprun.com'
 let Access_Control_Allow_Headers = '*'
@@ -10,7 +27,6 @@ let Access_Control_Max_Age = '86400';
 let Strict_Transport_Security = 'max-age=63072000; includeSubDomains; preload';
 let Referrer_Policy = 'strict-origin-when-cross-origin';
 
-// Respond to OPTIONS method
 export const onRequestOptions: PagesFunction = async () => {
     return new Response(null, {
         status: 204,
@@ -24,8 +40,7 @@ export const onRequestOptions: PagesFunction = async () => {
     });
 };
 
-// Set CORS to all /api responses
-export const onRequest: PagesFunction = async ({next}) => {
+export const onRequest: PagesFunction<Env> = async ({next}) => {
     const response = await next();
     response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
@@ -117,19 +132,19 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-    "default-src 'self' https://*.sentry.io;" +
-    "script-src 'report-sample' 'unsafe-inline' 'self' https://browser.sentry-cdn.com https://static.cloudflareinsights.com;" +
-    "style-src 'report-sample' 'unsafe-inline' 'self' https://cdnjs.cloudflare.com;" +
-    "object-src 'none';" +
-    "base-uri 'self';" +
-    "connect-src 'self' *.sentry.io sentry.io;" +
-    "font-src 'self';" +
-    "frame-src 'self';" +
-    "img-src 'self';" +
-    "manifest-src 'self';" +
-    "media-src 'self';" +
-    "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
-    "worker-src 'none';"
+        "default-src 'self' https://*.sentry.io;" +
+        "script-src  'self' 'unsafe-inline' 'self' https://browser.sentry-cdn.com https://static.cloudflareinsights.com;" +
+        "style-src  'self' 'unsafe-inline' 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;" +
+        "object-src 'none';" +
+        "base-uri 'self';" +
+        "connect-src 'self' *.sentry.io sentry.io cloudflareinsights.com;" +
+        "font-src 'self';" +
+        "frame-src 'self';" +
+        "img-src 'self';" +
+        "manifest-src 'self';" +
+        "media-src 'self';" +
+        "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
+        "worker-src 'none';"
 
     // response.headers.set('Content-Security-Policy', Content_Security_Policy);
     response.headers.set('Content-Security-Policy-Report-Only', Content_Security_Policy);

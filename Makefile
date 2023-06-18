@@ -226,3 +226,36 @@ releases:
 #https://docs.sentry.io/platforms/javascript/sourcemaps/uploading/cli/
 sourcemaps:
 	sentry-cli sourcemaps upload --release=<release_name> /path/to/directory
+
+
+
+#KV_NAMESPACE=soprun
+#
+#wrangler kv:namespace create $KV_NAMESPACE
+#
+#
+#wrangler kv:key put --namespace-id $KEY_VALUE_NAMESPACE_ID "SENTRY_DSN" "https://5943bcec0a2e4787882cbb988fd0aabc@o364305.ingest.sentry.io/6291966" --preview
+##wrangler kv:key --namespace-id $KEY_VALUE_NAMESPACE_ID get SENTRY_DSN
+#
+##SITE_URL
+##namespace-id
+#
+##wrangler kv:namespace create kv_storage_staging
+##wrangler kv:namespace create kv_storage_production
+#
+#
+##wrangler kv:key put --env=staging --binding=<YOUR_BINDING> "<KEY>" "<VALUE>"
+#wrangler kv:key put --namespace-id=<YOUR_ID> "<KEY>" "<VALUE>"
+#
+#
+#wrangler kv:key put --binding=kv_storage "SENTRY_DSN" "https://5943bcec0a2e4787882cbb988fd0aabc@o364305.ingest.sentry.io/6291966"
+#wrangler kv:key put --namespace-id c5abf72702c84d03b52e5ca65fce7fea "SENTRY_DSN" "https://5943bcec0a2e4787882cbb988fd0aabc@o364305.ingest.sentry.io/6291966"
+#wrangler kv:key list --namespace-id c5abf72702c84d03b52e5ca65fce7fea --env=production
+#
+#
+#wrangler kv:key put --namespace-id c5abf72702c84d03b52e5ca65fce7fea "SITE_URL" "https://soprun.com"
+#
+#
+#"build": "wrangler pages functions build --outfile static/_worker.js",
+#"build-plugin": "wrangler pages functions build --plugin --outfile index.js",
+#"start": "wrangler pages dev static -k KV"
