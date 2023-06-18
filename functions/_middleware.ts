@@ -122,7 +122,7 @@ export const onRequest: PagesFunction = async ({next}) => {
     "style-src 'report-sample' 'unsafe-inline' 'self' https://cdnjs.cloudflare.com;" +
     "object-src 'none';" +
     "base-uri 'self';" +
-    "connect-src 'self' ws:;" +
+    "connect-src 'self' *.sentry.io sentry.io;" +
     "font-src 'self';" +
     "frame-src 'self';" +
     "img-src 'self';" +
