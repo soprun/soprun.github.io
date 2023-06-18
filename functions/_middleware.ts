@@ -19,7 +19,7 @@ export interface Env {
     // MY_SERVICE: Fetcher;
 }
 
-let Access_Control_Allow_Origin = 'https://soprun.com https://*.sentry.io';
+let Access_Control_Allow_Origin = '* *.sentry.io';
 let Access_Control_Allow_Headers = '*';
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD';
 let Access_Control_Allow_Credentials = 'true';
@@ -44,9 +44,9 @@ export const onRequest: PagesFunction = async ({next}) => {
     const response = await next();
 
     // https://developers.cloudflare.com/pages/platform/functions/bindings/
-    console.warn(response.env);
-    console.warn(response.env.SENTRY_DSN);
-    console.warn(env.SENTRY_DSN);
+    // console.warn({next});
+    // console.warn(response.env.SENTRY_DSN);
+    // console.warn(env.SENTRY_DSN);
 
     response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
@@ -138,7 +138,7 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-        "default-src 'self' https://*.sentry.io;" +
+        "default-src 'self' *.sentry.io;" +
         "script-src  'self' 'unsafe-inline' 'self' https://browser.sentry-cdn.com https://static.cloudflareinsights.com;" +
         "style-src  'self' 'unsafe-inline' 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;" +
         "object-src 'none';" +
