@@ -166,7 +166,7 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
-    // response.headers.set('Permissions-Policy', 'document-domain');
+    response.headers.set('Permissions-Policy', 'document-domain');
 
 
     response.headers.set('Vary', 'Accept-Encoding, Origin');
