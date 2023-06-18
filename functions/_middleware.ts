@@ -133,15 +133,15 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-        "default-src  https: 'self' 'unsafe-inline' *.sentry.io;" +
-        "script-src 'unsafe-inline' 'self' browser.sentry-cdn.com static.cloudflareinsights.com;" +
-        "style-src  unsafe-inline' 'self' *.soprun-github-io.pages.dev cdnjs.cloudflare.com fonts.googleapis.com;" +
+        "default-src 'self' 'unsafe-inline' *.sentry.io;" +
+        "script-src 'self' 'unsafe-inline' browser.sentry-cdn.com static.cloudflareinsights.com;" +
+        "style-src 'self' 'unsafe-inline' *.soprun-github-io.pages.dev cdnjs.cloudflare.com fonts.googleapis.com;" +
         "object-src 'none';" +
         "base-uri 'self';" +
-        "connect-src  https: 'self' *.sentry.io sentry.io cloudflareinsights.com;" +
-        "font-src 'self';" +
+        "connect-src 'self' https: *.sentry.io sentry.io cloudflareinsights.com;" +
+        "font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com;" +
         "frame-src 'self';" +
-        "img-src 'self' https:;" +
+        "img-src 'self' https: images.unsplash.com;" +
         "manifest-src 'self';" +
         "media-src 'self';" +
         "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;" +
