@@ -19,10 +19,10 @@ export interface Env {
     // MY_SERVICE: Fetcher;
 }
 
-let Access_Control_Allow_Origin = 'https://soprun.com'
-let Access_Control_Allow_Headers = '*'
-let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD'
-let Access_Control_Allow_Credentials = 'true'
+let Access_Control_Allow_Origin = 'https://soprun.com https://*.sentry.io';
+let Access_Control_Allow_Headers = '*';
+let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD';
+let Access_Control_Allow_Credentials = 'true';
 let Access_Control_Max_Age = '86400';
 let Strict_Transport_Security = 'max-age=63072000; includeSubDomains; preload';
 let Referrer_Policy = 'strict-origin-when-cross-origin';
