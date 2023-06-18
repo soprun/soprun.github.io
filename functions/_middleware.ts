@@ -89,7 +89,7 @@ export const onRequest: PagesFunction = async ({next}) => {
     // Referrer Policy
     // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
     // Отправлять только сокращенный реферер на иностранный источник, полный реферер на локальный хост
-    response.headers.set('Referrer-Policy', Referrer_Policy);
+    // response.headers.set('Referrer-Policy', Referrer_Policy);
 
     // Feature-Policy
     //
@@ -105,7 +105,7 @@ export const onRequest: PagesFunction = async ({next}) => {
     response.headers.set('X-XSS-Protection', '1; mode=block');
     response.headers.set('X-Content-Type-Options', 'nosniff');
 
-    response.headers.set('X-Download-Options', 'noopen');
+    // response.headers.set('X-Download-Options', 'noopen');
 
 
     // let Content_Security_Policy = "default-src https:; connect-src https:; font-src https: data:; frame-src https: " +
