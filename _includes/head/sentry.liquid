@@ -1,7 +1,7 @@
 {%- if jekyll.environment != 'development' and site.env.SENTRY_DSN %}
     {% comment %}https://docs.sentry.io/platforms/javascript/performance/?original_referrer=https%3A%2F%2Fblog.sentry.io%2F#enable-tracing{% endcomment %}
     <script
-        src="https://browser.sentry-cdn.com/7.55.2/bundle.tracing.replay.min.js"
+        src="https://browser.sentry-cdn.com/7.55.2/bundle.tracing.min.js"
         integrity="sha384-gcN4PI+eloXUU+AVUgV5gJT83csMy9XzHmru5hCpeLG74/tINGdKjYdz6sDkMYZv"
         crossorigin="anonymous"
     ></script>
@@ -14,8 +14,7 @@
                 tracesSampleRate: 1.0,
                 autoSessionTracking: true,
                 integrations: [
-                    new Sentry.BrowserTracing(),
-                    new Sentry.Replay()
+                    new Sentry.BrowserTracing()
                 ],
             });
         });
