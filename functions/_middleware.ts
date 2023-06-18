@@ -133,16 +133,16 @@ export const onRequest: PagesFunction = async ({next}) => {
 
 
     let Content_Security_Policy = "" +
-        "default-src 'self' 'unsafe-inline' *;" +
-        "script-src 'self' 'unsafe-inline' *;" +
-        "style-src 'self' 'unsafe-inline' *;" +
-        "object-src 'none';" +
-        "connect-src 'self' *;" +
-        "font-src 'self' *;" +
-        "frame-src 'self';" +
-        "img-src 'self' *;" +
-        "manifest-src 'self';" +
-        "media-src 'self' *;" +
+        "default-src https:;" +
+        "script-src 'unsafe-inline' https:;" +
+        "style-src 'unsafe-inline' https:;" +
+        "object-src https:;" +
+        "connect-src https: *.sentry.io;" +
+        "font-src https: data:;" +
+        "frame-src https:" +
+        "img-src https:" +
+        "manifest-src https:" +
+        "media-src https:" +
         "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
 
     // response.headers.set('Content-Security-Policy', Content_Security_Policy);
