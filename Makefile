@@ -27,7 +27,7 @@ doctor: ##  Outputs any deprecation or configuration issues.
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
 watch: ##Execute a script in the current bundl
-	@JEKYLL_LOG_LEVEL=debug
+	@#JEKYLL_LOG_LEVEL=debug
 	@#JEKYLL_ENV=development
 	@#kill $(pgrep jekyll)
 	@#bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace --open-url
