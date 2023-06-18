@@ -19,7 +19,7 @@ export interface Env {
     // MY_SERVICE: Fetcher;
 }
 
-let Access_Control_Allow_Origin = '* *.sentry.io';
+let Access_Control_Allow_Origin = '*';
 let Access_Control_Allow_Headers = '*';
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD';
 let Access_Control_Allow_Credentials = 'true';
