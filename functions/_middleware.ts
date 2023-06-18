@@ -31,7 +31,7 @@ export const onRequestOptions: PagesFunction = async () => {
     return new Response(null, {
         status: 204,
         headers: {
-            'Access-Control-Allow-Origin': Access_Control_Allow_Origin,
+            // 'Access-Control-Allow-Origin': Access_Control_Allow_Origin,
             'Access-Control-Allow-Headers': Access_Control_Allow_Headers,
             'Access-Control-Allow-Methods': Access_Control_Allow_Methods,
             'Access-Control-Allow-Credentials': Access_Control_Allow_Credentials,
@@ -43,7 +43,7 @@ export const onRequestOptions: PagesFunction = async () => {
 export const onRequest: PagesFunction = async ({next}) => {
     const response = await next();
 
-    response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
+    // response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
     response.headers.set('Access-Control-Allow-Methods', Access_Control_Allow_Methods);
     response.headers.set('Access-Control-Allow-Credentials', Access_Control_Allow_Credentials);
@@ -89,7 +89,7 @@ export const onRequest: PagesFunction = async ({next}) => {
     // Referrer Policy
     // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
     // Отправлять только сокращенный реферер на иностранный источник, полный реферер на локальный хост
-    // response.headers.set('Referrer-Policy', Referrer_Policy);
+    response.headers.set('Referrer-Policy', Referrer_Policy);
 
     // Feature-Policy
     //
