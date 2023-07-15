@@ -228,6 +228,9 @@ exclude:
   - Makefile
   - vendor
   - .DS_STORE
+  - Guardfile
+  - Rakefile
+  - signature.html
 
 cache: bundler
 keep_files: [ .git, _headers ]
