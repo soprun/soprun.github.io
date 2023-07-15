@@ -87,7 +87,7 @@ clean: ## Delete all the files created by the 'html' target
 	@rm -rf vendor
 	@bundle clean --force
 	@#gem install bundler
-	@$(JEKYLL_CMD) clean --force --force_polling --verbose --incremental --trace --safe
+	@$(JEKYLL_CMD) clean --force
 	@clear -x
 
 .PHONY: doctor
@@ -128,7 +128,7 @@ install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	@echo "Installing..."
 	@#gem install jekyll
 	@gem install bundler
-	@bundle install --jobs 4
+	@bundle install --verbose
 	@# bundle install -j8 > /dev/null || bundle install > /dev/null
 	@make -s build
 
