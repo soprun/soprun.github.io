@@ -1,13 +1,9 @@
-{%- comment %}https://github.com/daattali/beautiful-jekyll/blob/master/_layouts/base.html{% endcomment %}
-{%- comment %}https://github.com/daattali/beautiful-jekyll/blob/master/_includes/head.html{% endcomment %}
 {%- include variables.liquid -%}
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'ru' }}" data-theme="light">
+<html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
 {%- include head.liquid %}
 <body class="{{ page.layout }}">
-
 {%- include header.liquid -%}
-
 <main id="main" class="container-lg" role="main" aria-label="content">
     <div class="row">
         <aside id="sidebar"
@@ -18,7 +14,6 @@
             {%- include sidebar.liquid %}
         </aside>
         <section id="content" class="col-12 col-sm-7 col-md-8 col-lg-9 p-4 pb-0">
-            {% comment %}<script async src="https://telegram.org/js/telegram-widget.js?21" data-telegram-post="soprun_architect/236" data-width="100%"></script>{% endcomment %}
             {{ content }}
         </section>
     </div>

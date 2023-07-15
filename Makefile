@@ -1,9 +1,58 @@
+#--verify
+#git tag -d X
+
+#git tag --verify --sign --annotate "v1.0.1" --message "Message v1.0.1"
+#git tag --sign --annotate "v1.0.1" --message "Message v1.0.1"
+
+#GIT_COMMITTER_DATE="2006-10-02 10:31" git tag -s v1.0.1
+
+# Gets tag from current branch
+# log_info $(git describe --tags --abbrev=0)
+
+# # gets tags across all branches, not just the current branch
+#output "Current tag: $(git describe --tags "$(git rev-list --tags --max-count=1)")" "info"
+#output "Last tag: $(git tag -l "v*.*.*" --sort=-v:refname | head -n 1)" "info"
+
+#######################################################################
+# Define default values
+#######################################################################
+
+SHELL := /bin/bash
+DIR := $(shell cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
+# Self-Documented Makefile see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 MAKEFILE_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+
+GIT_REV := $(shell git rev-list --tags --max-count=1)
+GIT_BRANCHES := $(shell git rev-list --branches --max-count=1)
+GIT_TAG := $(shell git describe --tags ${REV})
+GIT_SHORT_TAG := $(shell git rev-parse --short HEAD)
+
+COLOR_RESET := \033[0m
+COLOR_RED := \033[0;31m
+COLOR_YELLOW := \033[0;33m
+COLOR_GREEN := \033[0;32m
+COLOR_BLUE := \033[0;34m
+
+#######################################################################
+# Load environment variables
+#######################################################################
+
+JEKYLL_ENV ?= production
+JEKYLL_SAFE ?= true
+JEKYLL_LOG_LEVEL ?= warn
+JEKYLL_CMD := bundle exec jekyll
+
+ifeq ($(shell ! test -f "$(DIR)/.env.local" && printf 'yes'),yes)
+$(shell touch "$(DIR)/.env.local")
+$(info $(shell printf "$(COLOR_YELLOW)Сreate new empty files $(COLOR_GREEN).env.local$(COLOR_RESET)\n") )
+endif
+
+-include .env
+-include .env.local
 
 # Self-Documented Makefile see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .DEFAULT_GOAL := help
-.PHONY: help check clean watch install update build all test
-
+.PHONY: help
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-27s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
@@ -11,9 +60,14 @@ check: ## check
 	bundle check
 	#bundle exec jekyll build
 
-clean: ## Removes all generated files: destination folder, metadata file, Sass and Jekyll caches.
-	@jekyll clean
+clean: ## Delete all the files created by the 'html' target
+	@#jekyll clean
+	@rm -rf .bundle
+	@rm -rf _site
+	@rm -rf vendor
 	@bundle clean --force
+	@#gem install bundler
+	@$(JEKYLL_CMD) clean --force --force_polling --verbose --incremental --trace --safe
 	@clear -x
 
 doctor: ##  Outputs any deprecation or configuration issues.
@@ -26,12 +80,21 @@ doctor: ##  Outputs any deprecation or configuration issues.
 # чтобы позволить jekyll выполнить свою работу и преобразовать файлы вашего сайта в настоящий html
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
 
-watch: ##Execute a script in the current bundl
+
+# make watch ARGS="--incremental --watch --profile --strict_front_matter --trace"
+# make watch ARGS="--incremental --watch --profile --strict_front_matter --trace"
+.PHONY: watch
+watch: ## Build the html output files and additionally run a small webserver for local previews via ARGS="command --options"
 	@#JEKYLL_LOG_LEVEL=debug
 	@#JEKYLL_ENV=development
 	@#kill $(pgrep jekyll)
 	@#bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace --open-url
-	bundle exec jekyll serve --incremental --watch --profile --strict_front_matter --trace
+
+	@echo -e "$(COLOR_YELLOW)[command]$(COLOR_GREEN) >> watching$(COLOR_RESET) ... ⏳\n"
+	@echo -e "JEKYLL_ENV: $(COLOR_GREEN)$(JEKYLL_ENV)$(COLOR_RESET)"
+	@echo -e "JEKYLL_STRICT_MODE: $(COLOR_GREEN)$(JEKYLL_STRICT_MODE)$(COLOR_RESET)"
+	@echo -e ""
+	@$(JEKYLL_CMD) serve --watch --profile --trace
 
 kill:
 	kill $(pgrep jekyll)
@@ -39,10 +102,18 @@ kill:
 # export FREEDESKTOP_MIME_TYPES_PATH=$HOME/freedesktop.org.xml
 
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
-	#gem install jekyll
-	gem install bundler
-	bundle install
-	make -s build
+	@echo "Installing..."
+	@#gem install jekyll
+	@gem install bundler
+	@bundle install --jobs 4
+	@# bundle install -j8 > /dev/null || bundle install > /dev/null
+	@make -s build
+
+# bundle install -j8 --deployment
+#[DEPRECATED] The `--deployment` flag is deprecated because it relies on being remembered across bundler invocations,
+# which bundler will no longer do in future versions. Instead please use `bundle config set --local deployment 'true'`,
+# and stop using this flag
+# bundle config set --local deployment 'true'
 
 update: ## Update dependencies to their latest versions
 	@gem update --system
@@ -52,20 +123,69 @@ update: ## Update dependencies to their latest versions
 	@bundle check
 	@make -s build
 
+release: ## release path/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/script/release
+	bundle exec rake release
+
+fmt: ## Running Rubocop
+	echo "Rubocop $(bundle exec rubocop --version)"
+	bundle exec rubocop -S -D -E $@
+
+	# https://github.com/rubocop/rubocop
+	#	echo "Rubocop $(bundle exec rubocop --version)"
+	#	bundle exec rubocop -D -E $@
+	#	success=$?
+	#	if ((success != 0)); then
+	#		echo -e "\nTry running \`script/fmt -a\` to automatically fix errors"
+	#	fi
+  #	exit $success
+
+fmt-auto-correct: ## Running Rubocop auto-correct all sorts of errors with
+	bundle exec rubocop --safe-auto-correct
+
+# https://github.com/jekyll/jekyll-mentions/blob/main/script/test
+#test: ## test
+#bundle exec rspec "$@"
+
+bundle-list: ## List all the gems in the bundle
+	@bundle list --only-group all
+
+bundle-list-all: bundle-list
+
+bundle-list-dev: ## List all the gems in the bundle
+	@bundle list --without-group dev
+
 test-htmlproofer: ## Run HTMLProofer 📚
+	@#rm -rf _site
+	@#make -s build
 	## HTMLProofer is a set of tests to validate your HTML output.
 	@# htmlproofer _site --check-html --allow-hash-href --empty-alt-ignore --disable-external
-	bundle exec htmlproofer \
-		--check-favicon \
-		--check-html \
- 		--check-img-http \
- 		--check-opengraph \
-		--allow-hash-href \
-		--empty-alt-ignore \
-		--disable-external \
-		--trace \
- 		./_site
+	@#bundle exec htmlproofer \
+#		--checks [Links,Images,Scripts,Favicon,OpenGraph,Usage,HtmlCheck] \
+#		--check_sri \
+#		--enforce_https \
+#		--allow-hash-href \
+#		--allow-missing-href \
+#		--only-4xx \
+#		--log-level debug \
+#		$(PWD)/scripts/HTMLProofer.rb
+	@bundle exec htmlproofer \
+  		$(PWD)/_plugins/HTMLProofer.rb
+#  		_site
 
+# bundle exec rubocop -D --disable-pending-cops $@
+
+#bundle exec rubocop -a --format progress
+#bundle exec rspec
+
+#test-htmlproofer-run: ## Run HTMLProofer 📚
+## HTMLProofer is a set of tests to validate your HTML output.
+# htmlproofer _site --check-html --allow-hash-href --empty-alt-ignore --disable-external
+#bundle exec htmlproofer \
+#		--checks ['Links', 'Images', 'Scripts'] \
+# 		_site/
+
+test-rake:
+	rake task
 
 # https://github.com/GoogleChrome/lighthouse#using-the-node-cli
 test-lighthouse: ## Run Lighthouse 💡
@@ -75,16 +195,59 @@ test-lighthouse: ## Run Lighthouse 💡
 	lighthouse http://127.0.0.1:4000 -GA --output html --output-path ./report/report.html
 	open ./report/report.html
 
-build: clean ## Build your site
-	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace --verbose
+_build_command :=
 
-build-preview:
-	JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace
-	JEKYLL_ENV=development bundle exec jekyll build --incremental --profile --trace
+## set print verbose output and show the full backtrace when an error occurs
+ifeq ($(shell [ $(JEKYLL_ENV) == "development" ] && echo -n yes),yes)
+	_build_command += --trace --profile --force_polling --verbose
+endif
+
+ifeq ($(shell [ $(JEKYLL_ENV) == "production" ] && echo -n yes),yes)
+	_build_command += --quiet
+endif
+
+# set safe mode (defaults to false)
+ifeq ($(shell [ $(JEKYLL_SAFE) == true ] && echo -n yes),yes)
+	_build_command += --safe
+endif
+
+# make build ARGS="--incremental --profile"
+# make build ARGS="--quiet"
+.PHONY: build
+build: ## Build the html output files via ARGS="command --options"
+	@echo -e "$(COLOR_YELLOW)[command]$(COLOR_GREEN) >> building$(COLOR_RESET) ... ⏳\n"
+	@echo -e "JEKYLL_ENV: $(COLOR_GREEN)$(JEKYLL_ENV)$(COLOR_RESET)"
+	@echo -e "JEKYLL_STRICT_MODE: $(COLOR_GREEN)$(JEKYLL_STRICT_MODE)$(COLOR_RESET)"
+	@echo -e ""
+	@$(JEKYLL_CMD) build $(_build_command) $(ARGS)
+
+.PHONY: print-env
+print-env: ## Print environment
+	@echo -e "$(COLOR_YELLOW)Base environment:\n$(COLOR_RESET)"
+	@echo -e "DIR: $(COLOR_GREEN)$(DIR)$(COLOR_RESET)"
+	@echo -e "MAKEFILE_DIR: $(COLOR_GREEN)$(MAKEFILE_DIR)$(COLOR_RESET)"
+	@echo -e "$(COLOR_YELLOW)\nGit environment:\n$(COLOR_RESET)"
+	@echo -e "GIT_REV: $(COLOR_GREEN)$(GIT_REV)$(COLOR_RESET)"
+	@echo -e "GIT_TAG: $(COLOR_GREEN)$(GIT_TAG)$(COLOR_RESET)"
+	@echo -e "GIT_SHORT_TAG: $(COLOR_GREEN)$(GIT_SHORT_TAG)$(COLOR_RESET)"
+	@echo -e "$(COLOR_YELLOW)\nJekyll environment:\n$(COLOR_RESET)"
+	@echo -e "JEKYLL_ENV: $(COLOR_GREEN)$(JEKYLL_ENV)$(COLOR_RESET)"
+	@echo -e "JEKYLL_SAFE: $(COLOR_GREEN)$(JEKYLL_SAFE)$(COLOR_RESET)"
+	@echo -e "JEKYLL_EDITOR: $(COLOR_GREEN)$(JEKYLL_EDITOR)$(COLOR_RESET)"
+	@echo -e "CF_PAGES_URL: $(COLOR_GREEN)$(CF_PAGES_URL)$(COLOR_RESET)"
+
+.PHONY: build-production
+build-production: print-env ## Build your site for {production} ...
+	@#JEKYLL_ENV=production; bundle exec jekyll build --safe --incremental --profile --trace --verbose
+	@JEKYLL_ENV=production; bundle exec jekyll build --incremental --profile --trace --verbose
+	@#JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace --verbose
+
+.PHONY: build-preview
+build-preview: clean ## Build your site for {preview} ...
+	@echo "Building {preview} ..."
 	JEKYLL_ENV=preview bundle exec jekyll build --incremental --profile --trace
 
 # ps aux | grep jekyll
-
 
 # https://developers.cloudflare.com/workers/cli-wrangler/commands/#generate
 # wrangler
@@ -259,3 +422,36 @@ sourcemaps:
 #"build": "wrangler pages functions build --outfile static/_worker.js",
 #"build-plugin": "wrangler pages functions build --plugin --outfile index.js",
 #"start": "wrangler pages dev static -k KV"
+
+.PHONY: shellcheck
+shellcheck: ## ShellCheck finds bugs in your shell scripts: https://www.shellcheck.net
+	@for file in $(SHELL_FILES); do \
+		shellcheck --check-sourced --external-sources --format=tty $$file; \
+	done
+
+bundle-config:
+	bundle config unset deployment
+
+
+#bundle exec github_changelog_generator --token $GITHUB_TOKEN -u gjtorikian -p html-proofer
+
+
+# bundle config set --local deployment 'true'
+
+latest-version:
+	touch $(DIR)/latest_version.txt
+
+
+description ?= "Занимаюсь проектированием: бизнес архитектуры, архитектуры данных, архитектуры приложения, технологической архитектуры, а также обучением сотрудников. Имею более чем 10-летний опыт в IT, есть опыт запуска start-up и своего наставничества. Обожаю развиваться сам и помогать другим"
+
+
+languagetool: ## languagetool
+	curl http://localhost:8081/v2/check?language=ru-RU&text="Занимаюсь"
+
+#curl -x GET http://localhost:8081/v2/check \
+#	-H "Accept: application/json" \
+#	-d "language=ru-RU" \
+#	-d "text=Занимаюсь"
+
+
+latest_version: ## latest_version.txt

@@ -1,8 +1,5 @@
 {%- capture base_url -%}
-    {%- assign page_url = site.baseurl | prepend: site.url %}
-    {%- if jekyll.environment != 'production' and site.env.CF_PAGES_URL -%}
-        {%- assign page_url = site.env.CF_PAGES_URL -%}
-    {%- endif -%}
+    {%- assign page_url = site.baseurl | prepend: site.url -%}
     {{- page_url | relative_url -}}
 {%- endcapture -%}
 
@@ -11,7 +8,10 @@
 {%- endcapture -%}
 
 {%- capture page_description -%}
-    {%- assign page_description = page.description | default: site.description -%}
+    {%- assign page_description = site.description | default: '' -%}
+    {%- if page.description != empty -%}
+        {%- assign page_description = page.description | default: site.description -%}
+    {%- endif -%}
     {%- if page.excerpt != empty -%}
         {%- assign page_description = page.excerpt -%}
     {%- endif -%}
@@ -37,9 +37,9 @@
         <img class="rounded-circle img-thumbnail"
              src="{{ site.author.avatar | relative_url }}?size=100&d=mm&r=g"
              alt="{{ site.author.name | escape }}"
-             {% comment %}width="50"{% endcomment %}
-             {% comment %}height="50"{% endcomment %}
-             {% comment %}loading="lazy"{% endcomment %}
+            {% comment %}width="50"{% endcomment %}
+            {% comment %}height="50"{% endcomment %}
+            {% comment %}loading="lazy"{% endcomment %}
              decoding="async">
     </picture>
 {% endcapture %}

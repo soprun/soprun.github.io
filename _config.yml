@@ -3,8 +3,14 @@ baseurl: ''
 lang: ru
 url: https://soprun.com
 encoding: utf-8
+
 # Enable safe mode
 safe: false
+quiet: false
+verbose: false
+# https://jekyllrb.com/docs/configuration/incremental-regeneration/
+regenerate: true
+incremental: false
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
@@ -39,6 +45,7 @@ author:
   # photo: https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008
   # Hotlinking
   photo: https://soprun.com/assets/img/avatar-small.png
+  avatar: https://soprun.com/assets/img/avatar-small.png
   description: >-
     Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solution Architect.<br><br>
     Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
@@ -202,37 +209,45 @@ include:
 exclude:
   - .editorconfig
   - .env
-  - .git
+  - .github
   - .gitattributes
   - .gitignore
   - .idea/
   - .sass-cache/
   - .jekyll-cache/
   - .jekyll-metadata
+  - .bundle/
   - _site/
+  - path/
   - report/
+  - functions/
   - gemfiles/
   - Gemfile
   - Gemfile.lock
   - README.md
-  - SECURITY.md
   - Makefile
+  - vendor
   - .DS_STORE
 
+cache: bundler
 keep_files: [ .git, _headers ]
 timezone: "Europe/Moscow"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-strict_front_matter: true
+strict_front_matter: false
 
 sass:
   style: compressed
   sourcemap: always
   line_comments: false
 
+# https://jekyllrb.com/docs/configuration/liquid/
+# `lax` — Игнорировать все ошибки.
+# `warn` — Выводить предупреждение на консоль для каждой ошибки.(по умолчанию)
+# `strict` — Вывести сообщение об ошибке и остановить сборку.
 liquid:
-  error_mode: strict
+  error_mode: warn
   strict_variables: false
-  strict_filters: true
+  strict_filters: false
 
 # Markdown Processors
 markdown: kramdown
@@ -250,6 +265,7 @@ kramdown:
   footnote_nr: 1
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
+  show_warnings: false
 
 # https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
 plugins:
@@ -293,10 +309,18 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: page
+      title: ~
+      description: ~
+      page_title: false
+      page_show_image: false
+      show_title_link: true
       type: page
       noindex: false
       paginate: false
       published: true
+      tags: []
+      lang: ~
+#      date: "2023-01-31 00:56:00 +0300"
       author:
         name: ~
         url: ~
@@ -327,11 +351,11 @@ defaults:
       image: true
 
 # https://www.digitalocean.com/community/tutorials/how-to-control-urls-and-links-in-jekyll
-#permalink: date
+permalink: date
 # https://mademistakes.com/mastering-jekyll/how-to-link/#collection-url-defaults
 #permalink: /:collection/:path
 
-permalink: /:categories/:title
+#permalink: /:categories/:title
 paginate: 5
 paginate_path: /page/:num
 page_excerpts: true
@@ -342,3 +366,8 @@ excerpt_separator: "<!--more-->"
 excerpt_delimiter: ---
 
 # https://github.com/benbalter/jekyll-relative-links
+
+#webrick:
+#  headers:
+#    My-Header: My-Value
+#    My-Other-Header: My-Other-Value

@@ -32,7 +32,6 @@
                             <a class="nav-link {%- if page.url == item.link %} active{% endif %}{%- if item.disabled %} disabled{% endif -%}"
                                itemprop="url"
                                href="{{ item.link | relative_url }}"
-                               style="{{ item.style }}"
                                rel="{{ item.rel }}">
                                 <span itemprop="name">
                                     {{ item.name }}

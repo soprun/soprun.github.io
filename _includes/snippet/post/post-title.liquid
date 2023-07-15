@@ -1,8 +1,9 @@
-{% assign title = include.title | default: post.title | escape %}
-{% assign url = include.url | default: post.url %}
+{% assign title = include.title | default: page.title | escape %}
+{% assign url = include.url | default: page.url %}
+{% assign show_title_link = include.show_title_link | default: page.show_title_link %}
 
 {% if title %}
-    <h1 class="post-title text-center {{ include.class }} {% if page.page_show_title == false %}d-none{% endif %}"
+    <h1 class="post-title text-center {% if page.page_show_title == false %}d-none{% endif %}"
         itemprop="headline">
         {% if show_title_link == false or show_read_more == false %}
             {{ title }}

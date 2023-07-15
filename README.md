@@ -51,10 +51,9 @@ This repository is for the site [https://soprun.com](https://soprun.com).
 
 - <https://dash.cloudflare.com/04fcec9f6b5313d8cd9feb20456640de/pages/view/soprun-github-io>
 
-
 ## Microformats
-- https://developer.mozilla.org/en-US/docs/Web/HTML/microformats
 
+- https://developer.mozilla.org/en-US/docs/Web/HTML/microformats
 
 ---
 
@@ -162,5 +161,17 @@ https://api.unsplash.com/photos/random?client_id=70e3f5838c92f41ccb557fefe4fa54f
 
 <https://github.com/MrGreensWorkshop/MrGreen-JekyllTheme/blob/main/_includes/default/header/meta-hreflang.html>
 
-
 test
+
+```json lines
+{
+  cache: {
+    timeframe: {
+      external: "2d",
+      internal: "1h"
+    },
+    cache_file: "stay_cachey.json",
+    storage_dir: "_tmp/html-proofer-cache-money"
+  }
+}
+```

@@ -4,3 +4,11 @@
 [//]: # (https://prodalet.ru/module/tools/generator-4u/#)
 
 [//]: # (https://smmlaba.com/telegram/telegrapsubscribeview/)
+
+
+https://github.com/ankitsultana/researcher/blob/gh-pages/_layouts/default.html
+
+
+{%- comment %}https://github.com/daattali/beautiful-jekyll/blob/master/_layouts/base.html{% endcomment %}
+{%- comment %}https://github.com/daattali/beautiful-jekyll/blob/master/_includes/head.html{% endcomment %}
+

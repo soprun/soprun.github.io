@@ -1,9 +1,8 @@
+{%- assign last_modified = page.date | default: site.time %}
 <head>
     <meta charset="{{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% if page.date -%}
-        <meta http-equiv="Last-Modified" content="{{ page.date | date_to_xmlschema }}"/>
-    {%- endif %}
+    <meta http-equiv="Last-Modified" content="{{ last_modified | date_to_xmlschema }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
     <meta name="mobile-web-app-capable" content="yes">
