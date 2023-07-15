@@ -318,9 +318,9 @@ defaults:
       noindex: false
       paginate: false
       published: true
-      tags: []
+      tags: [ ]
       lang: ~
-#      date: "2023-01-31 00:56:00 +0300"
+      #      date: "2023-01-31 00:56:00 +0300"
       author:
         name: ~
         url: ~

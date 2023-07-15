@@ -1,18 +1,3 @@
-#--verify
-#git tag -d X
-
-#git tag --verify --sign --annotate "v1.0.1" --message "Message v1.0.1"
-#git tag --sign --annotate "v1.0.1" --message "Message v1.0.1"
-
-#GIT_COMMITTER_DATE="2006-10-02 10:31" git tag -s v1.0.1
-
-# Gets tag from current branch
-# log_info $(git describe --tags --abbrev=0)
-
-# # gets tags across all branches, not just the current branch
-#output "Current tag: $(git describe --tags "$(git rev-list --tags --max-count=1)")" "info"
-#output "Last tag: $(git tag -l "v*.*.*" --sort=-v:refname | head -n 1)" "info"
-
 #######################################################################
 # Define default values
 #######################################################################
@@ -44,22 +29,57 @@ JEKYLL_CMD := bundle exec jekyll
 
 ifeq ($(shell ! test -f "$(DIR)/.env.local" && printf 'yes'),yes)
 $(shell touch "$(DIR)/.env.local")
-$(info $(shell printf "$(COLOR_YELLOW)Сreate new empty files $(COLOR_GREEN).env.local$(COLOR_RESET)\n") )
+$(info $(shell printf "$(COLOR_YELLOW)Сreate new empty files $(COLOR_GREEN).env.local$(COLOR_RESET)\n"))
 endif
 
 -include .env
 -include .env.local
 
+#######################################################################
+# Check environment variables
+#######################################################################
+
+ifeq ($(shell test -z "$(JEKYLL_ENV)" && printf 'yes'),yes)
+placeholder := "$(COLOR_YELLOW)[WARNING]$(COLOR_RESET) %s"
+message := "An error occurred while building the project, there is no environment variable"
+$(error $(shell printf $(placeholder) $(message)))
+endif
+
+REQUIRED_ENVIRONMENT_VARIABLES := \
+	JEKYLL_ENV \
+	JEKYLL_SAFE \
+	JEKYLL_STRICT_MODE
+
+.PHONY: check-env
+check-env: ## Project variables
+	@for env_name in $(REQUIRED_ENVIRONMENT_VARIABLES); do \
+		if test ! -n  $${env_name} ; then \
+		  printf "$(COLOR_RED)[ERROR]$(COLOR_RESET) An error has occurred, the environment variable \"$(COLOR_BLUE)%s$(COLOR_RESET)\" is not set. ⚠️ ⚠️ \n" "$${env_name}" >&1; \
+		  exit $? ; \
+		fi \
+	done
+
+#######################################################################
+# Targets
+#######################################################################
+
 # Self-Documented Makefile see https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .DEFAULT_GOAL := help
+
+# Shortcut targets
+.PHONY: default
+default: build
+
 .PHONY: help
 help:
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z0-9_-]+:.*?##/ { printf "  \033[36m%-27s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
+.PHONY: check
 check: ## check
 	bundle check
 	#bundle exec jekyll build
 
+.PHONY: clean
 clean: ## Delete all the files created by the 'html' target
 	@#jekyll clean
 	@rm -rf .bundle
@@ -70,6 +90,7 @@ clean: ## Delete all the files created by the 'html' target
 	@$(JEKYLL_CMD) clean --force --force_polling --verbose --incremental --trace --safe
 	@clear -x
 
+.PHONY: doctor
 doctor: ##  Outputs any deprecation or configuration issues.
 	jekyll doctor
 
@@ -96,11 +117,13 @@ watch: ## Build the html output files and additionally run a small webserver for
 	@echo -e ""
 	@$(JEKYLL_CMD) serve --watch --profile --trace
 
+.PHONY: kill
 kill:
 	kill $(pgrep jekyll)
 
 # export FREEDESKTOP_MIME_TYPES_PATH=$HOME/freedesktop.org.xml
 
+.PHONY: install
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
 	@echo "Installing..."
 	@#gem install jekyll
@@ -115,6 +138,7 @@ install: ## Install the gems specified by the Gemfile or Gemfile.lock
 # and stop using this flag
 # bundle config set --local deployment 'true'
 
+.PHONY: update
 update: ## Update dependencies to their latest versions
 	@gem update --system
 	@#bundle update --all
@@ -123,9 +147,11 @@ update: ## Update dependencies to their latest versions
 	@bundle check
 	@make -s build
 
+.PHONY: release
 release: ## release path/ruby/3.2.0/gems/jekyll-sitemap-1.4.0/script/release
 	bundle exec rake release
 
+.PHONY: fmt
 fmt: ## Running Rubocop
 	echo "Rubocop $(bundle exec rubocop --version)"
 	bundle exec rubocop -S -D -E $@
@@ -139,6 +165,7 @@ fmt: ## Running Rubocop
 	#	fi
   #	exit $success
 
+.PHONY: fmt-auto-correct
 fmt-auto-correct: ## Running Rubocop auto-correct all sorts of errors with
 	bundle exec rubocop --safe-auto-correct
 
@@ -146,14 +173,7 @@ fmt-auto-correct: ## Running Rubocop auto-correct all sorts of errors with
 #test: ## test
 #bundle exec rspec "$@"
 
-bundle-list: ## List all the gems in the bundle
-	@bundle list --only-group all
-
-bundle-list-all: bundle-list
-
-bundle-list-dev: ## List all the gems in the bundle
-	@bundle list --without-group dev
-
+.PHONY: test-htmlproofer
 test-htmlproofer: ## Run HTMLProofer 📚
 	@#rm -rf _site
 	@#make -s build
@@ -184,10 +204,12 @@ test-htmlproofer: ## Run HTMLProofer 📚
 #		--checks ['Links', 'Images', 'Scripts'] \
 # 		_site/
 
+.PHONY: test-rake
 test-rake:
 	rake task
 
 # https://github.com/GoogleChrome/lighthouse#using-the-node-cli
+.PHONY: test-lighthouse
 test-lighthouse: ## Run Lighthouse 💡
 	@#lighthouse --output html --output-path ./report.html
 	@#lighthouse http://example.com -G --output html --output-path ./report.html
@@ -198,16 +220,16 @@ test-lighthouse: ## Run Lighthouse 💡
 _build_command :=
 
 ## set print verbose output and show the full backtrace when an error occurs
-ifeq ($(shell [ $(JEKYLL_ENV) == "development" ] && echo -n yes),yes)
+ifeq ($(shell [ "$(JEKYLL_ENV)" == "development" ] && echo -n yes),yes)
 	_build_command += --trace --profile --force_polling --verbose
 endif
 
-ifeq ($(shell [ $(JEKYLL_ENV) == "production" ] && echo -n yes),yes)
+ifeq ($(shell [ "$(JEKYLL_ENV)" == "production" ] && echo -n yes),yes)
 	_build_command += --quiet
 endif
 
 # set safe mode (defaults to false)
-ifeq ($(shell [ $(JEKYLL_SAFE) == true ] && echo -n yes),yes)
+ifeq ($(shell [ "$(JEKYLL_SAFE)" == true ] && echo -n yes),yes)
 	_build_command += --safe
 endif
 
@@ -231,21 +253,25 @@ print-env: ## Print environment
 	@echo -e "GIT_TAG: $(COLOR_GREEN)$(GIT_TAG)$(COLOR_RESET)"
 	@echo -e "GIT_SHORT_TAG: $(COLOR_GREEN)$(GIT_SHORT_TAG)$(COLOR_RESET)"
 	@echo -e "$(COLOR_YELLOW)\nJekyll environment:\n$(COLOR_RESET)"
+	@echo -e "BASE_URL: $(COLOR_GREEN)$(BASE_URL)$(COLOR_RESET)"
+	@echo -e "RELEASE_VERSION: $(COLOR_GREEN)$(RELEASE_VERSION)$(COLOR_RESET)"
 	@echo -e "JEKYLL_ENV: $(COLOR_GREEN)$(JEKYLL_ENV)$(COLOR_RESET)"
+	@echo -e "JEKYLL_STRICT_MODE: $(COLOR_GREEN)$(JEKYLL_STRICT_MODE)$(COLOR_RESET)"
 	@echo -e "JEKYLL_SAFE: $(COLOR_GREEN)$(JEKYLL_SAFE)$(COLOR_RESET)"
-	@echo -e "JEKYLL_EDITOR: $(COLOR_GREEN)$(JEKYLL_EDITOR)$(COLOR_RESET)"
+	@echo -e "JEKYLL_LOG_LEVEL: $(COLOR_GREEN)$(JEKYLL_LOG_LEVEL)$(COLOR_RESET)"
 	@echo -e "CF_PAGES_URL: $(COLOR_GREEN)$(CF_PAGES_URL)$(COLOR_RESET)"
+	@echo -e "CF_PAGES_COMMIT_SHA: $(COLOR_GREEN)$(CF_PAGES_COMMIT_SHA)$(COLOR_RESET)"
 
 .PHONY: build-production
 build-production: print-env ## Build your site for {production} ...
 	@#JEKYLL_ENV=production; bundle exec jekyll build --safe --incremental --profile --trace --verbose
-	@JEKYLL_ENV=production; bundle exec jekyll build --incremental --profile --trace --verbose
+	@JEKYLL_ENV=production && bundle exec jekyll build --incremental --profile --trace --verbose
 	@#JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace --verbose
 
 .PHONY: build-preview
 build-preview: clean ## Build your site for {preview} ...
 	@echo "Building {preview} ..."
-	JEKYLL_ENV=preview bundle exec jekyll build --incremental --profile --trace
+	JEKYLL_ENV=preview && bundle exec jekyll build --incremental --profile --trace
 
 # ps aux | grep jekyll
 
@@ -276,17 +302,17 @@ build-preview: clean ## Build your site for {preview} ...
 # https://github.com/DavidAnson/markdownlint
 
 
-markdownlint: ##  MarkdownLint Command Line Interface
-	@docker run -it --rm -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint .
-
-markdownlint-fix: ##  MarkdownLint Command Line Interface: fix basic errors (does not work with STDIN)
-	@docker run -it --rm -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint --fix .
-
-sarda:
-	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
-
-deployment: ## Publish a directory of static assets as a new deployment. This will automatically pull in git information if available.
-	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
+#markdownlint: ##  MarkdownLint Command Line Interface
+#	@docker run -it --rm -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint .
+#
+#markdownlint-fix: ##  MarkdownLint Command Line Interface: fix basic errors (does not work with STDIN)
+#	@docker run -it --rm -v $(PWD):/md peterdavehello/markdownlint:0.22.0 markdownlint --fix .
+#
+#sarda:
+#	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
+#
+#deployment: ## Publish a directory of static assets as a new deployment. This will automatically pull in git information if available.
+#	CLOUDFLARE_ACCOUNT_ID=04fcec9f6b5313d8cd9feb20456640de npx wrangler pages publish <directory>
 
 
 # To start developing your Worker, run `npm start`
@@ -325,7 +351,6 @@ all: test ## RUN all tests
 print: $(wildcard *) ## Print out file information about every .c file
 	@clear -x
 	@ls -lAFG $?
-
 
 start: ## 💻 Develop your full-stack Pages application locally
 	wrangler pages dev static -k KV
@@ -377,18 +402,18 @@ start: ## 💻 Develop your full-stack Pages application locally
 #SENTRY_ORG=soprun
 #SENTRY_PROJECT=soprun
 
-releases:
-		VERSION=$(sentry-cli releases propose-version)
-
-		# Create a release
-		sentry-cli releases new -p project1 -p project2 $VERSION
-
-		# Associate commits with the release
-		sentry-cli releases set-commits --auto $VERSION
+#releases:
+#		VERSION=$(sentry-cli releases propose-version)
+#
+#		# Create a release
+#		sentry-cli releases new -p project1 -p project2 $VERSION
+#
+#		# Associate commits with the release
+#		sentry-cli releases set-commits --auto $VERSION
 
 #https://docs.sentry.io/platforms/javascript/sourcemaps/uploading/cli/
-sourcemaps:
-	sentry-cli sourcemaps upload --release=<release_name> /path/to/directory
+#sourcemaps:
+	#sentry-cli sourcemaps upload --release=<release_name> /path/to/directory
 
 
 
@@ -423,35 +448,45 @@ sourcemaps:
 #"build-plugin": "wrangler pages functions build --plugin --outfile index.js",
 #"start": "wrangler pages dev static -k KV"
 
-.PHONY: shellcheck
-shellcheck: ## ShellCheck finds bugs in your shell scripts: https://www.shellcheck.net
-	@for file in $(SHELL_FILES); do \
-		shellcheck --check-sourced --external-sources --format=tty $$file; \
-	done
+#.PHONY: shellcheck
+#shellcheck: ## ShellCheck finds bugs in your shell scripts: https://www.shellcheck.net
+#	@for file in $(SHELL_FILES); do \
+#		shellcheck --check-sourced --external-sources --format=tty $$file; \
+#	done
 
-bundle-config:
-	bundle config unset deployment
+#bundle-config:
+#	bundle config unset deployment
 
 
 #bundle exec github_changelog_generator --token $GITHUB_TOKEN -u gjtorikian -p html-proofer
 
 
 # bundle config set --local deployment 'true'
+#
+#latest-version:
+#	touch $(DIR)/latest_version.txt
 
-latest-version:
-	touch $(DIR)/latest_version.txt
+#latest_version: ## latest_version.txt
 
-
-description ?= "Занимаюсь проектированием: бизнес архитектуры, архитектуры данных, архитектуры приложения, технологической архитектуры, а также обучением сотрудников. Имею более чем 10-летний опыт в IT, есть опыт запуска start-up и своего наставничества. Обожаю развиваться сам и помогать другим"
-
-
-languagetool: ## languagetool
-	curl http://localhost:8081/v2/check?language=ru-RU&text="Занимаюсь"
-
-#curl -x GET http://localhost:8081/v2/check \
-#	-H "Accept: application/json" \
-#	-d "language=ru-RU" \
-#	-d "text=Занимаюсь"
+#.PHONY: release-publish release
+#VERSION ?= master
+#release-publish:
+#	VERSION=$(VERSION) PUBLISH=true utils/create-update-packages.sh
+#release:
+#	VERSION=$(VERSION) utils/create-update-packages.sh
 
 
-latest_version: ## latest_version.txt
+#--verify
+#git tag -d X
+
+#git tag --verify --sign --annotate "v1.0.1" --message "Message v1.0.1"
+#git tag --sign --annotate "v1.0.1" --message "Message v1.0.1"
+
+#GIT_COMMITTER_DATE="2006-10-02 10:31" git tag -s v1.0.1
+
+# Gets tag from current branch
+# log_info $(git describe --tags --abbrev=0)
+
+# # gets tags across all branches, not just the current branch
+#output "Current tag: $(git describe --tags "$(git rev-list --tags --max-count=1)")" "info"
+#output "Last tag: $(git tag -l "v*.*.*" --sort=-v:refname | head -n 1)" "info"

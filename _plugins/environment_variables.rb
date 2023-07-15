@@ -9,13 +9,23 @@ module Jekyll
         config_strict_mode = true
       end
 
-      # if ENV.fetch('CF_PAGES_URL', :default_need_not_be_a_string).to_s.strip.empty?
-      #   ENV.replace('CF_PAGES_URL' => "")
-      # end
+      if ENV.fetch('BASE_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
+        baseurl = ENV['BASE_URL'].to_s.strip
+      end
+
+      if ENV.fetch('CF_PAGES_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
+        baseurl = ENV['CF_PAGES_URL'].to_s.strip
+      end
+
+#       puts site.config
+#       puts "\n"
+#       puts ENV['BASE_URL']
+#       puts ENV['CF_PAGES_URL']
+#       exit 1
 
       site.config['env'] = ENV['JEKYLL_ENV'] || 'production'
       site.config['safe'] = config_safe || false
-      site.config['baseurl'] = ENV['CF_PAGES_URL'].to_s.strip || ""
+      site.config['baseurl'] = baseurl || ""
       site.config['strict_mode'] = config_strict_mode || false
       site.config['release_version'] = ENV['CF_PAGES_COMMIT_SHA'].to_s.strip || ""
 
@@ -31,10 +41,10 @@ module Jekyll
 
       if site.config['env'] == "production"
         if site.config['baseurl'].to_s.strip.empty?
-          raise ArgumentError, "the value of the variable CF_PAGES_URL was not set!"
+          raise ArgumentError, "the value of the variable BASE_URL was not set!"
         end
         if site.config['release_version'].to_s.strip.empty?
-          raise ArgumentError, "the value of the variable CF_PAGES_COMMIT_SHA was not set!"
+          raise ArgumentError, "the value of the variable RELEASE_VERSION was not set!"
         end
 
         # Enable safe mode
