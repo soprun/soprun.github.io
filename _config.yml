@@ -9,7 +9,7 @@ quiet: false
 verbose: false
 # https://jekyllrb.com/docs/configuration/incremental-regeneration/
 regenerate: true
-incremental: false
+incremental: true
 
 #title: Soprun Vladislav
 #description: My personal thoughts on the web and programming...
@@ -146,7 +146,7 @@ author:
         - WORK
       value: job@soprun.com
   phones:
-    - value: +7 (901) 797-21-26
+    - value: +7 (901) 797-21-26i
       type:
         - home
         - work

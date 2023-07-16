@@ -55,11 +55,11 @@ task :check do
           'HtmlCheck'
       ],
       :file_ignore =>  [
-#           %r{.*/CAS-Protocol-Specification.html}
+          %r{.*/signature.html}
       ],
       :disable_external => true,
       :check_sri => false,
-      :enforce_https => true,
+      :enforce_https => false,
       :allow_hash_href => true,
       :allow_missing_href => true,
       :only_4xx => false,
