@@ -1,0 +1,36 @@
+name = "middleware"
+type = "javascript"
+#main = "./functions/_middleware.ts"
+compatibility_date = "2023-07-16"
+
+workers_dev = false
+zone_id = "ac5e5393611a20a83750b477b920c1ac"
+account_id = "04fcec9f6b5313d8cd9feb20456640de"
+#route = "04fcec9f6b5313d8cd9feb20456640de/soprun.com"
+
+#GWTQKhJtx7h8hBHEGq5Xrpl4Y6KvAD_UzJ6wmf3E
+
+kv_namespaces = [
+    { binding = "TODO", id = "06779da6940b431db6e566b4846d64db" }
+]
+
+
+# Define top-level environment variables
+# under the `[vars]` block using
+# the `key = "value"` format
+[vars]
+SENTRY_DSN = "https://123:456@testorg.ingest.sentry.io/123"
+
+
+#API_TOKEN = "example_dev_token"
+#STRIPE_TOKEN = "pk_xyz1234_test"
+#SERVICE_X_DATA = { URL = "service-x-api.dev.example", API_KEY = "my-service-x-dev-api-key", MY_ID = 123 }
+#
+## Override values for `--env production` usage
+#[env.production]
+#name = "site-production"
+#
+#[env.production.vars]
+#API_TOKEN = "example_production_token"
+#STRIPE_TOKEN = "pk_xyz1234"
+#SERVICE_X_DATA = { URL = "service-x-api.prod.example", API_KEY = "my-service-x-prod-api-key", MY_ID = 123 }
