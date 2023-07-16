@@ -35,8 +35,6 @@ group :jekyll_plugins do
 #   end
 
   #  if ENV["PROOF"]
-#   gem 'html-pipeline', group: :development
-#   gem 'find', group: :development
 #   gem 'fileutils', group: :development
 #   gem "typhoeus", "~> 1.4", group: :development
 
@@ -57,7 +55,10 @@ group :jekyll_plugins do
 
   group :development, :test do
     gem "webrick"
+
     gem 'html-proofer'
+    gem 'html-pipeline'
+    gem 'find'
 
     # Checks ruby code grammar
     gem 'rubocop', '>= 0', require: false

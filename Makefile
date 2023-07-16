@@ -124,7 +124,8 @@ kill:
 
 .PHONY: install
 install: ## Install the gems specified by the Gemfile or Gemfile.lock
-	@echo "Installing..."
+	@echo -e "$(COLOR_YELLOW)[command]$(COLOR_GREEN) >> Install dependencies$(COLOR_RESET) ... ⏳\n"
+	@echo -e ""
 	@#gem install jekyll
 	@gem install bundler
 	@bundle install --verbose
@@ -139,11 +140,12 @@ install: ## Install the gems specified by the Gemfile or Gemfile.lock
 
 .PHONY: update
 update: ## Update dependencies to their latest versions
+	@echo -e "$(COLOR_YELLOW)[command]$(COLOR_GREEN) >> Update dependencies$(COLOR_RESET) ... ⏳\n"
+	@echo -e ""
 	@gem update --system
-	@#bundle update --all
-	@bundle outdated
-	@bundle update --bundler
+	@bundle update --all -j8
 	@bundle check
+	@bundle outdated 2&>/dev/null
 	@make -s build
 
 .PHONY: release
@@ -172,24 +174,10 @@ fmt-auto-correct: ## Running Rubocop auto-correct all sorts of errors with
 #test: ## test
 #bundle exec rspec "$@"
 
-.PHONY: test-htmlproofer
-test-htmlproofer: ## Run HTMLProofer 📚
-	@#rm -rf _site
-	@#make -s build
-	## HTMLProofer is a set of tests to validate your HTML output.
-	@# htmlproofer _site --check-html --allow-hash-href --empty-alt-ignore --disable-external
-	@#bundle exec htmlproofer \
-#		--checks [Links,Images,Scripts,Favicon,OpenGraph,Usage,HtmlCheck] \
-#		--check_sri \
-#		--enforce_https \
-#		--allow-hash-href \
-#		--allow-missing-href \
-#		--only-4xx \
-#		--log-level debug \
-#		$(PWD)/scripts/HTMLProofer.rb
-	@bundle exec htmlproofer \
-  		$(PWD)/_plugins/HTMLProofer.rb
-#  		_site
+.PHONY: check-html
+check-html: ## Run HTMLProofer 📚
+	@rake check --trace
+
 
 # bundle exec rubocop -D --disable-pending-cops $@
 
@@ -464,6 +452,7 @@ start: ## 💻 Develop your full-stack Pages application locally
 
 
 # bundle config set --local deployment 'true'
+# bundle config set --local path vendor/bundle
 #
 #latest-version:
 #	touch $(DIR)/latest_version.txt

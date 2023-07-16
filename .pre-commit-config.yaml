@@ -1,3 +1,5 @@
+#https://gitflic.ru/project/vault/python-1/blob?file=.pre-commit-config.yaml&branch=master
+
 repos:
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: v0.7.2

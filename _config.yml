@@ -256,6 +256,17 @@ markdown: kramdown
 highlighter: rouge
 render_with_liquid: false
 
+#markdown: HTMLPipeline
+#html_pipeline:
+#  filters:
+#    - "markdownfilter"
+#    - "sanitizationfilter"
+#    - "emojifilter"
+#    - "mentionfilter"
+#  context:
+#    asset_root: "http://foo.com/icons"
+#    base_url:   "https://github.com/"
+
 #  https://jekyllrb.com/docs/configuration/markdown/#syntax-highlighting-coderay
 kramdown:
   input: GFM
