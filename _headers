@@ -1,3 +1,7 @@
+*
+ Link: </assets/img/avatar-small.png>; rel=preload; as=image
+ Link: </assets/css/style.css>; rel=preload; as=style
+
 /assets/*
   Cache-Control: public, no-transform
   X-Robots-Tag: nosnippet

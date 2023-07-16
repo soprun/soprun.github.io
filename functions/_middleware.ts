@@ -20,8 +20,8 @@ export interface Env {
     // MY_SERVICE: Fetcher;
 }
 
-let Access_Control_Allow_Origin = '*';
-let Access_Control_Allow_Headers = '*';
+let Access_Control_Allow_Origin = 'https://soprun.com *.sentry.io';
+let Access_Control_Allow_Headers = 'Content-Type';
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD';
 let Access_Control_Allow_Credentials = 'true';
 let Access_Control_Max_Age = '86400';
@@ -32,7 +32,7 @@ export const onRequestOptions: PagesFunction = async () => {
     return new Response(null, {
         status: 204,
         headers: {
-            // 'Access-Control-Allow-Origin': Access_Control_Allow_Origin,
+            'Access-Control-Allow-Origin': Access_Control_Allow_Origin,
             'Access-Control-Allow-Headers': Access_Control_Allow_Headers,
             'Access-Control-Allow-Methods': Access_Control_Allow_Methods,
             'Access-Control-Allow-Credentials': Access_Control_Allow_Credentials,
@@ -44,7 +44,7 @@ export const onRequestOptions: PagesFunction = async () => {
 export const onRequest: PagesFunction = async ({next}) => {
     const response = await next();
 
-    // response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
+    response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
     response.headers.set('Access-Control-Allow-Methods', Access_Control_Allow_Methods);
     response.headers.set('Access-Control-Allow-Credentials', Access_Control_Allow_Credentials);
@@ -100,7 +100,7 @@ export const onRequest: PagesFunction = async ({next}) => {
 
     // Accept-Language: fr
 
-    response.headers.set('Vary', 'Accept-Encoding,Cookie');
+    response.headers.set('Vary', 'Origin,Accept-Encoding,Cookie');
 
     response.headers.set('X-Frame-Options', 'DENY');
     response.headers.set('X-XSS-Protection', '1; mode=block');
