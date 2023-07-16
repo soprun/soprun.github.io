@@ -257,15 +257,15 @@ highlighter: rouge
 render_with_liquid: false
 
 #markdown: HTMLPipeline
-#html_pipeline:
-#  filters:
-#    - "markdownfilter"
-#    - "sanitizationfilter"
-#    - "emojifilter"
-#    - "mentionfilter"
-#  context:
-#    asset_root: "http://foo.com/icons"
-#    base_url:   "https://github.com/"
+html_pipeline:
+  filters:
+    - "markdownfilter"
+    - "sanitizationfilter"
+    - "emojifilter"
+    - "mentionfilter"
+  context:
+    asset_root: "https://soprun.com/assets/"
+    base_url: "https://soprun.com"
 
 #  https://jekyllrb.com/docs/configuration/markdown/#syntax-highlighting-coderay
 kramdown:

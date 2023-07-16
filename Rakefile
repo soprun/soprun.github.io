@@ -8,7 +8,7 @@ require "find"
 #   watch('Gemfile')
 # end
 
-# task default: [:check]
+task default: [:check]
 
 desc "Check >> HTMLProofer"
 task :check do
