@@ -9,6 +9,10 @@ module Jekyll
         url = ENV['CF_PAGES_URL'].to_s.strip
       end
 
+      if url.to_s.strip.empty? != true
+        site.config['url'] = url
+      end
+
       if ENV.fetch('RELEASE_VERSION', :default_need_not_be_a_string).to_s.strip.empty? != true
         release_version = ENV['RELEASE_VERSION'].to_s.strip
       end
@@ -35,7 +39,6 @@ module Jekyll
 
       site.config['environment'] = ENV.fetch('JEKYLL_ENV', :default_need_not_be_a_string).to_s.strip || "production"
       site.config['safe'] = config_safe || false
-      site.config['url'] = url || ""
       site.config['strict_mode'] = config_strict_mode || false
       site.config['release_version'] = release_version || ""
 
