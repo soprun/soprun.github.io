@@ -78,7 +78,7 @@ export const onRequestOptions: PagesFunction = async () => {
 // };
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-    const response = await (context)§;
+    const response = await (context);
     const site_url = await context.env.KV.get('SITE_URL');
 
     // const value = await context.env.KV.get('example');
