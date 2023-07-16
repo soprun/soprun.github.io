@@ -1,9 +1,11 @@
 name: CI
 
+# https://github.com/actions/jekyll-build-pages
+
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main", "dev"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,6 +41,8 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./_site
 
       # https://github.com/marketplace/actions/create-a-sentry-io-release-with-sourcemaps
       - name: Create a Sentry.io release (with sourcemaps)
