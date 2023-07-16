@@ -92,7 +92,7 @@ clean: ## Delete all the files created by the 'html' target
 
 .PHONY: doctor
 doctor: ##  Outputs any deprecation or configuration issues.
-	jekyll doctor
+	@$(JEKYLL_CMD) doctor --trace --profile
 
 #serve:
 #	 Execute a script in the current bundl
@@ -100,7 +100,6 @@ doctor: ##  Outputs any deprecation or configuration issues.
 
 # чтобы позволить jekyll выполнить свою работу и преобразовать файлы вашего сайта в настоящий html
 # и отправить его на локальный хост для тестирования, вы запускаете это в каталоге своего сайта:
-
 
 # make watch ARGS="--incremental --watch --profile --strict_front_matter --trace"
 # make watch ARGS="--incremental --watch --profile --strict_front_matter --trace"
@@ -243,6 +242,9 @@ build: ## Build the html output files via ARGS="command --options"
 	@echo -e ""
 	@$(JEKYLL_CMD) build $(_build_command) $(ARGS)
 
+## Build configurations in CloudFlare
+# jekyll build --incremental --profile --verbose --trace
+
 .PHONY: print-env
 print-env: ## Print environment
 	@echo -e "$(COLOR_YELLOW)Base environment:\n$(COLOR_RESET)"
@@ -253,7 +255,7 @@ print-env: ## Print environment
 	@echo -e "GIT_TAG: $(COLOR_GREEN)$(GIT_TAG)$(COLOR_RESET)"
 	@echo -e "GIT_SHORT_TAG: $(COLOR_GREEN)$(GIT_SHORT_TAG)$(COLOR_RESET)"
 	@echo -e "$(COLOR_YELLOW)\nJekyll environment:\n$(COLOR_RESET)"
-	@echo -e "BASE_URL: $(COLOR_GREEN)$(BASE_URL)$(COLOR_RESET)"
+	@echo -e "SITE_URL: $(COLOR_GREEN)$(SITE_URL)$(COLOR_RESET)"
 	@echo -e "RELEASE_VERSION: $(COLOR_GREEN)$(RELEASE_VERSION)$(COLOR_RESET)"
 	@echo -e "JEKYLL_ENV: $(COLOR_GREEN)$(JEKYLL_ENV)$(COLOR_RESET)"
 	@echo -e "JEKYLL_STRICT_MODE: $(COLOR_GREEN)$(JEKYLL_STRICT_MODE)$(COLOR_RESET)"

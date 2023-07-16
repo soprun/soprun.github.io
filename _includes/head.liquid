@@ -1,8 +1,15 @@
-{%- assign last_modified = page.date | default: site.time %}
 <head>
     <meta charset="{{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Last-Modified" content="{{ last_modified | date_to_xmlschema }}"/>
+    <meta http-equiv="Last-Modified" content="{{ page_last_modified_at }}"/>
+
+    {% comment %}https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy{% endcomment %}
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    {% comment %}https://web.dev/referrer-best-practices/{% endcomment %}
+
+    {% comment %}<a href="http://example.com" referrerpolicy="origin">{% endcomment %}
+    {% comment %}https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery{% endcomment %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="medium" content="blog"/>
     <meta name="mobile-web-app-capable" content="yes">

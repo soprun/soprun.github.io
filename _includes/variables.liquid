@@ -1,6 +1,9 @@
+{%- capture environment -%}
+    {{- jekyll.environment -}}
+{%- endcapture -%}
+
 {%- capture base_url -%}
-    {%- assign page_url = site.baseurl | prepend: site.url -%}
-    {{- page_url | relative_url -}}
+    {{- site.baseurl | prepend: site.url | absolute_url -}}
 {%- endcapture -%}
 
 {%- capture page_title -%}
@@ -20,6 +23,10 @@
 
 {%- capture page_keywords -%}
     {{- page.tags | reverse | concat: site.keywords | join: ', ' | escape | truncatewords: 10 -}}
+{%- endcapture -%}
+
+{%- capture page_last_modified_at -%}
+    {{- page.last_modified_at | default: page.date | default: site.time | date_to_xmlschema -}}
 {%- endcapture -%}
 
 {%- capture copyright -%}

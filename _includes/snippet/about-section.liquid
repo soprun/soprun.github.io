@@ -5,6 +5,6 @@
 
         {{ about-page }}
         <div class="intro-text">{{ about-page.intro }}</div>
-        <a class="about-link" href="{{ about-page.url }}">Learn more</a>
+        <a class="about-link" href="{{ about-page.url | absolute_url }}">Learn more</a>
     </div>
 </section>

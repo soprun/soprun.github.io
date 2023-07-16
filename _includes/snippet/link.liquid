@@ -20,6 +20,6 @@
     {%- if snippet_link.type %} type="{{ snippet_link.type }}"{% endif %}
     {%- if snippet_link.rel %} rel="{{ snippet_link.rel }}"{% endif %}
     {%- if sizes %} sizes="{{ sizes }}"{% endif %}
-    {%- if href %} href="{{ href | relative_url }}"{% endif %}
+    {%- if href %} href="{{ href | absolute_url }}"{% endif %}
     {%- if title %} title="{{ title | escape }}"{%- endif -%}
 />

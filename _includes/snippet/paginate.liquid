@@ -3,7 +3,7 @@
         <ul class="pagination justify-content-center pt-2 m-0">
             <li class="page-item {% unless paginator.previous_page %}disabled{% endunless %}">
                 <a class="page-link"
-                   href="{{ paginator.previous_page_path | relative_url }}"
+                   href="{{ paginator.previous_page_path | absolute_url }}"
                    {% unless paginator.previous_page %}tabindex="-1"{% endunless %}
                     {% unless paginator.previous_page %}aria-disabled="true"{% endunless %}
                    aria-label="Previous">
@@ -24,7 +24,7 @@
 
                 <li class="page-item {% if page_active %}active{% endif %}"
                     {% if page_active %}aria-current="page"{% endif %}>
-                    <a class="page-link" href="{{ page_link | relative_url }}">
+                    <a class="page-link" href="{{ page_link | absolute_url }}">
                         {{ i }}
                     </a>
                 </li>
@@ -32,7 +32,7 @@
 
             <li class="page-item {% unless paginator.next_page %}disabled{% endunless %}">
                 <a class="page-link"
-                   href="{{ paginator.next_page_path | relative_url }}"
+                   href="{{ paginator.next_page_path | absolute_url }}"
                    {% unless paginator.next_page %}tabindex="-1"{% endunless %}
                     {% unless paginator.next_page %}aria-disabled="true"{% endunless %}
                    aria-label="Next">
