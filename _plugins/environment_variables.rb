@@ -1,12 +1,12 @@
 module Jekyll
   class EnvironmentVariablesGenerator < Generator
     def generate(site)
-      if ENV.fetch('SITE_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
-        url = ENV['SITE_URL'].to_s.strip
-      end
-
       if ENV.fetch('CF_PAGES_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
         url = ENV['CF_PAGES_URL'].to_s.strip
+      end
+
+      if ENV.fetch('SITE_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
+        url = ENV['SITE_URL'].to_s.strip
       end
 
       if url.to_s.strip.empty? != true
@@ -87,7 +87,10 @@ module Jekyll
       end
     rescue => e
       puts "[ERROR]".red + ": An error of type " + "#{e.class}".red + " happened, message is " + "#{e.message}".yellow
-      # exit 1
+
+      if site.config['environment'] === "production"
+        exit 1
+      end
     end
   end
 end

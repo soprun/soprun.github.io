@@ -16,7 +16,7 @@ indent_size = 2
 trim_trailing_whitespace = false
 indent_size = 2
 
-[{Gemfile, *.yml, *.yaml, *.rb}]
+[{Gemfile, *.yml, *.yaml, *.rb, Gemfile, Rakefile}]
 indent_size = 2
 
 [{*.html, *.liquid}]

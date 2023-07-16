@@ -8,7 +8,10 @@
 
 #  git log -L:<method>:<file>
 *.rb diff=ruby
+Rakefile* diff=ruby
+Guardfile* diff=ruby
 *.gemspec diff=ruby
+_plugins/* diff=ruby
 bin/* diff=ruby
 bundler/bin/* diff=ruby
 bundler/exe/* diff=ruby

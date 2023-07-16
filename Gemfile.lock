@@ -32,8 +32,12 @@ GEM
     ffi (1.15.5)
     fiber-annotation (0.2.0)
     fiber-local (1.0.0)
+    find (0.1.1)
     forwardable-extended (2.6.0)
     hashery (2.1.2)
+    html-pipeline (2.14.3)
+      activesupport (>= 2)
+      nokogiri (>= 1.4)
     html-proofer (5.0.7)
       addressable (~> 2.3)
       async (~> 2.1)
@@ -192,6 +196,8 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  find
+  html-pipeline
   html-proofer
   jekyll (~> 4.2.2)
   jekyll-dotenv
