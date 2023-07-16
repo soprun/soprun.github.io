@@ -20,7 +20,7 @@ export interface Env {
     // MY_SERVICE: Fetcher;
 }
 
-let Access_Control_Allow_Origin = 'https://soprun.com *.sentry.io';
+let Access_Control_Allow_Origin = 'https://soprun.com *.sentry.io *.cloudflareinsights.com *.yandex.ru';
 let Access_Control_Allow_Headers = 'Content-Type';
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD';
 let Access_Control_Allow_Credentials = 'true';
