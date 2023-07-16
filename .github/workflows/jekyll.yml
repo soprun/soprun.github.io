@@ -9,7 +9,7 @@ name: Deploy Jekyll site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: ["main", "dev"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -33,23 +33,41 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Ruby
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        uses: ruby/setup-ruby # v1.146.0
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
+
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v2
+
+      # https://github.com/marketplace/actions/create-a-sentry-io-release-with-sourcemaps
+      - name: Create a Sentry.io release (with sourcemaps)
+        # You may pin to the exact commit or the version.
+        # uses: settlemint/sentry-releases-action@69e02703e2cb3e98ba3ca0bb010facfab7b401b1
+        uses: settlemint/sentry-releases-action@v2.0.1
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        with:
+          tagName: ${{ github.ref }}
+          environment: production
+          sourceMapsPath: assets/css/style.css.map
 
   # Deployment job
   deploy:
