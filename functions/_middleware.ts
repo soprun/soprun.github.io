@@ -28,6 +28,12 @@ let Access_Control_Max_Age = '86400';
 let Strict_Transport_Security = 'max-age=63072000; includeSubDomains; preload';
 let Referrer_Policy = 'strict-origin-when-cross-origin';
 
+let PublicKeyPins =
+    'pin-sha256="cUPcTAZWKaASuYWhhneDttWpY3oBAkE3h2+soZS7sWs="; ' +
+    'pin-sha256="M8HztCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPWE="; ' +
+    'max-age=5184000; includeSubDomains; ' +
+    'report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"';
+
 export const onRequestOptions: PagesFunction = async () => {
     return new Response(null, {
         status: 204,
@@ -94,8 +100,8 @@ export const onRequest: PagesFunction = async ({next}) => {
 
     // Feature-Policy
     //
-    // Public-Key-Pins
     // https://en.wikipedia.org/wiki/Public-key_cryptography
+    response.headers.set('Public-Key-Pins-Report-Only', PublicKeyPins);
 
 
     // Accept-Language: fr
