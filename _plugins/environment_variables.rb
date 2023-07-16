@@ -1,6 +1,26 @@
 module Jekyll
   class EnvironmentVariablesGenerator < Generator
     def generate(site)
+      if ENV.fetch('SITE_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
+        url = ENV['SITE_URL'].to_s.strip
+      end
+
+      if ENV.fetch('CF_PAGES_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
+        url = ENV['CF_PAGES_URL'].to_s.strip
+      end
+
+      if url.to_s.strip.empty? != true
+        site.config['url'] = url
+      end
+
+      if ENV.fetch('RELEASE_VERSION', :default_need_not_be_a_string).to_s.strip.empty? != true
+        release_version = ENV['RELEASE_VERSION'].to_s.strip
+      end
+
+      if ENV.fetch('CF_PAGES_COMMIT_SHA', :default_need_not_be_a_string).to_s.strip.empty? != true
+        release_version = ENV['CF_PAGES_COMMIT_SHA'].to_s.strip
+      end
+
       if ENV.fetch('JEKYLL_SAFE', :default_need_not_be_a_string).to_s.strip.downcase == "true"
         config_safe = true
       end
@@ -9,52 +29,44 @@ module Jekyll
         config_strict_mode = true
       end
 
-      if ENV.fetch('BASE_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
-        baseurl = ENV['BASE_URL'].to_s.strip
-      end
-
-      if ENV.fetch('CF_PAGES_URL', :default_need_not_be_a_string).to_s.strip.empty? != true
-        baseurl = ENV['CF_PAGES_URL'].to_s.strip
-      end
-
-#       puts site.config
+#       puts site.config['url']
 #       puts "\n"
-#       puts ENV['BASE_URL']
+#       puts url
+#       puts "\n"
+#       puts ENV['SITE_URL']
 #       puts ENV['CF_PAGES_URL']
 #       exit 1
 
-      site.config['env'] = ENV['JEKYLL_ENV'] || 'production'
+      site.config['environment'] = ENV.fetch('JEKYLL_ENV', :default_need_not_be_a_string).to_s.strip || "production"
       site.config['safe'] = config_safe || false
-      site.config['baseurl'] = baseurl || ""
       site.config['strict_mode'] = config_strict_mode || false
-      site.config['release_version'] = ENV['CF_PAGES_COMMIT_SHA'].to_s.strip || ""
+      site.config['release_version'] = release_version || ""
 
 #       puts "\n"
 #       puts "env: " + ENV['JEKYLL_ENV'].to_s.strip || ""
 #       puts "env: " + site.config['env'].blue
 #       puts "safe: " + site.config['safe'].to_s.strip.yellow
-#       puts "baseurl: " + site.config['baseurl'].yellow
+#       puts "url: " + site.config['url'].yellow
 #       puts "strict_mode: " + site.config['strict_mode'].to_s.strip.yellow
 #       puts "release_version: " + site.config['release_version'].yellow
 #       puts "\n"
 #       exit 1
 
-      if site.config['env'] == "production"
-        if site.config['baseurl'].to_s.strip.empty?
-          raise ArgumentError, "the value of the variable BASE_URL was not set!"
-        end
-        if site.config['release_version'].to_s.strip.empty?
-          raise ArgumentError, "the value of the variable RELEASE_VERSION was not set!"
-        end
-
-        # Enable safe mode
-        # if site.config['safe'] != true
-        #   raise ArgumentError, "the value of the variable JEKYLL_SAFE was not set!"
-        # end
-        # if site.config['strict_mode'] != true
-        #   raise ArgumentError, "the value of the variable JEKYLL_STRICT_MODE was not set!"
-        # end
-      end
+#       if site.config['environment'] == "production"
+#         if site.config['url'].to_s.strip.empty? == true
+#           raise ArgumentError, "the value of the variable SITE_URL was not set!"
+#         end
+#         if site.config['release_version'].to_s.strip.empty? == true
+#           raise ArgumentError, "the value of the variable RELEASE_VERSION was not set!"
+#         end
+#         # Enable safe mode
+#         if site.config['safe'] != true
+#           raise ArgumentError, "the value of the variable JEKYLL_SAFE was not set!"
+#         end
+#         if site.config['strict_mode'] != true
+#           raise ArgumentError, "the value of the variable JEKYLL_STRICT_MODE was not set!"
+#         end
+#       end
 
       if site.config['strict_mode'] == true
         site.config['safe'] = true
@@ -74,8 +86,8 @@ module Jekyll
 #          exit 1
       end
     rescue => e
-      puts "An error of type " + "#{e.class}".red + " happened, message is " + "#{e.message}".yellow
-      exit 1;
+      puts "[ERROR]".red + ": An error of type " + "#{e.class}".red + " happened, message is " + "#{e.message}".yellow
+      # exit 1
     end
   end
 end

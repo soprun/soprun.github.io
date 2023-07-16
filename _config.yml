@@ -1,7 +1,6 @@
-# Site settings
-baseurl: ''
-lang: ru
+baseurl: ""
 url: https://soprun.com
+lang: ru
 encoding: utf-8
 
 # Enable safe mode

@@ -1,5 +1,6 @@
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
+// https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 
 // interface Env {
 //     ENVIRONMENT: string;

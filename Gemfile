@@ -4,16 +4,17 @@ gem 'jekyll', '~> 4.2.2'
 
 group :jekyll_plugins do
   gem 'rake'
-  gem 'rouge'
+  gem 'rouge', '>= 0'
   gem 'kramdown'
-  gem 'liquid'
+  gem 'liquid', '>= 0'
   gem 'rspec'
 
   # To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
-  gem 'faraday-retry'
+  # gem 'faraday-retry'
 
   gem 'jekyll-dotenv'
   gem 'jekyll-environment-variables'
+
   gem 'jekyll-seo-tag'
   gem 'jekyll-paginate'
 #   gem 'jekyll-feed'
@@ -40,32 +41,32 @@ group :jekyll_plugins do
 #   gem "typhoeus", "~> 1.4", group: :development
 
   group :development do
-    gem "debug", group: :development
-    gem "github_changelog_generator", group: :development
+    # gem "debug", group: :development
+    # gem "github_changelog_generator", group: :development
 
     # Automagically launches tests for changed files
-    gem 'guard'
-    gem 'guard-rspec', require: false
+    # gem 'guard'
+    # gem 'guard-rspec', require: false
     # And updates gems when needed
-    gem 'guard-bundler', require: false
+    # gem 'guard-bundler', require: false
     # And auto starts rails server
-    gem 'guard-rails'
+    # gem 'guard-rails'
     # And auto runs migrations
-    gem 'guard-migrate'
+    # gem 'guard-migrate'
   end
 
   group :development, :test do
-    gem "webrick", "~> 1.7"
-    gem 'html-proofer', "~> 5.0"
+    gem "webrick"
+    gem 'html-proofer'
 
     # Checks ruby code grammar
-    gem 'rubocop', require: false
+    gem 'rubocop', '>= 0', require: false
     gem 'rubocop-performance', require: false
     gem 'rubocop-rspec', require: false
     gem 'rubocop-rake', require: false
     gem 'rubocop-standard', require: false
     gem 'rubocop-minitest', require: false
     # With guard
-    gem 'guard-rubocop', require: false
+    # gem 'guard-rubocop', require: false
   end
 end

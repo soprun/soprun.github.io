@@ -1,5 +1,9 @@
 <section id="sidebar-logo" class="vcard text-center">
-    <a href="{{ '/' | relative_url }}" target="_self" rel="home" itemprop="url">
+    <a href="{{ site.url | absolute_url }}"
+       target="_self"
+       rel="home"
+       referrerpolicy="origin"
+       itemprop="url">
         <picture itemprop="logo"
                  itemtype="https://schema.org/ImageObject">
             <img
@@ -7,8 +11,8 @@
                 width="150"
                 height="150"
                 itemprop="url image"
-                srcset="{{ site.logo | relative_url }}"
-                src="{{ site.logo | relative_url }}"/>
+                srcset="{{ site.logo | absolute_url }}"
+                src="{{ site.logo | absolute_url }}"/>
         </picture>
     </a>
 </section>
@@ -18,7 +22,8 @@
         {% if site.author.url %}
             <a class="url"
                itemprop="name"
-               href="{{ site.url | relative_url }}">
+               referrerpolicy="origin"
+               href="{{ site.url | absolute_url }}">
                 {{ site.author.name }}
             </a>
         {% else %}
@@ -43,7 +48,7 @@
     {% comment %}<a href="https://t.me/+YpCP4MsEorBmN2Qy"{% endcomment %}
        {% comment %}rel="noopener noreferrer"{% endcomment %}
        {% comment %}target="_blank">{% endcomment %}
-        {% comment %}<img src="{{ '/assets/img/tg-channel.jpg' | relative_url }}"{% endcomment %}
+        {% comment %}<img src="{{ '/assets/img/tg-channel.jpg' | absolute_url }}"{% endcomment %}
              {% comment %}class="img-fluid"{% endcomment %}
              {% comment %}alt="{{ site.title | escape }}"{% endcomment %}
              {% comment %}width="60%">{% endcomment %}
@@ -78,7 +83,7 @@
 {%- comment %}<section id="sidebar-hresume" class="vcard">{% endcomment %}
 {%- comment %}<p style="float: left;">{% endcomment %}
 {%- comment %}feeds:{% endcomment %}
-{%- comment %}<a href="{{ '/atom.xml' | relative_url }}" title="Atom 0.3 feed for all posts">posts</a>{% endcomment %}
+{%- comment %}<a href="{{ '/atom.xml' | absolute_url }}" title="Atom 0.3 feed for all posts">posts</a>{% endcomment %}
 {%- comment %}(<a href="https://validator.w3.org/feed/check.cgi?url=https://soprun.com/atom.xml">valid?</a>){% endcomment %}
 {%- comment %}or <a href="http://lesscode.org/comments/feed/" title="RSS 2.0 feed for comments">comments</a>{% endcomment %}
 {%- comment %}(<a href="http://feedvalidator.org/check.cgi?url=http://lesscode.org/comments/feed/">valid?</a>){% endcomment %}
