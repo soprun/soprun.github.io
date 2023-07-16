@@ -12,7 +12,6 @@ group :jekyll_plugins do
   # To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
   # gem 'faraday-retry'
 
-  gem 'jekyll-sass-converter', '~> 2.0'
   gem 'jekyll-dotenv'
   gem 'jekyll-environment-variables'
 

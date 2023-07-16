@@ -198,7 +198,6 @@ DEPENDENCIES
   jekyll-environment-variables
   jekyll-paginate
   jekyll-relative-links
-  jekyll-sass-converter (~> 2.0)
   jekyll-seo-tag
   jekyll-sitemap
   kramdown
