@@ -87,7 +87,10 @@ module Jekyll
       end
     rescue => e
       puts "[ERROR]".red + ": An error of type " + "#{e.class}".red + " happened, message is " + "#{e.message}".yellow
-      # exit 1
+
+      if site.config['environment'] === "production"
+        exit 1
+      end
     end
   end
 end
