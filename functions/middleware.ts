@@ -92,10 +92,15 @@ export const onRequest: PagesFunction<Env> = async ({context}) => {
     // })(context);
 
     const response = await context();
+    const site_url = response.env.get('SITE_URL');
+
+    console.log(
+        "response.url" + response.url + "\n" +
+        "site_url" + site_url
+    );
 
     // TODO: Сломается при релизе!
     // const env = await context.env.get('JEKYLL_ENV');
-    // const site_url = await context.env.get('SITE_URL');
 
     // const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
     // const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
@@ -110,9 +115,6 @@ export const onRequest: PagesFunction<Env> = async ({context}) => {
     //     status: 200
     // });
 
-    // console.error(
-    //     "Getting Client's IP address, device type, and ASN are not supported in playground. Must test on a live worker"
-    // );
 
     // const value = await context.env.KV.get('example');
     // env: Env,
