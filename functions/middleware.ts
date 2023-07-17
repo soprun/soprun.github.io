@@ -13,12 +13,12 @@
 
 // import {KVNamespace} from "@cloudflare/workers-types";
 
-interface Env {
-    JEKYLL_ENV: string
-    SITE_URL: string
-    CF_PAGES_COMMIT_SHA: string
-    CF_PAGES_URL: string
-}
+// interface Env {
+//     JEKYLL_ENV: string
+//     SITE_URL: string
+//     CF_PAGES_COMMIT_SHA: string
+//     CF_PAGES_URL: string
+// }
 
 // export interface Env {
 //     KV: KVNamespace
@@ -86,12 +86,12 @@ export const onRequestOptions: PagesFunction = async () => {
 
 // export const onRequest = [errorHandling, authentication];
 
-export const onRequest: PagesFunction<Env> = async ({context}) => {
+export const onRequest: PagesFunction<Env> = async ({next}) => {
     // const sentry = sentryPlugin({
     //     dsn: await context.env.KV.get("SENTRY_DSN")
     // })(context);
 
-    const response = await context();
+    const response = await next();
     // const site_url = response.env.get('SITE_URL');
     //
     // console.log(
