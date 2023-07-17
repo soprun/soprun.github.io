@@ -1,6 +1,6 @@
-*
- Link: </assets/img/avatar-small.png>; rel=preload; as=image
- Link: </assets/css/style.css>; rel=preload; as=style
+# /*
+# Link: </assets/img/avatar-small.png>; rel=preload; as=image
+# Link: </assets/css/style.css>; rel=preload; as=style
 
 /assets/*
   Cache-Control: public, no-transform
@@ -10,5 +10,5 @@
   Content-Type: text/x-vcard
   Content-Disposition: attachment; filename="vcard.vcf"
 
-https://*.soprun-github-io.pages.dev/*
+*.pages.dev/*
   X-Robots-Tag: noindex
