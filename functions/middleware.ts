@@ -92,12 +92,12 @@ export const onRequest: PagesFunction<Env> = async ({context}) => {
     // })(context);
 
     const response = await context();
-    const site_url = response.env.get('SITE_URL');
-
-    console.log(
-        "response.url" + response.url + "\n" +
-        "site_url" + site_url
-    );
+    // const site_url = response.env.get('SITE_URL');
+    //
+    // console.log(
+    //     "response.url" + response.url + "\n" +
+    //     "site_url" + site_url
+    // );
 
     // TODO: Сломается при релизе!
     // const env = await context.env.get('JEKYLL_ENV');

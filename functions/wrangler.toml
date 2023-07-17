@@ -1,7 +1,7 @@
 name = "soprun-github-io"
 # type = "javascript"
 # main = "./functions/_middleware.ts"
-compatibility_date = "2023-07-16"
+#compatibility_date = "2023-07-16"
 #compatibility_flags = [ "nodejs_compat" ]
 #workers_dev = true
 
