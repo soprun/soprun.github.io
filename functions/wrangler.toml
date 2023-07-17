@@ -1,20 +1,24 @@
-name = "development"
+name = "soprun-github-io"
 # type = "javascript"
-#main = "./functions/_middleware.ts"
+# main = "./functions/_middleware.ts"
 compatibility_date = "2023-07-16"
+workers_dev = true
 
-workers_dev = false
-zone_id = "ac5e5393611a20a83750b477b920c1ac"
+# zone_id = "ac5e5393611a20a83750b477b920c1ac"
 account_id = "04fcec9f6b5313d8cd9feb20456640de"
 
-route = { pattern = "soprun.com/*", zone_name = "soprun-github-io" }
+#route = { pattern = "*.pages.dev/*", zone_name = "preview" }
+#route = { pattern = "soprun.com/*", zone_name = "production" }
 
 kv_namespaces = [
     { binding = "KV", id = "064544438acc4697a6fc38f89b801d22" }
 ]
 
-[env.production]
-name = "production"
+#[env.preview]
+#name = "preview"
+#
+#[env.production]
+#name = "production"
 
 
 # Define top-level environment variables

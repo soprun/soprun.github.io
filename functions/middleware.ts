@@ -1,4 +1,4 @@
-import sentryPlugin from "@cloudflare/pages-plugin-sentry"
+// import sentryPlugin from "@cloudflare/pages-plugin-sentry"
 
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
@@ -88,9 +88,9 @@ export const onRequestOptions: PagesFunction = async () => {
 // export const onRequest = [errorHandling, authentication];
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-    const sentry = sentryPlugin({
-        dsn: await context.env.KV.get("SENTRY_DSN")
-    })(context);
+    // const sentry = sentryPlugin({
+    //     dsn: await context.env.KV.get("SENTRY_DSN")
+    // })(context);
 
     // TODO: Сломается при релизе!
     const environment = context.env.ENVIRONMENT;
