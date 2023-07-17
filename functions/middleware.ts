@@ -99,10 +99,8 @@ export const onRequest: PagesFunction<Env> = async ({context}) => {
     // const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
     // const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
 
-    return new Response({
-        env,
-        site_url,
-        ${response.url}
+    return new Response(`{${env}, ${site_url}, ${response.url}}`, {
+        status: 200
     });
 
     // console.error(
