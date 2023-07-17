@@ -86,9 +86,7 @@ export const onRequestOptions: PagesFunction = async () => {
 
 // export const onRequest = [errorHandling, authentication];
 
-console.info("CF_PAGES_URL" + env.CF_PAGES_COMMIT_SHA)
-
-export const onRequest: PagesFunction<Env> = async ({context}) => {
+export const onRequest: PagesFunction<Env> = async (context) => {
     // const sentry = sentryPlugin({
     //     dsn: await context.env.KV.get("SENTRY_DSN")
     // })(context);
@@ -101,9 +99,13 @@ export const onRequest: PagesFunction<Env> = async ({context}) => {
     // const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
     // const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
 
-    console.log("CF_PAGES_URL" + env.CF_PAGES_URL)
+    const CF_PAGES_UR = await context.env.CF_PAGES_UR
+    const CF_PAGES_COMMIT_SHA = await context.env.CF_PAGES_COMMIT_SHA
 
-    return new Response(`{${env}, ${site_url}, ${response.url}}`, {
+    console.log("CF_PAGES_URL" + CF_PAGES_UR)
+    console.info("CF_PAGES_URL" + CF_PAGES_COMMIT_SHA)
+
+    return new Response(env + " " + site_url + " " + response.url, {
         status: 200
     });
 
