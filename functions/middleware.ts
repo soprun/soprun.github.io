@@ -86,28 +86,29 @@ export const onRequestOptions: PagesFunction = async () => {
 
 // export const onRequest = [errorHandling, authentication];
 
-export const onRequest: PagesFunction<Env> = async (context) => {
+export const onRequest: PagesFunction<Env> = async ({context}) => {
     // const sentry = sentryPlugin({
     //     dsn: await context.env.KV.get("SENTRY_DSN")
     // })(context);
 
-    // TODO: Сломается при релизе!
-    const env = await context.env.get('JEKYLL_ENV');
-    const site_url = await context.env.get('SITE_URL');
     const response = await context();
+
+    // TODO: Сломается при релизе!
+    // const env = await context.env.get('JEKYLL_ENV');
+    // const site_url = await context.env.get('SITE_URL');
 
     // const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
     // const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
 
-    const CF_PAGES_UR = await context.env.CF_PAGES_UR
-    const CF_PAGES_COMMIT_SHA = await context.env.CF_PAGES_COMMIT_SHA
-
-    console.log("CF_PAGES_URL" + CF_PAGES_UR)
-    console.info("CF_PAGES_URL" + CF_PAGES_COMMIT_SHA)
-
-    return new Response(env + " " + site_url + " " + response.url, {
-        status: 200
-    });
+    // const CF_PAGES_UR = await context.env.CF_PAGES_UR
+    // const CF_PAGES_COMMIT_SHA = await context.env.CF_PAGES_COMMIT_SHA
+    //
+    // console.log("CF_PAGES_URL" + CF_PAGES_UR)
+    // console.info("CF_PAGES_URL" + CF_PAGES_COMMIT_SHA)
+    //
+    // return new Response(env + " " + site_url + " " + response.url, {
+    //     status: 200
+    // });
 
     // console.error(
     //     "Getting Client's IP address, device type, and ASN are not supported in playground. Must test on a live worker"
