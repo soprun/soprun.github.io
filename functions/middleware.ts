@@ -14,9 +14,8 @@
 // import {KVNamespace} from "@cloudflare/workers-types";
 
 interface Env {
-    KV: KVNamespace
-    ENVIRONMENT: string
-    SENTRY_REPORTING: string
+    JEKYLL_ENV: string
+    SITE_URL: string
     CF_PAGES_COMMIT_SHA: string
     CF_PAGES_URL: string
 }
@@ -87,25 +86,28 @@ export const onRequestOptions: PagesFunction = async () => {
 
 // export const onRequest = [errorHandling, authentication];
 
-export const onRequest: PagesFunction<Env> = async (context) => {
+export const onRequest: PagesFunction<Env> = async ({context}) => {
     // const sentry = sentryPlugin({
     //     dsn: await context.env.KV.get("SENTRY_DSN")
     // })(context);
 
     // TODO: Сломается при релизе!
-    const environment = context.env.ENVIRONMENT;
-    const env = await context.env.KV.get('ENV');
-    const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
-    const site_url = await context.env.KV.get('SITE_URL');
-    const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
-    const response = await context.next();
+    const env = await context.env.get('JEKYLL_ENV');
+    const site_url = await context.env.get('SITE_URL');
+    const response = await context();
 
-    console.log(`[onRequest]: environment ${environment}`);
-    console.log(`[onRequest]: environment ${sentry_reporting}`);
-    console.log(`[onRequest]: env ${env}`);
-    console.log(`[onRequest]: site_url ${site_url}`);
-    console.log(`[onRequest]: sentry_dsn ${sentry_dsn}`);
-    console.error(`[onRequest]: response.url = ${response.url}`);
+    // const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
+    // const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
+
+    return new Response({
+        env,
+        site_url,
+        ${response.url}
+    });
+
+    // console.error(
+    //     "Getting Client's IP address, device type, and ASN are not supported in playground. Must test on a live worker"
+    // );
 
     // const value = await context.env.KV.get('example');
     // env: Env,
