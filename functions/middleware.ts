@@ -95,15 +95,17 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     // TODO: Сломается при релизе!
     const environment = context.env.ENVIRONMENT;
     const env = await context.env.KV.get('ENV');
+    const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
     const site_url = await context.env.KV.get('SITE_URL');
     const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
     const response = await context.next();
 
     console.log(`[onRequest]: environment ${environment}`);
+    console.log(`[onRequest]: environment ${sentry_reporting}`);
     console.log(`[onRequest]: env ${env}`);
     console.log(`[onRequest]: site_url ${site_url}`);
     console.log(`[onRequest]: sentry_dsn ${sentry_dsn}`);
-    console.log(`[onRequest]: response.url = ${response.url}`);
+    console.error(`[onRequest]: response.url = ${response.url}`);
 
     // const value = await context.env.KV.get('example');
     // env: Env,

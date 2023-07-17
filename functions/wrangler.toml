@@ -2,6 +2,7 @@ name = "soprun-github-io"
 # type = "javascript"
 # main = "./functions/_middleware.ts"
 compatibility_date = "2023-07-16"
+compatibility_flags = [ "nodejs_compat" ]
 workers_dev = true
 
 # zone_id = "ac5e5393611a20a83750b477b920c1ac"
