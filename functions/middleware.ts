@@ -1,25 +1,42 @@
+// import sentryPlugin from "@cloudflare/pages-plugin-sentry"
+
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 // https://infosec.mozilla.org/guidelines/web_security#referrer-policy
 // https://developers.cloudflare.com/pages/platform/functions/examples/cors-headers/
 
 // interface Env {
-//     ENVIRONMENT: string;
+//     KV: KVNamespace
+//     // ENV: KVNamespace;
+//     // SITE_URL: KVNamespace;
+//     // SENTRY_DSN: KVNamespace;
 // }
 
-export interface Env {
-    // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
-    // SENTRY_DSN: KVNamespace;
+// import {KVNamespace} from "@cloudflare/workers-types";
 
-    // Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
-    // MY_DURABLE_OBJECT: DurableObjectNamespace;
-
-    // Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
-    // MY_BUCKET: R2Bucket;
-
-    // Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
-    // MY_SERVICE: Fetcher;
+interface Env {
+    JEKYLL_ENV: string
+    SITE_URL: string
+    CF_PAGES_COMMIT_SHA: string
+    CF_PAGES_URL: string
 }
 
+// export interface Env {
+//     KV: KVNamespace
+
+// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
+// ENTRY_DSN: KVNamespace;
+
+// Example binding to Durable Object. Learn more at https://developers.cloudflare.com/workers/runtime-apis/durable-objects/
+// MY_DURABLE_OBJECT: DurableObjectNamespace;
+
+// Example binding to R2. Learn more at https://developers.cloudflare.com/workers/runtime-apis/r2/
+// MY_BUCKET: R2Bucket;
+
+// Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
+// MY_SERVICE: Fetcher;
+// }
+
+let Accept_Language = 'ru';
 let Access_Control_Allow_Origin = 'https://soprun.com *.sentry.io *.cloudflareinsights.com *.yandex.ru';
 let Access_Control_Allow_Headers = 'Content-Type';
 let Access_Control_Allow_Methods = 'GET, OPTIONS, HEAD';
@@ -27,12 +44,28 @@ let Access_Control_Allow_Credentials = 'true';
 let Access_Control_Max_Age = '86400';
 let Strict_Transport_Security = 'max-age=63072000; includeSubDomains; preload';
 let Referrer_Policy = 'strict-origin-when-cross-origin';
-
-let PublicKeyPins =
+let Content_Security_Policy = "" +
+    "default-src https:;" +
+    "script-src 'self' 'unsafe-inline' https: cdnjs.cloudflare.com;" +
+    "style-src 'self' 'unsafe-inline' https:;" +
+    "object-src https:;" +
+    "connect-src https: *.sentry.io cloudflareinsights.com;" +
+    "font-src https: data: fonts.gstatic.com;" +
+    "frame-src https:;" +
+    "img-src 'self' https: data: images.unsplash.com en.gravatar.com;" +
+    "manifest-src https:;" +
+    "media-src https:;" +
+    "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
+let Expect_CT = 'max-age=604800, enforce, ' +
+    'report-uri=https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;';
+let PublicKeyPins = "" +
     'pin-sha256="cUPcTAZWKaASuYWhhneDttWpY3oBAkE3h2+soZS7sWs="; ' +
     'pin-sha256="M8HztCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPWE="; ' +
     'max-age=5184000; includeSubDomains; ' +
     'report-uri="https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc"';
+let Vary = 'Accept, Accept-Encoding, Origin, Cookie';
+let Origin = 'https://soprun.com';
+let Cache_Control = 'public, max-age=0, must-revalidate';
 
 export const onRequestOptions: PagesFunction = async () => {
     return new Response(null, {
@@ -47,8 +80,44 @@ export const onRequestOptions: PagesFunction = async () => {
     });
 };
 
-export const onRequest: PagesFunction = async ({next}) => {
-    const response = await next();
+// export const onRequest: PagesFunction<Env> = async (context) => {
+//     return sentryPlugin({dsn: await context.env.KV.get("SENTRY_DSN")})(context);
+// };
+
+// export const onRequest = [errorHandling, authentication];
+
+export const onRequest: PagesFunction<Env> = async ({context}) => {
+    // const sentry = sentryPlugin({
+    //     dsn: await context.env.KV.get("SENTRY_DSN")
+    // })(context);
+
+    const response = await context();
+
+    // TODO: Сломается при релизе!
+    // const env = await context.env.get('JEKYLL_ENV');
+    // const site_url = await context.env.get('SITE_URL');
+
+    // const sentry_reporting = await context.env.KV.get('SENTRY_REPORTING');
+    // const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
+
+    // const CF_PAGES_UR = await context.env.CF_PAGES_UR
+    // const CF_PAGES_COMMIT_SHA = await context.env.CF_PAGES_COMMIT_SHA
+    //
+    // console.log("CF_PAGES_URL" + CF_PAGES_UR)
+    // console.info("CF_PAGES_URL" + CF_PAGES_COMMIT_SHA)
+    //
+    // return new Response(env + " " + site_url + " " + response.url, {
+    //     status: 200
+    // });
+
+    // console.error(
+    //     "Getting Client's IP address, device type, and ASN are not supported in playground. Must test on a live worker"
+    // );
+
+    // const value = await context.env.KV.get('example');
+    // env: Env,
+    // const value = await env.NAMESPACE.get("SITE_URL");
+    // let value = await TODO.get("to-do:123");
 
     response.headers.set('Access-Control-Allow-Origin', Access_Control_Allow_Origin);
     response.headers.set('Access-Control-Allow-Headers', Access_Control_Allow_Headers);
@@ -79,8 +148,6 @@ export const onRequest: PagesFunction = async ({next}) => {
 
     // Прозрачность сертификатов
     // https://soprun.sentry.io/settings/projects/soprun/security-headers/expect-ct/
-    let Expect_CT = 'max-age=604800, enforce, report-uri=https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;';
-
     response.headers.set('Expect-CT', Expect_CT);
 
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/SourceMap
@@ -103,80 +170,21 @@ export const onRequest: PagesFunction = async ({next}) => {
     // https://en.wikipedia.org/wiki/Public-key_cryptography
     response.headers.set('Public-Key-Pins-Report-Only', PublicKeyPins);
 
-
-    // Accept-Language: fr
-
-    response.headers.set('Vary', 'Origin,Accept-Encoding,Cookie');
-
+    response.headers.set('Accept-Language', Accept_Language);
     response.headers.set('X-Frame-Options', 'DENY');
     response.headers.set('X-XSS-Protection', '1; mode=block');
     response.headers.set('X-Content-Type-Options', 'nosniff');
 
-    // response.headers.set('X-Download-Options', 'noopen');
-
-
-    // let Content_Security_Policy = "default-src https:; connect-src https:; font-src https: data:; frame-src https: " +
-    //     "twitter:; img-src https: data:; media-src https:; object-src https:; " +
-    //     "script-src 'unsafe-inline' 'unsafe-eval' https:; " +
-    //     "style-src 'unsafe-inline' https:; " +
-    //     "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
-
-
-    // ";connect-src: *.sentry.io" +
-    // ";script-src: https://browser.sentry-cdn.com https://js.sentry-cdn.com" +
-
-    // let Content_Security_Policy = "" +
-    //     "default-src 'self' 'unsafe-inline' *.sentry.io" +
-    //     ";img-src https: data: *" +
-    //     ";script-src: *" +
-    //     ";script-src-elem: *" +
-    //     ";font-src *" +
-    //     ";style-src 'self'" +
-    //     ";connect-src *.sentry.io" +
-    //     ";child-src blob: https://mc.yandex.ru" +
-    //     ";frame-src blob: https://mc.yandex.ru" +
-    //     ";object-src 'none'" +
-    //     ";report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc";
-
-
-    let Content_Security_Policy = "" +
-        "default-src https:;" +
-        "script-src 'self' 'unsafe-inline' https: cdnjs.cloudflare.com;" +
-        "style-src 'self' 'unsafe-inline' https:;" +
-        "object-src https:;" +
-        "connect-src https: *.sentry.io cloudflareinsights.com;" +
-        "font-src https: data: fonts.gstatic.com;" +
-        "frame-src https:;" +
-        "img-src 'self' https: data: images.unsplash.com en.gravatar.com;" +
-        "manifest-src https:;" +
-        "media-src https:;" +
-        "report-uri https://o364305.ingest.sentry.io/api/6291966/security/?sentry_key=5943bcec0a2e4787882cbb988fd0aabc;";
-
+    // https://soprun.sentry.io/settings/projects/soprun/security-headers/hpkp/
     response.headers.set('Content-Security-Policy', Content_Security_Policy);
     // response.headers.set('Content-Security-Policy-Report-Only', Content_Security_Policy);
 
-    // https://soprun.sentry.io/settings/projects/soprun/security-headers/hpkp/
-
-    // Public-Key-Pins-Report-Only: pin-sha256="<pin-value>";
-    // max-age=<expire-time>;
-    // includeSubDomains;
-    // report-uri="<uri>"
-
-    // Public-Key-Pins-Report-Only:
-    // pin-sha256 = "dOFcREXWKaEVoYWhhneDttWpY3oDEkE5g6+soQD7xXz=";
-    // pin-sha256 = "N7SgtCzM3elUxkcjR2S5P4hhyBNf6lHkmjAHKhpGPXO="; includeSubDomains;
-    // report-uri = ”https://www.sample.org/hpkp-report”
-
-
-    // Access-Control-Allow-Headers: sentry-trace
-    // Access-Control-Allow-Headers: baggage
-
-
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy
     response.headers.set('Permissions-Policy', 'document-domain');
-
-
-    response.headers.set('Vary', 'Accept-Encoding, Origin');
+    response.headers.set('Vary', Vary);
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
+    response.headers.set('Origin', Origin);
+    response.headers.set('Cache-Control', Cache_Control);
 
     return response;
 };
@@ -199,7 +207,7 @@ export const onRequest: PagesFunction = async ({next}) => {
 // https://developers.cloudflare.com/pages/platform/functions/plugins/sentry/
 
 
-import sentryPlugin from "@cloudflare/pages-plugin-sentry";
+// import sentryPlugin from "@cloudflare/pages-plugin-sentry";
 
 // export const onRequest: PagesFunction<{
 //     KV: KVNamespace;

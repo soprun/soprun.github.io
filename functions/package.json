@@ -2,5 +2,8 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230710.1",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@cloudflare/pages-plugin-sentry": "^1.1.1"
   }
 }
