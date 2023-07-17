@@ -88,9 +88,7 @@ export const onRequestOptions: PagesFunction = async () => {
 // export const onRequest = [errorHandling, authentication];
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-    // sentryPlugin({dsn: await context.env.KV.get("SENTRY_DSN")})(context);
-
-    context = sentryPlugin({
+    const sentry = sentryPlugin({
         dsn: await context.env.KV.get("SENTRY_DSN")
     })(context);
 
