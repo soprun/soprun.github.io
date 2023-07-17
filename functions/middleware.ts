@@ -11,8 +11,9 @@
 
 // import {KVNamespace} from "@cloudflare/workers-types";
 
-export interface Env {
-    KV: KVNamespace;
+interface Env {
+    KV: KVNamespace
+    ENVIRONMENT: string
 }
 
 // export interface Env {
@@ -81,15 +82,17 @@ export const onRequestOptions: PagesFunction = async () => {
 
 export const onRequest: PagesFunction<Env> = async (context) => {
     // TODO: Сломается при релизе!
+    const environment =context.env.ENVIRONMENT
     const env = await context.env.KV.get('ENV');
     const site_url = await context.env.KV.get('SITE_URL');
     const sentry_dsn = await context.env.KV.get('SENTRY_DSN');
     const response = await (context);
 
-    console.log(`[onRequest]: env ${env}`);
-    console.log(`[onRequest]: site_url ${site_url}`);
-    console.log(`[onRequest]: sentry_dsn ${sentry_dsn}`);
-    console.log(`[onRequest]: response.url = ${response.url}`);
+    console.info(`[onRequest]: environment ${environment}`);
+    console.info(`[onRequest]: env ${env}`);
+    console.info(`[onRequest]: site_url ${site_url}`);
+    console.info(`[onRequest]: sentry_dsn ${sentry_dsn}`);
+    console.info(`[onRequest]: response.url = ${response.url}`);
 
     // const value = await context.env.KV.get('example');
     // env: Env,
