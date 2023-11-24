@@ -32,8 +32,8 @@ permalink: /signature.html
             <span style="display: none">
                     <span class="dt-bday">{{ site.author.birthday }}</span>
                     <span class="p-sex">{{ site.author.gender }}</span>
-                    <span class="p-country-name">Russia</span>
-                    <span class="p-region">Moscow</span>
+                    <span class="p-country-name">{{ site.author.country }}</span>
+                    <span class="p-region">{{ site.author.region }}</span>
                 </span>
             <h1 style="margin: 0">
                 <a class="p-name u-url"
@@ -86,6 +86,7 @@ permalink: /signature.html
     body {
         color: #010101;
         /*font-size: 1rem;*/
+        font-family: "Avenir Next", "Arial",  serif;
         font-size: 10px;
         font-weight: 400;
         line-height: normal;

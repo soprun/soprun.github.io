@@ -51,6 +51,8 @@ author:
   url: https://soprun.com
   email: mail@soprun.com
   phone: +79017972126
+  country: Russia
+  region: Moscow
   ## криптографический открытый ключ, например, SSH или GPG
   key: ~
   site-profiles: ~
