@@ -189,6 +189,7 @@ exclude:
   - .DS_STORE
   - Guardfile
   - Rakefile
+  - HTMLProofer.rb
 
 cache: bundler
 keep_files: [ .git, _headers, .well-known ]
