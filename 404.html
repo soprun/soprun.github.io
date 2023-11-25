@@ -1,14 +1,17 @@
 ---
-layout: default
-title: Page not found! 😨
+layout: page
+title: Страница не найдена! 😨
 noindex: true
 ---
-<meta http-equiv="refresh" content="3;url={{ site.url | absolute_url }}" />
+<meta name="robots" content="noindex, nofollow"/>
+<meta http-equiv="refresh" content="3;url={{ site.url | absolute_url }}"/>
 
-## 404 - Page not found!  😨
+<h2>404 - Page not found! 😨</h2>
 
-We could not find what you were looking for.
-
-Would you like to visit our homepage instead?
-
-[Go back to the home page 🏡]({{ site.url | relative_url }}).
+<p>Мы не смогли найти то, что вы искали.</p>
+<p>Хотели бы вы вместо этого посетить нашу домашнюю страницу?
+    <br>
+    <a href="{{ site.url | relative_url }}">
+        Вернитесь на домашнюю страницу 🏡
+    </a>
+</p>

@@ -1,8 +1,8 @@
--   name: Обо мне
-    link: /about
-    rel: author
-    icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
-    disabled: false
+#-   name: Обо мне
+#    link: /about
+#    rel: author
+#    icon: <i class="fa-solid fa-image-user" aria-hidden="true"></i>
+#    disabled: false
 
 #-   name: Блог
 #    link: /blog

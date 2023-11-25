@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article class="page">
+    {% include snippet/post/post-thumbnail.liquid
+        src=page.image
+        alt=page.title
+        param='?w=942&h=218&fit=crop'
+    %}
+    <header class="page-header">
+        {% if page.page_title %}
+            {% include snippet/post/post-title.liquid
+                title=page.page_title
+                url=page.url
+            %}
+        {% else %}
+            {% include snippet/post/post-title.liquid
+                title=page.title
+                url=page.url
+            %}
+        {% endif %}
+        {% include snippet/post/post-meta.liquid
+            date=page.date
+            content=page.content
+            modified_date=page.modified_date
+        %}
+        {% include snippet/post/post-tags.liquid
+            tags=page.tags
+        %}
+        {% include snippet/post/post-categories.liquid
+            categories=page.categories
+        %}
+    </header>
+    <div class="page-content">
+        {{ content }}
+    </div>
+</article>

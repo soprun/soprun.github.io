@@ -283,22 +283,12 @@ defaults:
       layout: page
       title: ~
       description: ~
-      page_title: false
-      page_show_image: false
-      show_title_link: true
       type: page
+      image: /assets/img/about.jpeg
       noindex: false
       paginate: false
       published: true
       tags: [ ]
-      lang: ~
-      #      date: "2023-01-31 00:56:00 +0300"
-      author:
-        name: ~
-        url: ~
-        email: ~
-        avatar: ~
-      image: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
       categories: [ ]
 
   - scope:
