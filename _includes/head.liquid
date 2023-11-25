@@ -3,11 +3,11 @@
     <meta charset="{{ site.encoding }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Last-Modified" content="{{ page_last_modified_at }}"/>
+    <base href="{{ base_url }}"/>
+
     {%- comment %}https://html.spec.whatwg.org/multipage/semantics.html#attr-meta-http-equiv-keyword-refresh{% endcomment %}
     {%- comment %}автоматическа] перезагрузка страницы с сервера каждые пять минут{% endcomment %}
     {%- comment %}<meta http-equiv="refresh" content="300">{% endcomment %}
-
-    {%- comment %}<meta name="date" content="{{ page_last_modified_at }}">{% endcomment %}
 
     {%- comment %}https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy{% endcomment %}
     {%- comment %}<meta name="referrer" content="strict-origin-when-cross-origin" />{% endcomment %}
@@ -18,18 +18,21 @@
 
     {%- comment %}https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color{% endcomment %}
     {%- comment %}<meta name="theme-color" content="#3c790a" media="(prefers-color-scheme: dark)">{% endcomment %}
-    {%- comment %}<meta name="color-scheme" content="dark">{% endcomment %}
 
     {%- comment %}https://html.spec.whatwg.org/multipage/semantics.html#standard-metadata-names{% endcomment %}
     {%- comment %}https://wiki.whatwg.org/wiki/MetaExtensions{% endcomment %}
 
-    {% comment %}<meta name="msapplication-TileColor" content="#ffffff">{% endcomment %}
-    {% comment %}<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">{% endcomment %}
-    {% comment %}<meta name="theme-color" content="#ffffff">{% endcomment %}
+    {%- comment %}<meta name="msapplication-TileColor" content="#ffffff">{% endcomment %}
+    {%- comment %}<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">{% endcomment %}
+    {%- comment %}<meta name="theme-color" content="#ffffff">{% endcomment %}
+
     <meta name="medium" content="blog"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="theme-color" content="{{ site.color.background }}"/>
+    <meta name="theme-color" content="{{ site.color.theme }}"/>
+    <meta name="color-scheme" content="light"/>
+
+    {% comment %}<meta name="date" content="{{ page_last_modified_at }}">{% endcomment %}
     <meta name="author" content="{{ site.author.name }}"/>
     <meta name="reply-to" content="{{ site.author.email }}"/>
     <meta name="copyright" content="{{ copyright | strip_html }}"/>
@@ -47,23 +50,24 @@
     {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="default">{% endcomment %}
     {%- comment %}<link rel="apple-touch-startup-image" href="{{ site.baseurl }}/assets/img/favicons/screensize.png">{% endcomment %}
 
-    <base href="{{ base_url }}"/>
-
     {%- comment %}<title>{{ page_title | truncate: 118 }}</title>{% endcomment %}
     {% comment %}<meta name="description" content="{{ page_title | truncate: 254 }}"/>{% endcomment %}
 
     {% seo %}
-    {% comment %}{% feed_meta %}{% endcomment %}
-
-    {% comment %}<link rel="manifest" href="{{ base_url }}{% link manifest.liquid %}" rossorigin="use-credentials"/>{% endcomment %}
-    <link rel="sitemap" href="{{ base_url }}{% link sitemap.liquid %}" type="application/xml"/>
+    {%- comment %}{% feed_meta %}{% endcomment %}
 
     {% include styles.liquid %}
     {% include head/links.liquid %}
-    {% include head/icons.liquid %}
     {% include head/sentry.liquid %}
     {% include head/yandex-metrika.liquid %}
     {% include head/google-tag-head.liquid %}
     {% include head/google-tag-manager-head.liquid %}
-    {% comment %}https://web.dev/learn/html/metadata/{% endcomment %}
+    {%- comment %}https://web.dev/learn/html/metadata/{% endcomment %}
+
+    <link rel="manifest" href="{{ base_url }}{% link tools/manifest.liquid %}" crossorigin="use-credentials"/>
+    <link type="image/x-icon" rel="shortcut icon" href="{{ base_url }}{% link favicon.ico %}"/>
+    <link type="application/xml" rel="sitemap" href="{{ base_url }}{% link tools/sitemap.liquid %}"/>
+    <link type="application/atom+xml" rel="alternate" href="{{ base_url }}{% link tools/feed-atom.liquid %}"/>
+    <link type="application/rss+xml" rel="alternate" href="{{ base_url }}{% link tools/feed-atom.liquid %}"/>
+    <link type="application/pgp-keys" rel="pgpkey" href="{{ site.author.gpg_public_key }}"/>
 </head>

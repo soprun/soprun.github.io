@@ -25,15 +25,14 @@ description: >- # this means to ignore newlines until "baseurl:"
   Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
 
 keywords: [ IT Наставник, Наставничество IT, Ментор IT, Менторство, Guide, Tutorials ]
+
 #logo: https://en.gravatar.com/userimage/94486295/9c5134e6564f702cf90ad9dbe637e046.png?size=400
 #logo: https://avatars.githubusercontent.com/soprun?size=400
 #logo: https://github.com/soprun.png?size=400
 #logo: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
 logo: /assets/img/avatar-small.png
-email: mail@soprun.com
 
-favicon:     #put a path like: "img/favicon.ico"
-touch_icon:  #put a path like: "img/apple-touch-icon.png"
+# email: mail@soprun.com
 
 author:
   name: Soprun Vladislav
@@ -155,61 +154,23 @@ author:
         - cell
         - pref
 
-      # <a href="skype:echo-chinese?call">Skype call to Skype echo service (Chinese)</a>
-      # <a href="mailto:joe.smith@example.com" class="fn" rel="met">Joe Smith</a>
-
-      # - #  vCard
-      #  company:
-      #  company_address: Россия, Москва. Пресненская наб., 6, стр. 2, 36 этаж
-      #  ORG:Страна Девелопмент;Департамент ИТ-архитектуры
-      #  TITLE:Solution Architect
-      #  job_title: Solution Architect
-      #  job_department: Департамент ИТ-архитектуры
-
-      # org: # affiliated organization, optionally embed an h-card
-      #  job_title: Solution Architect
-      #  role: Solution Architect
-
-
-  #  item7.ADR;type=HOME;type=pref:;;Саларьевская улица\, 8 к1;деревня Саларьево;Moscow;108811;Russia
-
-  #  div class="adr">
-  #  <div class="org fn">
-  #  <div class="organization-name"></div>
-  #  <div class="organization-unit extended-address"></div>
-  #  </div>
-  #  <div class="street-address">2531 Barrington Court</div>
-  #  <span class="locality">Hayward</span>,
-  #  <abbr title="California" class="region">CA</abbr>
-  #  <span class="postal-code">94545</span>
-  #  </div>
-
-  #  <span class="type">Work</span>:
-  #    <div class="street-address">169 University Avenue</div>
-  #    <span class="locality">Palo Alto</span>,
-  #    <abbr class="region" title="California">CA</abbr>&nbsp;&nbsp;
-  #    <span class="postal-code">94301</span>
-  #    <div class="country-name">USA</div>
 
 color:
   theme: '#ffffff'
   background: '#ffffff'
-  text: '#000000'
-  primary: '#cfc3ee'
-  secondary: '#cfc3ee'
-  tile_color: '#ffffff'
+#  color_scheme: 'light'
 
 include:
   - CNAME
   - assets
-  - favicon.ico
   - _headers
-  - robots.txt
-  - robots.txt.asc
+  - security.txt
+  - security.txt.asc
 
 exclude:
   - .editorconfig
   - .env
+  - .env.local
   - .github
   - .gitattributes
   - .gitignore
@@ -219,19 +180,15 @@ exclude:
   - .jekyll-metadata
   - .bundle/
   - _site/
-  - path/
-  - report/
   - functions/
   - gemfiles/
   - Gemfile
   - Gemfile.lock
   - README.md
   - Makefile
-  - vendor
   - .DS_STORE
   - Guardfile
   - Rakefile
-  - signature.html
 
 cache: bundler
 keep_files: [ .git, _headers ]

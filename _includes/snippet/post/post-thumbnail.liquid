@@ -17,6 +17,8 @@
             class="img-fluid"
             itemprop="url image"
             src="{{ src }}"
-            alt="{{ alt | escape }}"/>
+            alt="{{ alt | escape }}"
+            loading="lazy"
+            decoding="async"/>
     </picture>
 {% endif %}

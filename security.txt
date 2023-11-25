@@ -1,8 +1,0 @@
-Contact: mailto:mail@soprun.com
-Contact: tel:+79017972126
-Contact: https://t.me/soprun
-Contact: https://soprun.com
-Expires: 2022-12-31T21:00:00.000Z
-Encryption: https://github.com/soprun.gpg
-Preferred-Languages: ru
-Canonical: https://soprun.com/security.txt

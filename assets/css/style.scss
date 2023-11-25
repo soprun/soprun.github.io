@@ -170,6 +170,21 @@ details[open] summary {
     margin-bottom: .5em;
 }
 
+// https://web.dev/articles/new-responsive?hl=ru
+
+//:root {
+//    --sidebar-width: 5rem;
+//}
+//
+//@media (spanning: single-fold-vertical) {
+//    --sidebar-width: env(fold-left);
+//}
+//
+//main {
+//    display: grid;
+//    grid-template-columns: var(--sidebar-width) 1fr;
+//}
+
 #main {
     padding-top: 5rem;
 }

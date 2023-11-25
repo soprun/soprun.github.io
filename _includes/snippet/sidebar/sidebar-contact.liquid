@@ -17,7 +17,9 @@
                 <span class="type">{{ link.label }}</span>
             </td>
             <td>
-                <a href="{{ link.url | absolute_url }}" rel="me" class="fw-light">
+                <a href="{{ link.url | absolute_url }}"
+                   rel="me noopener noreferrer nofollow"
+                   class="fw-light">
                     <span class="value">{{ link.title }}</span>
                 </a>
             </td>
@@ -35,7 +37,7 @@
                     <a href="{{ link.url | absolute_url}}"
                        class="btn fs-6"
                        itemprop="sameAs"
-                       rel="external"
+                       rel="noopener noreferrer nofollow"
                        target="_blank">
                         {{ link.icon }}
                         <small>{{ link.title }}</small>

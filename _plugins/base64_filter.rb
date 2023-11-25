@@ -40,23 +40,25 @@ module Base64Filter
       "#{input}"
     else
 
-      output = encode_base64_hash(input)
+    output = encode_base64_hash(input)
 
-      # Get image extension (e.g. ".png")
-      imageext = File.extname(@url).gsub(/(\.\w+).*/, '\1').downcase
+    # Get image extension (e.g. ".png")
+    imageext = File.extname(@url).gsub(/(\.\w+).*/, '\1').downcase
 
-      # Generate dataURI schema
-      @dataURI = 'data:image/'
+    # Generate dataURI schema
+    @dataURI = 'data:image/'
 
-      @dataURI += case imageext
-                  when '.jpg'
-                    'jpeg'
-                  when '.svg'
-                    'svg+xml'
-                  else
-                    # the MIME type is finally inferred from the file extension
-                    imageext.delete('.')
-                  end
+    @dataURI += case imageext
+                when '.jpg'
+                  'jpeg'
+                when '.png'
+                  'png'
+                when '.svg'
+                  'svg+xml'
+                else
+                  # the MIME type is finally inferred from the file extension
+                  imageext.delete('.')
+                end
 
       # yay, we encode it
       @dataURI += ';base64,'

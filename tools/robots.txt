@@ -9,4 +9,4 @@ Disallow: /assets/*
 Disallow: /*utm=.
 
 Host: {{ site.url }}
-Sitemap: {{ site.url }}{{ site.baseurl }}{% link sitemap.liquid %}
+Sitemap: {{ site.url }}{{ site.baseurl }}{% link tools/sitemap.liquid %}

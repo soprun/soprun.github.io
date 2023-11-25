@@ -1,30 +1,51 @@
-<link rel="preconnect dns-prefetch" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect dns-prefetch" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preconnect dns-prefetch" href="https://browser.sentry-cdn.com" crossorigin>
+{%- comment %}https://web.dev/articles/prioritize-resources?hl=ru{% endcomment %}
+
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" crossorigin>
+<link rel="dns-prefetch" href="https://browser.sentry-cdn.com" crossorigin>
 
 <link rel="preload"
       as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
-      onload="this.onload=null;this.rel='stylesheet'">
-<link rel="stylesheet"
+      crossorigin>
+<link rel="preload"
       as="style"
       href="{{ '/assets/css/style.css' | absolute_url }}?v={{ site.release_version }}">
-<link rel="preload"
+<link rel="preconnect"
+      as="script"
+      href="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"
+      crossorigin>
+<link rel="preconnect"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload"
+      crossorigin>
+<link rel="preconnect"
       as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload"
+      crossorigin>
+<link rel="prefetch"
       as="image"
       href="{{ site.logo | absolute_url }}">
 
-<noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | absolute_url }}?v={{ site.release_version }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-</noscript>
+<link rel="stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+<link rel="stylesheet" as="style" href="{{ '/assets/css/style.css' | absolute_url }}?v={{ site.release_version }}">
+<link rel="stylesheet" as="style"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;700&display=swap"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+<link rel="stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.min.js"
+        integrity="sha512-XmXJdyJwwkMu/jMgwXUwIXx0VzBdvjW48UTLxodSOz3GuGtpDjAQ1+E4eROpoxPpvM279i5JjpGCMbTaNZjLmg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+<script>
+    window.addEventListener('load', () => {
+        quicklink.listen();
+    });
+</script>

@@ -20,7 +20,7 @@ ORG;CHARSET={{ site.encoding }}:{{ site.author.org.name }};{{ site.author.org.un
 TITLE;CHARSET=UTF-8:{{ site.author.org.role }}
 BDAY:{{ site.author.birthday }}
 REV:{{ 'now' | date: "%Y-%m-%d %H:%M" | date_to_xmlschema }}
-SOURCE:https://soprun.com/{% link vcard.liquid %}
+SOURCE:{{ site.url }}{{ site.baseurl }}{% link tools/vcard.liquid %}
 {% for email in site.author.emails limit: 10 -%}
     EMAIL
     {%- for i in email.type -%}
