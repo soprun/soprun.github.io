@@ -1,0 +1,115 @@
+{% comment %}{{ include.url }}{% endcomment %}
+{% assign url = include.url | default: ~ %}
+{% comment %}{% assign variables = "utm_source,utm_medium,utm_campaign" | split: ',' %}{% endcomment %}
+{% assign variables = "utm_source,utm_medium,utm_campaign" | join: ',' | split: ',' | uniq | compact %}
+{% comment %}{% assign variables = variables %}{% endcomment %}
+{% assign values = "" %}
+
+{% comment %}{% assign values = "" | split: ',' | compact %}{% endcomment %}
+{% comment %}{% assign variables = variables.array %}{% endcomment %}
+{% comment %}{% assign prefix = variables %}{% endcomment %}
+{% comment %}{{ prefix[0] | inspect }}{% endcomment %}
+{% comment %}{% assign append = '[]' %}{% endcomment %}
+{% comment %}{% assign options = [utm_source, utm_medium, utm_campaign] %}{% endcomment %}
+{% comment %}{% assign options = append | append: include.utm_source  %}{% endcomment %}
+{% comment %}{% assign options = options["utm_source"] | append: 123 %}{% endcomment %}
+
+<pre>
+
+{% for i in variables %}
+    {% if include[i] %}
+        {% comment %}{{ i | jsonify }}{% endcomment %}
+        {% comment %}{{ include[i] | jsonify }}{% endcomment %}
+        {% comment %}{{ forloop.index0 }}{% endcomment %}
+        {% comment %}{{ variables[forloop.index0] | jsonify }}{% endcomment %}
+
+        {% comment %}{% assign values = "" | append: include[i] %}{% endcomment %}
+
+
+        {% comment %}{% assign variables = variables | push: include[i] %}{% endcomment %}
+        {% comment %}{% assign variables = variables[forloop.index] | push: include[i] %}{% endcomment %}
+        {% comment %}{{ forloop.index | jsonify }}{% endcomment %}
+        {% comment %}{{ variables | jsonify }}{% endcomment %}
+        {% comment %}{% assign variables = variables[forloop.index] %}{% endcomment %}
+
+        {% comment %}<br>{% endcomment %}
+        {% comment %}{{ include[i] | inspect }}{% endcomment %}
+
+        {%- if forloop.first == false -%}
+            {% comment %}{% assign values = values | append: ", " | strip %}{% endcomment %}
+        {%- endif -%}
+
+        {% assign variables = variables | push: include[i] %}
+
+        {% comment %}{{ values | concat: include[i] }}{% endcomment %}
+        {% comment %}{% assign values = values | append: include[i] | strip %}{% endcomment %}
+        {% comment %}{% assign variables = variables[forloop.index0] | push: include[i] | strip %}{% endcomment %}
+        {% comment %}{% assign variables_var = variables[forloop.index0] %}{% endcomment %}
+
+        {% comment %}{{ variables[forloop.index0] | jsonify }}{% endcomment %}
+
+
+
+        {% comment %}include: {{ include[i] | jsonify }}{% endcomment %}
+        {% comment %}include: {{ i | jsonify }}{% endcomment %}
+        {% comment %}{{ variables | jsonify }}{% endcomment %}
+
+        {% comment %}{{ i | inspect }}{% endcomment %}
+
+        {% comment %}{% assign values = variables[i] | append: include[i] | strip %}{% endcomment %}
+        {% comment %}{% assign values = values | append: include[i] %}{% endcomment %}
+        {% comment %}{{ include[i] | inspect }}{% endcomment %}
+        {% comment %}{% assign url = url | append: "?" | append: i | append: "=" | append: include[i] %}{% endcomment %}
+        {% comment %}{% assign variables[i] = include[i] %}{% endcomment %}
+
+        {% comment %}key: {{ i | jsonify }}{% endcomment %}
+        {% comment %}variables: {{ include[i] | jsonify }}{% endcomment %}
+
+        {% comment %}{% assign variables = variables[i] | append: include[i] %}{% endcomment %}
+        {% comment %}{{ variables[i] | append: include[i] }}{% endcomment %}
+        {% comment %}<br>{% endcomment %}
+        {% comment %}{% assign variables = variables | concat: include[i] %}{% endcomment %}
+    {% endif %}
+
+    {% comment %}{% assign values = values  %}{% endcomment %}
+{% endfor %}
+
+    {% comment %}{% assign values = values | split: ',' | compact %}{% endcomment %}
+
+    {% comment %}{% assign variable = "hello" %}{% endcomment %}
+    {% comment %}{% assign page_1 = pages[variable] %}{% endcomment %}
+    {% comment %}{% assign page_2 = pages["does-not-exist"] %}{% endcomment %}
+    {% comment %}{% assign page_3 = pages.this-handle-does-not-exist %}{% endcomment %}
+
+
+    {% comment %}{% assign variables = variables | concat: values %}{% endcomment %}
+
+    {% for i in variables %}
+        {% if include[i] %}
+            {% comment %}Dasd{% endcomment %}
+            {% comment %}{% assign page_1 = variables[0] %}{% endcomment %}
+            {% comment %}{{ page_1 | inspect }}{% endcomment %}
+            {% comment %}{% assign variable = variable  %}{% endcomment %}
+        {% endif %}
+    {% endfor %}
+
+    <br>
+    variables:
+    {{ variables | jsonify }}
+    <br>
+    values:
+    {{ values | jsonify }}
+    {% comment %}{{ variables | url_param_escape | jsonify }}{% endcomment %}
+    {% comment %}utm_source: {{ options["utm_source"] }}{% endcomment %}
+    {% comment %}{{ options | jsonify }}{% endcomment %}
+    {% comment %}{{ url | absolute_url | jsonify }}{% endcomment %}
+    {% comment %}{{ options | keys | join: '- ' | jsonify }}{% endcomment %}
+
+    {% comment %}{{ url | uri_escape }}{% endcomment %}
+
+    {% comment %}{% assign my_array = "apples, oranges, peaches, plums" | split: ", " %}{% endcomment %}
+    {% comment %}{{ my_array | reverse | join: "-" }}{% endcomment %}
+</pre>
+
+{% comment %}{{ include.url | append: "utm_source=" . include.utm_source }}{% endcomment %}
+{% comment %}append: {{ append | jsonify }}{% endcomment %}

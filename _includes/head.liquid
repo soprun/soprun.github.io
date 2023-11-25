@@ -1,23 +1,39 @@
 <head>
+    {% comment %}<meta http-equiv="Content-Type" content="text/html; charset={{ site.encoding }}"/>{% endcomment %}
     <meta charset="{{ site.encoding }}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Last-Modified" content="{{ page_last_modified_at }}"/>
+    {%- comment %}https://html.spec.whatwg.org/multipage/semantics.html#attr-meta-http-equiv-keyword-refresh{% endcomment %}
+    {%- comment %}автоматическа] перезагрузка страницы с сервера каждые пять минут{% endcomment %}
+    {%- comment %}<meta http-equiv="refresh" content="300">{% endcomment %}
 
-    {% comment %}https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy{% endcomment %}
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    {% comment %}https://web.dev/referrer-best-practices/{% endcomment %}
+    {%- comment %}<meta name="date" content="{{ page_last_modified_at }}">{% endcomment %}
 
-    {% comment %}<a href="http://example.com" referrerpolicy="origin">{% endcomment %}
-    {% comment %}https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery{% endcomment %}
+    {%- comment %}https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy{% endcomment %}
+    {%- comment %}<meta name="referrer" content="strict-origin-when-cross-origin" />{% endcomment %}
+    {%- comment %}https://web.dev/referrer-best-practices/{% endcomment %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- comment %}<a href="http://example.com" referrerpolicy="origin">{% endcomment %}
+    {%- comment %}https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-delivery{% endcomment %}
+
+    {%- comment %}https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color{% endcomment %}
+    {%- comment %}<meta name="theme-color" content="#3c790a" media="(prefers-color-scheme: dark)">{% endcomment %}
+    {%- comment %}<meta name="color-scheme" content="dark">{% endcomment %}
+
+    {%- comment %}https://html.spec.whatwg.org/multipage/semantics.html#standard-metadata-names{% endcomment %}
+    {%- comment %}https://wiki.whatwg.org/wiki/MetaExtensions{% endcomment %}
+
+    {% comment %}<meta name="msapplication-TileColor" content="#ffffff">{% endcomment %}
+    {% comment %}<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">{% endcomment %}
+    {% comment %}<meta name="theme-color" content="#ffffff">{% endcomment %}
     <meta name="medium" content="blog"/>
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="theme-color" content="{{ site.color.background }}"/>
-    {% comment %}<meta name="author" content="{{ site.author.name }}">{% endcomment %}
-    <meta name="reply-to" content="{{ site.author.email }}">
-    <meta name="copyright" content="{{ copyright | strip_html }}">
-    <meta name="keywords" content="{{ page_keywords }}">
+    <meta name="author" content="{{ site.author.name }}"/>
+    <meta name="reply-to" content="{{ site.author.email }}"/>
+    <meta name="copyright" content="{{ copyright | strip_html }}"/>
+    <meta name="keywords" content="{{ page_keywords }}"/>
     <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow{% endif %}"/>
 
     {%- comment %}<meta name="description" content="{{ meta_desc | truncate: 150 }}">{% endcomment %}
@@ -31,38 +47,23 @@
     {%- comment %}<meta name="apple-mobile-web-app-status-bar-style" content="default">{% endcomment %}
     {%- comment %}<link rel="apple-touch-startup-image" href="{{ site.baseurl }}/assets/img/favicons/screensize.png">{% endcomment %}
 
-    <base href="{{ base_url }}">
+    <base href="{{ base_url }}"/>
 
     {%- comment %}<title>{{ page_title | truncate: 118 }}</title>{% endcomment %}
     {% comment %}<meta name="description" content="{{ page_title | truncate: 254 }}"/>{% endcomment %}
 
-
     {% seo %}
     {% comment %}{% feed_meta %}{% endcomment %}
+
+    {% comment %}<link rel="manifest" href="{{ base_url }}{% link manifest.liquid %}" rossorigin="use-credentials"/>{% endcomment %}
+    <link rel="sitemap" href="{{ base_url }}{% link sitemap.liquid %}" type="application/xml"/>
 
     {% include styles.liquid %}
     {% include head/links.liquid %}
     {% include head/icons.liquid %}
     {% include head/sentry.liquid %}
     {% include head/yandex-metrika.liquid %}
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F96FK7YMY6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F96FK7YMY6');
-</script>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PM269NN');</script>
-<!-- End Google Tag Manager -->
-
+    {% include head/google-tag-head.liquid %}
+    {% include head/google-tag-manager-head.liquid %}
     {% comment %}https://web.dev/learn/html/metadata/{% endcomment %}
 </head>

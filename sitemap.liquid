@@ -1,7 +1,9 @@
 ---
 layout: null
 permalink: /sitemap.xml
+published: true
 # https://github.com/studiomohawk/_layouts/blob/master/sitemap.xml
+# https://www.supertechcrew.com/setup-jekyll-sitemap/#via-a-file
 ---
 <?xml version="1.0" encoding="{{ site.encoding }}"?>
 <urlset
@@ -12,13 +14,29 @@ permalink: /sitemap.xml
         <url>
             <loc>{{ item.link | absolute_url }}</loc>
             <changefreq>{{ item.changefreq | default: 'weekly' }}</changefreq>
-            <priority>{{ item.changefreq | default: '0.8' }}</priority>
+            <priority>{{ item.priority | default: '0.8' }}</priority>
         </url>
     {%- endfor %}
+    {%- for page in site.pages %}
+        {% if page.sitemap != null and page.sitemap != empty %}
+            <url>
+                <loc>{{ page.url | absolute_url }}</loc>
+                <lastmod>{{ page.sitemap.lastmod | date_to_xmlschema }}</lastmod>
+                <changefreq>{{ page.sitemap.changefreq | default: 'weekly' }}</changefreq>
+                <priority>{{ page.sitemap.priority | default: '0.8' }}</priority>
+            </url>
+        {% endif %}
+    {% endfor %}
     {%- for post in site.posts %}
         <url>
             <loc>{{ post.url | absolute_url }}</loc>
-            <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+            {% if post.lastmod == null -%}
+                <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+            {%- else %}
+                <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
+            {%- endif %}
+            <changefreq>{{ post.changefreq | default: 'monthly' }}</changefreq>
+            <priority>{{ post.priority | default: '1.0' }}</priority>
         </url>
     {%- endfor %}
 </urlset>

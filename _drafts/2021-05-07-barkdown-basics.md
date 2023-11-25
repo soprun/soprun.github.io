@@ -3,6 +3,7 @@ layout: post
 permalink: /markdown-basics
 title: Markdown basics
 categories: paragraph
+published: false
 ---
 
 Getting the Gist of Markdown's Formatting Syntax

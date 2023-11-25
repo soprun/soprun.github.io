@@ -481,3 +481,8 @@ start: ## 💻 Develop your full-stack Pages application locally
 # # gets tags across all branches, not just the current branch
 #output "Current tag: $(git describe --tags "$(git rev-list --tags --max-count=1)")" "info"
 #output "Last tag: $(git tag -l "v*.*.*" --sort=-v:refname | head -n 1)" "info"
+
+
+# npx workbox-cli wizard
+# workbox generateSW workbox-config.js
+

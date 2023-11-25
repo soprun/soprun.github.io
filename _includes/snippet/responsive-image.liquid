@@ -1,0 +1,41 @@
+{% comment %}https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images{% endcomment %}
+
+<picture>
+    <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+    <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+    <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+</picture>
+
+
+{%- comment %}https://cloudfour.com/thinks/responsive-images-101-part-6-picture-element/{% endcomment %}
+<picture>
+    <source media="(min-width: 900px)" srcset="cat-vertical.jpg">
+    <source media="(min-width: 750px)" srcset="cat-horizontal.jpg">
+    <img src="cat.jpg" alt="cat">
+</picture>
+
+<img src="small.jpg" srcset="medium.jpg 1000w, large.jpg 2000w" alt="yah">
+
+{% comment %}------{% endcomment %}
+{% comment %}https://web.dev/learn/design/picture-element{% endcomment %}
+{% comment %}https://web.dev/learn/design/responsive-images{% endcomment %}
+
+
+<picture>
+    <source srcset="large.png" media="(min-width: 75em)">
+    <source srcset="medium.png" media="(min-width: 40em)">
+    <img src="small.png" alt="A description of the image."
+         width="300" height="200" loading="lazy" decoding="async">
+</picture>
+
+<picture>
+    <source srcset="large.png 1x" media="(min-width: 75em)">
+    <source srcset="medium.png 1x, large.png 2x" media="(min-width: 40em)">
+    <img src="small.png"
+         alt="A description of the image."
+         width="300"
+         height="200"
+         loading="lazy"
+         decoding="async"
+         srcset="small.png 1x, medium.png 2x, large.png 3x">
+</picture>

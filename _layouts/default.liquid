@@ -3,12 +3,7 @@
 <html lang="{{ page.lang | default: site.lang | default: 'ru' }}">
 {%- include head.liquid %}
 <body class="{{ page.layout }}">
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM269NN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
+{%- include head/google-tag-manager-body.liquid -%}
 {%- include header.liquid -%}
 <main id="main" class="container-lg" role="main" aria-label="content">
     <div class="row">
@@ -24,9 +19,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </section>
     </div>
 </main>
-
 {%- include footer.liquid %}
 {%- include scripts.liquid %}
-{%- include head/cloudflare-web-analytics.liquid -%}
 </body>
 </html>

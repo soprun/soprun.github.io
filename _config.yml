@@ -50,7 +50,7 @@ author:
     Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
   url: https://soprun.com
   email: mail@soprun.com
-  phone: +79017972126
+  phone: "+79017972126"
   country: Russia
   region: Moscow
   ## криптографический открытый ключ, например, SSH или GPG
@@ -369,7 +369,6 @@ defaults:
 permalink: date
 # https://mademistakes.com/mastering-jekyll/how-to-link/#collection-url-defaults
 #permalink: /:collection/:path
-
 #permalink: /:categories/:title
 paginate: 5
 paginate_path: /page/:num

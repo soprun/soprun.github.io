@@ -1,0 +1,25 @@
+{% comment %}https://html.spec.whatwg.org/multipage/images.html{% endcomment %}
+
+<article>
+    <h1>Photography</h1>
+    <h2>Shooting moving targets indoors</h2>
+    <p>The trick here is to know how to anticipate; to know at what speed and
+        what distance the subject will pass by.</p>
+    <img src="fluffy.jpg" alt="A cat flying by, chasing a ball of yarn, can be
+ photographed quite nicely using this technique.">
+
+    <h2>From today's featured article</h2>
+    <img src="/uploads/100-marie-lloyd.jpg"
+         srcset="/uploads/150-marie-lloyd.jpg 1.5x, /uploads/200-marie-lloyd.jpg 2x"
+         alt=""
+         width="100"
+         height="150">
+    <h2>From today's featured article</h2>
+    <picture>
+        <source srcset="/uploads/100-marie-lloyd.webp" type="image/webp">
+        <source srcset="/uploads/100-marie-lloyd.jxr" type="image/vnd.ms-photo">
+        <img src="/uploads/100-marie-lloyd.jpg" alt="" width="100" height="150">
+    </picture>
+    <p>To achieve this, you'll need either an extremely sensitive film, or
+        immense flash lights.</p>
+</article>

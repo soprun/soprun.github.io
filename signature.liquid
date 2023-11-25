@@ -2,22 +2,9 @@
 layout: ~
 published: true
 permalink: /signature.html
+noindex: true
 ---
-{%- include variables.liquid -%}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta content="text/html" http-equiv="Content-Type"/>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Email Signature</title>
-</head>
-<body style="font-family: Helvetica, sans-serif;">
-<table style="font-family: Helvetica, sans-serif;">
-    <colgroup>
-        <col style="width: 100px">
-        <col style="width: 100%">
-    </colgroup>
+<table>
     <tbody>
     <tr>
         <td class="h-card photo" style="text-align: right;vertical-align: middle;">
@@ -29,64 +16,91 @@ permalink: /signature.html
                  height="200">
         </td>
         <td class="h-card content" style="text-align: left;vertical-align: middle">
-            <span style="display: none">
-                    <span class="dt-bday">{{ site.author.birthday }}</span>
-                    <span class="p-sex">{{ site.author.gender }}</span>
-                    <span class="p-country-name">{{ site.author.country }}</span>
-                    <span class="p-region">{{ site.author.region }}</span>
-                </span>
-            <h1 style="margin: 0">
-                <a class="p-name u-url"
-                   href="{{ site.author.url }}"
-                   target="_blank"
-                   rel="me"
-                   style="color: darkorange;white-space: nowrap">
-                    {{ site.author.name | escape }}
-                </a>
-                <small class="p-role" style="white-space: nowrap;">{{ site.author.org.role | escape }}</small>
-            </h1>
-            <h4 class="h-card p-org" style="margin: 0">
-                <a class="u-url p-name" href="{{ site.author.org.url }}"
-                   target="_blank"
-                   style="color: #010101;white-space: nowrap;">
-                    {{ site.author.org.name | escape }}
-                </a>
-                {% comment %}<small style="white-space: nowrap">{{ site.author.org.unit | escape }}</small>{% endcomment %}
-            </h4>
+            <div style="color: darkorange;font-size: 1.8em">
+                {{ site.author.name }}
+            </div>
+            <div>
+                {{ site.author.org.role }}
+                {% if site.author.org.name %}
+                    <span>/</span>
+                    <small>
+                        {% if site.author.org.url %}
+                            <a class="u-url p-name" href="{{ site.author.org.url }}" target="_blank">
+                                {{ site.author.org.name | escape }}
+                            </a>
+                        {% else %}
+                            {{ site.author.org.name | escape }}
+                        {% endif %}
+                    </small>
+                {% endif %}
+            </div>
+
+            {% comment %}
+            {% include snippet/url-builder.liquid
+                url="http://jekyllrb.com"
+                utm_source="signature"
+                utm_medium="email"
+                utm_campaign="signature"
+            %}
+            {% endcomment %}
+
+            {% comment %}?utm_source=signature&utm_medium=email&utm_campaign=signature{% endcomment %}
+
+            {% comment %}<div style="font-size: 0.9em">{% endcomment %}
+            {% comment %}{{ site.author.org.unit | escape }}{% endcomment %}
+            {% comment %}</div>{% endcomment %}
             <br>
-            <b>Email 📧</b><br>
-            <a class="grey u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br>
-            <b>Phone 📞</b><br>
-            <a class="p-tel" href="mailto:{{ site.author.phone }}">{{ site.author.phone }}</a><br>
-            <b>Website 🧑‍💻</b><br>
-            <a class="u-url"
-               href="{{ site.author.url }}"
-               target="_blank"
-               rel="me">{{ site.author.url }}
+            <table>
+                <tr>
+                    <td>Email 📧</td>
+                    <td>
+                        <a class="grey u-email" href="mailto:{{ site.author.email | escape }}">
+                            {{ site.author.email | escape }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone 📞</td>
+                    <td>
+                        <a class="p-tel" href="tel:{{ site.author.phone | escape }}">
+                            {{ site.author.phone | escape }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Website 🧑‍</td>
+                    <td>
+                        <a class="u-url"
+                           href="{{ site.author.url | escape }}"
+                           target="_blank"
+                           rel="me">
+                            {{ site.author.url | escape }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>GPG 🪪‍</td>
+                    <td>
+                        <a href="{{ site.author.gpg_public_key | escape }}" target="_blank">
+                            <code class="u-key">{{ site.author.gpg_fingerprint_short | escape }}</code>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+
+            <a download="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}"
+               href="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}"
+               style="font-size: .8rem;color: grey">
+                Сохранить контакты (vCard)
             </a>
-            <p class="footer" style="font-size: .8rem">
-                <b style="color: darkorange">GPG 🪪</b><br>
-                Если вы хотите мне отправить конфиденциальное или корпоративное письмо, то, пожалуйста, используйте мой
-                публичный GPG для подписи электронных сообщений!<br>
-                Fingerprint:
-                <a href="{{ site.author.gpg_public_key }}" target="_blank">
-                    <code class="u-key">{{ site.author.gpg_fingerprint }}</code>
-                </a>
-                <br>
-                <a download="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}"
-                   href="{{ site.url }}{{ site.baseurl }}{% link vcard.liquid %}">
-                    Сохранить контакты (vCard)
-                </a>
-            </p>
         </td>
     </tr>
     </tbody>
 </table>
-<style type="text/css">
+<style>
     body {
         color: #010101;
-        /*font-size: 1rem;*/
-        font-family: "Avenir Next", "Arial",  serif;
+        font-family: "Avenir Next", "Arial", serif;
         font-size: 10px;
         font-weight: 400;
         line-height: normal;
@@ -115,16 +129,6 @@ permalink: /signature.html
         visibility: hidden;
     }
 
-    .footer {
-        color: grey;
-        /*font-size: .8rem;*/
-        /*line-height: normal;*/
-    }
-
-    .footer:hover {
-        color: #010101;
-    }
-
     @media only screen and (min-width: 300px) {
         .photo {
             visibility: visible;
@@ -140,11 +144,9 @@ permalink: /signature.html
         .photo {
             visibility: visible;
             width: 25%;
-            padding-right: 1.5rem;
+            min-width: 10em;
+            padding: .5rem;
         }
     }
 </style>
 {% comment %}https://app.mysigmail.com/social{% endcomment %}
-</body>
-</html>
-
