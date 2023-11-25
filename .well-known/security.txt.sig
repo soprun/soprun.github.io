@@ -1,11 +1,3 @@
-Contact: mailto:mail@soprun.com
-Contact: tel:+79017972126
-Contact: https://t.me/soprun
-Expires: 2023-11-24T21:00:00.000Z
-Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/8120213055C84C2C3324FB08B7502F96C5DC44C2
-Preferred-Languages: ru
-Canonical: https://soprun.com/.well-known/security.txt
-Signature: https://soprun.com/.well-known/security.txt.sig
 -----BEGIN PGP SIGNATURE-----
 
 iQIzBAABCgAdFiEEgSAhMFXITCwzJPsIt1AvlsXcRMIFAmViLq8ACgkQt1AvlsXc

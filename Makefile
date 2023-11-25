@@ -486,3 +486,7 @@ start: ## 💻 Develop your full-stack Pages application locally
 # npx workbox-cli wizard
 # workbox generateSW workbox-config.js
 
+create-signature: ## .well-known/security.txt
+	gpg --output "$(DIR)/.well-known/security.txt.sig" --armor --detach-sig "$(DIR)/.well-known/security.txt"
+	gpg --verify "$(DIR)/.well-known/security.txt.sig" "$(DIR)/.well-known/security.txt"
+	cat "$(DIR)/.well-known/security.txt.sig" >> "$(DIR)/.well-known/security.txt"
