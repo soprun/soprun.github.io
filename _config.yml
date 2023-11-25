@@ -2,6 +2,7 @@ baseurl: ""
 url: https://soprun.com
 lang: ru
 encoding: utf-8
+timezone: "Europe/Moscow"
 
 # Enable safe mode
 safe: false
@@ -164,8 +165,7 @@ include:
   - CNAME
   - assets
   - _headers
-  - security.txt
-  - security.txt.asc
+  - .well-known
 
 exclude:
   - .editorconfig
@@ -191,8 +191,7 @@ exclude:
   - Rakefile
 
 cache: bundler
-keep_files: [ .git, _headers ]
-timezone: "Europe/Moscow"
+keep_files: [ .git, _headers, .well-known ]
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 strict_front_matter: false
 
