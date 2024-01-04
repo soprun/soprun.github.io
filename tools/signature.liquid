@@ -23,16 +23,20 @@ noindex: true
     <tr>
         <td aria-hidden="true"
             style="text-align: right;padding: 0 .5rem;vertical-align: middle;">
-            <img
-                src="{{ site.author.photo | absolute_url | escape }}"
-                {% comment %}src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"{% endcomment %}
-                {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
-                alt="{{ site.author.name }} - {{ site.author.org.role }}"
-                width="100"
-                height="100"
-                loading="lazy"
-                decoding="async"
-                style="display: inline-block;height: auto;object-fit: contain;outline: none;text-decoration: none;vertical-align: middle;border-radius: 50%;box-shadow: 0 0 10px 5px rgba(112, 128, 144, .25);">
+            <picture>
+                <source srcset="{{ site.author.photo_webp | absolute_url | escape }}" type="image/webp">
+                <source srcset="{{ site.author.photo | absolute_url | escape }}" type="image/jpeg">
+                <img
+                    src="{{ site.author.photo | absolute_url | escape }}"
+                    {% comment %}src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"{% endcomment %}
+                    {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
+                    alt="{{ site.author.name }} - {{ site.author.org.role }}"
+                    width="100"
+                    height="100"
+                    loading="lazy"
+                    decoding="async"
+                    style="display: inline-block;height: auto;object-fit: contain;outline: none;text-decoration: none;vertical-align: middle;border-radius: 50%;box-shadow: 0 0 10px 5px rgba(112, 128, 144, .25);">
+            </picture>
         </td>
         <td style="width: 100%;padding: .5rem 0;vertical-align: middle;">
             <table
@@ -58,38 +62,53 @@ noindex: true
                 </tr>
                 <tr>
                     <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             height="16"
-                             width="16"
-                             viewBox="0 0 512 512"
-                             aria-hidden="true">
-                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                            <path
-                                d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/>
-                        </svg>
+                        <font face="Avenir Next">Telegram</font>
+                    </td>
+                    <td style="padding: .1em .25em;vertical-align: baseline;">
+                        <a href="https://t.me/soprun"
+                           target="_blank"
+                           rel="nofollow"
+                           style="color: inherit">
+                            <font face="Avenir Next">soprun</font>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                        {% comment %}<svg xmlns="http://www.w3.org/2000/svg"{% endcomment %}
+                        {% comment %}height="16"{% endcomment %}
+                        {% comment %}width="16"{% endcomment %}
+                        {% comment %}viewBox="0 0 512 512"{% endcomment %}
+                        {% comment %}aria-hidden="true">{% endcomment %}
+                        {% comment %}<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->{% endcomment %}
+                        {% comment %}<path{% endcomment %}
+                        {% comment %}d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/>{% endcomment %}
+                        {% comment %}</svg>{% endcomment %}
                         <font face="Avenir Next">Email</font>
                     </td>
                     <td style="padding: .1em .25em;vertical-align: baseline;">
-                        <a href="mailto:{{ site.author.email | escape }}">
+                        <a href="mailto:{{ site.author.email | escape }}"
+                           style="color: inherit">
                             <font face="Avenir Next">{{ site.author.email | escape }}</font>
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             height="16"
-                             width="16"
-                             viewBox="0 0 512 512"
-                             aria-hidden="true">
-                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                            <path
-                                d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
-                        </svg>
+                        {% comment %}<svg xmlns="http://www.w3.org/2000/svg"{% endcomment %}
+                        {% comment %}height="16"{% endcomment %}
+                        {% comment %}width="16"{% endcomment %}
+                        {% comment %}viewBox="0 0 512 512"{% endcomment %}
+                        {% comment %}aria-hidden="true">{% endcomment %}
+                        {% comment %}<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->{% endcomment %}
+                        {% comment %}<path{% endcomment %}
+                        {% comment %}d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>{% endcomment %}
+                        {% comment %}</svg>{% endcomment %}
                         <font face="Avenir Next">Phone</font>
                     </td>
                     <td style="padding: .1em .25em;vertical-align: baseline;">
-                        <a href="tel:{{ site.author.phone | escape }}">
+                        <a href="tel:{{ site.author.phone | escape }}"
+                           style="color: inherit">
                             <font face="Avenir Next">
                                 {{ site.author.phone | escape }}
                             </font>
@@ -98,59 +117,60 @@ noindex: true
                 </tr>
                 <tr>
                     <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             height="16"
-                             width="18"
-                             viewBox="0 0 576 512"
-                             aria-hidden="true">
-                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                            <path
-                                d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
-                        </svg>
+                        {% comment %}<svg xmlns="http://www.w3.org/2000/svg"{% endcomment %}
+                        {% comment %}height="16"{% endcomment %}
+                        {% comment %}width="18"{% endcomment %}
+                        {% comment %}viewBox="0 0 576 512"{% endcomment %}
+                        {% comment %}aria-hidden="true">{% endcomment %}
+                        {% comment %}<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->{% endcomment %}
+                        {% comment %}<path{% endcomment %}
+                        {% comment %}d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>{% endcomment %}
+                        {% comment %}</svg>{% endcomment %}
                         <font face="Avenir Next">Website</font>
                     </td>
                     <td style="padding: .1em .25em;vertical-align: baseline;">
                         <a rel="nofollow"
                            href="{{ site.author.url | escape }}"
                            target="_blank"
-                           title="Ссылка на мой сайт">
+                           title="Ссылка на мой сайт"
+                           style="color: inherit">
                             <font face="Avenir Next">
-                                {{ site.author.url | escape }}
+                                {{ site.author.domain | escape }}
                             </font>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td style="padding: .1em .25em; vertical-align: baseline;white-space: nowrap;">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                             height="16"
-                             width="16"
-                             viewBox="0 0 512 512">
-                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                            <path
-                                d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/>
-                        </svg>
-                        <font face="Avenir Next">GPG keys</font>
-                    </td>
-                    <td style="padding: .1em .25em;vertical-align: baseline;">
-                        <a rel="nofollow"
-                           href="{{ site.author.gpg_search_link | escape }}"
-                           target="_blank">
-                            <font face="Avenir Next">
-                                {{ site.author.gpg_fingerprint_short | escape }}
-                            </font>
-                        </a>
-                    </td>
-                </tr>
-                <tr aria-hidden="true">
-                    <td colspan="2" style="font-size: x-small; padding-top: .5em; opacity: .5">
-                        <font face="Avenir Next">
-                            Для обеспечения безопасности и конфиденциальности при передаче мне важных данных,
-                            пожалуйста,
-                            проверьте соответствие GPG-ключей.
-                        </font>
-                    </td>
-                </tr>
+                {% comment %}<tr>{% endcomment %}
+                {% comment %}<td style="padding: .1em .25em; vertical-align: baseline;white-space: nowrap;">{% endcomment %}
+                {% comment %}{% comment %}<svg xmlns="http://www.w3.org/2000/svg"{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}height="16"{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}width="16"{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}viewBox="0 0 512 512">{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}<path{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/>{% endcomment %}{% endcomment %}
+                {% comment %}{% comment %}</svg>{% endcomment %}{% endcomment %}
+                {% comment %}<font face="Avenir Next">GPG keys</font>{% endcomment %}
+                {% comment %}</td>{% endcomment %}
+                {% comment %}<td style="padding: .1em .25em;vertical-align: baseline;">{% endcomment %}
+                {% comment %}<a rel="nofollow"{% endcomment %}
+                {% comment %}href="{{ site.author.gpg_search_link | escape }}"{% endcomment %}
+                {% comment %}target="_blank">{% endcomment %}
+                {% comment %}<font face="Avenir Next">{% endcomment %}
+                {% comment %}{{ site.author.gpg_fingerprint_short | escape }}{% endcomment %}
+                {% comment %}</font>{% endcomment %}
+                {% comment %}</a>{% endcomment %}
+                {% comment %}</td>{% endcomment %}
+                {% comment %}</tr>{% endcomment %}
+                {% comment %}<tr aria-hidden="true">{% endcomment %}
+                {% comment %}<td colspan="2" style="font-size: x-small; padding-top: .5em; opacity: .5">{% endcomment %}
+                {% comment %}<font face="Avenir Next">{% endcomment %}
+                {% comment %}Для обеспечения безопасности и конфиденциальности при передаче мне важных данных,{% endcomment %}
+                {% comment %}пожалуйста,{% endcomment %}
+                {% comment %}проверьте соответствие GPG-ключей.{% endcomment %}
+                {% comment %}</font>{% endcomment %}
+                {% comment %}</td>{% endcomment %}
+                {% comment %}</tr>{% endcomment %}
             </table>
         </td>
     </tr>
