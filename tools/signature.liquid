@@ -4,20 +4,13 @@ published: true
 permalink: /signature.html
 noindex: true
 ---
-{% comment %}https://www.w3schools.com/howto/howto_css_profile_card.asp{% endcomment %}
-{% comment %}<table style="color: rgb(0, 0, 0); font-variant-caps: normal; font-family: &quot;Avenir Next&quot;, Arial, serif; orphans: 2; widows: 2; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><tbody><tr><td class="h-card photo" style="visibility: visible; width: 100px; padding: 0.5rem; text-align: right; vertical-align: middle;">{% endcomment %}
-{% comment %}<div style="margin:0 20px"><hr style="margin:50px 0;border-width: 0; background: #000; color: #000; height:1em"></div>{% endcomment %}
-{% comment %}https://www.goodemailcode.com/email-code/hr{% endcomment %}
-{% comment %}<div style="font-size:2px; line-height:2px; height:2px; margin-top: 2px; background:#000;" role="separator">&#8202;</div>{% endcomment %}
-
-<table class="container"
-       role="presentation"
+<table role="presentation"
        style="width: 100%;color:#212529;
-       font-size: 1rem;font-weight: 400;font-variant-caps: normal;font-optical-sizing: auto;line-height: 1.5;
+       font-size: 1rem;font-weight: 400;font-variant-caps: normal;line-height: 1.5;
        letter-spacing: normal;text-size-adjust: 100%;word-spacing: normal;
        caption-side: bottom;
        border-collapse: collapse;">
-    <thead aria-hidden="true" aria-label="table-head">
+    <thead aria-hidden="true">
     <tr>
         <td colspan="2"
             role="separator"
@@ -29,61 +22,41 @@ noindex: true
     <tbody>
     <tr>
         <td aria-hidden="true"
-            aria-label="table-head"
-            class="picture"
             style="text-align: right;padding: 0 .5rem;vertical-align: middle;">
             <img
                 {% comment %}src="{{ site.author.photo | absolute_url | escape }}"{% endcomment %}
                 src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"
                 {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
-                alt="{{ site.author.description | strip_html | truncate: 118 | escape }}"
+                alt="{{ site.author.description | strip_html | truncate: 50 | escape }}"
                 width="100"
                 height="100"
-                role="img"
                 loading="lazy"
                 decoding="async"
                 style="display: inline-block;height: auto;object-fit: contain;outline: none;text-decoration: none;vertical-align: middle;border-radius: 50%;box-shadow: 0 0 10px 5px rgba(112, 128, 144, .25);">
         </td>
-        <td class="content"
-            style="width: 100%;padding: .5rem 0;vertical-align: middle;">
+        <td style="width: 100%;padding: .5rem 0;vertical-align: middle;">
             <table
-                style="caption-side: bottom;border-collapse: collapse;">
+                style="caption-side: bottom;border-collapse: collapse;font-size: .875rem">
                 <colgroup>
                     <col>
                     <col style="width: 100%">
                 </colgroup>
                 <tr>
-                    <td class="heading"
-                        colspan="2"
+                    <td colspan="2"
                         style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
-                        <div class="header-title" style="font-size: 1.25rem">
+                        <div style="font-size: 1.25rem">
                             <font face="Avenir Next" color="#ff8c00">
                                 {{ site.author.name }}
                             </font>
                         </div>
-                        <div class="header-subtitle">
+                        <div>
                             <font face="Avenir Next" color="#708090">
                                 {{ site.author.org.role }}
                             </font>
-                            <!--
-                            {% if site.author.org.name %}
-                                <span>/</span>
-                                <small>
-                                    {% if site.author.org.url %}
-                                        <a class="u-url p-name" href="{{ site.author.org.url }}" target="_blank">
-                                            {{ site.author.org.name | escape }}
-                                        </a>
-                                    {% else %}
-                                        {{ site.author.org.name | escape }}
-                                    {% endif %}
-                                </small>
-                            {% endif %}
-                            -->
                         </div>
                     </td>
                 </tr>
-
-                <tr style="font-size: .875rem">
+                <tr>
                     <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              height="16"
@@ -97,14 +70,12 @@ noindex: true
                         <font face="Avenir Next">Email</font>
                     </td>
                     <td style="padding: .1em .25em;vertical-align: baseline;">
-                        <a role="link"
-                           aria-label="email name"
-                           href="mailto:{{ site.author.email | escape }}">
+                        <a href="mailto:{{ site.author.email | escape }}">
                             <font face="Avenir Next">{{ site.author.email | escape }}</font>
                         </a>
                     </td>
                 </tr>
-                <tr style="font-size: .875rem">
+                <tr>
                     <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              height="16"
@@ -125,7 +96,7 @@ noindex: true
                         </a>
                     </td>
                 </tr>
-                <tr style="font-size: .875rem">
+                <tr>
                     <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              height="16"
@@ -139,8 +110,7 @@ noindex: true
                         <font face="Avenir Next">Website</font>
                     </td>
                     <td style="padding: .1em .25em;vertical-align: baseline;">
-                        <a role="link"
-                           rel="nofollow"
+                        <a rel="nofollow"
                            href="{{ site.author.url | escape }}"
                            target="_blank"
                            title="Ссылка на мой сайт">
@@ -150,8 +120,8 @@ noindex: true
                         </a>
                     </td>
                 </tr>
-                <tr style="font-size: .875rem">
-                    <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                <tr>
+                    <td style="padding: .1em .25em; vertical-align: baseline;white-space: nowrap;">
                         <svg xmlns="http://www.w3.org/2000/svg"
                              height="16"
                              width="16"
@@ -163,8 +133,7 @@ noindex: true
                         <font face="Avenir Next">GPG keys</font>
                     </td>
                     <td style="padding: .1em .25em;vertical-align: baseline;">
-                        <a role="link"
-                           rel="nofollow"
+                        <a rel="nofollow"
                            href="{{ site.author.gpg_search_link | escape }}"
                            target="_blank">
                             <font face="Avenir Next">
@@ -173,7 +142,7 @@ noindex: true
                         </a>
                     </td>
                 </tr>
-                <tr aria-hidden="true" aria-label="table-pgp">
+                <tr aria-hidden="true">
                     <td colspan="2" style="font-size: x-small; padding-top: .5em; opacity: .5">
                         <font face="Avenir Next">
                             Для обеспечения безопасности и конфиденциальности при передаче мне важных данных,
@@ -188,274 +157,6 @@ noindex: true
     </tbody>
 </table>
 
+{% comment %}https://www.w3schools.com/howto/howto_css_profile_card.asp{% endcomment %}
+{% comment %}https://www.goodemailcode.com/email-code/hr{% endcomment %}
 {% comment %}https://app.mysigmail.com/social{% endcomment %}
-
-<style>
-    /*:root {*/
-    /*    --font-family: "Avenir Next", "Arial", system-ui, sans-serif;*/
-    /*    !*--font-family: system-ui, sans-serif;*!*/
-    /*    --font-weight: 400;*/
-    /*    !*--font-size: 1rem;*!*/
-    /*    !*--font-size: 12px;*!*/
-    /*    --line-height: 1.5;*/
-
-    /*    --color-text: #212529;*/
-    /*    --color-background: #fff;*/
-
-    /*    --color-header-title: darkorange;*/
-    /*    --color-header-subtitle: slategrey;*/
-
-    /*    !*--color-link: #409eff;*!*/
-    /*    --color-link: initial;*/
-    /*    --color-link-hover: #0a58ca;*/
-
-    /*    --color-link-vCard: #5e636e;*/
-    /*    --color-link-vCard-hover: #2f3237;*/
-
-    /*    --color-border: #d7dfe3;*/
-
-    /*    !*--blue: #1e90ff;*!*/
-    /*    !*--white: #ffffff;*!*/
-    /*    !*--color-gray-100: #f8f9fc;*!*/
-    /*    !*--color-gray-200: #f1f3f9;*!*/
-    /*    !*--color-gray-300: #dee3ed;*!*/
-    /*    !*--color-gray-400: #c2c9d6;*!*/
-    /*    !*--color-gray-500: #8f96a3;*!*/
-    /*    !*--color-gray-600: #5e636e;*!*/
-    /*    !*--color-gray-700: #2f3237;*!*/
-    /*    !*--color-gray-800: #1d1e20;*!*/
-    /*    !*--color-gray-900: #111213;*!*/
-    /*}*/
-
-    /** {*/
-    /*    box-sizing: border-box;*/
-    /*    margin: 0;*/
-    /*    padding: 0;*/
-    /*}*/
-
-    /*body {*/
-    /*    background-color: var(--color-background);*/
-    /*    color: var(--color-text);*/
-
-    /*    font-family: var(--font-family);*/
-    /*    !*font-size: calc(var(--font-size) - .25vw);*!*/
-    /*    !*font-size: var(--font-size);*!*/
-    /*    !*font-size: calc(min(14px, 1rem) + 0.3vw);*!*/
-    /*    !*font-size: calc(1.3125rem + 0.75vw);*!*/
-
-    /*    font-size: 1rem;*/
-    /*    font-weight: var(--font-weight);*/
-    /*    font-variant-caps: normal;*/
-    /*    font-optical-sizing: auto;*/
-
-    /*    line-height: var(--line-height);*/
-    /*    letter-spacing: normal;*/
-    /*    text-size-adjust: 100%;*/
-    /*    word-spacing: normal;*/
-    /*}*/
-
-    /*font-size: calc(var(--font-size) - 0.3vw);*/
-    /*-webkit-font-smoothing: antialiased;*/
-    /*-webkit-text-size-adjust: none;*/
-
-    /*font: var(--font-size)/var(--line-height) ;*/
-    /*font-variant-caps: normal;*/
-    /**/
-    /*font-size: 14px;*/
-    /*font-size: .85rem;*/
-    /*font-size: calc(3vw + 2px);*/
-
-    /*font-size: calc(var(--font-size) + 0.3vw);*/
-    /*font-stretch: 100%;*/
-    /*font-size: medium;*/
-    /*font-size: max(16px, 1rem);*/
-
-    /* length examples */
-    /*text-shadow: 1px 1px 1px red;*/
-    /*border: 5px solid red;*/
-    /*letter-spacing: 3px;*/
-
-    /* percentage example */
-
-    /*table {*/
-    /*    caption-side: bottom;*/
-    /*    border-collapse: collapse;*/
-    /*}*/
-
-    /*table td {*/
-    /*    vertical-align: middle;*/
-    /*}*/
-
-    /*table td td {*/
-    /*    padding: .1em .25em;*/
-    /*    vertical-align: baseline;*/
-    /*}*/
-
-    /*table td td:first-child {*/
-    /*    padding-left: 0;*/
-    /*    white-space: nowrap;*/
-    /*}*/
-
-    /*table td td:last-child {*/
-    /*    white-space: normal;*/
-    /*}*/
-
-    /*a {*/
-    /*    color: initial;*/
-    /*    text-decoration: none;*/
-    /*}*/
-
-    /*a:hover {*/
-    /*    color: var(--color-link-hover);*/
-    /*    text-decoration: underline;*/
-    /*}*/
-
-    /*img, picture {*/
-    /*    display: inline-block;*/
-    /*}*/
-
-    /*img {*/
-    /*    height: auto;*/
-    /*    object-fit: contain;*/
-    /*    outline: none;*/
-    /*    text-decoration: none;*/
-    /*    vertical-align: middle;*/
-    /*    border-radius: 50%;*/
-    /*    box-shadow: 0 0 10px 5px rgba(112, 128, 144, .25);*/
-    /*}*/
-
-    /*max-width: 100%;*/
-    /*width: min(200px, 100%);*/
-    /*max-width: max(150px, 100%);*/
-
-    /*display: none;*/
-    /*border: none;*/
-    /*height: auto;*/
-    /*max-width: 100%;*/
-    /*width: fit-content;*/
-    /*max-width: var(--img-width);*/
-    /*max-width: 100%;*/
-    /*max-width: calc(20vw - var(--img-width));*/
-    /*max-width: 100px;*/
-    /*object-fit: fill;*/
-
-    /* two colums */
-
-    /*.container {*/
-    /*    width: 100%;*/
-    /*}*/
-
-    /*.picture {*/
-    /*    text-align: right;*/
-    /*    padding: 0 .5rem;*/
-    /*}*/
-
-    /*.content {*/
-    /*    width: 100%;*/
-    /*    padding: .5rem 0;*/
-    /*    !*font-size: 0.875rem;*!*/
-    /*}*/
-
-    /*.content svg {*/
-    /*    vertical-align: middle;*/
-    /*    margin-right: .2em;*/
-    /*}*/
-
-    /*.header-title {*/
-    /*    color: var(--color-header-title);*/
-    /*    font-size: 1.25rem;*/
-    /*}*/
-
-    /*.header-subtitle {*/
-    /*    color: var(--color-header-subtitle);*/
-    /*    !*font-size: 1.25rem;*!*/
-    /*}*/
-
-    /* TODO: https://polypane.app/blog/the-complete-guide-to-css-media-queries/*/
-    /* TODO: https://webdesign.tutsplus.com/creating-a-future-proof-responsive-email-without-media-queries--cms-23919t */
-
-    /*@media screen and (min-width: 400px) and (max-width: 800px) {*/
-    /*    body {*/
-    /*        !*font-size: calc(var(--font-size) + 0.3vw);*!*/
-    /*    }*/
-
-    /*    .picture {*/
-    /*    }*/
-    /*}*/
-
-    /*@media screen and (min-width: 800px) {*/
-    /*    body {*/
-    /*        !*font-size: calc(var(--font-size) + 0.1vw);*!*/
-    /*    }*/
-
-    /*    .picture {*/
-    /*    }*/
-    /*}*/
-
-    /*@media only screen and (min-device-width: 768px) {*/
-    /*}*/
-
-    /*@media only screen and (min-device-width: 375px) {*/
-    /*    .picture {*/
-    /*        min-width: 120px*/
-    /*    }*/
-    /*}*/
-
-
-    /*    body {*/
-
-    /*    }*/
-
-    /*    .photo {*/
-    /*        !*width: 20vmax;*!*/
-    /*        !*width: 10vw;*!*/
-    /*        !*width: calc(20vw - 100px);*!*/
-    /*        padding: .5rem;*/
-    /*        visibility: visible;*/
-    /*    }*/
-
-    /*    img {*/
-    /*        display: inline-block;*/
-    /*        !*max-width: 10vw;*!*/
-    /*    }*/
-    /*}*/
-
-    /*@media only screen and (min-width: 667px) {*/
-    /*    body {*/
-    /*font-size: 1.145rem;*/
-    /*font-size: var(--font-size);*/
-    /*font-size: calc(var(--font-size) - 0.3vw);*/
-    /*font-size: calc(var(--font-size) + 0.3vw);*/
-    /*}*/
-
-    /*img {*/
-    /*width: fit-content;*/
-    /*width: max-content;*/
-    /*}*/
-    /*img {*/
-    /*max-width: 10vw;*/
-
-    /*max-width: 15vw;*/
-
-    /*max-width: 10vw;*/
-    /*width: fit-content;*/
-    /*max-width: calc(20% + 100px);*/
-
-    /*min-width: fit-content(20em);*/
-    /*min-width: fit-content(calc(100% - 200px));*/
-    /*block-size: fit-content;*/
-    /*min-width: 40ch;*/
-    /*min-width: 10em;*/
-    /*min-width: 15ch;*/
-
-    /*min-width: max-content;*/
-    /*block-size: fit-content;*/
-
-    /*max-width: 10vw;*/
-    /*}*/
-
-    /*.header {*/
-    /*    font-size: x-large;*/
-    /*}*/
-    /*}*/
-</style>
