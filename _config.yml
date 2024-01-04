@@ -290,6 +290,7 @@ defaults:
       noindex: false
       paginate: false
       published: true
+      last_modified_at: ~
       tags: [ ]
       categories: [ ]
 

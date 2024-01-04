@@ -59,6 +59,8 @@ group :jekyll_plugins do
     gem 'html-proofer'
     gem 'html-pipeline'
     gem 'find'
+    gem 'commonmarker'
+    gem 'escape_utils'
 
     # Checks ruby code grammar
     gem 'rubocop', '>= 0', require: false

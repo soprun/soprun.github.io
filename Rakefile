@@ -12,9 +12,9 @@ task default: [:check]
 
 desc "Check >> HTMLProofer"
 task :check do
-    # Dir.mkdir(".jekyll-cache") unless File.exist?(".jekyll-cache")
-    # Dir.mkdir(".jekyll-cache/html-proofer") unless File.exist?(".jekyll-cache/html-proofer")
-    # Dir.mkdir(".jekyll-cache") unless File.exist?(".jekyll-cache")
+    Dir.mkdir(".jekyll-cache") unless File.exist?(".jekyll-cache")
+    Dir.mkdir(".jekyll-cache/html-proofer") unless File.exist?(".jekyll-cache/html-proofer")
+    Dir.mkdir(".jekyll-cache") unless File.exist?(".jekyll-cache")
 
     output_dit = "_site"
     docs_dit = "./docs"
