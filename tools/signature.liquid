@@ -4,58 +4,67 @@ published: true
 permalink: /signature.html
 noindex: true
 ---
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
-    <meta name="x-apple-disable-message-reformatting">
-</head>
-<body>
-
 {% comment %}https://www.w3schools.com/howto/howto_css_profile_card.asp{% endcomment %}
-
 {% comment %}<table style="color: rgb(0, 0, 0); font-variant-caps: normal; font-family: &quot;Avenir Next&quot;, Arial, serif; orphans: 2; widows: 2; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><tbody><tr><td class="h-card photo" style="visibility: visible; width: 100px; padding: 0.5rem; text-align: right; vertical-align: middle;">{% endcomment %}
-
 {% comment %}<div style="margin:0 20px"><hr style="margin:50px 0;border-width: 0; background: #000; color: #000; height:1em"></div>{% endcomment %}
 {% comment %}https://www.goodemailcode.com/email-code/hr{% endcomment %}
 {% comment %}<div style="font-size:2px; line-height:2px; height:2px; margin-top: 2px; background:#000;" role="separator">&#8202;</div>{% endcomment %}
 
-<table class="container" role="presentation">
+<table class="container"
+       role="presentation"
+       style="width: 100%;color:#212529;
+       font-size: 1rem;font-weight: 400;font-variant-caps: normal;font-optical-sizing: auto;line-height: 1.5;
+       letter-spacing: normal;text-size-adjust: 100%;word-spacing: normal;
+       caption-side: bottom;
+       border-collapse: collapse;">
     <thead aria-hidden="true" aria-label="table-head">
     <tr>
-        <td colspan="2" style="border-bottom: 1px solid var(--color-border); height:1px; width:100%;">
+        <td colspan="2"
+            role="separator"
+            style="border-bottom: 1px solid #d7dfe3; height: 1px; width: 100%;">
             &nbsp;
         </td>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td class="picture" rowspan="6">
-            <picture role="img">
-                <source srcset="{{ site.author.photo_webp | absolute_url }}" type="image/webp">
-                <img src="{{ site.author.photo | absolute_url | escape }}"
-                    {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
-                     alt="{{ site.author.name | escape }}"
-                     width="100"
-                     height="100"
-                     loading="lazy"
-                     decoding="async">
-            </picture>
+        <td aria-hidden="true"
+            aria-label="table-head"
+            class="picture"
+            style="text-align: right;padding: 0 .5rem;vertical-align: middle;">
+            <img
+                {% comment %}src="{{ site.author.photo | absolute_url | escape }}"{% endcomment %}
+                src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"
+                {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
+                alt="{{ site.author.description | strip_html | truncate: 118 | escape }}"
+                width="100"
+                height="100"
+                role="img"
+                loading="lazy"
+                decoding="async"
+                style="display: inline-block;height: auto;object-fit: contain;outline: none;text-decoration: none;vertical-align: middle;border-radius: 50%;box-shadow: 0 0 10px 5px rgba(112, 128, 144, .25);">
         </td>
-        <td class="content">
-            <table>
+        <td class="content"
+            style="width: 100%;padding: .5rem 0;vertical-align: middle;">
+            <table
+                style="caption-side: bottom;border-collapse: collapse;">
+                <colgroup>
+                    <col>
+                    <col style="width: 100%">
+                </colgroup>
                 <tr>
-                    <td class="heading" colspan="2">
-                        <div class="header-title">
-                            {{ site.author.name }}
+                    <td class="heading"
+                        colspan="2"
+                        style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                        <div class="header-title" style="font-size: 1.25rem">
+                            <font face="Avenir Next" color="#ff8c00">
+                                {{ site.author.name }}
+                            </font>
                         </div>
                         <div class="header-subtitle">
-                            {{ site.author.org.role }}
+                            <font face="Avenir Next" color="#708090">
+                                {{ site.author.org.role }}
+                            </font>
                             <!--
                             {% if site.author.org.name %}
                                 <span>/</span>
@@ -73,127 +82,179 @@ noindex: true
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>Email 📧
+
+                <tr style="font-size: .875rem">
+                    <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             height="16"
+                             width="16"
+                             viewBox="0 0 512 512"
+                             aria-hidden="true">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/>
+                        </svg>
+                        <font face="Avenir Next">Email</font>
                     </td>
-                    <td>
-                        <a class=""
-                           role="link"
+                    <td style="padding: .1em .25em;vertical-align: baseline;">
+                        <a role="link"
                            aria-label="email name"
                            href="mailto:{{ site.author.email | escape }}">
-                            {{ site.author.email | escape }}
+                            <font face="Avenir Next">{{ site.author.email | escape }}</font>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Phone 📞</td>
-                    <td>
-                        <a class="p-tel" href="tel:{{ site.author.phone | escape }}">
-                            {{ site.author.phone | escape }}
+                <tr style="font-size: .875rem">
+                    <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             height="16"
+                             width="16"
+                             viewBox="0 0 512 512"
+                             aria-hidden="true">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                        </svg>
+                        <font face="Avenir Next">Phone</font>
+                    </td>
+                    <td style="padding: .1em .25em;vertical-align: baseline;">
+                        <a href="tel:{{ site.author.phone | escape }}">
+                            <font face="Avenir Next">
+                                {{ site.author.phone | escape }}
+                            </font>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td>Website 📝</td>
-                    <td>
-                        <a class="u-url"
+                <tr style="font-size: .875rem">
+                    <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             height="16"
+                             width="18"
+                             viewBox="0 0 576 512"
+                             aria-hidden="true">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+                        </svg>
+                        <font face="Avenir Next">Website</font>
+                    </td>
+                    <td style="padding: .1em .25em;vertical-align: baseline;">
+                        <a role="link"
+                           rel="nofollow"
                            href="{{ site.author.url | escape }}"
                            target="_blank"
-                           rel="me">
-                            {{ site.author.url | escape }}
+                           title="Ссылка на мой сайт">
+                            <font face="Avenir Next">
+                                {{ site.author.url | escape }}
+                            </font>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td>GPG 🪪‍</td>
-                    <td>
-                        <a href="{{ site.author.gpg_public_key | escape }}" target="_blank">
-                            {{ site.author.gpg_fingerprint_short | escape }}
+                <tr style="font-size: .875rem">
+                    <td style="padding: .1em .25em;vertical-align: baseline;white-space: nowrap;">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             height="16"
+                             width="16"
+                             viewBox="0 0 512 512">
+                            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path
+                                d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0S160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V448h40c13.3 0 24-10.7 24-24V384h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zM376 96a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/>
+                        </svg>
+                        <font face="Avenir Next">GPG keys</font>
+                    </td>
+                    <td style="padding: .1em .25em;vertical-align: baseline;">
+                        <a role="link"
+                           rel="nofollow"
+                           href="{{ site.author.gpg_search_link | escape }}"
+                           target="_blank">
+                            <font face="Avenir Next">
+                                {{ site.author.gpg_fingerprint_short | escape }}
+                            </font>
                         </a>
                     </td>
                 </tr>
-                {% comment %}<tr aria-hidden="true">{% endcomment %}
-                    {% comment %}<td colspan="2">{% endcomment %}
-                        {% comment %}<a download="{{ site.url }}{{ site.baseurl }}{% link tools/vcard.liquid %}"{% endcomment %}
-                           {% comment %}href="{{ site.url }}{{ site.baseurl }}{% link tools/vcard.liquid %}"{% endcomment %}
-                           {% comment %}target="_blank"{% endcomment %}
-                           {% comment %}style="font-size: smaller;color: grey">{% endcomment %}
-                            {% comment %}Сохранить контакты (vCard){% endcomment %}
-                        {% comment %}</a>{% endcomment %}
-                    {% comment %}</td>{% endcomment %}
-                {% comment %}</tr>{% endcomment %}
+                <tr aria-hidden="true" aria-label="table-pgp">
+                    <td colspan="2" style="font-size: x-small; padding-top: .5em; opacity: .5">
+                        <font face="Avenir Next">
+                            Для обеспечения безопасности и конфиденциальности при передаче мне важных данных,
+                            пожалуйста,
+                            проверьте соответствие GPG-ключей.
+                        </font>
+                    </td>
+                </tr>
             </table>
         </td>
     </tr>
     </tbody>
-    <tfoot aria-hidden="true" aria-label="table-footer">
-    <tr>
-        <th colspan="2">
-            <div class="spacer" style="line-height:40px;height:40px;mso-line-height-rule:exactly;">&nbsp;</div>
-        </th>
-    </tr>
-    </tfoot>
 </table>
 
 {% comment %}https://app.mysigmail.com/social{% endcomment %}
 
 <style>
-    :root {
-        --font-family: "Avenir Next", "Arial", system-ui, sans-serif;
-        /*--font-family: system-ui, sans-serif;*/
-        --font-weight: 400;
-        --font-size: 1rem;
-        --line-height: 1.4;
+    /*:root {*/
+    /*    --font-family: "Avenir Next", "Arial", system-ui, sans-serif;*/
+    /*    !*--font-family: system-ui, sans-serif;*!*/
+    /*    --font-weight: 400;*/
+    /*    !*--font-size: 1rem;*!*/
+    /*    !*--font-size: 12px;*!*/
+    /*    --line-height: 1.5;*/
 
-        --color-text: #212529;
-        --color-background: #fff;
+    /*    --color-text: #212529;*/
+    /*    --color-background: #fff;*/
 
-        --color-header-title: darkorange;
-        --color-header-subtitle: slategrey;
+    /*    --color-header-title: darkorange;*/
+    /*    --color-header-subtitle: slategrey;*/
 
-        --color-link: #409eff;
-        --color-link-hover: #66b3ff;
-        --color-link-vCard: #5e636e;
-        --color-link-vCard-hover: #2f3237;
+    /*    !*--color-link: #409eff;*!*/
+    /*    --color-link: initial;*/
+    /*    --color-link-hover: #0a58ca;*/
 
-        --color-border: #d7dfe3;
+    /*    --color-link-vCard: #5e636e;*/
+    /*    --color-link-vCard-hover: #2f3237;*/
 
-        /*--blue: #1e90ff;*/
-        /*--white: #ffffff;*/
-        /*--color-gray-100: #f8f9fc;*/
-        /*--color-gray-200: #f1f3f9;*/
-        /*--color-gray-300: #dee3ed;*/
-        /*--color-gray-400: #c2c9d6;*/
-        /*--color-gray-500: #8f96a3;*/
-        /*--color-gray-600: #5e636e;*/
-        /*--color-gray-700: #2f3237;*/
-        /*--color-gray-800: #1d1e20;*/
-        /*--color-gray-900: #111213;*/
-    }
+    /*    --color-border: #d7dfe3;*/
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    /*    !*--blue: #1e90ff;*!*/
+    /*    !*--white: #ffffff;*!*/
+    /*    !*--color-gray-100: #f8f9fc;*!*/
+    /*    !*--color-gray-200: #f1f3f9;*!*/
+    /*    !*--color-gray-300: #dee3ed;*!*/
+    /*    !*--color-gray-400: #c2c9d6;*!*/
+    /*    !*--color-gray-500: #8f96a3;*!*/
+    /*    !*--color-gray-600: #5e636e;*!*/
+    /*    !*--color-gray-700: #2f3237;*!*/
+    /*    !*--color-gray-800: #1d1e20;*!*/
+    /*    !*--color-gray-900: #111213;*!*/
+    /*}*/
 
-    body {
-        background-color: var(--color-background);
-        color: var(--color-text);
+    /** {*/
+    /*    box-sizing: border-box;*/
+    /*    margin: 0;*/
+    /*    padding: 0;*/
+    /*}*/
 
-        font-family: var(--font-family);
-        /*font-size: var(--font-size);*/
-        font-size: calc(var(--font-size) - 0.3vw);
-        font-weight: var(--font-weight);
-        font-variant-caps: normal;
-        font-optical-sizing: auto;
+    /*body {*/
+    /*    background-color: var(--color-background);*/
+    /*    color: var(--color-text);*/
 
-        line-height: var(--line-height);
-        letter-spacing: normal;
-        text-size-adjust: 20%;
-        word-spacing: normal;
-    }
+    /*    font-family: var(--font-family);*/
+    /*    !*font-size: calc(var(--font-size) - .25vw);*!*/
+    /*    !*font-size: var(--font-size);*!*/
+    /*    !*font-size: calc(min(14px, 1rem) + 0.3vw);*!*/
+    /*    !*font-size: calc(1.3125rem + 0.75vw);*!*/
 
+    /*    font-size: 1rem;*/
+    /*    font-weight: var(--font-weight);*/
+    /*    font-variant-caps: normal;*/
+    /*    font-optical-sizing: auto;*/
+
+    /*    line-height: var(--line-height);*/
+    /*    letter-spacing: normal;*/
+    /*    text-size-adjust: 100%;*/
+    /*    word-spacing: normal;*/
+    /*}*/
+
+    /*font-size: calc(var(--font-size) - 0.3vw);*/
     /*-webkit-font-smoothing: antialiased;*/
     /*-webkit-text-size-adjust: none;*/
 
@@ -216,52 +277,54 @@ noindex: true
 
     /* percentage example */
 
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
-        border: none;
-    }
-
-    /*table table {*/
-    /*    width: auto;*/
+    /*table {*/
+    /*    caption-side: bottom;*/
+    /*    border-collapse: collapse;*/
     /*}*/
 
-
-    /*table, tr, td {*/
-    /*    text-align: left;*/
+    /*table td {*/
     /*    vertical-align: middle;*/
-    /*    font-size: inherit;*/
     /*}*/
 
-    td {
-        vertical-align: middle;
-        padding: .1em .5em;
-    }
+    /*table td td {*/
+    /*    padding: .1em .25em;*/
+    /*    vertical-align: baseline;*/
+    /*}*/
 
-    tbody {
-        white-space: nowrap;
-    }
+    /*table td td:first-child {*/
+    /*    padding-left: 0;*/
+    /*    white-space: nowrap;*/
+    /*}*/
 
-    a {
-        color: var(--color-link);
-        text-decoration: none;
-    }
+    /*table td td:last-child {*/
+    /*    white-space: normal;*/
+    /*}*/
 
-    a:hover {
-        color: var(--color-link-hover);
-        text-decoration: underline;
-    }
+    /*a {*/
+    /*    color: initial;*/
+    /*    text-decoration: none;*/
+    /*}*/
 
-    img, picture {
-        display: inline-block;
-    }
+    /*a:hover {*/
+    /*    color: var(--color-link-hover);*/
+    /*    text-decoration: underline;*/
+    /*}*/
 
-    img {
-        height: auto;
-        max-width: 100%;
-        object-fit: contain;
-    }
+    /*img, picture {*/
+    /*    display: inline-block;*/
+    /*}*/
 
+    /*img {*/
+    /*    height: auto;*/
+    /*    object-fit: contain;*/
+    /*    outline: none;*/
+    /*    text-decoration: none;*/
+    /*    vertical-align: middle;*/
+    /*    border-radius: 50%;*/
+    /*    box-shadow: 0 0 10px 5px rgba(112, 128, 144, .25);*/
+    /*}*/
+
+    /*max-width: 100%;*/
     /*width: min(200px, 100%);*/
     /*max-width: max(150px, 100%);*/
 
@@ -278,28 +341,35 @@ noindex: true
 
     /* two colums */
 
-    .container {
-    }
+    /*.container {*/
+    /*    width: 100%;*/
+    /*}*/
 
-    .picture {
-        width: 100%;
-        max-width: 10%;
-        text-align: center;
-    }
+    /*.picture {*/
+    /*    text-align: right;*/
+    /*    padding: 0 .5rem;*/
+    /*}*/
 
-    .content {
-        padding: 1rem 0;
-    }
+    /*.content {*/
+    /*    width: 100%;*/
+    /*    padding: .5rem 0;*/
+    /*    !*font-size: 0.875rem;*!*/
+    /*}*/
 
-    .header-title {
-        font-size: calc(var(--font-size) + 1.2em);
-        color: var(--color-header-title);
-    }
+    /*.content svg {*/
+    /*    vertical-align: middle;*/
+    /*    margin-right: .2em;*/
+    /*}*/
 
-    .header-subtitle {
-        font-size: calc(var(--font-size) - .25em);
-        color: var(--color-header-subtitle);
-    }
+    /*.header-title {*/
+    /*    color: var(--color-header-title);*/
+    /*    font-size: 1.25rem;*/
+    /*}*/
+
+    /*.header-subtitle {*/
+    /*    color: var(--color-header-subtitle);*/
+    /*    !*font-size: 1.25rem;*!*/
+    /*}*/
 
     /* TODO: https://polypane.app/blog/the-complete-guide-to-css-media-queries/*/
     /* TODO: https://webdesign.tutsplus.com/creating-a-future-proof-responsive-email-without-media-queries--cms-23919t */
@@ -322,7 +392,16 @@ noindex: true
     /*    }*/
     /*}*/
 
-    /*@media only screen and (min-width: 375px) {*/
+    /*@media only screen and (min-device-width: 768px) {*/
+    /*}*/
+
+    /*@media only screen and (min-device-width: 375px) {*/
+    /*    .picture {*/
+    /*        min-width: 120px*/
+    /*    }*/
+    /*}*/
+
+
     /*    body {*/
 
     /*    }*/
@@ -380,6 +459,3 @@ noindex: true
     /*}*/
     /*}*/
 </style>
-
-</body>
-</html>
