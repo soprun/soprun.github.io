@@ -43,8 +43,9 @@ author:
   gender: M
   # photo: https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008
   # Hotlinking
-  photo: https://soprun.com/assets/img/avatar-small.png
-  avatar: https://soprun.com/assets/img/avatar-small.png
+  photo: /assets/img/avatar-small.png
+  photo_webp: /assets/img/avatar-small.webp
+  avatar: /assets/img/avatar-small.png
   description: >-
     Меня зовут Владислав, и за 10 лет я прошел путь от junior backend разработчика до Solution Architect.<br><br>
     Помогу тебе или твоему сотруднику быстро и результативно прокачать навыки.
