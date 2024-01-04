@@ -26,10 +26,9 @@ noindex: true
             <picture>
                 <source srcset="{{ site.author.photo_webp | absolute_url | escape }}" type="image/webp">
                 <source srcset="{{ site.author.photo | absolute_url | escape }}" type="image/jpeg">
-                <img
-                    src="{{ site.author.photo | absolute_url | escape }}"
-                    {% comment %}src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"{% endcomment %}
-                    {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
+                <img src="{{ site.author.photo | absolute_url | escape }}"
+                    {%- comment %}src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"{% endcomment -%}
+                    {%- comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
                     alt="{{ site.author.name }} - {{ site.author.org.role }}"
                     width="100"
                     height="100"
