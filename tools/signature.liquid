@@ -24,10 +24,10 @@ noindex: true
         <td aria-hidden="true"
             style="text-align: right;padding: 0 .5rem;vertical-align: middle;">
             <img
-                {% comment %}src="{{ site.author.photo | absolute_url | escape }}"{% endcomment %}
-                src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"
+                src="{{ site.author.photo | absolute_url | escape }}"
+                {% comment %}src="data:image/webp;base64,{{ "assets/img/avatar-small.webp" | encode_base64_hash }}"{% endcomment %}
                 {% comment %}src="data:image/png;base64,{{ "assets/img/avatar-small.png" | encode_base64_hash }}"{% endcomment %}
-                alt="{{ site.author.description | strip_html | truncate: 50 | escape }}"
+                alt="{{ site.author.name }} - {{ site.author.org.role }}"
                 width="100"
                 height="100"
                 loading="lazy"
