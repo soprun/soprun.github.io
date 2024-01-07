@@ -46,9 +46,9 @@ social_links:
     icon: <i class="fa-brands fa-github" aria-hidden="true"></i>
     url: https://github.com/soprun
 
-  - title: GitLab
-    icon: <i class="fa-brands fa-gitlab" aria-hidden="true"></i>
-    url: https://gitlab.com/soprun
+#  - title: GitLab
+#    icon: <i class="fa-brands fa-gitlab" aria-hidden="true"></i>
+#    url: https://gitlab.com/soprun
 
 #  - title: Medium
 #    icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
