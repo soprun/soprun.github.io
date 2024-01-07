@@ -29,14 +29,14 @@
            referrerpolicy="origin"
            itemprop="url">
             <picture itemprop="logo" itemtype="https://schema.org/ImageObject">
-                <source srcset="{{ site.logo_webp | absolute_url }}" type="image/webp">
+                {% comment %}<source srcset="{{ site.logo_webp | absolute_url }}" type="image/webp">{% endcomment %}
                 <img
                     class="photo logo img-fluid rounded-circle"
                     width="150"
                     height="150"
                     itemprop="url image"
                     alt="{{ site.title | escape }}"
-                    src="{{ site.logo | absolute_url }}"
+                    src="{{ site.logo_webp | absolute_url }}"
                     loading="lazy"
                     decoding="async"/>
             </picture>
