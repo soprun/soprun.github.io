@@ -50,9 +50,9 @@ social_links:
     icon: <i class="fa-brands fa-gitlab" aria-hidden="true"></i>
     url: https://gitlab.com/soprun
 
-  - title: Medium
-    icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
-    url: https://medium.com/@soprun
+#  - title: Medium
+#    icon: <i class="fa-brands fa-medium" aria-hidden="true"></i>
+#    url: https://medium.com/@soprun
 
 #  - title: LinkedIn
 #    icon: <i class="fa-brands fa-linkedin" aria-hidden="true"></i>

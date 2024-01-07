@@ -18,26 +18,26 @@
             </td>
             <td>
                 <a href="{{ link.url | absolute_url }}"
-                   rel="me nofollow"
+                   rel="me noopener noreferrer nofollow"
                    class="fw-light">
                     <span class="value">{{ link.title }}</span>
                 </a>
             </td>
         </tr>
     {% endfor %}
-    {% comment %}<tr class="d-none">{% endcomment %}
-        {% comment %}<td colspan="2" class="fs-6">{% endcomment %}
-            {% comment %}Мои страницы{% endcomment %}
-        {% comment %}</td>{% endcomment %}
-    {% comment %}</tr>{% endcomment %}
-    <tr>
-        <td colspan="2" class="text-center">
+    <tr class="d-none">
+        <td colspan="2" class="fs-6">
+            Мои страницы
+        </td>
+    </tr>
+    <tr class="d-none">
+        <td colspan="2">
             <div class="btn-group">
                 {% for link in site.data.links.social_links %}
                     <a href="{{ link.url | absolute_url}}"
                        class="btn fs-6"
                        itemprop="sameAs"
-                       rel="me nofollow"
+                       rel="noopener noreferrer nofollow"
                        target="_blank">
                         {{ link.icon }}
                         <small>{{ link.title }}</small>

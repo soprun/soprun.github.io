@@ -1,66 +1,93 @@
-<section id="sidebar-logo" class="vcard text-center">
-    <a href="{{ site.url | absolute_url }}"
-       target="_self"
-       rel="home"
-       referrerpolicy="origin"
-       itemprop="url">
-        <picture itemprop="logo"
-                 itemtype="https://schema.org/ImageObject">
-            <img
-                class="logo img-fluid rounded-circle"
-                width="150"
-                height="150"
-                itemprop="url image"
-                srcset="{{ site.logo | absolute_url }}"
-                alt="{{ site.title | escape }}"
-                src="{{ site.logo | absolute_url }}"
-                loading="lazy"
-                decoding="async"/>
-        </picture>
-    </a>
-</section>
+{% comment %}http://microformats.org/code/hcard/creator{% endcomment %}
+{% comment %}http://microformats.org/wiki/hcard{% endcomment %}
 
-<section id="sidebar-author" class="vcard text-center">
-    <div class="fn fs-2 fw-light d-none">
-        {% if site.author.url %}
-            <a class="url"
-               itemprop="name"
-               referrerpolicy="origin"
-               href="{{ site.url | absolute_url }}">
-                {{ site.author.name }}
+<div class="vcard">
+    <div class="d-none">
+        <div class="fn n">
+            <a class="url" href="{{ site.author.url }}">
+                <span class="given-name">{{ site.author.first_name }}</span>
+                <span class="family-name">{{ site.author.last_name }}</span>
             </a>
-        {% else %}
-            {{ site.author.name | newline_to_br }}
-        {% endif %}
-    </div>
-    <div class="fs-6 fw-light" itemprop="description">
-        {{ site.author.description }}
-    </div>
-</section>
+        </div>
 
-<section id="sidebar-nav">
+        <div class="nickname">{{ site.author.nickname }}</div>
+
+        <time class="bday">{{ site.author.birthday | date: "%Y-%m-%d" }}</time>
+
+        <div class="org">{{ site.author.org.name }}</div>
+
+        <a class="email" href="{{ site.author.email }}">
+            {{ site.author.email }}
+        </a>
+    </div>
+
+    <div id="sidebar-logo" class="text-center mb-3">
+        <a href="{{ site.url | absolute_url }}"
+           class="url"
+           target="_self"
+           rel="home"
+           referrerpolicy="origin"
+           itemprop="url">
+            <picture itemprop="logo" itemtype="https://schema.org/ImageObject">
+                <source srcset="{{ site.logo_webp | absolute_url }}" type="image/webp">
+                <img
+                    class="photo logo img-fluid rounded-circle"
+                    width="150"
+                    height="150"
+                    itemprop="url image"
+                    alt="{{ site.title | escape }}"
+                    src="{{ site.logo | absolute_url }}"
+                    loading="lazy"
+                    decoding="async"/>
+            </picture>
+        </a>
+    </div>
+
+    {% comment %}<section id="sidebar-nav">{% endcomment %}
     {%- comment %}{% include snippet/sidebar/navigation.liquid %}{% endcomment %}
-</section>
+    {% comment %}</section>{% endcomment %}
+    {% comment %}rel="me"{% endcomment %}
 
-<section id="sidebar-contact" class="vcard">
-    {% comment %}https://habr.com/ru/company/yandex/blog/246003/{% endcomment %}
-    {% include snippet/sidebar/sidebar-contact.liquid %}
-</section>
+    <div id="sidebar-author" class="text-center mb-3">
+        <div class="fs-2 fw-light d-none">
+            {% if site.author.url %}
+                <a itemprop="name"
+                   href="{{ site.url | absolute_url }}">
+                    {{ site.author.name | newline_to_br }}
+                </a>
+            {% else %}
+                {{ site.author.name | newline_to_br }}
+            {% endif %}
+        </div>
+        <div class="fs-6 fw-light" itemprop="description">
+            {{ site.author.description }}
+        </div>
+    </div>
+
+    <div id="sidebar-contact" class="mb-3">
+        {% comment %}https://habr.com/ru/company/yandex/blog/246003/{% endcomment %}
+        {% include snippet/sidebar/sidebar-contact.liquid %}
+    </div>
+
+    {% comment %}TODO: Canonical Profiles on Sites{% endcomment %}
+    {% comment %}https://microformats.org/wiki/hcard-examples#Canonical_Profiles_on_Sites{% endcomment %}
+    {% comment %}https://microformats.org/wiki/hcard-authoring#Link_it_up{% endcomment %}
+</div>
 
 {% comment %}<section id="sidebar-channel" class="text-center d-none">{% endcomment %}
-    {% comment %}<a href="https://t.me/+YpCP4MsEorBmN2Qy"{% endcomment %}
-       {% comment %}rel="noopener noreferrer"{% endcomment %}
-       {% comment %}target="_blank">{% endcomment %}
-        {% comment %}<img src="{{ '/assets/img/tg-channel.jpg' | absolute_url }}"{% endcomment %}
-             {% comment %}class="img-fluid"{% endcomment %}
-             {% comment %}alt="{{ site.title | escape }}"{% endcomment %}
-             {% comment %}width="60%">{% endcomment %}
-    {% comment %}</a>{% endcomment %}
+{% comment %}<a href="https://t.me/+YpCP4MsEorBmN2Qy"{% endcomment %}
+{% comment %}rel="noopener noreferrer"{% endcomment %}
+{% comment %}target="_blank">{% endcomment %}
+{% comment %}<img src="{{ '/assets/img/tg-channel.jpg' | absolute_url }}"{% endcomment %}
+{% comment %}class="img-fluid"{% endcomment %}
+{% comment %}alt="{{ site.title | escape }}"{% endcomment %}
+{% comment %}width="60%">{% endcomment %}
+{% comment %}</a>{% endcomment %}
 {% comment %}</section>{% endcomment %}
 
-<section id="sidebar-quote" class="d-none">
-    {% include snippet/quote.liquid %}
-</section>
+{% comment %}<section id="sidebar-quote" class="d-none">{% endcomment %}
+{% comment %}{% include snippet/quote.liquid %}{% endcomment %}
+{% comment %}</section>{% endcomment %}
 
 {%- comment %}<section id="sidebar-stats">{% endcomment %}
 {%- comment %}<img class="img-fluid"{% endcomment %}

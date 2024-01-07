@@ -32,6 +32,7 @@ keywords: [ IT Наставник, Наставничество IT, Ментор
 #logo: https://github.com/soprun.png?size=400
 #logo: https://images.unsplash.com/photo-1488722796624-0aa6f1bb6399?w=400&fit=crop&fm=webp&auto=compress
 logo: /assets/img/avatar-small.png
+logo_webp: /assets/img/avatar-small.webp
 
 # email: mail@soprun.com
 
@@ -39,7 +40,7 @@ author:
   name: Soprun Vladislav
   first_name: Vladislav
   last_name: Soprun
-  #  nickname: soprun,vlsoprun
+  nickname: soprun
   gender: M
   # photo: https://gravatar.com/avatar/a93d85b63901fdcdf73c6f906b86f008
   # Hotlinking
